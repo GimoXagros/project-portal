@@ -2,8 +2,8 @@
   {
     "id": "gameyob",
     "demo": false,
-    "title": "GameYob",
-    "titleOriginal": "GameYob v0.5.9-ko",
+    "title": "GameYob Custom",
+    "titleOriginal": "GameYob Custom v0.5.9-ko",
     "subtitle": "Nintendo DS·DSi용 Game Boy 계열 에뮬레이터 커스텀 빌드",
     "description": "Game Boy, Game Boy Color와 Super Game Boy 계열을 Nintendo DS·DSi에서 실행하는 에뮬레이터입니다. v0.5.9-ko는 터치 메뉴와 파일 탐색, WX/SGB 회귀 범위, MBC7 EEPROM 및 HuC1 처리를 다듬었습니다.",
     "type": "emulator",
@@ -46,7 +46,7 @@
     "featured": true,
     "downloadEnabled": true,
     "downloads": [
-      { "label": "GameYob 통합 패키지", "filename": "gameyob.zip", "size": "816717 bytes", "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.9-ko/gameyob.zip", "sha256": "2e22c89767fb25a7b688b82230df2a0dab81342d567b85ba5b127f2c9fcbb434" }
+      { "label": "GameYob Custom 통합 패키지", "filename": "gameyob.zip", "size": "816717 bytes", "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.9-ko/gameyob.zip", "sha256": "2e22c89767fb25a7b688b82230df2a0dab81342d567b85ba5b127f2c9fcbb434" }
     ]
   },
   {
@@ -103,8 +103,8 @@
   {
     "id": "nitroswan",
     "demo": false,
-    "title": "NitroSwan",
-    "titleOriginal": "NitroSwan v0.7.7-custom.r6",
+    "title": "NitroSwan Custom",
+    "titleOriginal": "NitroSwan Custom v0.7.7-custom.r6",
     "subtitle": "Nintendo DS·DSi 및 호환 런처용 WonderSwan 계열 에뮬레이터",
     "description": "Bandai WonderSwan, WonderSwan Color, SwanCrystal과 PocketChallenge V2에 대응하는 에뮬레이터입니다. v0.7.7-custom.r6는 One Piece 일본어 원본과 한글패치 ROM의 공통 호환 경로 및 팔레트 변경 처리를 개선했습니다.",
     "type": "emulator",

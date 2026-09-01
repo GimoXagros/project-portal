@@ -6,7 +6,7 @@ Nintendo DS·DSi 에뮬레이터와 커스텀 빌드의 배포 정보, 설치 �
 - 예정 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob `v0.5.9-ko`, GBARunner3 Custom `custom-v0.1.1`, NitroSwan `v0.7.7-custom.r6` 세 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.9-ko`, GBARunner3 Custom `custom-v0.1.1`, NitroSwan Custom `v0.7.7-custom.r6` 세 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
 디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
 
@@ -178,14 +178,14 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
 
-새 GameYob 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
+새 GameYob Custom 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
 
 ```json
 {
   "id": "gameyob-v0-6-0-ko",
   "version": "v0.6.0-ko",
   "date": "2026-09-15",
-  "title": "GameYob v0.6.0-ko",
+  "title": "GameYob Custom v0.6.0-ko",
   "summary": "릴리스 노트에서 확인한 한 줄 요약",
   "changes": ["확인된 변경 사항"],
   "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/TAG",

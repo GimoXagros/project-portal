@@ -1,12 +1,12 @@
 {
   "projectId": "nitroswan",
-  "displayName": "NitroSwan",
+  "displayName": "NitroSwan Custom",
   "entries": [
     {
       "id": "nitroswan-v0-7-7-custom-r6",
       "version": "v0.7.7-custom.r6",
       "date": "2026-08-31",
-      "title": "NitroSwan v0.7.7-custom.r6",
+      "title": "NitroSwan Custom v0.7.7-custom.r6",
       "summary": "One Piece 변형 ROM의 공통 호환 경로와 팔레트 변경 처리를 다듬은 릴리스입니다.",
       "changes": [
         "One Piece 일본어 원본과 한글패치 ROM을 같은 호환 경로로 식별하도록 정리했습니다.",
