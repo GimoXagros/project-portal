@@ -8,6 +8,8 @@ Nintendo DS·DSi 에뮬레이터와 커스텀 빌드의 배포 정보, 설치 �
 
 현재 등록 프로젝트는 GameYob `v0.5.9-ko`, GBARunner3 Custom `custom-v0.1.1`, NitroSwan `v0.7.7-custom.r6` 세 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
+디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
+
 ## 기술 스택
 
 - Vite 7 + React 19 + JSX
@@ -38,14 +40,19 @@ npm run preview
 ```text
 project-portal/
 ├─ .github/workflows/deploy.yml
-├─ public/                       # 404, favicon, OG, robots, sitemap
+├─ assets-source/projects/       # 출처 보존용 원본 로고 PNG
+├─ public/
+│  ├─ assets/projects/           # 공개 화면용 lossless WebP 로고
+│  └─ ...                        # 404, favicon, OG, robots, sitemap
 ├─ scripts/validate-data.mjs
 ├─ src/
 │  ├─ components/
 │  ├─ data/
 │  │  ├─ site.json
 │  │  ├─ projects.json
-│  │  ├─ changelog.json
+│  │  ├─ changelogs/
+│  │  │  ├─ PROJECT_ID.json      # 프로젝트별 독립 업데이트 기록
+│  │  │  └─ index.js             # Vite 정적 자동 로딩과 조회 함수
 │  │  └─ faq.json
 │  ├─ styles/
 │  └─ utils/projectMeta.js
@@ -58,7 +65,7 @@ project-portal/
 
 - 사이트명, 부제, 제작자, GitHub와 예정 URL: `src/data/site.json`
 - 프로젝트: `src/data/projects.json`
-- 릴리스 타임라인: `src/data/changelog.json`
+- 릴리스 타임라인: `src/data/changelogs/PROJECT_ID.json`
 - FAQ: `src/data/faq.json`
 - 정적 SEO: `index.html`, `public/robots.txt`, `public/sitemap.xml`
 
@@ -91,6 +98,15 @@ project-portal/
   },
   "coverImage": "",
   "coverTone": "ember",
+  "branding": {
+    "logo": "assets/projects/lowercase-safe-id/logo.webp",
+    "logoAlt": "프로젝트명 로고",
+    "width": 960,
+    "height": 960,
+    "accent": "#177a72",
+    "accentSoft": "#d9efe6",
+    "accentDark": "#76d2c7"
+  },
   "screenshots": [],
   "features": ["확인된 특징"],
   "scope": ["작업 범위"],
@@ -122,12 +138,18 @@ project-portal/
 
 프로젝트 배열을 비우면 정상적인 빈 상태가 표시되고, featured 항목이 없으면 주요 프로젝트 섹션이 숨겨집니다. 스크린샷, 해시, 설치 안내가 없으면 대응 블록도 렌더링하지 않습니다.
 
+새 프로젝트는 다음 세 가지를 추가하면 됩니다.
+
+1. `src/data/projects.json` 프로젝트 항목
+2. `src/data/changelogs/PROJECT_ID.json`
+3. `public/assets/projects/PROJECT_ID/` 로고 자산
+
 ## 릴리스 갱신 절차
 
 1. GitHub의 고정 태그 릴리스 노트와 Assets를 확인합니다.
 2. `version`, `releaseDate`, `lastUpdated`, `releaseUrl`을 갱신합니다.
 3. 각 자산의 `filename`, 바이트 단위 `size`, 고정 태그 `url`, `sha256`을 갱신합니다.
-4. 릴리스 노트에서 확인되는 변경만 프로젝트 설명과 `changelog.json`에 반영합니다.
+4. 릴리스 노트에서 확인되는 변경만 프로젝트 설명과 `src/data/changelogs/PROJECT_ID.json`에 반영합니다.
 5. Upstream과 커스텀 저장소 Credits 링크가 여전히 구분되는지 확인합니다.
 6. `npm run validate:data`, `npm run lint`, `npm run build`를 실행합니다.
 
@@ -139,9 +161,39 @@ Windows에서 SHA-256은 다음 명령으로 확인할 수 있습니다.
 Get-FileHash .\release.zip -Algorithm SHA256
 ```
 
-## 이미지 추가
+## 로고와 이미지 추가
 
 사용 권리를 확인한 이미지를 `public/images/projects/<id>/` 아래에 두고 `coverImage` 또는 `screenshots[].src`에 `images/projects/<id>/파일명.webp`처럼 기록합니다. 실제 파일이 없으면 검증이 실패합니다. 게임 캐릭터, 로고, 패키지 이미지나 무단 스크린샷은 사용하지 않습니다.
+
+프로젝트 로고는 `public/assets/projects/<id>/logo.webp`에 두고 `branding.logo`로 연결합니다. 비율과 투명도를 유지하고 `logoAlt`, `width`, `height`를 반드시 기록합니다. 원본 출처와 최적화 결과는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 남깁니다. 외부 서버 장애·추적·GitHub 호출 제한과 Pages 하위 경로 문제를 피하기 위해 이미지 hotlink는 사용하지 않습니다. 모든 로컬 자산은 `assetUrl()`이 `import.meta.env.BASE_URL`을 붙여 해석합니다.
+
+## 프로젝트별 업데이트 기록
+
+지원 주소:
+
+- `#/updates` — 프로젝트별 업데이트 기록 선택
+- `#/updates/gameyob`
+- `#/updates/gbarunner3`
+- `#/updates/nitroswan`
+
+각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
+
+새 GameYob 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
+
+```json
+{
+  "id": "gameyob-v0-6-0-ko",
+  "version": "v0.6.0-ko",
+  "date": "2026-09-15",
+  "title": "GameYob v0.6.0-ko",
+  "summary": "릴리스 노트에서 확인한 한 줄 요약",
+  "changes": ["확인된 변경 사항"],
+  "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/TAG",
+  "status": "release"
+}
+```
+
+추가 후 `npm run validate:data`와 `npm run build`를 실행합니다. 과거 버전이나 확인하지 않은 성능·호환성 변경을 추측해서 넣지 않습니다.
 
 ## Upstream Credits 원칙
 

@@ -20,6 +20,15 @@
     "homepage": "",
     "coverImage": "",
     "coverTone": "ember",
+    "branding": {
+      "logo": "assets/projects/gameyob/logo.webp",
+      "logoAlt": "GameYob 로고",
+      "width": 960,
+      "height": 960,
+      "accent": "#177a72",
+      "accentSoft": "#d9efe6",
+      "accentDark": "#76d2c7"
+    },
     "screenshots": [],
     "features": ["DS·DSi 터치 메뉴와 ROM/File Chooser 탐색 개선", "WX/SGB 회귀 검증 범위 확대", "MBC7 EEPROM 및 HuC1 처리 개선"],
     "scope": ["Game Boy", "Game Boy Color", "Super Game Boy 계열"],
@@ -61,6 +70,15 @@
     "homepage": "",
     "coverImage": "",
     "coverTone": "olive",
+    "branding": {
+      "logo": "assets/projects/gbarunner3/logo.webp",
+      "logoAlt": "GBARunner3 로고",
+      "width": 960,
+      "height": 960,
+      "accent": "#5a4cc9",
+      "accentSoft": "#e8e3ff",
+      "accentDark": "#a99cff"
+    },
     "screenshots": [],
     "features": ["NDS 계열의 GBA 소프트웨어 실행 호환 계층", "RTC sidecar 저장과 복구 흐름 개선", "ARM7·ARM9·core·app 및 GoogleTest 자동 빌드 검증 통과"],
     "scope": ["커스텀 릴리스 패키징", "RTC 콜드 스타트와 복구 동작 보완"],
@@ -103,6 +121,15 @@
     "homepage": "",
     "coverImage": "",
     "coverTone": "slate",
+    "branding": {
+      "logo": "assets/projects/nitroswan/logo.webp",
+      "logoAlt": "NitroSwan 로고",
+      "width": 512,
+      "height": 512,
+      "accent": "#c51435",
+      "accentSoft": "#f6dbe1",
+      "accentDark": "#ff8298"
+    },
     "screenshots": [],
     "features": ["WonderSwan·WonderSwan Color·SwanCrystal·PocketChallenge V2 대응", "One Piece 일본어 원본과 한글패치 ROM의 공통 호환 경로", "팔레트 변경 이벤트 처리 개선"],
     "scope": ["체크섬 의존성 제거와 안정적인 타이틀 식별", "기존 OBJ 버퍼 처리 유지", "DS·DSi 빌드 분리 제공"],

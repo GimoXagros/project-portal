@@ -17,7 +17,7 @@ export const statusLabels = {
   planned: '준비 중',
 }
 
-export const filterTypes = ['all', 'korean-patch', 'emulator', 'port', 'tool', 'other']
+export const filterTypes = ['all', 'korean-patch', 'emulator', 'port', 'tool', 'utility', 'other']
 
 export function getProjectSearchText(project) {
   return [
@@ -39,4 +39,13 @@ export function hasDownload(project) {
 export function assetUrl(path) {
   if (!path || /^(https?:|data:|blob:)/i.test(path)) return path
   return `${import.meta.env.BASE_URL}${path.replace(/^\.?\//, '')}`
+}
+
+export function projectBrandStyle(project) {
+  const branding = project?.branding || {}
+  return {
+    '--project-accent': branding.accent || '#cf5634',
+    '--project-soft': branding.accentSoft || '#f1d6c9',
+    '--project-dark': branding.accentDark || '#ee7955',
+  }
 }

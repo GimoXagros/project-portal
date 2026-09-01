@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { Github, Menu, Moon, Sun, X } from 'lucide-react'
 
 const navigation = [
-  ['홈', '#top'],
-  ['프로젝트', '#projects'],
-  ['업데이트', '#updates'],
-  ['소개', '#about'],
-  ['FAQ', '#faq'],
+  ['홈', '#top', 'home'],
+  ['프로젝트', '#projects', 'home'],
+  ['업데이트', '#/updates', 'updates'],
+  ['소개', '#about', 'home'],
+  ['FAQ', '#faq', 'home'],
 ]
 
 function getInitialTheme() {
@@ -19,7 +19,7 @@ function getInitialTheme() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
-export default function Header({ site, onNavigateHome }) {
+export default function Header({ site, routeType, onNavigateHome }) {
   const [theme, setTheme] = useState(getInitialTheme)
   const [open, setOpen] = useState(false)
 
@@ -41,10 +41,10 @@ export default function Header({ site, onNavigateHome }) {
     <header className="topbar">
       <button className="brand brand-button" type="button" onClick={() => follow('#top')} aria-label={`${site.name} 홈`}>
         <span aria-hidden="true">{site.shortName}</span>
-        <strong>{site.name}</strong>
+        <strong>{site.name}</strong><small aria-hidden="true">ARCHIVE NOTE</small>
       </button>
       <nav className="desktop-nav" aria-label="주요 메뉴">
-        {navigation.map(([label, href]) => <button type="button" key={href} onClick={() => follow(href)}>{label}</button>)}
+        {navigation.map(([label, href, section]) => <button type="button" className={section === 'updates' ? routeType.startsWith('updates') ? 'active' : '' : routeType === 'home' && href === '#top' ? 'active' : ''} aria-current={section === 'updates' && routeType.startsWith('updates') ? 'page' : undefined} key={href} onClick={() => follow(href)}>{label}</button>)}
         {site.githubUrl ? <a href={site.githubUrl} target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a> : <span className="disabled-link" title="site.json에서 GitHub 주소를 설정하세요"><Github size={16} /> GitHub</span>}
       </nav>
       <div className="header-actions">

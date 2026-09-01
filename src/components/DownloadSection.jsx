@@ -25,7 +25,7 @@ export default function DownloadSection({ project }) {
     }
   }
 
-  return <section className="detail-section download-section" aria-labelledby="download-title">
+  return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
     <div className="detail-section-title"><span>DOWNLOAD</span><h2 id="download-title">다운로드</h2></div>
     <div className={`download-callout ${enabled ? 'ready' : ''}`}>
       <div><span className="download-state">{enabled ? 'AVAILABLE' : 'NOT YET AVAILABLE'}</span><h3>{enabled ? '공식 배포 파일' : '배포 준비 중'}</h3><p>{enabled ? '확인된 고정 태그의 GitHub Releases 자산입니다.' : 'GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.'}</p></div>

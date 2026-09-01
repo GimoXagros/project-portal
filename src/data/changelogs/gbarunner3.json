@@ -1,0 +1,19 @@
+{
+  "projectId": "gbarunner3",
+  "displayName": "GBARunner3 Custom",
+  "entries": [
+    {
+      "id": "gbarunner3-custom-v0-1-1",
+      "version": "custom-v0.1.1",
+      "date": "2026-08-29",
+      "title": "GBARunner3 Custom v0.1.1",
+      "summary": "RTC 저장·복구 흐름을 보완하고 자동 빌드 검증을 통과한 커스텀 릴리스입니다.",
+      "changes": [
+        "RTC sidecar 저장과 복구 흐름을 보완했습니다.",
+        "ARM7·ARM9·core·app 및 GoogleTest 자동 빌드 검증을 통과했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.1",
+      "status": "beta"
+    }
+  ]
+}

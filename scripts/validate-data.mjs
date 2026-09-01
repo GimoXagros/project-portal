@@ -1,15 +1,17 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
-import { extname, join, resolve } from 'node:path'
+import { basename, extname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const projectsFile = join(root, 'src', 'data', 'projects.json')
+const changelogDir = join(root, 'src', 'data', 'changelogs')
 const projects = JSON.parse(readFileSync(projectsFile, 'utf8'))
 const site = JSON.parse(readFileSync(join(root, 'src', 'data', 'site.json'), 'utf8'))
 const errors = []
 const fail = (file, id, message) => errors.push(`${file}${id ? ` [${id}]` : ''}: ${message}`)
 const sha256 = /^[a-f0-9]{64}$/i
 const safeId = /^[a-z0-9-]+$/
+const isoDate = /^\d{4}-\d{2}-\d{2}$/
 const remote = /^https:\/\//i
 
 const seen = new Set()
@@ -18,6 +20,14 @@ for (const project of projects) {
   if (seen.has(project.id)) fail('src/data/projects.json', project.id, '중복된 프로젝트 id입니다.')
   seen.add(project.id)
   if (project.demo === true || /SAMPLE_PROJECT/i.test(project.id || '')) fail('src/data/projects.json', project.id, '임시 프로젝트 데이터가 남아 있습니다.')
+
+  const branding = project.branding
+  if (branding?.logo) {
+    if (/^https?:\/\//i.test(branding.logo)) fail('src/data/projects.json', project.id, 'branding.logo는 외부 hotlink가 아닌 public 내부 경로여야 합니다.')
+    if (!branding.logoAlt?.trim()) fail('src/data/projects.json', project.id, 'branding.logoAlt가 필요합니다.')
+    const logoPath = join(root, 'public', branding.logo.replace(/^\.?[\\/]/, ''))
+    if (!existsSync(logoPath)) fail('src/data/projects.json', project.id, `branding.logo 자산이 존재하지 않습니다: ${branding.logo}`)
+  }
 
   const downloadItems = [...(project.downloads || []), ...(project.downloads || []).flatMap((item) => item.parts || [])]
   if (project.downloadEnabled) {
@@ -32,7 +42,7 @@ for (const project of projects) {
   const hashValues = [project.originalHash, project.patchHash, project.patchedHash, ...(project.hashes || []).map((item) => item.value), ...downloadItems.map((item) => item.sha256)].filter(Boolean)
   for (const value of hashValues) if (!sha256.test(value)) fail('src/data/projects.json', project.id, `SHA-256은 64자리 hexadecimal이어야 합니다: ${value}`)
 
-  const imageRefs = [project.coverImage, ...(project.screenshots || []).map((item) => item.src)].filter(Boolean)
+  const imageRefs = [project.coverImage, branding?.logo, ...(project.screenshots || []).map((item) => item.src)].filter(Boolean)
   for (const image of imageRefs) {
     if (/^(https?:|data:|blob:)/i.test(image)) continue
     const localPath = join(root, 'public', image.replace(/^\.?[\\/]/, ''))
@@ -42,13 +52,42 @@ for (const project of projects) {
 
 if (!projects.some((project) => project.featured)) fail('src/data/projects.json', '', 'featured 프로젝트가 하나 이상 필요합니다.')
 
-const textExtensions = new Set(['.html', '.json', '.js', '.jsx', '.css', '.svg', '.txt', '.xml'])
-const blockedText = [/C:\\Users\\/i, /Project Cabinet/i, /Portal Owner/i, /DEMO MODE/i, /SAMPLE_PROJECT/i]
-const scanRoots = ['index.html', 'src', 'public']
-const walk = (path) => {
-  const entries = readdirSync(path, { withFileTypes: true })
-  return entries.flatMap((entry) => entry.isDirectory() ? walk(join(path, entry.name)) : join(path, entry.name))
+const projectIds = new Set(projects.map((project) => project.id))
+const changelogFiles = existsSync(changelogDir) ? readdirSync(changelogDir).filter((file) => file.endsWith('.json')) : []
+const changelogProjectIds = new Set()
+
+for (const file of changelogFiles) {
+  const filePath = join(changelogDir, file)
+  const relativeFile = `src/data/changelogs/${file}`
+  const changelog = JSON.parse(readFileSync(filePath, 'utf8'))
+  const expectedId = basename(file, '.json')
+  if (!changelog.projectId) fail(relativeFile, '', 'projectId가 필요합니다.')
+  if (changelog.projectId !== expectedId) fail(relativeFile, changelog.projectId, `파일명과 projectId가 일치해야 합니다: ${expectedId}`)
+  if (!projectIds.has(changelog.projectId)) fail(relativeFile, changelog.projectId, 'projects.json에 없는 고아 changelog입니다.')
+  changelogProjectIds.add(changelog.projectId)
+
+  const entryIds = new Set()
+  let previousDate = null
+  if (!Array.isArray(changelog.entries)) fail(relativeFile, changelog.projectId, 'entries는 배열이어야 합니다.')
+  for (const entry of changelog.entries || []) {
+    if (!entry.id || entryIds.has(entry.id)) fail(relativeFile, changelog.projectId, `update id가 없거나 중복됩니다: ${entry.id || '값 없음'}`)
+    entryIds.add(entry.id)
+    for (const field of ['version', 'date', 'title', 'summary']) if (typeof entry[field] !== 'string' || !entry[field].trim()) fail(relativeFile, changelog.projectId, `${entry.id || '항목'}의 ${field}가 필요합니다.`)
+    if (entry.date && !isoDate.test(entry.date)) fail(relativeFile, changelog.projectId, `${entry.id}의 날짜는 YYYY-MM-DD 형식이어야 합니다: ${entry.date}`)
+    if (previousDate && entry.date > previousDate) fail(relativeFile, changelog.projectId, `entries는 최신 날짜순이어야 합니다: ${entry.id}`)
+    previousDate = entry.date
+    if (entry.releaseUrl && !remote.test(entry.releaseUrl)) fail(relativeFile, changelog.projectId, `${entry.id}의 releaseUrl은 https://로 시작해야 합니다.`)
+    if (!Array.isArray(entry.changes) || entry.changes.some((change) => typeof change !== 'string')) fail(relativeFile, changelog.projectId, `${entry.id}의 changes는 문자열 배열이어야 합니다.`)
+  }
 }
+
+for (const id of projectIds) if (!changelogProjectIds.has(id)) fail('src/data/changelogs', id, '등록 프로젝트에 대응하는 changelog JSON이 없습니다.')
+if (existsSync(join(root, 'src', 'data', 'changelog.json'))) fail('src/data/changelog.json', '', '이전 단일 changelog가 새 프로젝트별 데이터와 함께 남아 있습니다.')
+
+const textExtensions = new Set(['.html', '.json', '.js', '.jsx', '.css', '.svg', '.txt', '.xml', '.md'])
+const blockedText = [/C:\\Users\\/i, /Project Cabinet/i, /Portal Owner/i, /DEMO MODE/i, /SAMPLE_PROJECT/i, /raw\.githubusercontent\.com/i]
+const scanRoots = ['index.html', 'README.md', 'ASSET_SOURCES.md', 'src', 'public']
+const walk = (path) => readdirSync(path, { withFileTypes: true }).flatMap((entry) => entry.isDirectory() ? walk(join(path, entry.name)) : join(path, entry.name))
 const files = scanRoots.flatMap((item) => {
   const path = join(root, item)
   return extname(path) ? [path] : walk(path)
@@ -56,7 +95,7 @@ const files = scanRoots.flatMap((item) => {
 
 for (const file of files) {
   const text = readFileSync(file, 'utf8')
-  for (const pattern of blockedText) if (pattern.test(text)) fail(file.replace(`${root}\\`, ''), '', `공개 텍스트에 임시 또는 로컬 문자열이 남아 있습니다: ${pattern}`)
+  for (const pattern of blockedText) if (pattern.test(text)) fail(file.replace(`${root}\\`, ''), '', `공개 텍스트에 임시·로컬·hotlink 문자열이 남아 있습니다: ${pattern}`)
 }
 
 const indexHtml = readFileSync(join(root, 'index.html'), 'utf8')
@@ -72,4 +111,4 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`데이터 검증 성공: 프로젝트 ${projects.length}개, featured ${projects.filter((project) => project.featured).length}개`)
+console.log(`데이터 검증 성공: 프로젝트 ${projects.length}개, changelog ${changelogFiles.length}개, featured ${projects.filter((project) => project.featured).length}개`)

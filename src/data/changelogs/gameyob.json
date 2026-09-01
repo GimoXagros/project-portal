@@ -1,0 +1,19 @@
+{
+  "projectId": "gameyob",
+  "displayName": "GameYob",
+  "entries": [
+    {
+      "id": "gameyob-v0-5-9-ko",
+      "version": "v0.5.9-ko",
+      "date": "2026-08-31",
+      "title": "GameYob v0.5.9-ko",
+      "summary": "터치 메뉴와 파일 탐색을 다듬고 카트리지 처리 검증 범위를 넓힌 릴리스입니다.",
+      "changes": [
+        "DS·DSi 터치 메뉴와 ROM/File Chooser 탐색을 개선했습니다.",
+        "WX/SGB 회귀 범위를 확대하고 MBC7 EEPROM 및 HuC1 처리를 보완했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko",
+      "status": "release"
+    }
+  ]
+}
