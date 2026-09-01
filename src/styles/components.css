@@ -14,8 +14,7 @@
 .cover-label { position: relative; z-index: 1; font: 800 .65rem var(--mono); letter-spacing: .12em; }
 .project-card-body { min-width: 0; padding: 25px; }
 .card-topline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-.type-label,.demo-badge { display: inline-flex; padding: 4px 7px; border: 1px solid var(--line-strong); font: 800 .65rem var(--mono); letter-spacing: .07em; }
-.demo-badge { color: #312b1b; border-color: var(--signal); background: var(--signal); }
+.type-label { display: inline-flex; padding: 4px 7px; border: 1px solid var(--line-strong); font: 800 .65rem var(--mono); letter-spacing: .07em; }
 .project-card h3 { margin: 15px 0 5px; font-size: 1.35rem; letter-spacing: -.025em; overflow-wrap: anywhere; }
 .original-title { margin: 0; color: var(--faint); font: .67rem/1.4 var(--mono); letter-spacing: .04em; overflow-wrap: anywhere; }
 .project-summary { display: -webkit-box; overflow: hidden; margin: 18px 0 0; color: var(--muted); line-height: 1.65; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }

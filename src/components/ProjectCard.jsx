@@ -4,10 +4,10 @@ import { assetUrl, statusLabels, typeLabels } from '../utils/projectMeta'
 export default function ProjectCard({ project, onOpen, featured = false }) {
   return <article className={`project-card ${featured ? 'featured-card' : ''}`}>
     <div className={`project-cover tone-${project.coverTone || 'slate'}`}>
-      {project.coverImage ? <img src={assetUrl(project.coverImage)} alt="" /> : <><span className="cover-code">{project.id.slice(-2)}</span><span className="cover-label">{project.demo ? 'SAMPLE / DEMO' : typeLabels[project.type]}</span></>}
+      {project.coverImage ? <img src={assetUrl(project.coverImage)} alt="" /> : <><span className="cover-code">{project.id.slice(0, 2).toUpperCase()}</span><span className="cover-label">{typeLabels[project.type]}</span></>}
     </div>
     <div className="project-card-body">
-      <div className="card-topline"><span className="type-label">{typeLabels[project.type] || typeLabels.other}</span>{project.demo && <span className="demo-badge">DEMO</span>}</div>
+      <div className="card-topline"><span className="type-label">{typeLabels[project.type] || typeLabels.other}</span></div>
       <h3>{project.title}</h3>
       {project.titleOriginal && <p className="original-title">{project.titleOriginal}</p>}
       <p className="project-summary">{project.description}</p>

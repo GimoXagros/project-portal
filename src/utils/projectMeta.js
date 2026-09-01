@@ -5,7 +5,7 @@ export const typeLabels = {
   port: '포팅',
   tool: '도구',
   translation: '번역',
-  utility: '유틸리티',
+  utility: '호환 계층',
   other: '기타',
 }
 

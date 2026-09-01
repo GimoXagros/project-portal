@@ -51,7 +51,7 @@ function App() {
     <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
     <Header site={site} onNavigateHome={navigateHome} />
     {activeProjectId ? <ProjectDetail project={activeProject} onBack={() => navigateHome('#projects')} /> : <main id="main-content">
-      <div className="demo-notice" role="status"><strong>{site.notice.label}</strong><p>{site.notice.text}</p></div>
+      <div className="site-notice" role="status"><strong>{site.notice.label}</strong><p>{site.notice.text}</p></div>
       <Hero site={site} projects={projects} onNavigate={navigateHome} />
       <FeaturedProjects projects={projects} onOpen={openProject} />
       <ProjectGrid projects={projects} onOpen={openProject} />

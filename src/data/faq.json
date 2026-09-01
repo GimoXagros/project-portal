@@ -1,22 +1,32 @@
 [
   {
-    "id": "original-game",
-    "question": "원본 게임도 받을 수 있나요?",
-    "answer": "제공하지 않습니다. 이 사이트는 원본 ROM, ISO, 게임 데이터, BIOS, 펌웨어 또는 암호화 키를 배포하지 않습니다."
+    "id": "rom-bios",
+    "question": "ROM이나 BIOS도 제공하나요?",
+    "answer": "제공하지 않습니다. 이 사이트와 연결된 릴리스에는 원본 ROM, 게임 데이터, BIOS, 펌웨어 또는 암호화 키가 포함되지 않습니다. 필요한 데이터는 사용자가 합법적으로 직접 준비해야 합니다."
   },
   {
-    "id": "download-source",
-    "question": "패치와 프로그램은 어디에서 다운로드하나요?",
-    "answer": "실제 프로젝트가 등록되면 각 프로젝트가 지정한 공식 GitHub Releases 자산으로 연결합니다. 현재 SAMPLE 항목에는 실제 다운로드가 없습니다."
+    "id": "ds-dsi-build",
+    "question": "DS용과 DSi용 파일 중 무엇을 선택해야 하나요?",
+    "answer": "프로젝트 상세의 호환성 안내를 먼저 확인하세요. 일반적으로 DS·DS Lite에서는 DS 빌드, DSi 또는 Nintendo 3DS의 DSpico/Pico Loader에서는 DSi 빌드를 선택합니다. 프로젝트별 예외는 해당 릴리스 문서를 우선합니다."
   },
   {
-    "id": "compatibility",
-    "question": "지원하지 않는 버전에도 적용할 수 있나요?",
-    "answer": "프로젝트마다 지원 버전, 호환 환경과 원본 파일 SHA-256이 다릅니다. 상세 페이지의 요구 사항과 해시를 먼저 확인해야 합니다."
+    "id": "sha256",
+    "question": "SHA-256은 왜 확인하며 Windows에서는 어떻게 확인하나요?",
+    "answer": "SHA-256은 받은 파일이 배포자가 기록한 파일과 같은지 확인하는 값입니다. Windows PowerShell에서 Get-FileHash .\\파일명 -Algorithm SHA256을 실행하고 표시된 값을 상세 페이지와 비교할 수 있습니다."
   },
   {
-    "id": "demo-data",
-    "question": "SAMPLE 프로젝트는 실제 작업물인가요?",
-    "answer": "아닙니다. 화면 구성과 데이터 모델을 검증하기 위한 DEMO 데이터이며 한 번에 삭제할 수 있습니다."
+    "id": "download-trouble",
+    "question": "다운로드 링크가 열리지 않으면 어떻게 하나요?",
+    "answer": "프로젝트 상세의 Releases 버튼을 열어 해당 고정 태그의 Assets 목록을 확인하세요. GitHub 로그인, 일시적인 장애 또는 네트워크 정책 때문에 자산 링크가 바로 열리지 않을 수 있습니다."
+  },
+  {
+    "id": "upstream-fork",
+    "question": "원본 프로젝트와 커스텀 포크는 어떻게 구분하나요?",
+    "answer": "각 상세 페이지의 Credits에서 ‘원본 / Upstream’과 ‘커스텀 저장소 및 추가 작업’을 별도 링크로 표시합니다. 다운로드는 이 아카이브에 적힌 GimoXagros 커스텀 릴리스의 고정 태그 자산으로 연결됩니다."
+  },
+  {
+    "id": "compatibility-source",
+    "question": "호환성과 실기 검증 범위는 어디를 기준으로 하나요?",
+    "answer": "각 프로젝트의 고정 릴리스 노트와 저장소 문서를 우선합니다. 이 아카이브는 확인된 내용을 요약하지만 모든 게임, 기기, 런처 조합의 완전한 동작을 보장하지 않습니다."
   }
 ]

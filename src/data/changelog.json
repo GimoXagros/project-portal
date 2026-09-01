@@ -1,20 +1,26 @@
 [
   {
-    "id": "SITE_SAMPLE_01",
-    "date": "DEMO",
-    "projectId": "SAMPLE_PROJECT_01",
-    "projectTitle": "Sample Korean Patch",
-    "version": "v0.0-demo",
-    "changes": ["레이아웃 확인용 변경 이력입니다.", "실제 프로젝트 업데이트가 아닙니다."],
-    "demo": true
+    "id": "gameyob-v0-5-9-ko",
+    "date": "2026-08-31",
+    "projectId": "gameyob",
+    "projectTitle": "GameYob",
+    "version": "v0.5.9-ko",
+    "changes": ["DS·DSi 터치 메뉴와 ROM/File Chooser 탐색을 개선했습니다.", "WX/SGB 회귀 범위를 확대하고 MBC7 EEPROM 및 HuC1 처리를 보완했습니다."]
   },
   {
-    "id": "SITE_SAMPLE_02",
-    "date": "DEMO",
-    "projectId": "SAMPLE_PROJECT_02",
-    "projectTitle": "Sample Emulator Project",
-    "version": "preview",
-    "changes": ["플랫폼 필터와 상태 배지 표시를 확인합니다."],
-    "demo": true
+    "id": "nitroswan-v0-7-7-custom-r6",
+    "date": "2026-08-31",
+    "projectId": "nitroswan",
+    "projectTitle": "NitroSwan",
+    "version": "v0.7.7-custom.r6",
+    "changes": ["One Piece 일본어 원본과 한글패치 ROM을 같은 호환 경로로 식별하도록 정리했습니다.", "팔레트 변경 이벤트 처리를 개선하고 기존 OBJ 버퍼 보완을 유지했습니다."]
+  },
+  {
+    "id": "gbarunner3-custom-v0-1-1",
+    "date": "2026-08-29",
+    "projectId": "gbarunner3",
+    "projectTitle": "GBARunner3 Custom",
+    "version": "custom-v0.1.1",
+    "changes": ["RTC sidecar 저장과 복구 흐름을 보완했습니다.", "ARM7·ARM9·core·app 및 GoogleTest 자동 빌드 검증을 통과했습니다."]
   }
 ]
