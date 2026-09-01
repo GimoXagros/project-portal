@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="한국어화, 에뮬레이션, 포팅과 게임 제작 도구를 위한 개인 프로젝트 아카이브" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ee" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1d21" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="Project Cabinet | 개인 게임 프로젝트 아카이브" />
+    <meta property="og:description" content="한국어화, 에뮬레이션, 포팅과 게임 제작 도구를 한곳에서 소개하고 배포하기 위한 정적 포털" />
+    <meta property="og:image" content="./og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Project Cabinet | 개인 게임 프로젝트 아카이브" />
+    <meta name="twitter:description" content="한국어화, 에뮬레이션, 포팅과 게임 제작 도구를 위한 개인 프로젝트 아카이브" />
+    <meta name="twitter:image" content="./og.png" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        const saved = localStorage.getItem('project-portal-theme')
+        document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      } catch {}
+    </script>
+    <title>Project Cabinet | 개인 게임 프로젝트 아카이브</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

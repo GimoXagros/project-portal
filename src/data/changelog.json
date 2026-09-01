@@ -1,0 +1,20 @@
+[
+  {
+    "id": "SITE_SAMPLE_01",
+    "date": "DEMO",
+    "projectId": "SAMPLE_PROJECT_01",
+    "projectTitle": "Sample Korean Patch",
+    "version": "v0.0-demo",
+    "changes": ["레이아웃 확인용 변경 이력입니다.", "실제 프로젝트 업데이트가 아닙니다."],
+    "demo": true
+  },
+  {
+    "id": "SITE_SAMPLE_02",
+    "date": "DEMO",
+    "projectId": "SAMPLE_PROJECT_02",
+    "projectTitle": "Sample Emulator Project",
+    "version": "preview",
+    "changes": ["플랫폼 필터와 상태 배지 표시를 확인합니다."],
+    "demo": true
+  }
+]
