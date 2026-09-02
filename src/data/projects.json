@@ -10,8 +10,8 @@
     "platform": ["Nintendo DS", "Nintendo DSi"],
     "status": "work-in-progress",
     "version": "v0.5.9-ko",
-    "releaseDate": "2026-08-31",
-    "lastUpdated": "2026-08-31",
+    "releaseDate": "2026-09-01",
+    "lastUpdated": "2026-09-01",
     "repository": "https://github.com/GimoXagros/GameYob",
     "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko",
     "issuesUrl": "https://github.com/GimoXagros/GameYob/issues",
@@ -41,12 +41,12 @@
       { "role": "커스텀 저장소 및 추가 작업", "name": "GimoXagros/GameYob", "url": "https://github.com/GimoXagros/GameYob" }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
-    "fileSize": "816717 bytes",
+    "fileSize": "816695 bytes",
     "tags": ["Game Boy", "Game Boy Color", "Super Game Boy", "NDS"],
     "featured": true,
     "downloadEnabled": true,
     "downloads": [
-      { "label": "GameYob Custom 통합 패키지", "filename": "gameyob.zip", "size": "816717 bytes", "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.9-ko/gameyob.zip", "sha256": "2e22c89767fb25a7b688b82230df2a0dab81342d567b85ba5b127f2c9fcbb434" }
+      { "label": "GameYob Custom 통합 패키지", "filename": "gameyob.zip", "size": "816695 bytes", "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.9-ko/gameyob.zip", "sha256": "96b80ff85d90566a06b435c8ba89c88f09d05cd84efddec45436cfa0838da497" }
     ]
   },
   {

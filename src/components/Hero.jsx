@@ -1,16 +1,17 @@
 import { ArrowDownRight, Github } from 'lucide-react'
+import { latestDate } from '../utils/dates'
 
 export default function Hero({ site, projects, onNavigate }) {
   const published = projects
   const hasFeatured = published.some((project) => project.featured)
   const categoryCount = new Set(published.map((project) => project.type)).size
-  const latest = published.map((project) => project.lastUpdated).filter(Boolean)[0]
+  const latest = latestDate(published.map((project) => project.lastUpdated))
 
   return <section className="hero" id="top" aria-labelledby="hero-title">
     <div className="hero-copy-block">
       <p className="kicker">NINTENDO DS·DSi · CUSTOM RELEASE ARCHIVE</p>
       {hasFeatured && <span className="hero-release-label">현재 배포 중 · {published.filter((project) => project.featured).length} PROJECTS</span>}
-      <h1 id="hero-title">프로젝트를 모으고,<br />맥락을 기록하고,<br /><em>안전하게 배포합니다.</em></h1>
+      <h1 id="hero-title"><span>프로젝트를 모으고,</span><span>맥락을 기록하고,</span><em>안전하게 배포합니다.</em></h1>
       <p className="hero-copy">{site.description}</p>
       <div className="hero-actions">
         <button className="button primary" type="button" onClick={() => onNavigate('#projects')}>프로젝트 보기 <ArrowDownRight size={18} /></button>

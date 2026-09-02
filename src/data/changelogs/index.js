@@ -1,6 +1,8 @@
+import { sortUpdates } from '../../utils/dates'
+
 const modules = import.meta.glob('./*.json', { eager: true })
 
-const changelogs = Object.values(modules).map((module) => module.default)
+const changelogs = Object.values(modules).map((module) => ({ ...module.default, entries: sortUpdates(module.default.entries) }))
 const changelogByProject = new Map(changelogs.map((changelog) => [changelog.projectId, changelog]))
 
 export function getProjectChangelog(projectId) {

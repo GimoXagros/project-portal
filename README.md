@@ -2,8 +2,8 @@
 
 Nintendo DS·DSi 에뮬레이터와 커스텀 빌드의 배포 정보, 설치 방법, 호환성 주의사항과 SHA-256을 한곳에서 확인하는 정적 프로젝트 자료실입니다.
 
-- 예정 사이트: <https://gimoxagros.github.io/project-portal/>
-- 예정 저장소: <https://github.com/GimoXagros/project-portal>
+- 공개 사이트: <https://gimoxagros.github.io/project-portal/>
+- 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
 현재 등록 프로젝트는 GameYob Custom `v0.5.9-ko`, GBARunner3 Custom `custom-v0.1.1`, NitroSwan Custom `v0.7.7-custom.r6` 세 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
@@ -22,18 +22,29 @@ Nintendo DS·DSi 에뮬레이터와 커스텀 빌드의 배포 정보, 설치 �
 
 ## 로컬 실행과 검증
 
-Node.js 20.19 이상 또는 22.12 이상을 사용합니다.
+GitHub Actions와 동일한 Node.js 22.12 이상(22 LTS)을 권장합니다.
 
 ```bash
 npm ci
 npm run dev
 npm run lint
 npm run validate:data
+npm run verify:releases
+npm test
 npm run build
 npm run preview
 ```
 
-빌드 결과는 `dist/`에 생성됩니다. `validate:data`는 id, 다운로드 URL, SHA-256, featured 항목, 임시 문구, 로컬 경로와 이미지 참조를 검사합니다.
+빌드 결과는 `dist/`에 생성됩니다. 설치 이후 `validate:data`, `test`, `lint`, `build`는 오프라인으로 실행할 수 있습니다.
+
+- `npm run validate:data`: id, 실제 달력 날짜, 프로젝트/최신 changelog의 버전·URL·날짜 일치, 고정 태그 다운로드 URL, 중복 파일명, 바이트 크기 형식, SHA-256, 이미지 참조를 정적으로 검사합니다.
+- `npm run verify:releases`: **네트워크가 필요**합니다. 정적 JSON에 지정한 태그의 GitHub Release API를 조회하고 공개 정식 릴리스 여부, 날짜, URL, 자산명·크기·digest를 비교합니다. 파일을 다운로드하거나 JSON을 자동 수정하지 않습니다.
+- `npm run check`: 정적 검증 → 원격 검증 → lint → build 순서로 전체 검사합니다. build는 한 번만 수행합니다.
+- `npm test`: 날짜, 원격 검증 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
+
+원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 네트워크/서버 오류는 최대 세 번 시도합니다. 없는 릴리스·자산, 크기·URL·digest 불일치, 호출 제한, 네트워크 오류를 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
+
+이 명령은 **지정된 태그**를 검증하며 새 버전을 자동 선택하지 않습니다. 릴리스 갱신 시 저장소의 최신 정식 릴리스를 별도로 확인하세요. 날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다.
 
 ## 폴더 구조
 
@@ -44,7 +55,11 @@ project-portal/
 ├─ public/
 │  ├─ assets/projects/           # 공개 화면용 lossless WebP 로고
 │  └─ ...                        # 404, favicon, OG, robots, sitemap
-├─ scripts/validate-data.mjs
+├─ scripts/
+│  ├─ validate-data.mjs         # 오프라인 정합성 검사
+│  ├─ verify-releases.mjs       # 빌드 전 GitHub API 비교
+│  ├─ release-utils.mjs         # 저장소/태그/자산 URL 검사
+│  └─ tests/                   # 릴리스·빈 UI·날짜 회귀 테스트
 ├─ src/
 │  ├─ components/
 │  ├─ data/
@@ -54,8 +69,9 @@ project-portal/
 │  │  │  ├─ PROJECT_ID.json      # 프로젝트별 독립 업데이트 기록
 │  │  │  └─ index.js             # Vite 정적 자동 로딩과 조회 함수
 │  │  └─ faq.json
-│  ├─ styles/
-│  └─ utils/projectMeta.js
+│  ├─ hooks/useReveal.js        # once IntersectionObserver
+│  ├─ styles/motion.css        # 모션 토큰과 reduced-motion
+│  └─ utils/                   # projectMeta.js, dates.js
 ├─ index.html
 ├─ package.json
 └─ vite.config.js
@@ -63,13 +79,13 @@ project-portal/
 
 ## 콘텐츠 수정
 
-- 사이트명, 부제, 제작자, GitHub와 예정 URL: `src/data/site.json`
+- 사이트명, 부제, 제작자, GitHub와 공개 URL: `src/data/site.json`
 - 프로젝트: `src/data/projects.json`
 - 릴리스 타임라인: `src/data/changelogs/PROJECT_ID.json`
 - FAQ: `src/data/faq.json`
 - 정적 SEO: `index.html`, `public/robots.txt`, `public/sitemap.xml`
 
-사이트 URL을 바꿀 때 `site.json`과 정적 SEO 세 파일의 URL을 함께 변경한 뒤 `npm run validate:data`와 `npm run build`를 실행하세요. SEO 값은 JavaScript 실행 전 크롤러가 읽어야 하므로 정적 HTML에도 명시합니다.
+사이트 URL을 바꿀 때 `site.json`, 정적 SEO 세 파일, `public/404.html`의 홈 링크를 함께 변경한 뒤 `npm run validate:data`와 `npm run build`를 실행하세요. 404의 홈 링크는 잘못된 중첩 경로에서도 복귀할 수 있도록 공개 URL을 사용합니다. SEO 값은 JavaScript 실행 전 크롤러가 읽어야 하므로 정적 HTML에도 명시합니다.
 
 ## 새 프로젝트 추가
 
@@ -151,7 +167,7 @@ project-portal/
 3. 각 자산의 `filename`, 바이트 단위 `size`, 고정 태그 `url`, `sha256`을 갱신합니다.
 4. 릴리스 노트에서 확인되는 변경만 프로젝트 설명과 `src/data/changelogs/PROJECT_ID.json`에 반영합니다.
 5. Upstream과 커스텀 저장소 Credits 링크가 여전히 구분되는지 확인합니다.
-6. `npm run validate:data`, `npm run lint`, `npm run build`를 실행합니다.
+6. `npm run check`와 `npm test`를 실행합니다.
 
 여러 파일은 `downloads` 배열에 각각 추가합니다. 분할 파일은 다운로드 항목 아래 `parts` 배열로 표현할 수 있습니다. `downloadEnabled: false`이거나 URL이 없으면 배포 준비 상태로 표시합니다. URL을 추측해 만들지 않습니다.
 
@@ -205,11 +221,30 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 ## GitHub Pages 배포
 
-배포 워크플로는 준비되어 있지만 이 단계에서는 저장소 생성, push와 공개 배포를 수행하지 않습니다. 다음 단계에서 저장소를 만든 뒤:
+저장소 생성과 GitHub Pages 공개 배포가 완료된 사이트입니다. `.github/workflows/deploy.yml`은 `main` push 또는 수동 `workflow_dispatch` 시 실행됩니다.
 
-1. 기본 브랜치를 `main`으로 push합니다.
-2. **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다.
-3. 이후 `main` push 시 `.github/workflows/deploy.yml`이 `npm ci`와 `npm run build`를 실행하고 `dist/`를 배포합니다.
+1. **Settings → Pages → Build and deployment → Source**가 **GitHub Actions**인지 확인합니다.
+2. 작업 브랜치에서 변경을 검토하고 PR을 `main`에 병합합니다.
+3. 워크플로가 `npm ci` → `validate:data` → `verify:releases` → `lint` → `build`를 수행합니다. 원격 검증에만 `${{ github.token }}`을 `GITHUB_TOKEN`으로 전달합니다.
+4. 공식 Pages Actions로 `dist/`를 업로드하고 `github-pages` 환경에 배포합니다. `pages: write`, `id-token: write`, concurrency와 이전 실행 취소 설정을 유지합니다.
+
+작업 브랜치 push만으로 공개 사이트가 바뀌지는 않습니다. 원격 검증에 실패한 경우 로그에서 데이터 불일치와 네트워크 오류를 구분하여 해결해야 합니다. 검사를 무조건 성공시키는 우회는 하지 않습니다. GitHub API는 이 **빌드 전 검증**에만 사용되며, 브라우저 런타임의 기준은 항상 번들에 포함된 정적 JSON입니다.
+
+## 접근성과 가벼운 모션
+
+`src/styles/motion.css`는 반응형 스타일 뒤에 불러옵니다. `--motion-fast`(160ms), `--motion-base`(420ms), `--motion-slow`(680ms)와 easing 토큰을 사용하며 새 애니메이션 라이브러리는 없습니다.
+
+- `useReveal`은 IntersectionObserver 초기화 후에만 `motion-ready`를 부여합니다. 기본 콘텐츠는 보이며, **화면에 진입한 요소에만** 유한 애니메이션을 붙입니다. 한 번 등장한 DOM 노드는 다시 숨기지 않습니다. 카드 지연은 70ms씩 최대 350ms입니다. 필터로 새로 추가된 카드만 관찰하고 기존 페이지는 재실행하지 않습니다.
+- Hero 텍스트·카드·통계는 60~70ms 간격으로 등장합니다. 데스크톱 포인터 환경에서만 ARCHIVE 카드가 10초 주기로 5px 움직이고 배경이 미세하게 이동합니다. 모바일 장식은 줄였습니다.
+- 카드의 hover/focus-within, 테마 아이콘, 240ms hash 페이지 전환, native FAQ 답변에 짧은 효과를 적용합니다. FAQ 높이를 고정하지 않습니다.
+- 헤더의 스크롤 진행은 passive listener와 requestAnimationFrame으로 CSS 변수만 갱신합니다. 스크롤마다 앱 상태를 갱신하지 않으며 이벤트·observer는 정리합니다.
+- 모바일 메뉴는 닫힘 효과 중에도 `inert`로 포커스 진입을 막습니다. Escape, 바깥 클릭, 메뉴 선택, route 변경으로 닫히며 Escape는 메뉴 버튼으로 포커스를 돌려줍니다. 홈 scroll spy와 업데이트 route의 `aria-current`를 구분합니다.
+- 검색 개수는 단일 `aria-live="polite"` 상태이고, 필터는 `aria-pressed`를 제공합니다. 초기화 후 검색창 포커스를 유지합니다. skip link는 hash route를 바꾸지 않고 본문으로 이동합니다.
+- OS 테마를 따르되 명시적으로 고른 테마만 저장합니다. HTML의 초기 테마 스크립트로 첫 화면 번쩍임을 줄입니다.
+
+`prefers-reduced-motion: reduce`에서는 등장·반복·페이지 전환·메뉴·FAQ·테마 회전과 smooth scroll을 모두 제거합니다. observer가 없거나 오류가 나도 콘텐츠는 숨겨지지 않습니다. JavaScript 자체를 끈 경우 React 검색/상세 화면 대신 `noscript` 안내와 저장소 링크가 표시됩니다(서버 렌더링 사이트는 아닙니다).
+
+상시 `will-change`, 높이/위치의 프레임 애니메이션, 큰 blur 애니메이션, 패럴랙스, WebGL, 자동 재생 영상은 사용하지 않습니다. 로고의 크기 예약과 비동기 디코딩·지연 로딩도 유지합니다.
 
 ## 공개 전 체크리스트
 
