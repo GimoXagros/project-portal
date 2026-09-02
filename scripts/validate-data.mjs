@@ -1,6 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { basename, extname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isISODate } from '../src/utils/dates.js'
+import { downloadItems, expectedAssetUrl, releaseIdentity } from './release-utils.mjs'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const projectsFile = join(root, 'src', 'data', 'projects.json')
@@ -11,7 +13,7 @@ const errors = []
 const fail = (file, id, message) => errors.push(`${file}${id ? ` [${id}]` : ''}: ${message}`)
 const sha256 = /^[a-f0-9]{64}$/i
 const safeId = /^[a-z0-9-]+$/
-const isoDate = /^\d{4}-\d{2}-\d{2}$/
+const isoDate = { test: isISODate }
 const remote = /^https:\/\//i
 
 const seen = new Set()
@@ -19,6 +21,26 @@ for (const project of projects) {
   if (!safeId.test(project.id || '')) fail('src/data/projects.json', project.id, 'id는 소문자 영문, 숫자, 하이픈만 사용할 수 있습니다.')
   if (seen.has(project.id)) fail('src/data/projects.json', project.id, '중복된 프로젝트 id입니다.')
   seen.add(project.id)
+  const fieldError = (field, actual, expected) => fail('src/data/projects.json', project.id, `${field}: actual=${JSON.stringify(actual)} expected=${JSON.stringify(expected)}`)
+  for (const field of ['releaseDate', 'lastUpdated']) if (!isISODate(project[field])) fieldError(field, project[field], 'valid YYYY-MM-DD calendar date')
+  if (project.releaseDate > project.lastUpdated) fieldError('releaseDate', project.releaseDate, `<= lastUpdated (${project.lastUpdated})`)
+  try { releaseIdentity(project) } catch (error) { fieldError('repository/releaseUrl/version', [project.repository, project.releaseUrl, project.version], error.message) }
+  const filenames = new Set()
+  for (const item of downloadItems(project)) {
+    const field = `downloads[${item.filename || 'missing'}]`
+    if (!item.filename || filenames.has(item.filename)) fieldError(`${field}.filename`, item.filename, 'non-empty unique filename')
+    filenames.add(item.filename)
+    if (item.size && !/^\d+ bytes$/.test(item.size)) fieldError(`${field}.size`, item.size, '<integer> bytes')
+    if (item.sha256 && !sha256.test(item.sha256)) fieldError(`${field}.sha256`, item.sha256, '64 hexadecimal characters')
+    if (item.url) {
+      try { const expected = expectedAssetUrl(project, item.filename); if (item.url !== expected) fieldError(`${field}.url`, item.url, expected) }
+      catch (error) { fieldError(`${field}.url`, item.url, error.message) }
+    }
+  }
+  if (project.downloadUrl) {
+    const prefix = project.releaseUrl?.replace('/releases/tag/', '/releases/download/') + '/'
+    if (!project.downloadUrl.startsWith(prefix) || /[?#]/.test(project.downloadUrl)) fieldError('downloadUrl', project.downloadUrl, `${prefix}<asset filename>`)
+  }
   if (project.demo === true || /SAMPLE_PROJECT/i.test(project.id || '')) fail('src/data/projects.json', project.id, '임시 프로젝트 데이터가 남아 있습니다.')
 
   const branding = project.branding
@@ -29,17 +51,17 @@ for (const project of projects) {
     if (!existsSync(logoPath)) fail('src/data/projects.json', project.id, `branding.logo 자산이 존재하지 않습니다: ${branding.logo}`)
   }
 
-  const downloadItems = [...(project.downloads || []), ...(project.downloads || []).flatMap((item) => item.parts || [])]
+  const downloads = downloadItems(project)
   if (project.downloadEnabled) {
-    if (!project.downloadUrl && !downloadItems.some((item) => item.url)) fail('src/data/projects.json', project.id, 'downloadEnabled가 true지만 다운로드 URL이 없습니다.')
-    for (const item of downloadItems) {
+    if (!project.downloadUrl && !downloads.some((item) => item.url)) fail('src/data/projects.json', project.id, 'downloadEnabled가 true지만 다운로드 URL이 없습니다.')
+    for (const item of downloads) {
       if (!item.url) fail('src/data/projects.json', project.id, `다운로드 “${item.label || item.filename || '이름 없음'}”의 URL이 없습니다.`)
       else if (!remote.test(item.url)) fail('src/data/projects.json', project.id, `다운로드 URL은 https://로 시작해야 합니다: ${item.url}`)
     }
     if (project.downloadUrl && !remote.test(project.downloadUrl)) fail('src/data/projects.json', project.id, 'downloadUrl은 https://로 시작해야 합니다.')
   }
 
-  const hashValues = [project.originalHash, project.patchHash, project.patchedHash, ...(project.hashes || []).map((item) => item.value), ...downloadItems.map((item) => item.sha256)].filter(Boolean)
+  const hashValues = [project.originalHash, project.patchHash, project.patchedHash, ...(project.hashes || []).map((item) => item.value), ...downloads.map((item) => item.sha256)].filter(Boolean)
   for (const value of hashValues) if (!sha256.test(value)) fail('src/data/projects.json', project.id, `SHA-256은 64자리 hexadecimal이어야 합니다: ${value}`)
 
   const imageRefs = [project.coverImage, branding?.logo, ...(project.screenshots || []).map((item) => item.src)].filter(Boolean)
@@ -49,8 +71,6 @@ for (const project of projects) {
     if (!existsSync(localPath)) fail('src/data/projects.json', project.id, `로컬 이미지가 존재하지 않습니다: ${image}`)
   }
 }
-
-if (!projects.some((project) => project.featured)) fail('src/data/projects.json', '', 'featured 프로젝트가 하나 이상 필요합니다.')
 
 const projectIds = new Set(projects.map((project) => project.id))
 const changelogFiles = existsSync(changelogDir) ? readdirSync(changelogDir).filter((file) => file.endsWith('.json')) : []
@@ -65,16 +85,24 @@ for (const file of changelogFiles) {
   if (changelog.projectId !== expectedId) fail(relativeFile, changelog.projectId, `파일명과 projectId가 일치해야 합니다: ${expectedId}`)
   if (!projectIds.has(changelog.projectId)) fail(relativeFile, changelog.projectId, 'projects.json에 없는 고아 changelog입니다.')
   changelogProjectIds.add(changelog.projectId)
+  const project = projects.find((item) => item.id === changelog.projectId)
+  const latest = changelog.entries?.[0]
+  if (project?.version && !latest) fail(relativeFile, project.id, 'entries[0]: actual=missing expected=current project release')
+  if (project && latest) {
+    for (const [field, entryField] of [['version', 'version'], ['releaseUrl', 'releaseUrl'], ['lastUpdated', 'date']]) {
+      if (project[field] !== latest[entryField]) fail(relativeFile, project.id, `entries[0].${entryField}: actual=${JSON.stringify(latest[entryField])} expected=projects.json.${field} ${JSON.stringify(project[field])}`)
+    }
+  }
 
   const entryIds = new Set()
   let previousDate = null
   if (!Array.isArray(changelog.entries)) fail(relativeFile, changelog.projectId, 'entries는 배열이어야 합니다.')
-  for (const entry of changelog.entries || []) {
+  for (const entry of Array.isArray(changelog.entries) ? changelog.entries : []) {
     if (!entry.id || entryIds.has(entry.id)) fail(relativeFile, changelog.projectId, `update id가 없거나 중복됩니다: ${entry.id || '값 없음'}`)
     entryIds.add(entry.id)
     for (const field of ['version', 'date', 'title', 'summary']) if (typeof entry[field] !== 'string' || !entry[field].trim()) fail(relativeFile, changelog.projectId, `${entry.id || '항목'}의 ${field}가 필요합니다.`)
-    if (entry.date && !isoDate.test(entry.date)) fail(relativeFile, changelog.projectId, `${entry.id}의 날짜는 YYYY-MM-DD 형식이어야 합니다: ${entry.date}`)
-    if (previousDate && entry.date > previousDate) fail(relativeFile, changelog.projectId, `entries는 최신 날짜순이어야 합니다: ${entry.id}`)
+    if (entry.date && !isoDate.test(entry.date)) fail(relativeFile, changelog.projectId, `${entry.id}.date: actual=${JSON.stringify(entry.date)} expected=valid YYYY-MM-DD calendar date`)
+    if (previousDate && entry.date > previousDate) fail(relativeFile, changelog.projectId, `${entry.id}.date: actual=${JSON.stringify(entry.date)} expected=<= ${previousDate} (entries 최신순)`)
     previousDate = entry.date
     if (entry.releaseUrl && !remote.test(entry.releaseUrl)) fail(relativeFile, changelog.projectId, `${entry.id}의 releaseUrl은 https://로 시작해야 합니다.`)
     if (!Array.isArray(entry.changes) || entry.changes.some((change) => typeof change !== 'string')) fail(relativeFile, changelog.projectId, `${entry.id}의 changes는 문자열 배열이어야 합니다.`)

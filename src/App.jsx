@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import useReveal from './hooks/useReveal'
 import './App.css'
 import site from './data/site.json'
 import projects from './data/projects.json'
@@ -17,16 +18,21 @@ import Footer from './components/Footer'
 
 function routeFromHash() {
   const hash = window.location.hash
+  const decode = (value) => { try { return decodeURIComponent(value) } catch { return '__invalid__' } }
   const projectMatch = hash.match(/^#\/project\/([^/]+)$/)
-  if (projectMatch) return { type: 'project', id: decodeURIComponent(projectMatch[1]) }
+  if (projectMatch) return { type: 'project', id: decode(projectMatch[1]) }
   const updateMatch = hash.match(/^#\/updates\/([^/]+)$/)
-  if (updateMatch) return { type: 'updates-project', id: decodeURIComponent(updateMatch[1]) }
+  if (updateMatch) return { type: 'updates-project', id: decode(updateMatch[1]) }
   if (hash === '#/updates') return { type: 'updates' }
   return { type: 'home', anchor: hash || '#top' }
 }
 
 function App() {
   const [route, setRoute] = useState(routeFromHash)
+  const pageKey = route.type === 'home' ? 'home' : `${route.type}/${route.id || ''}`
+  const pageRef = useRef(null)
+  const previousPage = useRef(pageKey)
+  useReveal(pageRef, pageKey)
   const activeProject = useMemo(() => route.type === 'project' ? projects.find((project) => project.id === route.id) : null, [route])
   const latestUpdates = useMemo(() => getAllLatestUpdates(), [])
 
@@ -38,17 +44,28 @@ function App() {
 
   useEffect(() => {
     if (route.type === 'project') document.title = `${activeProject?.title || '프로젝트 없음'} | ${site.name}`
-    else if (route.type.startsWith('updates')) document.title = `업데이트 기록 | ${site.name}`
+    else if (route.type.startsWith('updates')) document.title = `${route.id ? (projects.find((item) => item.id === route.id)?.title || '프로젝트 없음') + ' · ' : ''}업데이트 기록 | ${site.name}`
     else document.title = `${site.name} | 개인 게임 프로젝트 아카이브`
-    window.scrollTo({ top: 0, behavior: 'auto' })
-  }, [activeProject, route])
+    const frame = requestAnimationFrame(() => {
+      const anchor = route.type === 'home' && ['#top', '#projects', '#about', '#faq', '#updates'].includes(route.anchor) ? document.getElementById(route.anchor.slice(1)) : null
+      if (anchor) anchor.scrollIntoView({ behavior: 'instant' })
+      else window.scrollTo({ top: 0, behavior: 'instant' })
+      if (previousPage.current !== pageKey) {
+        const main = document.getElementById('main-content')
+        main?.setAttribute('tabindex', '-1')
+        main?.focus({ preventScroll: true })
+      }
+      previousPage.current = pageKey
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [activeProject, route, pageKey])
 
   const openProject = (id) => { window.location.hash = `/project/${encodeURIComponent(id)}` }
   const openUpdates = (id) => { window.location.hash = `/updates/${encodeURIComponent(id)}` }
   const navigateHome = (anchor = '#projects') => {
     if (window.location.hash === anchor) {
       setRoute(routeFromHash())
-      window.setTimeout(() => document.querySelector(anchor)?.scrollIntoView(), 0)
+      window.setTimeout(() => document.getElementById(anchor.slice(1))?.scrollIntoView(), 0)
     } else window.location.hash = anchor
   }
 
@@ -66,9 +83,9 @@ function App() {
   </main>
 
   return <div className="site-shell">
-    <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
-    <Header site={site} routeType={route.type} onNavigateHome={navigateHome} />
-    {content}
+    <a className="skip-link" href="#main-content" onClick={(event) => { event.preventDefault(); const main = document.getElementById('main-content'); main?.setAttribute('tabindex', '-1'); main?.focus(); main?.scrollIntoView() }}>본문으로 건너뛰기</a>
+    <Header site={site} routeType={route.type} pageKey={pageKey} onNavigateHome={navigateHome} />
+    <div className="page-frame" ref={pageRef} key={pageKey}>{content}</div>
     <Footer site={site} onNavigate={navigateHome} />
   </div>
 }

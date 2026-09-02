@@ -19,15 +19,15 @@
     <link rel="canonical" href="https://gimoxagros.github.io/project-portal/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <script>
-      try {
-        const saved = localStorage.getItem('project-portal-theme')
-        document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-      } catch {}
+      let saved
+      try { saved = localStorage.getItem('project-portal-theme') } catch {}
+      document.documentElement.dataset.theme = ['light', 'dark'].includes(saved) ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
     </script>
     <title>GimoXagros Project Archive</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript><p>프로젝트 검색과 상세보기에는 JavaScript가 필요합니다. 배포 파일과 안내는 <a href="https://github.com/GimoXagros/project-portal">공식 저장소</a>에서도 확인할 수 있습니다. 원본 게임 데이터는 제공하지 않습니다.</p></noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
