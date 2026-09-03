@@ -1,16 +1,17 @@
 import { ArrowDownRight, Github } from 'lucide-react'
 import { latestDate } from '../utils/dates'
+import { hasDownload } from '../utils/projectMeta'
 
 export default function Hero({ site, projects, onNavigate }) {
   const published = projects
-  const hasFeatured = published.some((project) => project.featured)
+  const availableCount = published.filter(hasDownload).length
   const categoryCount = new Set(published.map((project) => project.type)).size
   const latest = latestDate(published.map((project) => project.lastUpdated))
 
   return <section className="hero" id="top" aria-labelledby="hero-title">
     <div className="hero-copy-block">
-      <p className="kicker">NINTENDO DS·DSi · CUSTOM RELEASE ARCHIVE</p>
-      {hasFeatured && <span className="hero-release-label">현재 배포 중 · {published.filter((project) => project.featured).length} PROJECTS</span>}
+      <p className="kicker">NINTENDO DS·DSi · GBA · RELEASE ARCHIVE</p>
+      {availableCount > 0 && <span className="hero-release-label">현재 배포 중 · {availableCount} PROJECTS</span>}
       <h1 id="hero-title"><span>프로젝트를 모으고,</span><span>맥락을 기록하고,</span><em>안전하게 배포합니다.</em></h1>
       <p className="hero-copy">{site.description}</p>
       <div className="hero-actions">
@@ -19,7 +20,7 @@ export default function Hero({ site, projects, onNavigate }) {
       </div>
     </div>
     <div className="hero-side" aria-hidden="true">
-      <div className="archive-mark"><span>GIMOXAGROS</span><strong>ARCHIVE</strong><small>NDS / NDSi · STATIC RELEASE INDEX</small></div>
+      <div className="archive-mark"><span>GIMOXAGROS</span><strong>ARCHIVE</strong><small>NDS / NDSi / GBA · RELEASE INDEX</small></div>
       <div className="dial"><span>01</span><span>06</span><span>12</span><span>18</span></div>
     </div>
     <div className="hero-scrap-decor" aria-hidden="true"><span /><span /><span /></div>

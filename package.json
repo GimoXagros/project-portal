@@ -10,7 +10,7 @@
     "validate:data": "node scripts/validate-data.mjs",
     "verify:releases": "node scripts/verify-releases.mjs",
     "test": "node --test scripts/tests/*.test.mjs",
-    "check": "npm run validate:data && npm run verify:releases && npm run lint && npm run build",
+    "check": "npm run validate:data && npm test && npm run verify:releases && npm run lint && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {

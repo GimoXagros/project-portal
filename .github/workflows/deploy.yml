@@ -33,6 +33,9 @@ jobs:
       - name: Validate static content
         run: npm run validate:data
 
+      - name: Test release policies and UI regressions
+        run: npm test
+
       - name: Verify GitHub Release metadata
         run: npm run verify:releases
         env:

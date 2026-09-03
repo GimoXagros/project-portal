@@ -1,8 +1,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { isISODate, latestDate, sortUpdates } from '../../src/utils/dates.js'
 import { repositoryParts, releaseIdentity, downloadItems } from '../release-utils.mjs'
 import { fetchRelease, verifyProject } from '../verify-releases.mjs'
+import { validateData } from '../validate-data.mjs'
 
 const project = { id: 'test', repository: 'https://github.com/owner/repo', version: 'v1.0.0', releaseUrl: 'https://github.com/owner/repo/releases/tag/v1.0.0', releaseDate: '2026-09-01', downloads: [{ filename: 'release.zip', size: '42 bytes', sha256: 'a'.repeat(64), url: 'https://github.com/owner/repo/releases/download/v1.0.0/release.zip' }] }
 const release = { tag_name: project.version, html_url: project.releaseUrl, published_at: '2026-09-01T23:30:00Z', draft: false, prerelease: false, assets: [{ name: 'release.zip', size: 42, browser_download_url: project.downloads[0].url, digest: 'sha256:' + 'A'.repeat(64) }] }
@@ -56,6 +58,127 @@ test('optional token and User-Agent are sent only as headers', async () => {
 })
 test('temporary server and transport errors get bounded retries', async () => {
   let calls = 0
-  await fetchRelease('https://api.github.com/test', null, async () => { calls++; if (calls === 1) throw new Error('offline'); if (calls === 2) return new Response('', { status: 503 }); return new Response('{}') })
+  await fetchRelease('https://api.github.com/test', null, async () => { calls++; if (calls === 1) throw new Error('offline'); if (calls === 2) return new Response('', { status: 503 }); return new Response('{}') }, { wait: async () => {} })
   assert.equal(calls, 3)
+})
+
+test('default and explicit latest-stable policies query latest once and do not mutate data', async () => {
+  for (const current of [project, { ...project, releasePolicy: 'latest-stable' }]) {
+    const before = structuredClone(current)
+    const urls = []
+    const result = await verifyProject(current, { fetcher: async (url) => { urls.push(url); return new Response(JSON.stringify(release)) } })
+    assert.deepEqual(result.errors, [])
+    assert.deepEqual(urls, ['https://api.github.com/repos/owner/repo/releases/latest'])
+    assert.deepEqual(current, before)
+  }
+})
+
+test('a newer latest release reports drift and still checks the latest metadata', async () => {
+  const newer = structuredClone(release)
+  newer.tag_name = 'v1.1.0'
+  newer.html_url = newer.html_url.replace('v1.0.0', 'v1.1.0')
+  newer.published_at = '2026-09-02T01:00:00Z'
+  newer.assets[0].size = 43
+  newer.assets[0].digest = 'sha256:' + 'b'.repeat(64)
+  const { errors } = await verifyProject(project, { fetcher: fetcher(newer) })
+  assert.ok(errors.includes('LATEST_RELEASE_DRIFT: configured="v1.0.0" latest="v1.1.0"'))
+  for (const code of ['URL_MISMATCH', 'DATE_MISMATCH', 'SIZE_MISMATCH', 'DIGEST_MISMATCH']) assert.match(errors.join(), new RegExp(code))
+})
+
+test('latest release asset size and digest mismatches independently fail', async () => {
+  for (const [field, value, code] of [['size', 43, 'SIZE_MISMATCH'], ['digest', 'sha256:' + 'b'.repeat(64), 'DIGEST_MISMATCH']]) {
+    const bad = structuredClone(release)
+    bad.assets[0][field] = value
+    assert.match((await verifyProject(project, { fetcher: fetcher(bad) })).errors.join(), new RegExp(code))
+  }
+})
+
+test('pinned validates only the specified tag even when a newer release exists', async () => {
+  const urls = []
+  const result = await verifyProject({ ...project, releasePolicy: 'pinned', pinReason: '실기 회귀 검증을 기다리는 중' }, {
+    fetcher: async (url) => {
+      urls.push(url)
+      return new Response(JSON.stringify(url.endsWith('/latest') ? { ...release, tag_name: 'v2.0.0' } : release))
+    },
+  })
+  assert.deepEqual(result.errors, [])
+  assert.deepEqual(urls, ['https://api.github.com/repos/owner/repo/releases/tags/v1.0.0'])
+})
+
+test('complete static validator rejects invalid policies and missing or misplaced pin reasons', () => {
+  const data = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  assert.deepEqual(validateData(data).errors, [])
+  for (const policy of [
+    { releasePolicy: 'pinned' }, { releasePolicy: 'pinned', pinReason: '' },
+    { releasePolicy: 'pinned', pinReason: '   ' }, { releasePolicy: 'pinned', pinReason: 1 },
+    { releasePolicy: 'invalid' }, { releasePolicy: null }, { releasePolicy: 'latest-stable', pinReason: 'unneeded' },
+  ]) {
+    const bad = structuredClone(data); Object.assign(bad[0], policy)
+    assert.match(validateData(bad).errors.join(), /releasePolicy\/pinReason/)
+  }
+  const good = structuredClone(data)
+  Object.assign(good[0], { releasePolicy: 'pinned', pinReason: 'Hardware testing pending' })
+  assert.deepEqual(validateData(good).errors, [])
+})
+
+test('invalid policy fails before any network request', async () => {
+  const result = await verifyProject({ ...project, releasePolicy: 'pinned' }, { fetcher: async () => { assert.fail('must not request') } })
+  assert.match(result.errors.join(), /INVALID_POLICY/)
+})
+
+test('latest 404 and rate limits fail without fallback to the configured tag', async () => {
+  for (const [status, headers, code] of [[404, {}, 'RELEASE_NOT_FOUND'], [429, {}, 'RATE_LIMIT'], [403, { 'x-ratelimit-remaining': '0' }, 'RATE_LIMIT'], [403, { 'retry-after': '60' }, 'RATE_LIMIT'], [403, {}, 'API_ACCESS']]) {
+    const urls = []
+    const result = await verifyProject(project, { fetcher: async (url) => { urls.push(url); return new Response('', { status, headers }) } })
+    assert.match(result.errors.join(), new RegExp(code))
+    assert.deepEqual(urls, ['https://api.github.com/repos/owner/repo/releases/latest'])
+  }
+})
+
+test('draft and prerelease responses never count as stable latest releases', async () => {
+  for (const [field, code] of [['draft', 'NOT_PUBLIC_RELEASE'], ['prerelease', 'NOT_STABLE_RELEASE']]) {
+    assert.match((await verifyProject(project, { fetcher: fetcher({ ...release, [field]: true }) })).errors.join(), new RegExp(code))
+  }
+})
+
+test('timeouts retry successfully, including a timeout while reading the body', async () => {
+  let calls = 0
+  const waits = []
+  const result = await verifyProject(project, {
+    wait: async (ms) => { waits.push(ms) },
+    fetcher: async (_url, { signal }) => {
+      assert.ok(signal instanceof AbortSignal)
+      calls++
+      if (calls === 1) throw new DOMException('test timeout', 'TimeoutError')
+      if (calls === 2) return { ok: true, json: async () => { throw new DOMException('body timeout', 'AbortError') } }
+      return new Response(JSON.stringify(release))
+    },
+  })
+  assert.deepEqual(result.errors, [])
+  assert.equal(calls, 3)
+  assert.deepEqual(waits, [500, 1000])
+})
+
+test('exhausted timeout, network and server retries are distinct and never expose tokens', async () => {
+  for (const code of ['TIMEOUT', 'NETWORK', 'API_SERVER', 'INVALID_RESPONSE']) {
+    let calls = 0
+    const result = await verifyProject(project, {
+      token: 'secret-test-token', wait: async () => {},
+      fetcher: async () => {
+        calls++
+        if (code === 'TIMEOUT') throw new DOMException('secret-test-token', 'TimeoutError')
+        if (code === 'NETWORK') throw new Error('secret-test-token')
+        return new Response(code === 'INVALID_RESPONSE' ? 'bad json' : '', { status: code === 'API_SERVER' ? 503 : 200 })
+      },
+    })
+    assert.equal(calls, 3)
+    assert.match(result.errors.join(), new RegExp(`^${code}:`))
+    assert.doesNotMatch(result.errors.join(), /secret-test-token|LATEST_RELEASE_DRIFT/)
+  }
+})
+
+test('malformed release metadata is an API response failure rather than a crash', async () => {
+  for (const bad of [{ ...release, assets: {} }, { ...release, published_at: null }, { ...release, tag_name: null }]) {
+    assert.match((await verifyProject(project, { fetcher: fetcher(bad) })).errors.join(), /INVALID_RESPONSE/)
+  }
 })

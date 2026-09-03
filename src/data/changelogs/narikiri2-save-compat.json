@@ -1,0 +1,22 @@
+{
+  "projectId": "narikiri2-save-compat",
+  "displayName": "나리키리 던전 2 저장 호환 복구",
+  "entries": [
+    {
+      "id": "narikiri2-save-compat-v0-5",
+      "version": "v0.5",
+      "date": "2026-09-03",
+      "title": "v0.5 — 실기 저장 호환 복구 도구 (소스 전용)",
+      "summary": "최초 K_FFR 한글판과 일본어 원본을 로컬에서 준비해 저장 관련 79바이트만 복원하는 도구입니다. 한글패치나 ROM 배포가 아닙니다.",
+      "changes": [
+        "입력 크기·SHA-256과 전체 출력 해시를 검증하고 기존 파일 덮어쓰기를 차단하는 Python 3.10+ 도구를 공개했습니다.",
+        "기존 번역·글꼴·ROM 크기는 유지하며 기존 v0.5 / Candidate A와 전체 바이트가 동일한 결과를 만듭니다.",
+        "소스·테스트·설명서만 배포하며 ROM·세이브·번역문·폰트·게임 코드 바이트·BPS/IPS는 포함하지 않습니다.",
+        "기존 검증본 동일성과 합성 검사 22개를 기록했습니다. mGBA 관찰과 GBARunner3 사용자 보고를 모든 실기·전체 게임 검증으로 확대하지 않습니다.",
+        "VBA-M 32 KiB 세이브는 별도 확인이 필요하며 공개 도구에는 세이브 변환 기능이 없습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.5",
+      "status": "release"
+    }
+  ]
+}

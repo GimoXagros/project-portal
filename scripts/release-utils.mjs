@@ -6,6 +6,14 @@ export function repositoryParts(repository) {
   return { owner: match[1], repo: match[2].replace(/\.git$/, '') }
 }
 
+export function releasePolicy(project) {
+  const policy = project.releasePolicy === undefined ? 'latest-stable' : project.releasePolicy
+  if (!['latest-stable', 'pinned'].includes(policy)) throw new Error('releasePolicy must be latest-stable or pinned')
+  if (policy === 'pinned' && (typeof project.pinReason !== 'string' || !project.pinReason.trim())) throw new Error('pinned releasePolicy requires a non-empty pinReason')
+  if (policy !== 'pinned' && project.pinReason !== undefined) throw new Error('pinReason is only allowed with pinned releasePolicy')
+  return policy
+}
+
 export function releaseIdentity(project) {
   const { owner, repo } = repositoryParts(project.repository)
   const prefix = `https://github.com/${owner}/${repo}/releases/tag/`
