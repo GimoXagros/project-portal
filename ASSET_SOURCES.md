@@ -1,6 +1,6 @@
 # 프로젝트 로고 출처
 
-사이트는 외부 이미지 hotlink를 사용하지 않습니다. 아래 원본은 출처 보존용으로 `assets-source/`에 저장하고, 공개 화면에서는 투명도를 유지한 lossless WebP 파생 파일을 사용합니다.
+사이트는 외부 이미지 hotlink를 사용하지 않습니다. 기존 세 프로젝트 원본은 출처 보존용으로 `assets-source/`에 저장하고, 공개 화면에서는 투명도를 유지한 lossless WebP 파생 파일을 사용합니다. 사용자 제공 나리키리 게임 표지는 아래와 같이 원본 JPG를 그대로 사용합니다.
 
 ## GameYob
 
@@ -40,6 +40,18 @@
 - 최적화: RGBA PNG 512×512, 38,554 bytes → lossless RGBA WebP 512×512, 16,326 bytes
 - Credits: 원본/Upstream `FluBBaOfWard/NitroSwan`, 커스텀 저장소 및 추가 작업 `GimoXagros/NitroSwan`
 - 라이선스: 원본 저장소의 고지 확인
+
+## 나리키리 던전 2 저장 호환 복구
+
+- 이미지 성격: 사용자가 카드·상세 페이지의 식별 이미지로 지정한 게임 표지
+- 공개 경로: `public/assets/projects/narikiri2-save-compat/logo.png`
+- 형식·크기: PNG, 559×559, 429697 bytes
+- SHA-256: `201dec8b94ae0553fe13f45e307b1e35f44c45f13cf8264d83fb6e799b8cbe27`
+- 참고 URL: <https://images.launchbox-app.com/r2_d1461334-0e09-4853-b0b5-0163f26f9f84.png>
+- 처리: 사용자가 현재 제공한 원본 바이트를 그대로 복사. 자르기·리사이즈·재인코딩·생성형 편집 없음.
+- 대체 텍스트: 사용자 제공 『테일즈 오브 더 월드: 나리키리 던전 2』 게임보이 어드밴스 표지 이미지
+- 라이선스 경계: 복구 도구의 MIT 라이선스는 게임 표지에 적용되지 않습니다.
+- 공식 관계: 원 게임 권리자의 승인·제휴 또는 공식 프로젝트임을 의미하지 않습니다. 게임 표지의 저작권·상표권은 해당 권리자에게 있습니다.
 
 ## 갱신 원칙
 

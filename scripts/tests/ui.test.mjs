@@ -45,3 +45,38 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
   assert.match(hook, /!window.IntersectionObserver \|\| media.matches/)
   assert.match(hook, /observer\.unobserve\(target\)/)
 })
+
+test('current projects derive the Hero date including the added source-only tool', async () => {
+  const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  const html = await render('Hero', { site: { description: 'test' }, projects })
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-03/)
+  assert.match(html, /현재 배포 중 · 4 PROJECTS/)
+  assert.equal(projects.length, 4)
+})
+
+test('NitroSwan shows r7 downloads, retained r6 history and known limitations', async () => {
+  const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  const project = projects.find((item) => item.id === 'nitroswan')
+  const changelog = JSON.parse(readFileSync(new URL('../../src/data/changelogs/nitroswan.json', import.meta.url), 'utf8'))
+  assert.deepEqual(changelog.entries.map((entry) => entry.version), ['v0.7.7-custom.r7', 'v0.7.7-custom.r6'])
+  const html = await render('ProjectDetail', { project, changelog })
+  assert.match(html, /일부 캐릭터 모션 깨짐 잔존/)
+  assert.match(html, /전수 검증한 것은 아님/)
+  for (const download of project.downloads) {
+    assert.match(download.url, /custom\.r7\//)
+    assert.ok(html.includes(download.url))
+    assert.ok(html.includes(download.sha256))
+  }
+  const timeline = await render('UpdateTimeline', { changelog })
+  assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
+})
+
+test('Narikiri source-only tool renders supplied art and save compatibility cautions', async () => {
+  const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  const project = projects.find((item) => item.id === 'narikiri2-save-compat')
+  const html = await render('ProjectDetail', { project })
+  assert.equal(project.type, 'tool')
+  for (const text of ['한글패치가 아닌', '32 KiB', '소스 전용', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  assert.match(html, /width="559" height="559"/)
+  assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|bps|ips)"/)
+})

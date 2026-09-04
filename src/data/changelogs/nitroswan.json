@@ -3,6 +3,22 @@
   "displayName": "NitroSwan Custom",
   "entries": [
     {
+      "id": "nitroswan-v0-7-7-custom-r7",
+      "version": "v0.7.7-custom.r7",
+      "date": "2026-09-02",
+      "title": "NitroSwan Custom v0.7.7-custom.r7",
+      "summary": "WSC 팔레트·배경 처리의 게임별 화이트리스트 의존성을 없애고 BG·OBJ 완료 세대 반영을 다듬은 릴리스입니다.",
+      "changes": [
+        "WSC palette/backdrop 처리를 게임명·checksum whitelist 없이 실제 컬러 하드웨어 쓰기 경로에 적용했습니다.",
+        "BG 문자 타일의 완료 프레임을 VBlank에서 반영하고 화면 전체 깨짐을 유발한 타일맵 3중 버퍼 실험을 제거했습니다.",
+        "4bpp 캐릭터 타일은 두 개의 16KB RAM 스냅샷으로 준비해 완료된 세대만 OBJ VRAM에 반영합니다. 변경 없는 세대에는 복사·전환을 생략합니다.",
+        "Python 회귀 검사 48개, 현지화·글꼴 커버리지, DS·DSi 빌드와 NDS 헤더·내장 배너 검증 범위를 기록했습니다.",
+        "DSpico 사용자 시험에서 캐릭터 모션 깨짐이 크게 줄었지만 일부가 남았습니다. 모든 게임·장면을 전수 검증한 것은 아닙니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r7",
+      "status": "release"
+    },
+    {
       "id": "nitroswan-v0-7-7-custom-r6",
       "version": "v0.7.7-custom.r6",
       "date": "2026-08-31",

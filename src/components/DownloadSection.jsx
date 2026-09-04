@@ -36,7 +36,7 @@ export default function DownloadSection({ project }) {
       {(item.parts || []).length > 0 && <div className="part-list"><p>분할 파일은 모든 파트를 받은 뒤 프로젝트 안내에 따라 결합해야 합니다.</p>{item.parts.map((part, partIndex) => <DownloadLink item={part} enabled={project.downloadEnabled} copied={copied} onCopy={copy} key={`${part.label}-${partIndex}`} />)}</div>}
     </div>)}</div>}
     <div className="external-actions">
-      {project.repository && <a href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> Custom repository <ExternalLink size={14} /></a>}
+      {project.repository && <a href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> {project.upstream?.url ? 'Custom repository' : 'Repository'} <ExternalLink size={14} /></a>}
       {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><Github size={17} /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
       {project.releaseUrl && <a href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> Releases <ExternalLink size={14} /></a>}
       {project.issuesUrl && <a href={project.issuesUrl} target="_blank" rel="noreferrer">Issues <ExternalLink size={14} /></a>}

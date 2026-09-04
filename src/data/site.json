@@ -1,8 +1,8 @@
 {
   "name": "GimoXagros Project Archive",
   "shortName": "GX",
-  "subtitle": "Nintendo DS·DSi 에뮬레이터와 커스텀 빌드 자료실",
-  "description": "Nintendo DS·DSi 환경을 위한 에뮬레이터, 호환 계층과 커스텀 빌드의 배포 정보·설치 방법·파일 무결성을 정리하는 개인 프로젝트 아카이브입니다.",
+  "subtitle": "Nintendo DS·DSi 커스텀 빌드와 GBA 저장 호환 도구 자료실",
+  "description": "Nintendo DS·DSi 에뮬레이터, 호환 계층·커스텀 빌드와 GBA 저장 호환 복구 도구의 배포 정보·설치 방법·파일 무결성을 정리하는 개인 프로젝트 아카이브입니다.",
   "authorName": "GimoXagros",
   "githubUrl": "https://github.com/GimoXagros",
   "repository": "https://github.com/GimoXagros/project-portal",
