@@ -8,7 +8,7 @@
 
 ## 변경 요약
 
-NitroSwan의 현재 표시·다운로드·주의사항을 r7로 갱신하고 r6 변경 기록은 그대로 보존했습니다. 나리키리 던전 2 저장 호환 복구 도구 v0.5를 소스 전용 `tool`로 추가했습니다. 사용자 제공 JPEG를 바이트 동일 복사하여 식별 이미지로 연결했습니다. 이미지에는 새 라이선스를 부여하지 않았습니다.
+NitroSwan의 현재 표시·다운로드·주의사항을 r7로 갱신하고 r6 변경 기록은 그대로 보존했습니다. 나리키리 던전 2 저장 호환 복구 도구 v0.5를 소스 전용 `tool`로 추가했습니다. 사용자가 현재 제공한 559×559 PNG를 바이트 동일 복사하여 식별 이미지로 연결했습니다. 재인코딩·크기 조절·자르기는 하지 않았고 이미지에는 새 라이선스를 부여하지 않았습니다.
 
 네 프로젝트 모두 `releasePolicy: latest-stable`입니다. GameYob와 GBARunner3는 이 정책 필드 외에 데이터가 동일함을 이전 main과 JSON 비교로 확인했습니다. NitroSwan의 repository, upstream, credits, license, branding과 기존 로고는 변경하지 않았습니다.
 
@@ -71,7 +71,7 @@ SHA-256 근거는 GitHub API digest입니다. 이번 포털 작업에서는 배�
 - DS·DS Lite/일반 DS-mode용 DS 파일과 DSi/3DS DSpico·Pico Loader 권장 DSi 파일을 이름까지 명시했습니다.
 - r7 changelog를 맨 앞에 추가했습니다. r6 항목은 이전 main의 JSON 객체와 전체 동일합니다. 남은 r6 문자열은 역사 기록과 이 검증 설명뿐이며 현재 다운로드에는 없습니다.
 - 나리키리: 한글패치가 아닌 로컬 도구, Python 3.10+, 정확한 최초 K_FFR 및 일본어 입력, 79바이트 복원, 기존 Candidate A와 동일한 출력, 세이브 백업·32 KiB 주의사항과 소스 전용 배포를 기록했습니다.
-- 원 게임·번역·글꼴·생성 ROM과 사용자 제공 게임 표지에 도구의 MIT를 적용하지 않았습니다. 표지는 500×500, 86569 bytes이며 원본과 SHA-256이 같습니다. 자세한 출처·권리 미확인 사항은 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 있습니다.
+- 원 게임·번역·글꼴·생성 ROM과 사용자 제공 게임 표지에 도구의 MIT를 적용하지 않았습니다. 표지는 PNG 559×559, 429697 bytes이며 사용자 현재 제공 원본과 SHA-256 `201dec8b94ae0553fe13f45e307b1e35f44c45f13cf8264d83fb6e799b8cbe27` 및 전체 바이트가 같습니다. 외부 링크는 출처 참고용일 뿐 사이트에서 hotlink하지 않습니다. 자세한 출처·권리 범위는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 있습니다.
 
 근거: [NitroSwan r7 검증 범위](https://github.com/GimoXagros/NitroSwan/blob/v0.7.7-custom.r7/Docs/ReleaseValidation-r7.md), [나리키리 v0.5 README](https://github.com/GimoXagros/narikiri2-save-compat/blob/v0.5/README.md), [나리키리 검증 기록](https://github.com/GimoXagros/narikiri2-save-compat/blob/v0.5/VERIFICATION.md), [도구 라이선스](https://github.com/GimoXagros/narikiri2-save-compat/blob/v0.5/LICENSE).
 
@@ -135,7 +135,7 @@ Windows, Node.js v24.19.0, npm 11.19.1 환경에서 실제 npm CLI를 실행했�
 1. `src/data/projects.json`
 2. `src/data/changelogs/nitroswan.json`
 3. `src/data/changelogs/narikiri2-save-compat.json` (추가)
-4. `public/assets/projects/narikiri2-save-compat/logo.jpg` (추가)
+4. `public/assets/projects/narikiri2-save-compat/logo.png` (추가, 사용자 현재 제공 원본 바이트 그대로)
 5. `src/data/site.json`
 6. `index.html`
 7. `src/components/Hero.jsx`
@@ -150,6 +150,21 @@ Windows, Node.js v24.19.0, npm 11.19.1 환경에서 실제 npm CLI를 실행했�
 16. `README.md`
 17. `ASSET_SOURCES.md`
 18. `QA_RELEASE_REFRESH_20260903.md` (이 기록)
+
+## 2026-09-04 사용자 지정 PNG 정정 후 재검증
+
+- 원본: 사용자가 현재 대화에서 직접 제공한 PNG 파일
+- 공개 경로: `public/assets/projects/narikiri2-save-compat/logo.png`
+- PNG RGB, 559×559, 429697 bytes, SHA-256 `201dec8b94ae0553fe13f45e307b1e35f44c45f13cf8264d83fb6e799b8cbe27`.
+- 원본과 공개 파일의 바이너리 전체 비교 결과 차이 없음. 자르기·리사이즈·재인코딩·색상 변경을 하지 않았습니다.
+- 기존 JPEG 파일과 모든 참조·과거 JPEG 메타데이터를 제거했습니다.
+- 외부 참고 URL은 `ASSET_SOURCES.md`의 출처 기록에만 남기고 사이트 런타임에서는 사용하지 않습니다.
+- Node.js v22.23.2 / npm 10.9.8에서 `npm ci`, `npm run validate:data`, `npm test`, `npm run verify:releases`, `npm run lint`, `npm run build`를 다시 실행했습니다. 데이터 4개·changelog 4개·featured 3개 검증, 테스트 27개 통과, 네 프로젝트 원격 최신 정식 Release 검증, lint와 Vite 빌드가 모두 성공했습니다.
+- 빌드 산출물: HTML 2.38 kB, CSS 51.46 kB(gzip 10.71), JS 263.27 kB(gzip 82.77).
+- 격리된 Chromium에서 5 viewport × 라이트/다크 × 일반/동작 감소 × 8 route, 총 160개 조합을 검사했습니다. 문서 가로 넘침, 깨진 이미지, console error/warning이 없고 동작 감소 환경의 실행 애니메이션은 0개였습니다.
+- 신규 프로젝트 카드·검색·도구 필터·플랫폼 표시·featured 제외, 이미지 559×559 및 `object-fit: contain`, 상세 다운로드·SHA·저장소·Release·Issues, v0.5 changelog 단일 표시, 32 KiB 제한, 모바일 메뉴·뒤로가기·앞으로가기·새로고침을 확인했습니다.
+- SHA 복사 동작은 브라우저 Clipboard API를 격리된 테스트 대역으로 제공하여 정확한 문자열 전달과 `복사됨` 상태를 확인했습니다. 운영체제 클립보드와의 통합 자체는 이번 로컬 자동화 범위에서 미검증입니다.
+- 카드와 상세 화면을 1440×900 라이트 및 390×844 다크에서 캡처해 원본 비율 유지와 텍스트·주요 그림의 비가림을 시각 확인했습니다. 나리키리 전용 CSS 예외는 필요하지 않았습니다.
 
 ## 배포 및 남은 제한
 

@@ -177,10 +177,10 @@
     "coverImage": "",
     "coverTone": "olive",
     "branding": {
-      "logo": "assets/projects/narikiri2-save-compat/logo.jpg",
-      "logoAlt": "사용자 제공 테일즈 오브 더 월드 나리키리 던전 2 게임 표지 이미지",
-      "width": 500,
-      "height": 500,
+      "logo": "assets/projects/narikiri2-save-compat/logo.png",
+      "logoAlt": "사용자 제공 『테일즈 오브 더 월드: 나리키리 던전 2』 게임보이 어드밴스 표지 이미지",
+      "width": 559,
+      "height": 559,
       "accent": "#38764d",
       "accentSoft": "#e0efda",
       "accentDark": "#a8d891"
@@ -195,7 +195,7 @@
     "credits": [
       { "role": "복구 도구·문서", "name": "GimoXagros/narikiri2-save-compat", "url": "https://github.com/GimoXagros/narikiri2-save-compat" },
       "기존 한글판: K_FFR (도구에 번역·글꼴 미포함)",
-      "게임 표지: 사용자 제공 이미지 · 원 게임 권리자 권리 유지"
+      "게임 표지: 사용자 제공 이미지 · 원 게임 권리자 권리 유지 · 공식 승인·제휴를 의미하지 않음"
     ],
     "license": "새 도구·테스트·문서 MIT / 원 게임·기존 한글패치·표지 이미지 제외",
     "fileSize": "소스 전용 40537 bytes",
