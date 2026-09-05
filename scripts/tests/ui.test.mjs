@@ -46,28 +46,30 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
   assert.match(hook, /observer\.unobserve\(target\)/)
 })
 
-test('current projects derive the Hero date including the added source-only tool', async () => {
+test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-03/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-05/)
+  assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.match(html, /현재 배포 중 · 4 PROJECTS/)
   assert.equal(projects.length, 4)
 })
 
-test('NitroSwan shows r7 downloads, retained r6 history and known limitations', async () => {
+test('NitroSwan shows r8 downloads, retained history and unverified limitations', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'nitroswan')
   const changelog = JSON.parse(readFileSync(new URL('../../src/data/changelogs/nitroswan.json', import.meta.url), 'utf8'))
-  assert.deepEqual(changelog.entries.map((entry) => entry.version), ['v0.7.7-custom.r7', 'v0.7.7-custom.r6'])
+  assert.deepEqual(changelog.entries.map((entry) => entry.version), ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6'])
   const html = await render('ProjectDetail', { project, changelog })
-  assert.match(html, /일부 캐릭터 모션 깨짐 잔존/)
-  assert.match(html, /전수 검증한 것은 아님/)
+  assert.match(html, /캐릭터 모션 깨짐의 완전한 해결을 의미하지 않습니다/)
+  assert.match(html, /아직 수행되지 않았습니다/)
   for (const download of project.downloads) {
-    assert.match(download.url, /custom\.r7\//)
+    assert.match(download.url, /custom\.r8\//)
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
   }
   const timeline = await render('UpdateTimeline', { changelog })
+  assert.ok(timeline.indexOf('v0.7.7-custom.r8') < timeline.indexOf('v0.7.7-custom.r7'))
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
