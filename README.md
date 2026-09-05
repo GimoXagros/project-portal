@@ -57,7 +57,7 @@ project-portal/
 ├─ .github/workflows/deploy.yml
 ├─ assets-source/projects/       # 출처 보존용 원본 로고 PNG
 ├─ public/
-│  ├─ assets/projects/           # 공개 로고 WebP / 사용자 제공 원본 JPG
+│  ├─ assets/projects/           # 공개 로고 WebP / 사용자 제공 원본 PNG
 │  └─ ...                        # 404, favicon, OG, robots, sitemap
 ├─ scripts/
 │  ├─ validate-data.mjs         # 오프라인 정합성 검사
@@ -186,7 +186,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 사용 권리를 확인한 이미지를 `public/images/projects/<id>/` 아래에 두고 `coverImage` 또는 `screenshots[].src`에 `images/projects/<id>/파일명.webp`처럼 기록합니다. 실제 파일이 없으면 검증이 실패합니다. 게임 이미지와 스크린샷을 임의로 수집하거나 프로젝트 자체 저작물로 표시하지 않습니다.
 
-이번 나리키리 항목은 사용자가 직접 제출하고 사용을 요청한 게임 표지 JPG를 예외적으로 식별 이미지로 연결했습니다. 원본을 재인코딩·자르기·생성형 편집하지 않았습니다. 이는 공식 프로젝트 로고나 권리자의 승인을 뜻하지 않으며, 별도 이용 허락·라이선스는 제출되지 않았습니다. 게임 표지는 도구의 MIT 라이선스 적용 대상이 아닙니다. 공개 이용에 관한 권리 확인 책임과 출처는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 분리해 기록합니다.
+이번 나리키리 항목은 사용자가 직접 제출하고 사용을 요청한 PNG를 예외적으로 프로젝트 식별 이미지로 연결했습니다. 원본을 재인코딩·자르기·생성형 편집하지 않았습니다. 이는 공식 프로젝트 로고나 권리자의 승인을 뜻하지 않으며, 별도 이용 허락·라이선스는 제출되지 않았습니다. 이미지는 도구의 MIT 라이선스 적용 대상이 아닙니다. 공개 이용에 관한 권리 확인 책임과 출처는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 분리해 기록합니다.
 
 프로젝트 로고는 `public/assets/projects/<id>/logo.webp`에 두고 `branding.logo`로 연결합니다. 비율과 투명도를 유지하고 `logoAlt`, `width`, `height`를 반드시 기록합니다. 원본 출처와 최적화 결과는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 남깁니다. 외부 서버 장애·추적·GitHub 호출 제한과 Pages 하위 경로 문제를 피하기 위해 이미지 hotlink는 사용하지 않습니다. 모든 로컬 자산은 `assetUrl()`이 `import.meta.env.BASE_URL`을 붙여 해석합니다.
 

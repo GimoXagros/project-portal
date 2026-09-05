@@ -79,6 +79,6 @@ test('Narikiri source-only tool renders supplied art and save compatibility caut
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'tool')
   for (const text of ['한글패치가 아닌', '32 KiB', '소스 전용', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
-  assert.match(html, /width="559" height="559"/)
+  assert.match(html, /width="1254" height="1254"/)
   assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|bps|ips)"/)
 })
