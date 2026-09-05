@@ -3,6 +3,23 @@
   "displayName": "NitroSwan Custom",
   "entries": [
     {
+      "id": "nitroswan-v0-7-7-custom-r8",
+      "version": "v0.7.7-custom.r8",
+      "date": "2026-09-05",
+      "title": "NitroSwan Custom v0.7.7-custom.r8",
+      "summary": "렌더러 콜백 ABI와 reset·ROM 변경·save-state 복원 경계의 완료 프레임 publication을 보강한 안전성 릴리스입니다.",
+      "changes": [
+        "palette·video-register·frame-complete·restore·VBlank의 assembly→C 콜백에서 AAPCS stack alignment와 register 보존을 보강했습니다.",
+        "reset·ROM 변경·save-state 복원 중 renderer publication을 멈추고 완전한 복원 세대만 다시 게시합니다.",
+        "한 완료 WS 프레임의 OAM, OBJ tiles·palette, BG bank와 palette-raster 상태를 같은 triple-buffered descriptor에 묶습니다.",
+        "OBJ 16KB 복사는 dirty generation에서만 수행하고 seed와 publication metric을 분리했습니다.",
+        "Python 회귀 검사 76개, host C RTC·DSpico cache 검사, DS·DSi 빌드와 ABI·NDS 구조 검증을 기록했습니다.",
+        "이번 버전은 캐릭터 모션의 완전한 수정이 아닙니다. r8의 melonDS 장면 매트릭스와 DSpico 게임플레이·오디오·입력·저장·pacing 실기 검증은 아직 수행되지 않았습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8",
+      "status": "release"
+    },
+    {
       "id": "nitroswan-v0-7-7-custom-r7",
       "version": "v0.7.7-custom.r7",
       "date": "2026-09-02",

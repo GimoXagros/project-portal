@@ -6,9 +6,9 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 저장 호환 복구 �
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.9-ko`, GBARunner3 Custom `custom-v0.1.1`, NitroSwan Custom `v0.7.7-custom.r7`, 나리키리 던전 2 저장 호환 복구 도구 `v0.5` 네 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.2`, NitroSwan Custom `v0.7.7-custom.r8`, 나리키리 던전 2 저장 호환 복구 도구 `v0.5` 네 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
-NitroSwan r7은 WSC 팔레트·배경 및 BG·OBJ 완료 세대 처리를 개선했지만 일부 캐릭터 모션 깨짐이 남아 있습니다. 나리키리 도구는 한글패치가 아닌 **소스 전용 로컬 저장 호환 복구 도구**이며, 정확한 두 입력 ROM은 사용자가 준비해야 합니다. 기존 번역·글꼴·ROM·세이브·BPS/IPS는 배포하지 않습니다. 상세한 근거와 검증 범위는 [2026-09-04 갱신 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
+2026-09-05 릴리스 갱신은 GameYob의 상태 파일·실험적 SGB CPU·NiFi 방어, GBARunner3의 high-ROM Thumb/JIT 캐시 수정, NitroSwan의 renderer-safety 보강을 반영합니다. 각 릴리스의 미검증 범위와 알려진 제한은 상세 화면에 함께 기록했습니다. 나리키리 도구는 한글패치가 아닌 **소스 전용 로컬 저장 호환 복구 도구**이며, 정확한 두 입력 ROM은 사용자가 준비해야 합니다. 기존 번역·글꼴·ROM·세이브·BPS/IPS는 배포하지 않습니다. 근거와 검증 범위는 [2026-09-05 갱신 기록](QA_RELEASE_REFRESH_20260905.md)과 [나리키리 등록 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
 
 디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
 
@@ -48,7 +48,7 @@ npm run preview
 
 `releasePolicy`는 `latest-stable`(생략 시 기본값) 또는 `pinned`만 허용합니다. 현재 네 프로젝트는 모두 `latest-stable`이며 최신 응답의 태그가 다르면 `LATEST_RELEASE_DRIFT: configured="…" latest="…"`로 실패합니다. draft/prerelease 응답도 실패하며, 최신 API 실패 시 예전 태그로 우회하지 않습니다. 의도적으로 이전 버전을 유지하려면 `"releasePolicy": "pinned"`와 비어 있지 않은 문자열 `pinReason`을 함께 기록하세요. 이 경우에만 `/releases/tags/{tag}`를 검증해 최신 태그 차이를 허용합니다. `pinReason`은 `pinned`에서만 허용됩니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
 
-날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 이번 추가 요청의 나리키리 v0.5는 UTC 2026-09-03 15:03:10(한국시간 9월 4일 00:03:10) 공개이므로, 기존 세 프로젝트의 최신 날짜 9월 2일보다 뒤인 **2026-09-03**이 홈에 표시됩니다.
+날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. GameYob v0.5.10, GBARunner3 custom-v0.1.2와 NitroSwan r8의 API 공개일이 모두 2026-09-05이므로 홈의 최근 업데이트는 **2026-09-05**로 표시됩니다.
 
 ## 폴더 구조
 
