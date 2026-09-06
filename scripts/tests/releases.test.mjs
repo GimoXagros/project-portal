@@ -8,6 +8,15 @@ import { validateData } from '../validate-data.mjs'
 
 const project = { id: 'test', repository: 'https://github.com/owner/repo', version: 'v1.0.0', releaseUrl: 'https://github.com/owner/repo/releases/tag/v1.0.0', releaseDate: '2026-09-01', downloads: [{ filename: 'release.zip', size: '42 bytes', sha256: 'a'.repeat(64), url: 'https://github.com/owner/repo/releases/download/v1.0.0/release.zip' }] }
 const release = { tag_name: project.version, html_url: project.releaseUrl, published_at: '2026-09-01T23:30:00Z', draft: false, prerelease: false, assets: [{ name: 'release.zip', size: 42, browser_download_url: project.downloads[0].url, digest: 'sha256:' + 'A'.repeat(64) }] }
+const previewProject = {
+  ...project,
+  prerelease: {
+    title: 'v1.1.0-rc1 preview', version: 'v1.1.0-rc1', releasePolicy: 'latest-prerelease', releaseDate: '2026-09-02',
+    releaseUrl: 'https://github.com/owner/repo/releases/tag/v1.1.0-rc1', summary: 'Preview summary', notes: ['Preview caution'], downloadEnabled: true,
+    downloads: [{ filename: 'preview.zip', size: '84 bytes', sha256: 'b'.repeat(64), url: 'https://github.com/owner/repo/releases/download/v1.1.0-rc1/preview.zip' }],
+  },
+}
+const prerelease = { tag_name: 'v1.1.0-rc1', html_url: previewProject.prerelease.releaseUrl, published_at: '2026-09-02T12:00:00Z', draft: false, prerelease: true, assets: [{ name: 'preview.zip', size: 84, browser_download_url: previewProject.prerelease.downloads[0].url, digest: 'sha256:' + 'B'.repeat(64) }] }
 const fetcher = (data = release) => async () => new Response(JSON.stringify(data), { status: 200 })
 
 test('calendar dates are strict and timezone independent', () => {
@@ -30,6 +39,22 @@ test('repository and tag reject unsafe or ambiguous identities', () => {
 })
 test('stable release metadata and case-insensitive digest match', async () => {
   assert.deepEqual((await verifyProject(project, { fetcher: fetcher() })).errors, [])
+})
+test('stable and latest prerelease channels are verified independently', async () => {
+  const urls = []
+  const result = await verifyProject(previewProject, { fetcher: async (url) => {
+    urls.push(url)
+    return new Response(JSON.stringify(url.endsWith('/latest') ? release : [{ ...prerelease, tag_name: 'v1.0.1-rc1', published_at: '2026-08-31T12:00:00Z' }, prerelease]))
+  } })
+  assert.deepEqual(result.errors, [])
+  assert.deepEqual(urls, ['https://api.github.com/repos/owner/repo/releases/latest', 'https://api.github.com/repos/owner/repo/releases?per_page=100'])
+})
+test('latest prerelease drift and channel mismatches fail explicitly', async () => {
+  const newer = { ...prerelease, tag_name: 'v1.2.0-rc1' }
+  const drift = await verifyProject(previewProject, { fetcher: async (url) => new Response(JSON.stringify(url.endsWith('/latest') ? release : [newer])) })
+  assert.match(drift.errors.join(), /LATEST_PRERELEASE_DRIFT/)
+  const stableFlag = await verifyProject(previewProject, { fetcher: async (url) => new Response(JSON.stringify(url.endsWith('/latest') ? release : [{ ...prerelease, prerelease: false }])) })
+  assert.match(stableFlag.errors.join(), /RELEASE_NOT_FOUND/)
 })
 test('digest unavailable is explicit, but malformed local SHA still fails', async () => {
   const data = structuredClone(release); delete data.assets[0].digest
@@ -119,6 +144,21 @@ test('complete static validator rejects invalid policies and missing or misplace
   const good = structuredClone(data)
   Object.assign(good[0], { releasePolicy: 'pinned', pinReason: 'Hardware testing pending' })
   assert.deepEqual(validateData(good).errors, [])
+  const previewIndex = data.findIndex((item) => item.prerelease)
+  const badPreview = structuredClone(data)
+  badPreview[previewIndex].prerelease.releasePolicy = 'latest-stable'
+  assert.match(validateData(badPreview).errors.join(), /prerelease\.releasePolicy/)
+
+  const malformedPreview = structuredClone(data)
+  malformedPreview[previewIndex].prerelease = []
+  assert.match(validateData(malformedPreview).errors.join(), /prerelease.*object/)
+
+  const patcherIndex = data.findIndex((item) => item.prerelease?.webPatcher)
+  const badPatcher = structuredClone(data)
+  badPatcher[patcherIndex].prerelease.webPatcher.engineVersion = 'latest'
+  badPatcher[patcherIndex].prerelease.webPatcher.patch.sha256 = '0'.repeat(64)
+  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.engineVersion/)
+  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.patch\.sha256/)
 })
 
 test('invalid policy fails before any network request', async () => {

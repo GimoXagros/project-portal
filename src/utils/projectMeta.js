@@ -30,10 +30,14 @@ export function getProjectSearchText(project) {
   ].filter(Boolean).join(' ').toLocaleLowerCase('ko')
 }
 
+export function hasReleaseDownload(release) {
+  if (!release || release.downloadEnabled === false) return false
+  if (release.downloadUrl) return true
+  return (release.downloads || []).some((item) => item.url || (item.parts || []).some((part) => part.url))
+}
+
 export function hasDownload(project) {
-  if (!project.downloadEnabled) return false
-  if (project.downloadUrl) return true
-  return (project.downloads || []).some((item) => item.url || (item.parts || []).some((part) => part.url))
+  return hasReleaseDownload(project) || hasReleaseDownload(project?.prerelease)
 }
 
 export function assetUrl(path) {

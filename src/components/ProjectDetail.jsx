@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowUpRight, CalendarDays, Download, Github, PackageOpen, Tag } from 'lucide-react'
 import DownloadSection from './DownloadSection'
+import BrowserPatcher from './BrowserPatcher'
 import HashInfo from './HashInfo'
 import ProjectLogo from './ProjectLogo'
 import ScreenshotGallery from './ScreenshotGallery'
@@ -26,7 +27,8 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
           <p className="detail-subtitle">{project.subtitle}</p>
           <div className="detail-actions">
             {project.repository && <a className="button primary" href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> GitHub 저장소</a>}
-            {project.releaseUrl && <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> Releases</a>}
+            {project.releaseUrl && <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 정식 릴리스</a>}
+            {project.prerelease?.releaseUrl && <a className="button preview" href={project.prerelease.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 프리릴리즈 {project.prerelease.version}</a>}
             <button className="button ghost" type="button" onClick={() => document.querySelector('#download')?.scrollIntoView()}><Download size={17} /> 다운로드</button>
           </div>
         </div>
@@ -34,6 +36,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
       <dl className="detail-facts">
         <div><dt>상태</dt><dd>{statusLabels[project.status] || project.status}</dd></div>
         <div><dt>버전</dt><dd>{project.version || '미정'}</dd></div>
+        {project.prerelease && <div><dt>최신 프리릴리즈</dt><dd>{project.prerelease.version}</dd></div>}
         <div><dt>플랫폼</dt><dd>{(project.platform || []).join(' · ') || '미정'}</dd></div>
         <div><dt>배포일</dt><dd>{project.releaseDate || '미정'}</dd></div>
       </dl>
@@ -43,6 +46,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
         <section className="detail-section intro-section"><div className="detail-section-title"><span>OVERVIEW</span><h2>프로젝트 소개</h2></div><p className="lead-description">{project.description}</p></section>
         <ScreenshotGallery screenshots={project.screenshots} />
         <HashInfo project={project} />
+        <BrowserPatcher project={project} />
         <DownloadSection project={project} />
         {project.installGuide?.length > 0 && <section className="detail-section"><div className="detail-section-title"><span>INSTALLATION</span><h2>설치 안내</h2></div><ol className="install-steps">{project.installGuide.map((step, index) => <li key={`${step}-${index}`}><span>{String(index + 1).padStart(2, '0')}</span><p>{step}</p></li>)}</ol></section>}
         <section className="detail-section"><div className="detail-section-title"><span>COMPATIBILITY</span><h2>호환성 및 주의사항</h2></div><div className="info-grid"><ListBlock title="주요 특징" items={project.features} /><ListBlock title="수정·작업 범위" items={project.scope} /><ListBlock title="요구 사항" items={project.requirements} /><ListBlock title="호환성" items={project.compatibility} /><ListBlock title="반드시 확인하세요" items={project.notes} emphasis /></div></section>

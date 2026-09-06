@@ -67,6 +67,9 @@ body,.site-shell,.topbar,.mobile-nav,.project-card,.latest-update-card,.detail-s
 :root[data-theme='dark'] .status-beta { color: #e0b947; }
 :root[data-theme='dark'] .status-planned { color: #c3badc; }
 :root[data-theme='dark'] .update-meta b { color: var(--paper-soft); }
+:root[data-theme='dark'] :is(.project-prerelease-line > span,.update-card-meta b,.update-meta .prerelease-badge) { color: #ffe5a3; background: color-mix(in srgb,var(--signal) 18%,var(--paper-strong)); }
+:root[data-theme='dark'] .button.preview { color: #fff0bf; background: color-mix(in srgb,var(--signal) 18%,var(--paper-strong)); }
+:root[data-theme='dark'] .prerelease-callout .download-state { color: #f2cf75; }
 @media (min-width: 1025px) { .mobile-nav { display: none; } }
 @media (max-width: 768px) {
   .motion-ready .hero::before,.motion-ready .hero-scrap-decor { animation: none; }

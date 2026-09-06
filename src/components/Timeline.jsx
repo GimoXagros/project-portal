@@ -12,7 +12,7 @@ export default function Timeline({ updates, projects }) {
       if (!project) return null
       return <article className="latest-update-card project-branded" style={projectBrandStyle(project)} key={update.projectId}>
         <ProjectLogo project={project} context="update" />
-        <div><div className="update-card-meta"><time dateTime={update.date}>{update.date}</time><code>{update.version}</code></div><h3>{project.title}</h3><p>{update.summary}</p><a href={`#/updates/${project.id}`}>업데이트 기록 <ArrowUpRight size={16} /></a></div>
+        <div><div className="update-card-meta"><time dateTime={update.date}>{update.date}</time><code>{update.version}</code>{update.status === 'prerelease' && <b>PRE-RELEASE</b>}</div><h3>{project.title}</h3><p>{update.summary}</p><a href={`#/updates/${project.id}`}>업데이트 기록 <ArrowUpRight size={16} /></a></div>
       </article>
     })}</div>
     <a className="all-updates-link" href="#/updates">프로젝트별 전체 업데이트 보기 <ArrowUpRight size={17} /></a>

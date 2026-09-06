@@ -1,6 +1,6 @@
 import { Check, Copy, Download, ExternalLink, FileArchive, Github, PackageOpen } from 'lucide-react'
 import { useState } from 'react'
-import { hasDownload } from '../utils/projectMeta'
+import { hasReleaseDownload } from '../utils/projectMeta'
 
 function DownloadLink({ item, enabled, copied, onCopy }) {
   const ready = enabled && Boolean(item.url)
@@ -11,10 +11,20 @@ function DownloadLink({ item, enabled, copied, onCopy }) {
   </div>
 }
 
+function ReleaseDownloadList({ release, copied, onCopy }) {
+  const downloads = release.downloads || []
+  if (!downloads.length) return null
+  return <div className="download-list">{downloads.map((item, index) => <div key={`${item.label}-${index}`}>
+    <DownloadLink item={item} enabled={release.downloadEnabled !== false} copied={copied} onCopy={onCopy} />
+    {(item.parts || []).length > 0 && <div className="part-list"><p>분할 파일은 모든 파트를 받은 뒤 프로젝트 안내에 따라 결합해야 합니다.</p>{item.parts.map((part, partIndex) => <DownloadLink item={part} enabled={release.downloadEnabled !== false} copied={copied} onCopy={onCopy} key={`${part.label}-${partIndex}`} />)}</div>}
+  </div>)}</div>
+}
+
 export default function DownloadSection({ project }) {
   const [copied, setCopied] = useState('')
-  const enabled = hasDownload(project)
-  const downloads = project.downloads || []
+  const enabled = hasReleaseDownload(project)
+  const preview = project.prerelease
+  const previewEnabled = hasReleaseDownload(preview)
   const copy = async (value) => {
     try {
       await navigator.clipboard.writeText(value)
@@ -27,18 +37,26 @@ export default function DownloadSection({ project }) {
 
   return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
     <div className="detail-section-title"><span>DOWNLOAD</span><h2 id="download-title">다운로드</h2></div>
+    {preview && <div className="prerelease-panel">
+      <div className={`download-callout prerelease-callout ${previewEnabled ? 'ready' : ''}`}>
+        <div><span className="download-state">PRE-RELEASE · {preview.releaseDate}</span><h3>{preview.version} 프리릴리즈</h3><p>{preview.summary}</p></div>
+        <a className="button preview" href={preview.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={18} /> 릴리스 노트</a>
+      </div>
+      {preview.notes?.length > 0 && <ul className="prerelease-notes">{preview.notes.map((note) => <li key={note}>{note}</li>)}</ul>}
+      <ReleaseDownloadList release={preview} copied={copied} onCopy={copy} />
+    </div>}
+    <div className={preview ? 'stable-release-panel' : ''}>
     <div className={`download-callout ${enabled ? 'ready' : ''}`}>
-      <div><span className="download-state">{enabled ? 'AVAILABLE' : 'NOT YET AVAILABLE'}</span><h3>{enabled ? '공식 배포 파일' : '배포 준비 중'}</h3><p>{enabled ? '확인된 고정 태그의 GitHub Releases 자산입니다.' : 'GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.'}</p></div>
+      <div><span className="download-state">{enabled ? 'STABLE' : 'NOT YET AVAILABLE'}</span><h3>{enabled ? `${project.version} 정식 릴리스` : '배포 준비 중'}</h3><p>{enabled ? '정식 채널의 GitHub Releases 자산입니다.' : 'GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.'}</p></div>
       {enabled && project.downloadUrl ? <a className="button primary" href={project.downloadUrl} target="_blank" rel="noreferrer"><Download size={18} /> 파일 받기</a> : !enabled && <button className="button primary" type="button" disabled><PackageOpen size={18} /> 배포 준비 중</button>}
     </div>
-    {downloads.length > 0 && <div className="download-list">{downloads.map((item, index) => <div key={`${item.label}-${index}`}>
-      <DownloadLink item={item} enabled={project.downloadEnabled} copied={copied} onCopy={copy} />
-      {(item.parts || []).length > 0 && <div className="part-list"><p>분할 파일은 모든 파트를 받은 뒤 프로젝트 안내에 따라 결합해야 합니다.</p>{item.parts.map((part, partIndex) => <DownloadLink item={part} enabled={project.downloadEnabled} copied={copied} onCopy={copy} key={`${part.label}-${partIndex}`} />)}</div>}
-    </div>)}</div>}
+    <ReleaseDownloadList release={project} copied={copied} onCopy={copy} />
+    </div>
     <div className="external-actions">
       {project.repository && <a href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> {project.upstream?.url ? 'Custom repository' : 'Repository'} <ExternalLink size={14} /></a>}
       {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><Github size={17} /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
-      {project.releaseUrl && <a href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> Releases <ExternalLink size={14} /></a>}
+      {project.releaseUrl && <a href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 정식 릴리스 <ExternalLink size={14} /></a>}
+      {preview?.releaseUrl && <a href={preview.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 프리릴리즈 {preview.version} <ExternalLink size={14} /></a>}
       {project.issuesUrl && <a href={project.issuesUrl} target="_blank" rel="noreferrer">Issues <ExternalLink size={14} /></a>}
     </div>
   </section>
