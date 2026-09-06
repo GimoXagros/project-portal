@@ -156,9 +156,17 @@ test('complete static validator rejects invalid policies and missing or misplace
   const patcherIndex = data.findIndex((item) => item.prerelease?.webPatcher)
   const badPatcher = structuredClone(data)
   badPatcher[patcherIndex].prerelease.webPatcher.engineVersion = 'latest'
-  badPatcher[patcherIndex].prerelease.webPatcher.patch.sha256 = '0'.repeat(64)
+  badPatcher[patcherIndex].prerelease.webPatcher.versions[0].patch.sha256 = '0'.repeat(64)
   assert.match(validateData(badPatcher).errors.join(), /webPatcher\.engineVersion/)
-  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.patch\.sha256/)
+  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.versions\[v0\.9a\]\.patch\.sha256/)
+
+  const duplicateVersion = structuredClone(data)
+  duplicateVersion[patcherIndex].prerelease.webPatcher.versions[1].version = duplicateVersion[patcherIndex].prerelease.webPatcher.versions[0].version
+  assert.match(validateData(duplicateVersion).errors.join(), /unique patch version/)
+
+  const missingDefault = structuredClone(data)
+  missingDefault[patcherIndex].prerelease.webPatcher.defaultVersion = 'v0.8'
+  assert.match(validateData(missingDefault).errors.join(), /defaultVersion/)
 })
 
 test('invalid policy fails before any network request', async () => {

@@ -44,7 +44,7 @@ npm run preview
 - `npm run check`: 정적 검증 → test → 원격 검증 → lint → build 순서로 전체 검사합니다. 각 단계와 build는 한 번만 수행합니다.
 - `npm test`: 날짜, 최신 릴리스 누락·고정 정책·정적 검증·원격 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
 
-나리키리 v0.9a 상세 페이지의 웹 패처는 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 원본·내장 패치·생성 결과의 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
+나리키리 상세 페이지의 웹 패처는 v0.9와 v0.9a를 선택할 수 있으며 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 기본값은 최신 v0.9a이고, 버전을 바꾸면 이전 입력과 결과를 폐기합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 선택 버전의 원본·내장 패치·생성 결과 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
 
 원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰과 내부 전송 오류 원문은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 요청·응답 본문 읽기를 포함해 15초 제한이며 네트워크/서버 오류는 최대 세 번 시도합니다. `RELEASE_NOT_FOUND`(404), `RATE_LIMIT`(호출 제한), `API_SERVER`(5xx), `TIMEOUT`, `NETWORK`, `INVALID_RESPONSE`, `API_ACCESS`를 데이터 불일치와 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
 

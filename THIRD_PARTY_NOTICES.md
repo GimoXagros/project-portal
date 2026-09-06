@@ -23,7 +23,14 @@ MIT License. The complete upstream license is retained at
 `public/vendor/rom-patcher-js/v3.2.1/adapter.js` is Project Portal integration
 code and is not an upstream RomPatcher.js file.
 
-## Narikiri Dungeon 2 v0.9a BPS
+## Narikiri Dungeon 2 v0.9 and v0.9a BPS
+
+`public/patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps`
+is the unchanged public prerelease asset from
+[`GimoXagros/narikiri2-save-compat` v0.9](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9).
+
+- Size: `145379 bytes`
+- SHA-256: `38cba8fbf0fee41af02859df1a607eda2dbedee17f37afbb05fac05316449866`
 
 `public/patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps`
 is the unchanged public prerelease asset from

@@ -77,36 +77,68 @@ export function validateData(projectsOverride) {
           if (webPatcher.engine !== 'RomPatcher.js') fieldError('prerelease.webPatcher.engine', webPatcher.engine, 'RomPatcher.js')
           if (webPatcher.engineVersion !== 'v3.2.1') fieldError('prerelease.webPatcher.engineVersion', webPatcher.engineVersion, 'v3.2.1')
           if (webPatcher.format !== 'BPS') fieldError('prerelease.webPatcher.format', webPatcher.format, 'BPS')
-          for (const part of ['source', 'patch', 'output']) {
-            const descriptor = webPatcher[part]
-            if (!descriptor || typeof descriptor !== 'object' || Array.isArray(descriptor)) {
-              fieldError(`prerelease.webPatcher.${part}`, descriptor, 'object')
-              continue
-            }
-            if (!Number.isSafeInteger(descriptor.size) || descriptor.size <= 0) fieldError(`prerelease.webPatcher.${part}.size`, descriptor.size, 'positive safe integer')
-            if (!sha256.test(descriptor.sha256 || '')) fieldError(`prerelease.webPatcher.${part}.sha256`, descriptor.sha256, '64 hexadecimal characters')
-          }
-          if (!webPatcher.source?.label?.trim()) fieldError('prerelease.webPatcher.source.label', webPatcher.source?.label, 'non-empty string')
-          for (const part of ['patch', 'output']) if (!/^[^\\/]+$/.test(webPatcher[part]?.filename || '')) fieldError(`prerelease.webPatcher.${part}.filename`, webPatcher[part]?.filename, 'plain filename without path separators')
-          if (!/\.bps$/i.test(webPatcher.patch?.filename || '')) fieldError('prerelease.webPatcher.patch.filename', webPatcher.patch?.filename, '*.bps')
-          if (!/\.gba$/i.test(webPatcher.output?.filename || '')) fieldError('prerelease.webPatcher.output.filename', webPatcher.output?.filename, '*.gba')
-          const patchPath = webPatcher.patch?.path
-          if (typeof patchPath !== 'string' || !/^patches\/[A-Za-z0-9._/-]+\.bps$/.test(patchPath) || patchPath.includes('..')) fieldError('prerelease.webPatcher.patch.path', patchPath, 'safe public patches/*.bps path')
+          if (typeof webPatcher.defaultVersion !== 'string' || !webPatcher.defaultVersion.trim()) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, 'non-empty string')
+          if (webPatcher.defaultVersion !== preview.version) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, `current prerelease version (${preview.version})`)
+          if (!Array.isArray(webPatcher.versions) || !webPatcher.versions.length) fieldError('prerelease.webPatcher.versions', webPatcher.versions, 'non-empty array')
           else {
-            const localPatch = join(root, 'public', ...patchPath.split('/'))
-            if (!existsSync(localPatch)) fieldError('prerelease.webPatcher.patch.path', patchPath, 'existing local patch file')
-            else {
-              const contents = readFileSync(localPatch)
-              const digest = createHash('sha256').update(contents).digest('hex')
-              if (contents.byteLength !== webPatcher.patch.size) fieldError('prerelease.webPatcher.patch.size', webPatcher.patch.size, contents.byteLength)
-              if (digest !== webPatcher.patch.sha256) fieldError('prerelease.webPatcher.patch.sha256', webPatcher.patch.sha256, digest)
+            const versionNames = new Set()
+            const patchPaths = new Set()
+            for (const [index, version] of webPatcher.versions.entries()) {
+              const name = version?.version || index
+              const base = `prerelease.webPatcher.versions[${name}]`
+              if (!version || typeof version !== 'object' || Array.isArray(version)) {
+                fieldError(base, version, 'object')
+                continue
+              }
+              for (const field of ['version', 'releaseDate', 'releaseUrl', 'title', 'summary']) if (typeof version[field] !== 'string' || !version[field].trim()) fieldError(`${base}.${field}`, version[field], 'non-empty string')
+              if (versionNames.has(version.version)) fieldError(`${base}.version`, version.version, 'unique patch version')
+              versionNames.add(version.version)
+              if (!isISODate(version.releaseDate)) fieldError(`${base}.releaseDate`, version.releaseDate, 'valid YYYY-MM-DD calendar date')
+              if (version.releaseDate > project.lastUpdated) fieldError(`${base}.releaseDate`, version.releaseDate, `<= lastUpdated (${project.lastUpdated})`)
+              const releaseRecord = { repository: project.repository, version: version.version, releaseUrl: version.releaseUrl }
+              try { releaseIdentity(releaseRecord) } catch (error) { fieldError(`${base}.releaseUrl`, version.releaseUrl, error.message) }
+              for (const part of ['source', 'patch', 'output']) {
+                const descriptor = version[part]
+                if (!descriptor || typeof descriptor !== 'object' || Array.isArray(descriptor)) {
+                  fieldError(`${base}.${part}`, descriptor, 'object')
+                  continue
+                }
+                if (!Number.isSafeInteger(descriptor.size) || descriptor.size <= 0) fieldError(`${base}.${part}.size`, descriptor.size, 'positive safe integer')
+                if (!sha256.test(descriptor.sha256 || '')) fieldError(`${base}.${part}.sha256`, descriptor.sha256, '64 hexadecimal characters')
+              }
+              if (!version.source?.label?.trim()) fieldError(`${base}.source.label`, version.source?.label, 'non-empty string')
+              for (const part of ['patch', 'output']) if (!/^[^\\/]+$/.test(version[part]?.filename || '')) fieldError(`${base}.${part}.filename`, version[part]?.filename, 'plain filename without path separators')
+              if (!/\.bps$/i.test(version.patch?.filename || '')) fieldError(`${base}.patch.filename`, version.patch?.filename, '*.bps')
+              if (!/\.gba$/i.test(version.output?.filename || '')) fieldError(`${base}.output.filename`, version.output?.filename, '*.gba')
+              try {
+                const expected = expectedAssetUrl(releaseRecord, version.patch?.filename)
+                if (version.patch?.url !== expected) fieldError(`${base}.patch.url`, version.patch?.url, expected)
+              } catch (error) { fieldError(`${base}.patch.url`, version.patch?.url, error.message) }
+              const patchPath = version.patch?.path
+              if (typeof patchPath !== 'string' || !/^patches\/[A-Za-z0-9._/-]+\.bps$/.test(patchPath) || patchPath.includes('..')) fieldError(`${base}.patch.path`, patchPath, 'safe public patches/*.bps path')
+              else if (patchPaths.has(patchPath)) fieldError(`${base}.patch.path`, patchPath, 'unique patch path')
+              else {
+                patchPaths.add(patchPath)
+                const localPatch = join(root, 'public', ...patchPath.split('/'))
+                if (!existsSync(localPatch)) fieldError(`${base}.patch.path`, patchPath, 'existing local patch file')
+                else {
+                  const contents = readFileSync(localPatch)
+                  const digest = createHash('sha256').update(contents).digest('hex')
+                  if (contents.byteLength !== version.patch.size) fieldError(`${base}.patch.size`, version.patch.size, contents.byteLength)
+                  if (digest !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, digest)
+                }
+              }
+              if (version.version === preview.version) {
+                const releasePatch = downloadItems(preview).find((item) => item.filename === version.patch?.filename)
+                if (!releasePatch) fieldError(`${base}.patch.filename`, version.patch?.filename, 'matching current prerelease download asset')
+                else {
+                  if (releasePatch.url !== version.patch.url) fieldError(`${base}.patch.url`, version.patch.url, releasePatch.url)
+                  if (releasePatch.sha256 !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, releasePatch.sha256)
+                  if (releasePatch.size !== `${version.patch.size} bytes`) fieldError(`${base}.patch.size`, version.patch.size, releasePatch.size)
+                }
+              }
             }
-          }
-          const releasePatch = downloadItems(preview).find((item) => item.filename === webPatcher.patch?.filename)
-          if (!releasePatch) fieldError('prerelease.webPatcher.patch.filename', webPatcher.patch?.filename, 'matching prerelease download asset')
-          else {
-            if (releasePatch.sha256 !== webPatcher.patch.sha256) fieldError('prerelease.webPatcher.patch.sha256', webPatcher.patch.sha256, releasePatch.sha256)
-            if (releasePatch.size !== `${webPatcher.patch.size} bytes`) fieldError('prerelease.webPatcher.patch.size', webPatcher.patch.size, releasePatch.size)
+            if (!versionNames.has(webPatcher.defaultVersion)) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, 'version present in versions')
           }
         }
       }
