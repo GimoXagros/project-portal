@@ -64,6 +64,7 @@
   .screenshot-grid { grid-template-columns: 1fr 1fr; }.screenshot-grid button:first-child { grid-column: 1 / -1; grid-row: auto; }.screenshot-grid button:first-child .screenshot-placeholder { min-height: 280px; }
   .info-grid { grid-template-columns: 1fr; }
   .download-callout { align-items: stretch; flex-direction: column; }.download-callout .button { width: 100%; }
+  .patcher-step { grid-template-columns: 40px minmax(0,1fr); }.patcher-step > :last-child { grid-column: 2; justify-self: start; }
   .detail-aside { grid-template-columns: 1fr; }.detail-aside > .chip-row { grid-column: auto; }
 }
 
@@ -98,6 +99,7 @@
   .install-steps li { grid-template-columns: 52px 1fr; }.install-steps p { padding: 16px; }
   .hash-list dd { align-items: stretch; flex-direction: column; }.hash-list button { align-self: flex-start; }
   .download-row { align-items: flex-start; flex-direction: column; }.download-row > span:last-child { width: 100%; justify-content: space-between; }
+  .patcher-step { grid-template-columns: 1fr; gap: 9px; padding: 18px; }.patcher-step > :last-child { grid-column: auto; width: 100%; justify-content: center; }.patcher-file-info div { grid-template-columns: 1fr; gap: 5px; }
   .download-hash { grid-template-columns: 1fr; }.download-hash button { justify-self: start; }
   .lightbox { padding: 74px 12px 12px; }.lightbox-close { right: 12px; }
 }

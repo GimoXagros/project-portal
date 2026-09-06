@@ -8,7 +8,7 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 저장 호환 복구 �
 
 현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.2`, NitroSwan Custom `v0.7.7-custom.r8`, 나리키리 던전 2 저장 호환 복구 도구 `v0.5` 네 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
-2026-09-05 릴리스 갱신은 GameYob의 상태 파일·실험적 SGB CPU·NiFi 방어, GBARunner3의 high-ROM Thumb/JIT 캐시 수정, NitroSwan의 renderer-safety 보강을 반영합니다. 각 릴리스의 미검증 범위와 알려진 제한은 상세 화면에 함께 기록했습니다. 나리키리 도구는 한글패치가 아닌 **소스 전용 로컬 저장 호환 복구 도구**이며, 정확한 두 입력 ROM은 사용자가 준비해야 합니다. 기존 번역·글꼴·ROM·세이브·BPS/IPS는 배포하지 않습니다. 근거와 검증 범위는 [2026-09-05 갱신 기록](QA_RELEASE_REFRESH_20260905.md)과 [나리키리 등록 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
+2026-09-05 릴리스 갱신은 GameYob의 상태 파일·실험적 SGB CPU·NiFi 방어, GBARunner3의 high-ROM Thumb/JIT 캐시 수정, NitroSwan의 renderer-safety 보강을 반영합니다. 각 릴리스의 미검증 범위와 알려진 제한은 상세 화면에 함께 기록했습니다. 나리키리 정식 v0.5는 **소스 전용 로컬 저장 호환 복구 도구**이고, 프리릴리즈 v0.9a는 저장 복구·달무리 글꼴·교정·전투 정보창 수정을 합친 공개 검증용 누적 BPS입니다. 원본 ROM과 생성 ROM은 배포하지 않습니다. 근거와 검증 범위는 [2026-09-05 갱신 기록](QA_RELEASE_REFRESH_20260905.md)과 [나리키리 등록 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
 
 디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
 
@@ -39,16 +39,18 @@ npm run preview
 
 빌드 결과는 `dist/`에 생성됩니다. 설치 이후 `validate:data`, `test`, `lint`, `build`는 오프라인으로 실행할 수 있습니다.
 
-- `npm run validate:data`: id, 실제 달력 날짜, 프로젝트/최신 changelog의 버전·URL·날짜 일치, 릴리스 정책과 고정 사유, 고정 태그 다운로드 URL, 중복 파일명, 바이트 크기 형식, SHA-256, 이미지 참조를 정적으로 검사합니다.
-- `npm run verify:releases`: **네트워크가 필요**합니다. 기본적으로 GitHub `/releases/latest`를 조회해 **최신 정식 버전 누락**과 날짜·URL·자산명·크기·digest를 비교합니다. 파일을 다운로드하거나 JSON을 자동 수정하지 않습니다.
+- `npm run validate:data`: id, 실제 달력 날짜, 정식·프리릴리즈 채널과 최신 changelog의 버전·URL·날짜 일치, 릴리스 정책과 고정 사유, 고정 태그 다운로드 URL, 중복 파일명, 바이트 크기 형식, SHA-256, 이미지 참조를 정적으로 검사합니다.
+- `npm run verify:releases`: **네트워크가 필요**합니다. GitHub `/releases/latest`로 최신 정식 릴리스를, 공개 릴리스 목록으로 최신 프리릴리즈를 조회해 날짜·URL·자산명·크기·digest를 비교합니다. 파일을 다운로드하거나 JSON을 자동 수정하지 않습니다.
 - `npm run check`: 정적 검증 → test → 원격 검증 → lint → build 순서로 전체 검사합니다. 각 단계와 build는 한 번만 수행합니다.
 - `npm test`: 날짜, 최신 릴리스 누락·고정 정책·정적 검증·원격 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
 
+나리키리 v0.9a 상세 페이지의 웹 패처는 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 원본·내장 패치·생성 결과의 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
+
 원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰과 내부 전송 오류 원문은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 요청·응답 본문 읽기를 포함해 15초 제한이며 네트워크/서버 오류는 최대 세 번 시도합니다. `RELEASE_NOT_FOUND`(404), `RATE_LIMIT`(호출 제한), `API_SERVER`(5xx), `TIMEOUT`, `NETWORK`, `INVALID_RESPONSE`, `API_ACCESS`를 데이터 불일치와 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
 
-`releasePolicy`는 `latest-stable`(생략 시 기본값) 또는 `pinned`만 허용합니다. 현재 네 프로젝트는 모두 `latest-stable`이며 최신 응답의 태그가 다르면 `LATEST_RELEASE_DRIFT: configured="…" latest="…"`로 실패합니다. draft/prerelease 응답도 실패하며, 최신 API 실패 시 예전 태그로 우회하지 않습니다. 의도적으로 이전 버전을 유지하려면 `"releasePolicy": "pinned"`와 비어 있지 않은 문자열 `pinReason`을 함께 기록하세요. 이 경우에만 `/releases/tags/{tag}`를 검증해 최신 태그 차이를 허용합니다. `pinReason`은 `pinned`에서만 허용됩니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
+정식 채널의 `releasePolicy`는 `latest-stable`(생략 시 기본값) 또는 `pinned`입니다. 선택적인 `prerelease` 객체는 `latest-prerelease` 또는 `pinned-prerelease`를 사용합니다. 최신 정책에서 구성 태그가 실제 최신 채널 태그와 다르면 각각 `LATEST_RELEASE_DRIFT` 또는 `LATEST_PRERELEASE_DRIFT`로 실패합니다. draft는 항상 거부하고 정식·프리릴리즈 표식이 서로 바뀐 경우도 실패합니다. 의도적으로 이전 버전을 유지하는 `pinned` 계열 정책에는 비어 있지 않은 `pinReason`이 필요합니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
 
-날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. GameYob v0.5.10, GBARunner3 custom-v0.1.2와 NitroSwan r8의 API 공개일이 모두 2026-09-05이므로 홈의 최근 업데이트는 **2026-09-05**로 표시됩니다.
+날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 나리키리 던전 2 v0.9a 프리릴리즈가 2026-09-06에 공개되어 홈의 최근 업데이트는 **2026-09-06**으로 표시됩니다.
 
 ## 폴더 구조
 
@@ -112,6 +114,25 @@ project-portal/
   "lastUpdated": "2026-09-01",
   "repository": "https://github.com/OWNER/REPOSITORY",
   "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/v1.0.0",
+  "prerelease": {
+    "title": "v1.1.0-rc1 시험 배포",
+    "version": "v1.1.0-rc1",
+    "releasePolicy": "latest-prerelease",
+    "releaseDate": "2026-09-02",
+    "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/v1.1.0-rc1",
+    "summary": "정식 배포 전 확인할 변경 사항",
+    "notes": ["실기 검증 범위와 남은 제한"],
+    "downloadEnabled": true,
+    "downloads": [
+      {
+        "label": "시험 배포 파일",
+        "filename": "release-rc1.zip",
+        "size": "123789 bytes",
+        "url": "https://github.com/OWNER/REPOSITORY/releases/download/v1.1.0-rc1/release-rc1.zip",
+        "sha256": "64자리 SHA-256"
+      }
+    ]
+  },
   "issuesUrl": "https://github.com/OWNER/REPOSITORY/issues",
   "upstream": {
     "name": "UPSTREAM_OWNER/REPOSITORY",

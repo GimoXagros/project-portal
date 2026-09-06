@@ -49,7 +49,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-05/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-06/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.match(html, /현재 배포 중 · 4 PROJECTS/)
   assert.equal(projects.length, 4)
@@ -73,12 +73,22 @@ test('NitroSwan shows r8 downloads, retained history and unverified limitations'
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri source-only tool renders supplied art and save compatibility cautions', async () => {
+test('Narikiri renders stable and prerelease channels with supplied art and cautions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'narikiri2-save-compat')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'tool')
-  for (const text of ['한글패치가 아닌', '32 KiB', '소스 전용', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  for (const text of ['정식 v0.5', '32 KiB', '소스 전용', 'logo.png', project.downloads[0].url, project.prerelease.version, project.prerelease.summary]) assert.ok(html.includes(text))
+  for (const download of project.prerelease.downloads) {
+    assert.ok(html.includes(download.url))
+    assert.ok(html.includes(download.sha256))
+  }
   assert.match(html, /width="1254" height="1254"/)
-  assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|bps|ips)"/)
+  assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|ips)"/)
+  assert.match(html, /PRE-RELEASE/)
+  for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
+  assert.match(html, /type="file"/)
+  assert.match(html, /disabled=""/)
+  assert.ok(html.includes(project.prerelease.webPatcher.output.filename))
+  assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9a\.gba"/)
 })

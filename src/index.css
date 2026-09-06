@@ -20,6 +20,7 @@
   --dark: #25282d;
   --dark-soft: #393d44;
   --success: #3e745d;
+  --danger: #a93f2f;
   --focus: #1f6feb;
   --shadow: 0 16px 34px rgba(69,53,34,.11);
   --shadow-soft: 0 8px 18px rgba(69,53,34,.08);
@@ -46,6 +47,7 @@
   --dark: #f0ede5;
   --dark-soft: #d0cdc6;
   --success: #74b394;
+  --danger: #ff927f;
   --shadow: 0 20px 44px rgba(7,5,4,.3);
   --shadow-soft: 0 9px 20px rgba(7,5,4,.22);
   color-scheme: dark;

@@ -8,10 +8,17 @@ export function repositoryParts(repository) {
 
 export function releasePolicy(project) {
   const policy = project.releasePolicy === undefined ? 'latest-stable' : project.releasePolicy
-  if (!['latest-stable', 'pinned'].includes(policy)) throw new Error('releasePolicy must be latest-stable or pinned')
-  if (policy === 'pinned' && (typeof project.pinReason !== 'string' || !project.pinReason.trim())) throw new Error('pinned releasePolicy requires a non-empty pinReason')
-  if (policy !== 'pinned' && project.pinReason !== undefined) throw new Error('pinReason is only allowed with pinned releasePolicy')
+  const allowed = ['latest-stable', 'pinned', 'latest-prerelease', 'pinned-prerelease']
+  if (!allowed.includes(policy)) throw new Error(`releasePolicy must be one of ${allowed.join(', ')}`)
+  const pinned = ['pinned', 'pinned-prerelease'].includes(policy)
+  if (pinned && (typeof project.pinReason !== 'string' || !project.pinReason.trim())) throw new Error(`${policy} releasePolicy requires a non-empty pinReason`)
+  if (!pinned && project.pinReason !== undefined) throw new Error('pinReason is only allowed with a pinned releasePolicy')
   return policy
+}
+
+export function prereleaseRecord(project) {
+  if (!project.prerelease || typeof project.prerelease !== 'object' || Array.isArray(project.prerelease)) return null
+  return { repository: project.repository, downloadUrl: '', ...project.prerelease }
 }
 
 export function releaseIdentity(project) {

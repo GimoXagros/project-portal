@@ -1,8 +1,9 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { basename, extname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { isISODate } from '../src/utils/dates.js'
-import { downloadItems, expectedAssetUrl, releaseIdentity, releasePolicy } from './release-utils.mjs'
+import { downloadItems, expectedAssetUrl, prereleaseRecord, releaseIdentity, releasePolicy } from './release-utils.mjs'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 // The CLI and offline tests use the same complete static validation path.
@@ -40,6 +41,76 @@ export function validateData(projectsOverride) {
         catch (error) { fieldError(`${field}.url`, item.url, error.message) }
       }
     }
+    const preview = prereleaseRecord(project)
+    if (project.prerelease !== undefined && !preview) fieldError('prerelease', project.prerelease, 'object with prerelease release metadata')
+    if (preview) {
+      for (const field of ['version', 'releaseDate', 'releaseUrl', 'title', 'summary']) {
+        if (typeof preview[field] !== 'string' || !preview[field].trim()) fieldError(`prerelease.${field}`, preview[field], 'non-empty string')
+      }
+      if (!isISODate(preview.releaseDate)) fieldError('prerelease.releaseDate', preview.releaseDate, 'valid YYYY-MM-DD calendar date')
+      if (preview.releaseDate > project.lastUpdated) fieldError('prerelease.releaseDate', preview.releaseDate, `<= lastUpdated (${project.lastUpdated})`)
+      try { releaseIdentity(preview) } catch (error) { fieldError('prerelease.repository/releaseUrl/version', [preview.repository, preview.releaseUrl, preview.version], error.message) }
+      try {
+        const policy = releasePolicy(preview)
+        if (!['latest-prerelease', 'pinned-prerelease'].includes(policy)) fieldError('prerelease.releasePolicy', policy, 'latest-prerelease or pinned-prerelease')
+      } catch (error) { fieldError('prerelease.releasePolicy/pinReason', [preview.releasePolicy, preview.pinReason], error.message) }
+      const previewFilenames = new Set()
+      for (const item of downloadItems(preview)) {
+        const field = `prerelease.downloads[${item.filename || 'missing'}]`
+        if (!item.filename || previewFilenames.has(item.filename)) fieldError(`${field}.filename`, item.filename, 'non-empty unique filename')
+        previewFilenames.add(item.filename)
+        if (item.size && !/^\d+ bytes$/.test(item.size)) fieldError(`${field}.size`, item.size, '<integer> bytes')
+        if (item.sha256 && !sha256.test(item.sha256)) fieldError(`${field}.sha256`, item.sha256, '64 hexadecimal characters')
+        if (item.url) {
+          try { const expected = expectedAssetUrl(preview, item.filename); if (item.url !== expected) fieldError(`${field}.url`, item.url, expected) }
+          catch (error) { fieldError(`${field}.url`, item.url, error.message) }
+        }
+      }
+      if (!downloadItems(preview).length) fieldError('prerelease.downloads', preview.downloads, 'at least one release asset')
+      if (!Array.isArray(preview.notes) || preview.notes.some((note) => typeof note !== 'string' || !note.trim())) fieldError('prerelease.notes', preview.notes, 'string array')
+
+      const webPatcher = preview.webPatcher
+      if (webPatcher !== undefined) {
+        const validObject = webPatcher && typeof webPatcher === 'object' && !Array.isArray(webPatcher)
+        if (!validObject) fieldError('prerelease.webPatcher', webPatcher, 'object')
+        else {
+          if (webPatcher.engine !== 'RomPatcher.js') fieldError('prerelease.webPatcher.engine', webPatcher.engine, 'RomPatcher.js')
+          if (webPatcher.engineVersion !== 'v3.2.1') fieldError('prerelease.webPatcher.engineVersion', webPatcher.engineVersion, 'v3.2.1')
+          if (webPatcher.format !== 'BPS') fieldError('prerelease.webPatcher.format', webPatcher.format, 'BPS')
+          for (const part of ['source', 'patch', 'output']) {
+            const descriptor = webPatcher[part]
+            if (!descriptor || typeof descriptor !== 'object' || Array.isArray(descriptor)) {
+              fieldError(`prerelease.webPatcher.${part}`, descriptor, 'object')
+              continue
+            }
+            if (!Number.isSafeInteger(descriptor.size) || descriptor.size <= 0) fieldError(`prerelease.webPatcher.${part}.size`, descriptor.size, 'positive safe integer')
+            if (!sha256.test(descriptor.sha256 || '')) fieldError(`prerelease.webPatcher.${part}.sha256`, descriptor.sha256, '64 hexadecimal characters')
+          }
+          if (!webPatcher.source?.label?.trim()) fieldError('prerelease.webPatcher.source.label', webPatcher.source?.label, 'non-empty string')
+          for (const part of ['patch', 'output']) if (!/^[^\\/]+$/.test(webPatcher[part]?.filename || '')) fieldError(`prerelease.webPatcher.${part}.filename`, webPatcher[part]?.filename, 'plain filename without path separators')
+          if (!/\.bps$/i.test(webPatcher.patch?.filename || '')) fieldError('prerelease.webPatcher.patch.filename', webPatcher.patch?.filename, '*.bps')
+          if (!/\.gba$/i.test(webPatcher.output?.filename || '')) fieldError('prerelease.webPatcher.output.filename', webPatcher.output?.filename, '*.gba')
+          const patchPath = webPatcher.patch?.path
+          if (typeof patchPath !== 'string' || !/^patches\/[A-Za-z0-9._/-]+\.bps$/.test(patchPath) || patchPath.includes('..')) fieldError('prerelease.webPatcher.patch.path', patchPath, 'safe public patches/*.bps path')
+          else {
+            const localPatch = join(root, 'public', ...patchPath.split('/'))
+            if (!existsSync(localPatch)) fieldError('prerelease.webPatcher.patch.path', patchPath, 'existing local patch file')
+            else {
+              const contents = readFileSync(localPatch)
+              const digest = createHash('sha256').update(contents).digest('hex')
+              if (contents.byteLength !== webPatcher.patch.size) fieldError('prerelease.webPatcher.patch.size', webPatcher.patch.size, contents.byteLength)
+              if (digest !== webPatcher.patch.sha256) fieldError('prerelease.webPatcher.patch.sha256', webPatcher.patch.sha256, digest)
+            }
+          }
+          const releasePatch = downloadItems(preview).find((item) => item.filename === webPatcher.patch?.filename)
+          if (!releasePatch) fieldError('prerelease.webPatcher.patch.filename', webPatcher.patch?.filename, 'matching prerelease download asset')
+          else {
+            if (releasePatch.sha256 !== webPatcher.patch.sha256) fieldError('prerelease.webPatcher.patch.sha256', webPatcher.patch.sha256, releasePatch.sha256)
+            if (releasePatch.size !== `${webPatcher.patch.size} bytes`) fieldError('prerelease.webPatcher.patch.size', webPatcher.patch.size, releasePatch.size)
+          }
+        }
+      }
+    }
     if (project.downloadUrl) {
       const prefix = project.releaseUrl?.replace('/releases/tag/', '/releases/download/') + '/'
       if (!project.downloadUrl.startsWith(prefix) || /[?#]/.test(project.downloadUrl)) fieldError('downloadUrl', project.downloadUrl, `${prefix}<asset filename>`)
@@ -64,7 +135,7 @@ export function validateData(projectsOverride) {
       if (project.downloadUrl && !remote.test(project.downloadUrl)) fail('src/data/projects.json', project.id, 'downloadUrl은 https://로 시작해야 합니다.')
     }
 
-    const hashValues = [project.originalHash, project.patchHash, project.patchedHash, ...(project.hashes || []).map((item) => item.value), ...downloads.map((item) => item.sha256)].filter(Boolean)
+    const hashValues = [project.originalHash, project.patchHash, project.patchedHash, ...(project.hashes || []).map((item) => item.value), ...downloads.map((item) => item.sha256), ...downloadItems(preview || {}).map((item) => item.sha256)].filter(Boolean)
     for (const value of hashValues) if (!sha256.test(value)) fail('src/data/projects.json', project.id, `SHA-256은 64자리 hexadecimal이어야 합니다: ${value}`)
 
     const imageRefs = [project.coverImage, branding?.logo, ...(project.screenshots || []).map((item) => item.src)].filter(Boolean)
@@ -92,9 +163,13 @@ export function validateData(projectsOverride) {
     const latest = changelog.entries?.[0]
     if (project?.version && !latest) fail(relativeFile, project.id, 'entries[0]: actual=missing expected=current project release')
     if (project && latest) {
-      for (const [field, entryField] of [['version', 'version'], ['releaseUrl', 'releaseUrl'], ['lastUpdated', 'date']]) {
-        if (project[field] !== latest[entryField]) fail(relativeFile, project.id, `entries[0].${entryField}: actual=${JSON.stringify(latest[entryField])} expected=projects.json.${field} ${JSON.stringify(project[field])}`)
+      const current = project.prerelease
+        ? { version: project.prerelease.version, releaseUrl: project.prerelease.releaseUrl, date: project.prerelease.releaseDate, status: 'prerelease' }
+        : { version: project.version, releaseUrl: project.releaseUrl, date: project.lastUpdated }
+      for (const field of ['version', 'releaseUrl', 'date']) {
+        if (current[field] !== latest[field]) fail(relativeFile, project.id, `entries[0].${field}: actual=${JSON.stringify(latest[field])} expected=current release ${JSON.stringify(current[field])}`)
       }
+      if (current.status && latest.status !== current.status) fail(relativeFile, project.id, `entries[0].status: actual=${JSON.stringify(latest.status)} expected=${JSON.stringify(current.status)}`)
     }
 
     const entryIds = new Set()
@@ -108,6 +183,7 @@ export function validateData(projectsOverride) {
       if (previousDate && entry.date > previousDate) fail(relativeFile, changelog.projectId, `${entry.id}.date: actual=${JSON.stringify(entry.date)} expected=<= ${previousDate} (entries 최신순)`)
       previousDate = entry.date
       if (entry.releaseUrl && !remote.test(entry.releaseUrl)) fail(relativeFile, changelog.projectId, `${entry.id}의 releaseUrl은 https://로 시작해야 합니다.`)
+      if (entry.status !== undefined && !['release', 'beta', 'prerelease'].includes(entry.status)) fail(relativeFile, changelog.projectId, `${entry.id}.status: actual=${JSON.stringify(entry.status)} expected=release, beta or prerelease`)
       if (!Array.isArray(entry.changes) || entry.changes.some((change) => typeof change !== 'string')) fail(relativeFile, changelog.projectId, `${entry.id}의 changes는 문자열 배열이어야 합니다.`)
     }
   }

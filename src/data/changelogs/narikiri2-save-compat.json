@@ -1,7 +1,22 @@
 {
   "projectId": "narikiri2-save-compat",
-  "displayName": "나리키리 던전 2 저장 호환 복구",
+  "displayName": "나리키리 던전 2 한국어 패치·저장 호환",
   "entries": [
+    {
+      "id": "narikiri2-save-compat-v0-9a",
+      "version": "v0.9a",
+      "date": "2026-09-06",
+      "title": "v0.9a — 대사·고유명사 및 전투 정보창 수정 공개 검증판",
+      "summary": "저장 복구에 달무리 글꼴, 대사·고유명사 교정과 전투 중 적 정보창 수정을 통합한 프리릴리즈입니다.",
+      "changes": [
+        "8,038개 고유 문자열을 개별 대조해 5,186개를 교정하고 주요 인물·직업 표기를 정리했습니다.",
+        "스펙터클즈·인스펙트 아이의 적 정보창 깨짐과 아이템 설명 9곳의 표시 잘림을 수정했습니다.",
+        "102개 자동 테스트와 별도 체크아웃 재현성, 최종 ROM의 저장·이름·중단 재개·전투 복귀를 확인했습니다.",
+        "자연 해금·모든 분기·장시간 전체 진행과 최종 실기 시험은 v1.0 조건으로 남아 있습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9a",
+      "status": "prerelease"
+    },
     {
       "id": "narikiri2-save-compat-v0-5",
       "version": "v0.5",

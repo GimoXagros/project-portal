@@ -66,6 +66,19 @@
     "lastUpdated": "2026-09-05",
     "repository": "https://github.com/GimoXagros/GBARunner3",
     "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.2",
+    "prerelease": {
+      "title": "GBARunner3 Custom v0.1.3-rc1 (Configuration & Build Hardening)",
+      "version": "custom-v0.1.3-rc1",
+      "releasePolicy": "latest-prerelease",
+      "releaseDate": "2026-09-05",
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc1",
+      "summary": "설정 검증과 자동 회귀검사, 빌드·배포 기반을 강화한 실기 검증용 후보입니다. 정식 릴리스는 계속 custom-v0.1.2입니다.",
+      "notes": ["새 게임 호환성이나 저장 프로토콜 수정을 보장하지 않습니다.", "이 RC의 신규 실기 검증은 아직 완료되지 않았으며 PR #5·#6의 저장 관련 초안은 포함하지 않습니다."],
+      "downloadEnabled": true,
+      "downloads": [
+        { "label": "GBARunner3 v0.1.3-rc1 시험 패키지", "filename": "GBARunner3.zip", "size": "163881 bytes", "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc1/GBARunner3.zip", "sha256": "a2cbd9c0a6b70f1409e80e403bae71803b017fc4fc1bb9fd000696cb97dbe394" }
+      ]
+    },
     "issuesUrl": "https://github.com/GimoXagros/GBARunner3/issues",
     "upstream": { "name": "Gericom/GBARunner3", "url": "https://github.com/Gericom/GBARunner3" },
     "downloadUrl": "",
@@ -160,17 +173,39 @@
     "demo": false,
     "title": "나리키리 던전 2 저장 호환 복구",
     "titleOriginal": "narikiri2-save-compat v0.5",
-    "subtitle": "기존 K_FFR 한글판의 저장 경로를 복원하는 소스 전용 로컬 도구",
-    "description": "한글패치가 아닌 저장 호환 복구 도구입니다. 사용자가 준비한 최초 K_FFR 한글판과 일본어 원본을 검증하고 저장 관련 79바이트만 복원합니다. 기존 번역·글꼴과 12 MiB 크기는 유지하며, ROM이나 BPS/IPS 패치는 배포하지 않습니다.",
+    "subtitle": "저장 호환 복구 도구와 v0.9a 공개 검증용 누적 한글패치",
+    "description": "정식 v0.5는 사용자가 준비한 최초 K_FFR 한글판과 일본어 원본을 검증해 저장 관련 79바이트만 복원하는 소스 전용 도구입니다. 프리릴리즈 v0.9a는 저장 복구·달무리 글꼴·문장 교정·전투 정보창 수정을 하나의 BPS로 제공하며, 포털에서 지원 원본을 검증한 뒤 브라우저 안에서 바로 적용할 수 있습니다.",
     "type": "tool",
     "platform": ["Python 3.10+", "Game Boy Advance"],
     "status": "released",
     "version": "v0.5",
     "releasePolicy": "latest-stable",
     "releaseDate": "2026-09-03",
-    "lastUpdated": "2026-09-03",
+    "lastUpdated": "2026-09-06",
     "repository": "https://github.com/GimoXagros/narikiri2-save-compat",
     "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.5",
+    "prerelease": {
+      "title": "v0.9a — 대사·고유명사 및 전투 정보창 수정 공개 검증판",
+      "version": "v0.9a",
+      "releasePolicy": "latest-prerelease",
+      "releaseDate": "2026-09-06",
+      "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9a",
+      "summary": "저장 복구에 달무리 글꼴, 대사·고유명사 교정과 전투 중 적 정보창 수정을 통합한 공개 검증판입니다.",
+      "notes": ["최초 FFR 원본에 누적 패치 하나를 적용하며 v0.9나 다른 수정본에 덧붙이지 마세요.", "기존 8 KiB 게임 내 저장과 직접 설정한 이름은 유지되지만 이전 savestate 대신 게임의 이어하기를 사용하세요.", "최종 실기 시험과 장시간 전체 진행은 v1.0 조건으로 남아 있습니다."],
+      "downloadEnabled": true,
+      "downloads": [
+        { "label": "v0.9a FFR 적용 패키지", "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FFR_PACKAGE.zip", "size": "201395 bytes", "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FFR_PACKAGE.zip", "sha256": "a098d1a8a34741959c7950affde4e80e7140380364d7e97ec9f2dcf62b1578c8" },
+        { "label": "v0.9a FFR 누적 BPS", "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps", "size": "501338 bytes", "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps", "sha256": "9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a" }
+      ],
+      "webPatcher": {
+        "engine": "RomPatcher.js",
+        "engineVersion": "v3.2.1",
+        "format": "BPS",
+        "source": { "label": "최초 FFR 한글판", "size": 12582912, "sha256": "f94cb5a128c8a98e6e18e6a0598ebf9b266f54da0750367af8defac3eb2df7d4" },
+        "patch": { "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps", "path": "patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps", "size": 501338, "sha256": "9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a" },
+        "output": { "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a.gba", "size": 13041664, "sha256": "faa2f0ebe1f7bbd9f4a7e1d38b7d35ca2349bfed1d8c2a5d8ae45feb0f7631f6" }
+      }
+    },
     "issuesUrl": "https://github.com/GimoXagros/narikiri2-save-compat/issues",
     "downloadUrl": "",
     "homepage": "",
@@ -186,12 +221,12 @@
       "accentDark": "#a8d891"
     },
     "screenshots": [],
-    "features": ["정확한 입력 크기와 SHA-256을 검사하는 로컬 Python 도구", "저장 관련 79바이트만 원래 EEPROM 경로로 복원", "외부 패키지·네트워크 기능 없이 실행, 입력과 기존 출력 파일 보호"],
+    "features": ["정확한 입력 크기와 SHA-256을 검사하는 로컬 Python 도구", "저장 관련 79바이트만 원래 EEPROM 경로로 복원", "v0.9a BPS의 원본·패치·결과 SHA-256을 모두 확인하는 브라우저 로컬 패처", "원본 ROM을 서버로 전송하지 않는 브라우저 메모리 처리"],
     "scope": ["최초 K_FFR 한글판의 저장 호환성 복원", "기존 v0.5 / Candidate A와 전체 바이트가 동일한 결과", "번역·오탈자·진행 버그 수정과 세이브 변환은 범위 밖"],
     "requirements": ["Python 3.10 이상", "사용자가 합법적으로 준비한 최초 K_FFR 한글판 12582912 bytes와 일본어 원본 8388608 bytes", "README에 명시된 입력 SHA-256 일치", "원본 ROM과 세이브의 별도 백업 및 아직 존재하지 않는 출력 파일 경로"],
     "compatibility": ["저장소 검증 기록: 합성 데이터 자동 검사 22개와 기존 검증본의 전체 바이트 동일성 확인", "동일한 기존 v0.5 ROM에서 mGBA 최초 저장·재실행·로드와 두 번째 저장·재로드 관찰", "GBARunner3 저장·로드 성공은 동일 Candidate A에 대한 사용자 보고이며 정확한 기기·실행 파일 버전과 두 번째 저장 주기는 미확인", "새 도구로 모든 실기 환경을 다시 시험한 것은 아니며 전체 게임·모든 실행기 호환성을 보장하지 않음"],
     "installGuide": ["소스 전용 ZIP을 다운로드하고 SHA-256을 확인한 뒤 압축을 풉니다.", "Python 3.10 이상과 정확한 두 입력 ROM을 준비하고 원본·세이브를 별도로 백업합니다.", "저장소 README의 restore.py --korean … --japanese … --output … 명령에 로컬 경로를 지정합니다. 출력은 새 .gba 파일이어야 합니다.", "결과 SHA-256이 9c7a8ae87c303a16c71bd164e7409a5aaabf01bd3246fa9e700931eed6179d4f인지 확인합니다. 이미 같은 결과를 사용한다면 다시 처리할 필요가 없습니다.", "검증된 8 KiB 세이브는 실행기 규칙에 맞춰 배치하고 savestate 대신 완전 종료 후 게임의 Continue로 불러옵니다."],
-    "notes": ["소스·테스트·설명서만 배포합니다. ROM, 세이브, 번역문, 폰트, 원본 실행 코드 바이트와 BPS/IPS는 포함하지 않습니다.", "수정 전 VBA-M의 32 KiB 세이브가 그대로 호환된다고 가정하지 마세요. 별도 확인·변환이 필요할 수 있으며 이 도구는 .sav를 변경하지 않습니다.", "유일한 세이브 사본에 시험하지 마세요. 쓰기 오류로 남은 불완전한 출력은 사용하지 마세요.", "MIT는 새 도구·테스트·문서에만 적용됩니다. 원 게임·기존 한글패치·생성 ROM과 식별 이미지의 제3자 권리에는 적용되지 않습니다.", "식별 이미지는 사용자 제공 자료이며 공식 로고나 권리자의 프로젝트 승인을 의미하지 않습니다."],
+    "notes": ["정식 v0.5는 소스·테스트·설명서만 배포하며, 프리릴리즈 v0.9a는 배포가 허용된 누적 BPS와 적용 안내를 별도 제공합니다. 어느 채널도 원본 ROM이나 세이브를 포함하지 않습니다.", "v0.9a 누적 BPS는 최초 FFR 원본에만 적용하며 v0.9 또는 다른 수정본에 덧붙이지 마세요.", "수정 전 VBA-M의 32 KiB 세이브가 그대로 호환된다고 가정하지 마세요. 별도 확인·변환이 필요할 수 있으며 이 도구는 .sav를 변경하지 않습니다.", "유일한 세이브 사본에 시험하지 마세요. 쓰기 오류로 남은 불완전한 출력은 사용하지 마세요.", "MIT는 새 도구·테스트·문서에만 적용됩니다. 원 게임·기존 한글패치·생성 ROM과 식별 이미지의 제3자 권리에는 적용되지 않습니다.", "식별 이미지는 사용자 제공 자료이며 공식 로고나 권리자의 프로젝트 승인을 의미하지 않습니다."],
     "credits": [
       { "role": "복구 도구·문서", "name": "GimoXagros/narikiri2-save-compat", "url": "https://github.com/GimoXagros/narikiri2-save-compat" },
       "기존 한글판: K_FFR (도구에 번역·글꼴 미포함)",
