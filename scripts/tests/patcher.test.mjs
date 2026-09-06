@@ -54,6 +54,16 @@ test('published v0.9a BPS parses with the registered source and target sizes', (
   assert.deepEqual({ ...info }, { sourceSize: 12582912, targetSize: 13041664 })
 })
 
+test('published v0.9 BPS parses with the registered source and target sizes', () => {
+  const context = loadEngine()
+  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps', import.meta.url)))
+  const info = runInContext(`(() => {
+    const patch = BPS.fromFile(new BinFile(publishedPatch))
+    return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
+  })()`, context)
+  assert.deepEqual({ ...info }, { sourceSize: 12582912, targetSize: 12713984 })
+})
+
 test('vendored engine retains the upstream MIT license and exact source files', () => {
   const license = readFileSync(new URL('LICENSE', vendor), 'utf8')
   assert.match(license, /MIT License/)
