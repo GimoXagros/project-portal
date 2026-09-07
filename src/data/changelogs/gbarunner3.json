@@ -44,6 +44,34 @@
       ],
       "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.1",
       "status": "beta"
+    },
+    {
+      "id": "gbarunner3-custom-v0-1-0-rc5",
+      "version": "custom-v0.1.0-rc5",
+      "date": "2026-08-26",
+      "title": "GBARunner3 Custom custom-v0.1.0-rc5",
+      "summary": "3DS+DSpico 실기 검증 기준선",
+      "changes": [
+        "rc4 흰 화면 회귀를 고주소 코드 캐시 매핑 경로 활성화로 수정했습니다.",
+        "ARM PC+8 및 high-ROM JIT·MPU 경로를 보완하고 rc1의 RTC/GPIO·UTF-8 저장 경로를 유지했습니다.",
+        "3DS+DSpico에서 지정된 한국어 패치 ROM 7종의 기동·실행을 확인했지만 완주·모든 저장·RTC 시나리오를 뜻하지 않습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.0-rc5",
+      "status": "release"
+    },
+    {
+      "id": "gbarunner3-custom-v0-1-0-rc1",
+      "version": "custom-v0.1.0-rc1",
+      "date": "2026-08-23",
+      "title": "GBARunner3 Custom custom-v0.1.0-rc1",
+      "summary": "32 MiB ROM 해킹과 RTC/GPIO 대응 후보",
+      "changes": [
+        "upstream rom-gpio RTC를 통합하고 오래된 JIT 메타데이터를 지우도록 보완했습니다.",
+        "Pico Launcher ROM 인자, UTF-8 저장 경로와 0xFF 초기 저장 생성 동작을 유지했습니다.",
+        "자동 빌드는 통과했으나 당시 실물 3DS 검증과 RTC 지속성 검증은 남아 있었습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.0-rc1",
+      "status": "prerelease"
     }
   ]
 }

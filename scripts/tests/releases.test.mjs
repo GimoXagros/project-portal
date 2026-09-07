@@ -40,6 +40,23 @@ test('repository and tag reject unsafe or ambiguous identities', () => {
 test('stable release metadata and case-insensitive digest match', async () => {
   assert.deepEqual((await verifyProject(project, { fetcher: fetcher() })).errors, [])
 })
+test('a project may use the latest prerelease as its primary public channel', async () => {
+  const primary = {
+    ...project,
+    version: prerelease.tag_name,
+    releasePolicy: 'latest-prerelease',
+    releaseUrl: prerelease.html_url,
+    releaseDate: prerelease.published_at.slice(0, 10),
+    downloads: previewProject.prerelease.downloads,
+  }
+  const urls = []
+  const result = await verifyProject(primary, { fetcher: async (url) => {
+    urls.push(url)
+    return new Response(JSON.stringify([prerelease]))
+  } })
+  assert.deepEqual(result.errors, [])
+  assert.deepEqual(urls, ['https://api.github.com/repos/owner/repo/releases?per_page=100'])
+})
 test('stable and latest prerelease channels are verified independently', async () => {
   const urls = []
   const result = await verifyProject(previewProject, { fetcher: async (url) => {
@@ -153,19 +170,23 @@ test('complete static validator rejects invalid policies and missing or misplace
   malformedPreview[previewIndex].prerelease = []
   assert.match(validateData(malformedPreview).errors.join(), /prerelease.*object/)
 
-  const patcherIndex = data.findIndex((item) => item.prerelease?.webPatcher)
+  const patcherIndex = data.findIndex((item) => item.webPatcher || item.prerelease?.webPatcher)
+  const patcherHost = data[patcherIndex].webPatcher ? data[patcherIndex] : data[patcherIndex].prerelease
   const badPatcher = structuredClone(data)
-  badPatcher[patcherIndex].prerelease.webPatcher.engineVersion = 'latest'
-  badPatcher[patcherIndex].prerelease.webPatcher.versions[0].patch.sha256 = '0'.repeat(64)
+  const badPatcherHost = badPatcher[patcherIndex].webPatcher ? badPatcher[patcherIndex] : badPatcher[patcherIndex].prerelease
+  badPatcherHost.webPatcher.engineVersion = 'latest'
+  badPatcherHost.webPatcher.versions[0].patch.sha256 = '0'.repeat(64)
   assert.match(validateData(badPatcher).errors.join(), /webPatcher\.engineVersion/)
-  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.versions\[v0\.9a\]\.patch\.sha256/)
+  assert.match(validateData(badPatcher).errors.join(), /webPatcher\.versions\[v0\.9b\]\.patch\.sha256/)
 
   const duplicateVersion = structuredClone(data)
-  duplicateVersion[patcherIndex].prerelease.webPatcher.versions[1].version = duplicateVersion[patcherIndex].prerelease.webPatcher.versions[0].version
+  const duplicateHost = duplicateVersion[patcherIndex].webPatcher ? duplicateVersion[patcherIndex] : duplicateVersion[patcherIndex].prerelease
+  duplicateHost.webPatcher.versions[1].version = patcherHost.webPatcher.versions[0].version
   assert.match(validateData(duplicateVersion).errors.join(), /unique patch version/)
 
   const missingDefault = structuredClone(data)
-  missingDefault[patcherIndex].prerelease.webPatcher.defaultVersion = 'v0.8'
+  const missingDefaultHost = missingDefault[patcherIndex].webPatcher ? missingDefault[patcherIndex] : missingDefault[patcherIndex].prerelease
+  missingDefaultHost.webPatcher.defaultVersion = 'v0.8'
   assert.match(validateData(missingDefault).errors.join(), /defaultVersion/)
 })
 

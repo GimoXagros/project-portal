@@ -80,7 +80,8 @@ async function verifyReleaseRecord(record, { expectedPrerelease, token, fetcher,
 }
 
 export async function verifyProject(project, { token, fetcher = fetch, ...requestOptions } = {}) {
-  const stable = await verifyReleaseRecord(project, { expectedPrerelease: false, token, fetcher, requestOptions })
+  const projectIsPrerelease = typeof project.releasePolicy === 'string' && project.releasePolicy.endsWith('prerelease')
+  const stable = await verifyReleaseRecord(project, { expectedPrerelease: projectIsPrerelease, token, fetcher, requestOptions })
   const prerelease = prereleaseRecord(project)
   if (!prerelease) return stable
   const preview = await verifyReleaseRecord(prerelease, { expectedPrerelease: true, token, fetcher, requestOptions })

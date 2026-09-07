@@ -68,24 +68,27 @@ export function validateData(projectsOverride) {
       }
       if (!downloadItems(preview).length) fieldError('prerelease.downloads', preview.downloads, 'at least one release asset')
       if (!Array.isArray(preview.notes) || preview.notes.some((note) => typeof note !== 'string' || !note.trim())) fieldError('prerelease.notes', preview.notes, 'string array')
+    }
 
-      const webPatcher = preview.webPatcher
+      const patcherRelease = preview?.webPatcher ? preview : project
+      const patcherField = preview?.webPatcher ? 'prerelease.webPatcher' : 'webPatcher'
+      const webPatcher = patcherRelease.webPatcher
       if (webPatcher !== undefined) {
         const validObject = webPatcher && typeof webPatcher === 'object' && !Array.isArray(webPatcher)
-        if (!validObject) fieldError('prerelease.webPatcher', webPatcher, 'object')
+        if (!validObject) fieldError(patcherField, webPatcher, 'object')
         else {
-          if (webPatcher.engine !== 'RomPatcher.js') fieldError('prerelease.webPatcher.engine', webPatcher.engine, 'RomPatcher.js')
-          if (webPatcher.engineVersion !== 'v3.2.1') fieldError('prerelease.webPatcher.engineVersion', webPatcher.engineVersion, 'v3.2.1')
-          if (webPatcher.format !== 'BPS') fieldError('prerelease.webPatcher.format', webPatcher.format, 'BPS')
-          if (typeof webPatcher.defaultVersion !== 'string' || !webPatcher.defaultVersion.trim()) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, 'non-empty string')
-          if (webPatcher.defaultVersion !== preview.version) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, `current prerelease version (${preview.version})`)
-          if (!Array.isArray(webPatcher.versions) || !webPatcher.versions.length) fieldError('prerelease.webPatcher.versions', webPatcher.versions, 'non-empty array')
+          if (webPatcher.engine !== 'RomPatcher.js') fieldError(`${patcherField}.engine`, webPatcher.engine, 'RomPatcher.js')
+          if (webPatcher.engineVersion !== 'v3.2.1') fieldError(`${patcherField}.engineVersion`, webPatcher.engineVersion, 'v3.2.1')
+          if (webPatcher.format !== 'BPS') fieldError(`${patcherField}.format`, webPatcher.format, 'BPS')
+          if (typeof webPatcher.defaultVersion !== 'string' || !webPatcher.defaultVersion.trim()) fieldError(`${patcherField}.defaultVersion`, webPatcher.defaultVersion, 'non-empty string')
+          if (webPatcher.defaultVersion !== patcherRelease.version) fieldError(`${patcherField}.defaultVersion`, webPatcher.defaultVersion, `current release version (${patcherRelease.version})`)
+          if (!Array.isArray(webPatcher.versions) || !webPatcher.versions.length) fieldError(`${patcherField}.versions`, webPatcher.versions, 'non-empty array')
           else {
             const versionNames = new Set()
             const patchPaths = new Set()
             for (const [index, version] of webPatcher.versions.entries()) {
               const name = version?.version || index
-              const base = `prerelease.webPatcher.versions[${name}]`
+              const base = `${patcherField}.versions[${name}]`
               if (!version || typeof version !== 'object' || Array.isArray(version)) {
                 fieldError(base, version, 'object')
                 continue
@@ -128,9 +131,9 @@ export function validateData(projectsOverride) {
                   if (digest !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, digest)
                 }
               }
-              if (version.version === preview.version) {
-                const releasePatch = downloadItems(preview).find((item) => item.filename === version.patch?.filename)
-                if (!releasePatch) fieldError(`${base}.patch.filename`, version.patch?.filename, 'matching current prerelease download asset')
+              if (version.version === patcherRelease.version) {
+                const releasePatch = downloadItems(patcherRelease).find((item) => item.filename === version.patch?.filename)
+                if (!releasePatch) fieldError(`${base}.patch.filename`, version.patch?.filename, 'matching current release download asset')
                 else {
                   if (releasePatch.url !== version.patch.url) fieldError(`${base}.patch.url`, version.patch.url, releasePatch.url)
                   if (releasePatch.sha256 !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, releasePatch.sha256)
@@ -138,11 +141,10 @@ export function validateData(projectsOverride) {
                 }
               }
             }
-            if (!versionNames.has(webPatcher.defaultVersion)) fieldError('prerelease.webPatcher.defaultVersion', webPatcher.defaultVersion, 'version present in versions')
+            if (!versionNames.has(webPatcher.defaultVersion)) fieldError(`${patcherField}.defaultVersion`, webPatcher.defaultVersion, 'version present in versions')
           }
         }
       }
-    }
     if (project.downloadUrl) {
       const prefix = project.releaseUrl?.replace('/releases/tag/', '/releases/download/') + '/'
       if (!project.downloadUrl.startsWith(prefix) || /[?#]/.test(project.downloadUrl)) fieldError('downloadUrl', project.downloadUrl, `${prefix}<asset filename>`)
@@ -195,9 +197,10 @@ export function validateData(projectsOverride) {
     const latest = changelog.entries?.[0]
     if (project?.version && !latest) fail(relativeFile, project.id, 'entries[0]: actual=missing expected=current project release')
     if (project && latest) {
+      const projectIsPrerelease = typeof project.releasePolicy === 'string' && project.releasePolicy.endsWith('prerelease')
       const current = project.prerelease
         ? { version: project.prerelease.version, releaseUrl: project.prerelease.releaseUrl, date: project.prerelease.releaseDate, status: 'prerelease' }
-        : { version: project.version, releaseUrl: project.releaseUrl, date: project.lastUpdated }
+        : { version: project.version, releaseUrl: project.releaseUrl, date: project.lastUpdated, ...(projectIsPrerelease ? { status: 'prerelease' } : {}) }
       for (const field of ['version', 'releaseUrl', 'date']) {
         if (current[field] !== latest[field]) fail(relativeFile, project.id, `entries[0].${field}: actual=${JSON.stringify(latest[field])} expected=current release ${JSON.stringify(current[field])}`)
       }

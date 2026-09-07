@@ -40,6 +40,10 @@ export function hasDownload(project) {
   return hasReleaseDownload(project) || hasReleaseDownload(project?.prerelease)
 }
 
+export function isPrereleaseChannel(release) {
+  return release?.releasePolicy === 'latest-prerelease' || release?.releasePolicy === 'pinned-prerelease'
+}
+
 export function assetUrl(path) {
   if (!path || /^(https?:|data:|blob:)/i.test(path)) return path
   return `${import.meta.env.BASE_URL}${path.replace(/^\.?\//, '')}`

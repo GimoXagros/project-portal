@@ -47,6 +47,90 @@
       ],
       "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r6",
       "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7-custom-r5",
+      "version": "v0.7.7-custom.r5",
+      "date": "2026-08-30",
+      "title": "NitroSwan Custom v0.7.7-custom.r5",
+      "summary": "One Piece 전투 하늘과 Mahjong 타이밍 보완",
+      "changes": [
+        "One Piece 전투 하늘색을 bounded scanline BG 팔레트 이벤트로 재생했습니다.",
+        "r4의 4bpp OBJ 이중 버퍼를 유지하고 Mahjong Touryuumon의 카트리지 ROM opcode fetch waitstate를 구현했습니다.",
+        "일본어 원본은 실기 확인했지만 체크섬이 달라진 수정 ROM은 이 버전에서 수정 대상으로 판정되지 않았습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r5",
+      "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7-custom-r4",
+      "version": "v0.7.7-custom.r4",
+      "date": "2026-08-28",
+      "title": "NitroSwan Custom v0.7.7-custom.r4",
+      "summary": "4bpp OBJ 이중 버퍼와 팔레트 재생",
+      "changes": [
+        "One Piece 전투 화면의 하늘색 팔레트 오류를 수정했습니다.",
+        "4bpp OBJ 이중 버퍼와 OAM 동기화로 격한 움직임의 캐릭터 타일 손상을 보완했습니다.",
+        "사용자 melonDS 전투 시험은 통과했지만 실기 표시 타이밍은 당시 재확인이 필요했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r4",
+      "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7-custom-r3",
+      "version": "v0.7.7-custom.r3",
+      "date": "2026-08-23",
+      "title": "NitroSwan Custom v0.7.7-custom.r3",
+      "summary": "DSpico 전용 고정 ROM 뱅크 캐시",
+      "changes": [
+        "DSpico 전용 64 KiB 고정 ROM 뱅크 캐시와 15개 가시 세그먼트 고정 슬롯을 추가했습니다.",
+        "IPS 적용 시 캐시를 무효화하고 플래시 쓰기·섹터 삭제를 RAM ROM 이미지에 반영했습니다.",
+        "자동 검사와 빌드는 통과했지만 새 캐시 경로의 장시간 DSpico 실기 안정성은 후속 검증으로 남았습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r3",
+      "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7-custom-r2",
+      "version": "v0.7.7-custom.r2",
+      "date": "2026-08-13",
+      "title": "NitroSwan Custom v0.7.7-custom.r2",
+      "summary": "DSpico 60Hz·저장·다국어 통합 안정화",
+      "changes": [
+        "DSi 134 MHz와 안정적인 60 Hz DSpico 경로를 추가하고 Pico Launcher 직접 실행 멈춤을 수정했습니다.",
+        "NVRAM 자동 저장·재불러오기, native 저장 형식과 raw .sav 호환, RTC·16 KiB RAM·Karnak 초기화를 보완했습니다.",
+        "영어·일본어·한국어 UI, UTF-8/CP949 파일명, CJK 글꼴과 치트를 통합하고 3DS+DSpico 실기에서 주요 흐름을 확인했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r2",
+      "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7-custom",
+      "version": "v0.7.7-custom",
+      "date": "2026-08-12",
+      "title": "NitroSwan Custom v0.7.7-custom",
+      "summary": "DSpico·DSi 다국어 커스텀 릴리스",
+      "changes": [
+        "DSi 134 MHz, DSpico 60 Hz 프로필과 영어·일본어·한국어 UI를 통합했습니다.",
+        "UTF-8/CP949 파일명, CJK 글꼴, 안전 범위의 게임별 RAM 치트와 동적 타일 캐시를 추가했습니다.",
+        "DS·DSi 빌드와 자동 검증, 최종 DSi/DSpico 파일의 Nintendo 3DS 실기 시험을 기록했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom",
+      "status": "release"
+    },
+    {
+      "id": "nitroswan-v0-7-7",
+      "version": "v0.7.7",
+      "date": "2026-08-09",
+      "title": "NitroSwan Custom v0.7.7",
+      "summary": "upstream 소스 기반 최초 비공식 빌드",
+      "changes": [
+        "upstream NitroSwan 0.7.7 소스를 재현 빌드하고 일반 DS/DSi 혼합 빌드와 DSi 전용 빌드를 제공했습니다.",
+        "melonDS DSi 모드에서 부팅·파일 접근·게임 실행과 60초 진행을 확인했습니다.",
+        "당시 실제 DSi 하드웨어는 확보하지 못해 런처·SD 드라이버별 동작은 미검증 상태였습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7",
+      "status": "release"
     }
   ]
 }

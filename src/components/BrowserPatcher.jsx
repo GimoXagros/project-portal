@@ -6,7 +6,7 @@ import { formatByteSize, sha256Hex } from '../utils/fileIntegrity'
 const initialState = { kind: 'idle', message: '검증할 원본 ROM을 선택하세요.' }
 
 export default function BrowserPatcher({ project }) {
-  const config = project?.prerelease?.webPatcher
+  const config = project?.webPatcher || project?.prerelease?.webPatcher
   const sourceBuffer = useRef(null)
   const outputUrl = useRef('')
   const operationId = useRef(0)
@@ -122,6 +122,6 @@ export default function BrowserPatcher({ project }) {
     <div className={`patcher-status ${state.kind}`} role="status" aria-live="polite">{state.kind === 'done' && <CheckCircle2 size={18} />}<span>{state.message}</span></div>
     {sourceInfo && <dl className="patcher-file-info"><div><dt>선택 파일</dt><dd>{sourceInfo.name}</dd></div><div><dt>원본 SHA-256</dt><dd><code>{sourceInfo.sha256}</code></dd></div></dl>}
     {result && <dl className="patcher-file-info result"><div><dt>결과 SHA-256</dt><dd><code>{result.sha256}</code></dd></div></dl>}
-    <p className="patcher-legal">합법적으로 확보한 최초 FFR 원본만 사용하세요. 선택한 패치를 다른 수정본에 중복 적용하지 마세요. <a href="https://github.com/marcrobledo/RomPatcher.js" target="_blank" rel="noreferrer">RomPatcher.js</a> v3.2.1 기반(MIT).</p>
+    <p className="patcher-legal">합법적으로 확보한 선택 버전의 정확한 지원 원본만 사용하세요. 선택한 패치를 다른 수정본에 중복 적용하지 마세요. <a href="https://github.com/marcrobledo/RomPatcher.js" target="_blank" rel="noreferrer">RomPatcher.js</a> v3.2.1 기반(MIT).</p>
   </section>
 }
