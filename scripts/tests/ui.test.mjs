@@ -55,11 +55,20 @@ test('current projects derive the Hero date from the latest release regardless o
   assert.equal(projects.length, 4)
 })
 
-test('NitroSwan shows r8 downloads, retained history and unverified limitations', async () => {
+test('all projects expose their full public release history from the first recorded point', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  const expected = {
+    gameyob: ['v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
+    gbarunner3: ['custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    nitroswan: ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
+    'narikiri2-save-compat': ['v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
+  }
+  for (const [id, versions] of Object.entries(expected)) {
+    const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
+    assert.deepEqual(changelog.entries.map((entry) => entry.version), versions)
+  }
   const project = projects.find((item) => item.id === 'nitroswan')
   const changelog = JSON.parse(readFileSync(new URL('../../src/data/changelogs/nitroswan.json', import.meta.url), 'utf8'))
-  assert.deepEqual(changelog.entries.map((entry) => entry.version), ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6'])
   const html = await render('ProjectDetail', { project, changelog })
   assert.match(html, /캐릭터 모션 깨짐의 완전한 해결을 의미하지 않습니다/)
   assert.match(html, /아직 수행되지 않았습니다/)
@@ -73,26 +82,29 @@ test('NitroSwan shows r8 downloads, retained history and unverified limitations'
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri renders stable and prerelease channels with supplied art and cautions', async () => {
+test('Narikiri renders v0.9b as the primary public beta with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'narikiri2-save-compat')
   const html = await render('ProjectDetail', { project })
-  assert.equal(project.type, 'tool')
-  for (const text of ['정식 v0.5', '32 KiB', '소스 전용', 'logo.png', project.downloads[0].url, project.prerelease.version, project.prerelease.summary]) assert.ok(html.includes(text))
-  for (const download of project.prerelease.downloads) {
+  assert.equal(project.type, 'korean-patch')
+  assert.equal(project.version, 'v0.9b')
+  assert.equal(project.releasePolicy, 'latest-prerelease')
+  for (const text of ['2차 한국어화 패치', 'FFR BETA3', '공개 검증판 v0.9b', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  for (const download of project.downloads) {
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
   }
   assert.match(html, /width="1254" height="1254"/)
   assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|ips)"/)
-  assert.match(html, /PRE-RELEASE/)
+  assert.match(html, /PUBLIC BETA/)
   for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
   assert.match(html, /<label for="patch-version">/)
   assert.match(html, /<select id="patch-version">/)
-  assert.match(html, /<option value="v0\.9a" selected="">v0\.9a \(최신\)<\/option>/)
+  assert.match(html, /<option value="v0\.9b" selected="">v0\.9b \(최신\)<\/option>/)
+  assert.match(html, /<option value="v0\.9a">v0\.9a<\/option>/)
   assert.match(html, /<option value="v0\.9">v0\.9<\/option>/)
   assert.match(html, /type="file"/)
   assert.match(html, /disabled=""/)
-  assert.ok(html.includes(project.prerelease.webPatcher.versions[0].output.filename))
-  assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9a\.gba"/)
+  assert.ok(html.includes(project.webPatcher.versions[0].output.filename))
+  assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9b\.gba"/)
 })

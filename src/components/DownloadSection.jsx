@@ -1,6 +1,6 @@
 import { Check, Copy, Download, ExternalLink, FileArchive, Github, PackageOpen } from 'lucide-react'
 import { useState } from 'react'
-import { hasReleaseDownload } from '../utils/projectMeta'
+import { hasReleaseDownload, isPrereleaseChannel } from '../utils/projectMeta'
 
 function DownloadLink({ item, enabled, copied, onCopy }) {
   const ready = enabled && Boolean(item.url)
@@ -23,6 +23,7 @@ function ReleaseDownloadList({ release, copied, onCopy }) {
 export default function DownloadSection({ project }) {
   const [copied, setCopied] = useState('')
   const enabled = hasReleaseDownload(project)
+  const mainIsPrerelease = isPrereleaseChannel(project)
   const preview = project.prerelease
   const previewEnabled = hasReleaseDownload(preview)
   const copy = async (value) => {
@@ -47,7 +48,7 @@ export default function DownloadSection({ project }) {
     </div>}
     <div className={preview ? 'stable-release-panel' : ''}>
     <div className={`download-callout ${enabled ? 'ready' : ''}`}>
-      <div><span className="download-state">{enabled ? 'STABLE' : 'NOT YET AVAILABLE'}</span><h3>{enabled ? `${project.version} 정식 릴리스` : '배포 준비 중'}</h3><p>{enabled ? '정식 채널의 GitHub Releases 자산입니다.' : 'GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.'}</p></div>
+      <div><span className="download-state">{enabled ? (mainIsPrerelease ? 'PUBLIC BETA' : 'STABLE') : 'NOT YET AVAILABLE'}</span><h3>{enabled ? `${project.version} ${mainIsPrerelease ? '공개 검증판' : '정식 릴리스'}` : '배포 준비 중'}</h3><p>{enabled ? (mainIsPrerelease ? 'GitHub Releases의 최신 공개 검증용 프리릴리즈 자산입니다.' : '정식 채널의 GitHub Releases 자산입니다.') : 'GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.'}</p></div>
       {enabled && project.downloadUrl ? <a className="button primary" href={project.downloadUrl} target="_blank" rel="noreferrer"><Download size={18} /> 파일 받기</a> : !enabled && <button className="button primary" type="button" disabled><PackageOpen size={18} /> 배포 준비 중</button>}
     </div>
     <ReleaseDownloadList release={project} copied={copied} onCopy={copy} />
@@ -55,7 +56,7 @@ export default function DownloadSection({ project }) {
     <div className="external-actions">
       {project.repository && <a href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> {project.upstream?.url ? 'Custom repository' : 'Repository'} <ExternalLink size={14} /></a>}
       {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><Github size={17} /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
-      {project.releaseUrl && <a href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 정식 릴리스 <ExternalLink size={14} /></a>}
+      {project.releaseUrl && <a href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> {mainIsPrerelease ? `공개 검증판 ${project.version}` : '정식 릴리스'} <ExternalLink size={14} /></a>}
       {preview?.releaseUrl && <a href={preview.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 프리릴리즈 {preview.version} <ExternalLink size={14} /></a>}
       {project.issuesUrl && <a href={project.issuesUrl} target="_blank" rel="noreferrer">Issues <ExternalLink size={14} /></a>}
     </div>

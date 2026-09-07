@@ -44,6 +44,16 @@ test('pinned engine rejects a BPS patch for the wrong source', () => {
   })()`, context), /CRC32/)
 })
 
+test('published v0.9b BETA3 BPS parses with the registered source and target sizes', () => {
+  const context = loadEngine()
+  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps', import.meta.url)))
+  const info = runInContext(`(() => {
+    const patch = BPS.fromFile(new BinFile(publishedPatch))
+    return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
+  })()`, context)
+  assert.deepEqual({ ...info }, { sourceSize: 9961472, targetSize: 13107200 })
+})
+
 test('published v0.9a BPS parses with the registered source and target sizes', () => {
   const context = loadEngine()
   context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps', import.meta.url)))

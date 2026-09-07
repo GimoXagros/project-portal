@@ -5,7 +5,7 @@ import HashInfo from './HashInfo'
 import ProjectLogo from './ProjectLogo'
 import ScreenshotGallery from './ScreenshotGallery'
 import UpdateTimeline from './UpdateTimeline'
-import { projectBrandStyle, statusLabels, typeLabels } from '../utils/projectMeta'
+import { isPrereleaseChannel, projectBrandStyle, statusLabels, typeLabels } from '../utils/projectMeta'
 
 function ListBlock({ title, items, emphasis = false }) {
   if (!items?.length) return null
@@ -27,7 +27,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
           <p className="detail-subtitle">{project.subtitle}</p>
           <div className="detail-actions">
             {project.repository && <a className="button primary" href={project.repository} target="_blank" rel="noreferrer"><Github size={17} /> GitHub 저장소</a>}
-            {project.releaseUrl && <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 정식 릴리스</a>}
+            {project.releaseUrl && <a className={isPrereleaseChannel(project) ? 'button preview' : 'button ghost'} href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> {isPrereleaseChannel(project) ? `공개 검증판 ${project.version}` : '정식 릴리스'}</a>}
             {project.prerelease?.releaseUrl && <a className="button preview" href={project.prerelease.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 프리릴리즈 {project.prerelease.version}</a>}
             <button className="button ghost" type="button" onClick={() => document.querySelector('#download')?.scrollIntoView()}><Download size={17} /> 다운로드</button>
           </div>

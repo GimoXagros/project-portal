@@ -29,6 +29,72 @@
       ],
       "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko",
       "status": "release"
+    },
+    {
+      "id": "gameyob-v0-5-8-ko",
+      "version": "v0.5.8-ko",
+      "date": "2026-08-29",
+      "title": "GameYob Custom v0.5.8-ko",
+      "summary": "MMM01 매퍼와 초기 SGB 호스트 실행 기반",
+      "changes": [
+        "MMM01 매퍼 지원을 추가했습니다.",
+        "범위를 제한한 초기 Super Game Boy 호스트 실행 기반을 추가했습니다.",
+        "DS·DSi 빌드를 제공하며 완전한 host-SNES 구현과 실기 검증은 후속 과제로 남아 있습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.8-ko",
+      "status": "release"
+    },
+    {
+      "id": "gameyob-v0-5-7-ko",
+      "version": "v0.5.7-ko",
+      "date": "2026-08-29",
+      "title": "GameYob Custom v0.5.7-ko",
+      "summary": "DS·DSi 중심 커스텀 빌드",
+      "changes": [
+        "gameyob.nds와 gameyob_dsi.nds를 배포했습니다.",
+        "네이티브 3DSX 개발은 보관·중단 상태로 전환됐으며 이 릴리스에 포함되지 않습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.7-ko",
+      "status": "release"
+    },
+    {
+      "id": "gameyob-v0-5-5-ko",
+      "version": "v0.5.5-ko",
+      "date": "2026-08-09",
+      "title": "GameYob Custom v0.5.5-ko",
+      "summary": "현지화·호환성 커스텀 릴리스",
+      "changes": [
+        "비공식 현지화와 호환성 작업을 묶어 배포했습니다.",
+        "세부 사용법과 제한은 저장소 README 및 영문·일문·한글 안내서에 기록했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.5-ko",
+      "status": "release"
+    },
+    {
+      "id": "gameyob-v0-5-3-ko",
+      "version": "v0.5.3-ko",
+      "date": "2026-07-29",
+      "title": "GameYob Custom v0.5.3-ko",
+      "summary": "한국어 파일명·치트 목록과 SGB 보더 지원",
+      "changes": [
+        "한국어 파일명과 치트 목록 이름 표시를 추가했습니다.",
+        "에뮬레이션 호환성 개선과 Super Game Boy 보더 지원을 포함했습니다.",
+        "당시 DS·DSi·네이티브 Nintendo 3DS 홈브루 빌드를 함께 제공했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.3-ko",
+      "status": "release"
+    },
+    {
+      "id": "gameyob-v0-5-2-ko-1",
+      "version": "v0.5.2-ko.1",
+      "date": "2026-07-29",
+      "title": "GameYob Custom v0.5.2-ko.1",
+      "summary": "공식 v0.5.2 기반 한국어 파일명 지원 빌드",
+      "changes": [
+        "공식 v0.5.2를 바탕으로 한국어 파일명과 치트 이름 지원을 묶은 최초 공개 커스텀 빌드입니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.2-ko.1",
+      "status": "release"
     }
   ]
 }
