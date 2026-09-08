@@ -12,9 +12,8 @@ const render = async (name, props) => {
   const { default: Component } = await server.ssrLoadModule(`/src/components/${name}.jsx`)
   return renderToStaticMarkup(createElement(Component, props))
 }
-test('empty projects and featured collections render safely', async () => {
+test('empty catalog renders safely', async () => {
   assert.match(await render('ProjectGrid', { projects: [] }), /아직 공개된 프로젝트가 없습니다/)
-  assert.equal(await render('FeaturedProjects', { projects: [] }), '')
   assert.equal(await render('Timeline', { projects: [], updates: [] }), '')
 })
 test('Hero date does not depend on project order or timezone', async () => {
@@ -107,4 +106,105 @@ test('Narikiri renders v0.9b as the primary public beta with all selectable patc
   assert.match(html, /disabled=""/)
   assert.ok(html.includes(project.webPatcher.versions[0].output.filename))
   assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9b\.gba"/)
+})
+
+const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+const changelogFor = (id) => JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
+const occurrences = (html, text) => html.split(text).length - 1
+const escape = (text) => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#x27;')
+
+test('home renders each project once including featured projects', async () => {
+  const priorWindow = globalThis.window
+  const priorMatchMedia = globalThis.matchMedia
+  globalThis.matchMedia = () => ({ matches: false })
+  globalThis.window = { location: { hash: '' } }
+  try {
+    const { default: App } = await server.ssrLoadModule('/src/App.jsx')
+    const html = renderToStaticMarkup(createElement(App))
+    for (const project of projects) assert.equal(occurrences(html, `data-project-id="${project.id}"`), 1)
+    assert.equal(occurrences(html, 'class="featured-ribbon"'), projects.filter(p=>p.featured).length)
+    assert.match(html, /프로젝트 검색/)
+    assert.match(html, /종류 필터/)
+    assert.match(html, /모든 플랫폼/)
+    assert.match(html, /aria-live="polite"/)
+    assert.doesNotMatch(html, /featured-grid|featured-section/)
+  } finally { globalThis.window = priorWindow; globalThis.matchMedia = priorMatchMedia }
+})
+
+test('catalog orders featured first, dates descending and keeps ties stable', async () => {
+  const fixtures = ['a','b','c','d'].map((id, i) => ({ ...projects[0], id, featured: i > 0, lastUpdated: i===3 ? '2026-09-08' : '2026-09-05' }))
+  const html = await render('ProjectGrid', { projects: fixtures })
+  assert.deepEqual([...html.matchAll(/data-project-id="([^"]+)"/g)].map(m=>m[1]), ['d','b','c','a'])
+  assert.deepEqual(fixtures.map(p=>p.id), ['a','b','c','d'])
+})
+
+test('filters retain search, type, platform, reset and native disclosure', async () => {
+  const html = await render('ProjectFilters', { query:'test', type:'emulator', platform:'all', platforms:['DS','DSi'], resultCount:2 })
+  assert.match(html, /<details class="filter-panel">/)
+  assert.match(html, /필터 · 적용 중/)
+  assert.match(html, /aria-pressed="true"/)
+  assert.match(html, /필터 초기화/)
+  assert.match(html, /2개 표시/)
+  assert.match(html, /value="DSi"/)
+})
+
+test('cards use subtitles and summarize platforms without losing names', async () => {
+  const project = {...projects[0], platform:['DS','DSi','3DS'], subtitle:'짧은 요약', description:'긴 릴리스 설명'}
+  const html = await render('ProjectCard', {project})
+  assert.match(html,/짧은 요약/); assert.doesNotMatch(html,/긴 릴리스 설명/)
+  assert.match(html,/title="DS, DSi, 3DS"/); assert.match(html,/>\+1</)
+})
+
+test('detail has one copy of notes, real jump targets and one compact update', async () => {
+  for (const project of projects) {
+    const changelog = changelogFor(project.id)
+    const html = await render('ProjectDetail', {project, changelog})
+    for (const note of project.notes) assert.equal(occurrences(html, escape(note)),1, `${project.id}: ${note}`)
+    assert.equal(occurrences(html, 'class="update-marker"'),1)
+    assert.match(html,/전체 업데이트 기록 보기/)
+    assert.match(html,/페이지 내 빠른 이동/)
+    const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1])
+    assert.equal(new Set(ids).size,ids.length)
+    for (const hash of project.downloads.map(d=>d.sha256)) assert.ok(html.includes(hash))
+    assert.match(html,/SHA-256 복사/)
+    assert.doesNotMatch(html,/warning-aside/)
+  }
+})
+
+test('updates index selects each project once; selected page preserves full history', async () => {
+  const html = await render('UpdatesPage',{projects})
+  for(const project of projects) {
+    assert.equal(occurrences(html, `href="#/updates/${project.id}"`),1)
+    const selected = await render('UpdatesPage',{projects,projectId:project.id})
+    const changelog = changelogFor(project.id)
+    assert.equal(occurrences(selected,'class="update-marker"'),changelog.entries.length)
+    for(const entry of changelog.entries) assert.ok(selected.includes(escape(entry.summary)))
+    assert.match(selected,/aria-current="page"/)
+    assert.doesNotMatch(selected,/selected-update-cover|<img/)
+  }
+  assert.doesNotMatch(html,/update-project-tabs/)
+})
+
+test('compact timeline limits entries without reordering same-date versions', async () => {
+  const changelog = changelogFor('narikiri2-save-compat')
+  const html = await render('UpdateTimeline',{changelog,compact:true,limit:1})
+  assert.equal(occurrences(html,'class="update-marker"'),1)
+  assert.ok(html.includes(changelog.entries[0].version))
+  assert.ok(!html.includes(`<code>${changelog.entries[1].version}</code>`))
+  const all = await render('UpdateTimeline',{changelog})
+  assert.equal(occurrences(all,'class="update-marker"'),changelog.entries.length)
+})
+
+test('home feed caps latest projects at four with no repeated logos', async () => {
+  const fixtures = Array.from({length:6},(_,i)=>({...projects[0],id:`project-${i}`}))
+  const updates = fixtures.map((p,i)=>({...changelogFor('gameyob').entries[0],projectId:p.id,date:`2026-09-0${i+1}`}))
+  const html = await render('Timeline',{projects:fixtures,updates:[...updates,updates[0]]})
+  assert.equal(occurrences(html,'<li '),4)
+  assert.doesNotMatch(html,/<img|latest-update-card/)
+  assert.ok(html.indexOf('2026-09-06') < html.indexOf('2026-09-05'))
+})
+
+test('unknown project and update routes retain 404', async () => {
+  assert.match(await render('ProjectDetail',{project:null}),/404/)
+  assert.match(await render('UpdatesPage',{projects,projectId:'unknown'}),/404/)
 })

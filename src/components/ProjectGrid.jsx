@@ -14,16 +14,16 @@ export default function ProjectGrid({ projects, onOpen }) {
     const matchesType = type === 'all' || project.type === type || (type === 'other' && !['korean-patch', 'emulator', 'port', 'tool'].includes(project.type))
     const matchesPlatform = platform === 'all' || (project.platform || []).includes(platform)
     return matchesQuery && matchesType && matchesPlatform
-  }), [platform, projects, query, type])
+  }).sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || (b.lastUpdated || '').localeCompare(a.lastUpdated || '')), [platform, projects, query, type])
 
   if (!projects.length) return <section className="projects-section section-pad" id="projects" aria-labelledby="projects-title">
-    <SectionHeading index="02" eyebrow="ARCHIVE" title="프로젝트 아카이브" description="현재 공개된 프로젝트가 이곳에 표시됩니다." />
+    <SectionHeading index="01" eyebrow="ARCHIVE" title="프로젝트 아카이브" description="현재 공개된 프로젝트가 이곳에 표시됩니다." />
     <div className="empty-state"><span aria-hidden="true">∅</span><h3>아직 공개된 프로젝트가 없습니다.</h3><p>공개 프로젝트를 준비하고 있습니다.</p></div>
   </section>
 
   return <section className="projects-section section-pad" id="projects" aria-labelledby="projects-title">
-    <SectionHeading index="02" eyebrow="ARCHIVE" title="프로젝트 아카이브" description="프로젝트 이름, 플랫폼, 종류와 태그로 원하는 릴리스를 찾을 수 있습니다." />
+    <SectionHeading index="01" eyebrow="ARCHIVE" title="프로젝트 아카이브" description="프로젝트 이름, 플랫폼, 종류와 태그로 원하는 릴리스를 찾을 수 있습니다." />
     <ProjectFilters query={query} setQuery={setQuery} type={type} setType={setType} platform={platform} setPlatform={setPlatform} platforms={platforms} resultCount={filtered.length} />
-  {filtered.length ? <div className="project-grid">{filtered.map((project) => <ProjectCard project={project} onOpen={onOpen} key={project.id} />)}</div> : <div className="empty-state"><span aria-hidden="true">∅</span><h3>조건에 맞는 프로젝트가 없습니다.</h3><p>검색어나 필터를 바꾸어 다시 확인해 주세요.</p></div>}
+  {filtered.length ? <div className="project-grid">{filtered.map((project) => <ProjectCard project={project} featured={project.featured} onOpen={onOpen} key={project.id} />)}</div> : <div className="empty-state"><span aria-hidden="true">∅</span><h3>조건에 맞는 프로젝트가 없습니다.</h3><p>검색어나 필터를 바꾸어 다시 확인해 주세요.</p></div>}
   </section>
 }

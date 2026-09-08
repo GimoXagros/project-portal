@@ -7,7 +7,6 @@ import faq from './data/faq.json'
 import { getAllLatestUpdates, getProjectChangelog } from './data/changelogs'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import FeaturedProjects from './components/FeaturedProjects'
 import ProjectGrid from './components/ProjectGrid'
 import ProjectDetail from './components/ProjectDetail'
 import Timeline from './components/Timeline'
@@ -75,7 +74,6 @@ function App() {
   else content = <main id="main-content">
     <div className="site-notice" role="status"><strong>{site.notice.label}</strong><p>{site.notice.text}</p></div>
     <Hero site={site} projects={projects} onNavigate={navigateHome} />
-    <FeaturedProjects projects={projects} onOpen={openProject} />
     <ProjectGrid projects={projects} onOpen={openProject} />
     <Timeline updates={latestUpdates} projects={projects} />
     <About site={site} />
