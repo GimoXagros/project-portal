@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const targets = '.section-heading,.project-card,.latest-update-card,.project-update-timeline > li,.principle-grid > article,.legal-panel,.faq-list > details,.detail-hero,.detail-section,.detail-aside > *,.update-project-tabs > a,.update-index-grid > article,.info-block'
+const targets = '.section-heading,.project-card,.update-feed > li,.project-update-timeline > li,.principle-grid > article,.legal-panel,.faq-list > details,.detail-hero,.detail-section,.detail-aside > *,.update-project-tabs > a,.update-index-grid > article,.info-block'
 
 // No pending/hidden state. Only intersecting elements receive a finite animation.
 export default function useReveal(rootRef, pageKey) {

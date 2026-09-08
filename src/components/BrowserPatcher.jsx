@@ -95,8 +95,8 @@ export default function BrowserPatcher({ project }) {
     }
   }
 
-  return <section className="detail-section browser-patcher" aria-labelledby="browser-patcher-title">
-    <div className="detail-section-title"><span>LOCAL WEB PATCHER</span><h2 id="browser-patcher-title">브라우저에서 바로 패치</h2></div>
+  return <section className="detail-section browser-patcher" id="browser-patcher" aria-labelledby="browser-patcher-title">
+    <div className="detail-section-title"><h2 id="browser-patcher-title">브라우저에서 바로 패치</h2></div>
     <div className="patcher-privacy"><ShieldCheck size={22} /><p><strong>ROM은 업로드되지 않습니다.</strong> 선택한 파일의 검증과 BPS 적용은 이 브라우저 안에서만 처리됩니다.</p></div>
     <div className="patcher-version">
       <label htmlFor="patch-version"><span>패치 버전</span><select id="patch-version" value={selectedVersion} onChange={changeVersion}>{config.versions.map((item) => <option key={item.version} value={item.version}>{item.version}{item.version === config.defaultVersion ? ' (최신)' : ''}</option>)}</select></label>

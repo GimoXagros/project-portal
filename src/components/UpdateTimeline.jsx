@@ -1,7 +1,7 @@
 import { ExternalLink } from 'lucide-react'
 
-export default function UpdateTimeline({ changelog, compact = false }) {
-  const entries = changelog?.entries || []
+export default function UpdateTimeline({ changelog, compact = false, limit }) {
+  const entries = (changelog?.entries || []).slice(0, limit)
   if (!entries.length) return <div className="update-empty"><span aria-hidden="true">∅</span><h3>아직 기록된 업데이트가 없습니다.</h3><p>새 릴리스가 확인되면 이곳에 기록합니다.</p></div>
 
   return <ol className={`project-update-timeline ${compact ? 'compact' : ''}`}>
@@ -12,7 +12,7 @@ export default function UpdateTimeline({ changelog, compact = false }) {
         <h3>{entry.title}</h3>
         <p>{entry.summary}</p>
         {!compact && entry.changes?.length > 0 && <ul>{entry.changes.map((change) => <li key={change}>{change}</li>)}</ul>}
-        {entry.releaseUrl && <a href={entry.releaseUrl} target="_blank" rel="noreferrer">{entry.sourceLabel || 'GitHub 릴리스 보기'} <ExternalLink size={14} /></a>}
+        {!compact && entry.releaseUrl && <a href={entry.releaseUrl} target="_blank" rel="noreferrer">{entry.sourceLabel || 'GitHub 릴리스 보기'} <ExternalLink size={14} /></a>}
       </article>
     </li>)}
   </ol>

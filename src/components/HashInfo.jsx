@@ -25,8 +25,8 @@ export default function HashInfo({ project }) {
     }
   }
 
-  return <section className="detail-section" aria-labelledby="hash-title">
-    <div className="detail-section-title"><span>INTEGRITY</span><h2 id="hash-title">파일 무결성</h2></div>
+  return <section className="detail-section" id="integrity" aria-labelledby="hash-title"><details>
+    <summary id="hash-title">파일 무결성 세부 정보</summary>
     <dl className="hash-list">{hashes.map(({ label, value, key }) => <div key={key}><dt>{label}</dt><dd><code>{value}</code><button type="button" onClick={() => copy(label, value)} aria-label={`${label} 복사`}>{copied === label ? <Check size={17} /> : <Copy size={17} />}<span>{copied === label ? '복사됨' : '복사'}</span></button></dd></div>)}</dl>
-  </section>
+  </details></section>
 }

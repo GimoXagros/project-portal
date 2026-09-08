@@ -21,6 +21,17 @@ export function validateData(projectsOverride) {
 
   const seen = new Set()
   for (const project of projects) {
+    const sentences = new Map()
+    for (const field of ['features', 'scope', 'requirements', 'compatibility', 'notes', 'installGuide']) {
+      for (const sentence of project[field] || []) {
+        if (typeof sentence !== 'string') continue
+        const normalized = sentence.trim().replace(/\s+/g, ' ').replace(/\.+$/, '').trim().toLowerCase()
+        if (!normalized) continue
+        const first = sentences.get(normalized)
+        if (first && first !== field) fail('src/data/projects.json', project.id, `${first} ↔ ${field}: 중복 문장 ${JSON.stringify(sentence)}`)
+        else if (!first) sentences.set(normalized, field)
+      }
+    }
     if (!safeId.test(project.id || '')) fail('src/data/projects.json', project.id, 'id는 소문자 영문, 숫자, 하이픈만 사용할 수 있습니다.')
     if (seen.has(project.id)) fail('src/data/projects.json', project.id, '중복된 프로젝트 id입니다.')
     seen.add(project.id)
