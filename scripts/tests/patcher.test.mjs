@@ -82,3 +82,17 @@ test('vendored engine retains the upstream MIT license and exact source files', 
     assert.ok(readFileSync(new URL(file, vendor)).byteLength > 1000)
   }
 })
+
+test('v0.9c public BPS is byte-identical to v0.9b and keeps the same ROM sizes', () => {
+  const root = new URL('../../public/patches/narikiri2-save-compat/', import.meta.url)
+  const current = readFileSync(new URL('v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps', root))
+  const previous = readFileSync(new URL('v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps', root))
+  assert.deepEqual(current, previous)
+  const context = loadEngine()
+  context.publishedPatch = Uint8Array.from(current)
+  const info = runInContext(`(() => {
+    const patch = BPS.fromFile(new BinFile(publishedPatch))
+    return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
+  })()`, context)
+  assert.deepEqual({ ...info }, { sourceSize: 9961472, targetSize: 13107200 })
+})

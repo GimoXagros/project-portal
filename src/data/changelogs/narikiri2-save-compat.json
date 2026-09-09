@@ -3,6 +3,24 @@
   "displayName": "테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치",
   "entries": [
     {
+      "id": "narikiri2-save-compat-v0-9c",
+      "version": "v0.9c",
+      "date": "2026-09-08",
+      "title": "v0.9c — PC 도구 수정 공개 검증판",
+      "summary": "PC 적용기와 검증 기록을 보완했습니다. 게임 ROM·BPS는 v0.9b와 같아 기존 사용자는 재패치할 필요가 없습니다.",
+      "changes": [
+        "쓰기 실패로 불완전한 최종 ROM이 남지 않도록 임시 파일 검증 후 최종 이름으로 저장하며, 기존 파일은 덮어쓰지 않습니다.",
+        "manifest의 버전·크기·출처·중첩 자료형을 포함한 전체 값을 검사합니다.",
+        "짧은 이름 1,227필드와 첫 단계 절대 포인터 2,077개를 구분해 기록했습니다.",
+        "전체 테스트 150/150과 공개 계약 검사 49/49를 통과했으며 실패·건너뜀·오류는 0입니다. 반복 빌드·패키지 A/B 일치, ZIP 독립 적용과 한글 파일명을 확인했습니다.",
+        "mGBA 기준선·후보 각각 14경로/134화면을 재현했습니다. 시험용 RAM 표시 매트릭스는 자연 진행 검증과 구분합니다. EEPROM·대형 글꼴·음성을 보존했고 설명되지 않은 ROM 변경은 없습니다.",
+        "PC 검증 완료 / 실기 검증 대기 상태입니다. 모든 이야기 분기·독립적인 전체 대사 재검수·2기기 통신·실기 안정성은 완료하지 않았으며 issue #4를 유지합니다.",
+        "동봉 verification/v0.9c.json은 공개 전 후보의 역사적 검증 기록이며, 현재 공개 승인과 도구 출처는 verification/v0.9c-prerelease.json이 보충합니다. 권리 범위는 RIGHTS.md를 따릅니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c",
+      "status": "prerelease"
+    },
+    {
       "id": "narikiri2-save-compat-v0-9b",
       "version": "v0.9b",
       "date": "2026-09-06",
