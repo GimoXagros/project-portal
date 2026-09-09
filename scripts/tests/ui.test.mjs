@@ -48,7 +48,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-06/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-08/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.match(html, /현재 배포 중 · 4 PROJECTS/)
   assert.equal(projects.length, 4)
@@ -60,7 +60,7 @@ test('all projects expose their full public release history from the first recor
     gameyob: ['v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
     gbarunner3: ['custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
     nitroswan: ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
-    'narikiri2-save-compat': ['v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
+    'narikiri2-save-compat': ['v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
   for (const [id, versions] of Object.entries(expected)) {
     const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
@@ -81,14 +81,17 @@ test('all projects expose their full public release history from the first recor
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri renders v0.9b as the primary public beta with all selectable patch versions', async () => {
+test('Narikiri renders v0.9c as the primary public beta with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'narikiri2-save-compat')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'korean-patch')
-  assert.equal(project.version, 'v0.9b')
+  assert.equal(project.version, 'v0.9c')
   assert.equal(project.releasePolicy, 'latest-prerelease')
-  for (const text of ['2차 한국어화 패치', 'FFR BETA3', '공개 검증판 v0.9b', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  assert.ok(html.includes('다시 패치할 필요가 없습니다'))
+  assert.deepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
+  assert.equal(project.webPatcher.versions[0].output.sha256, project.webPatcher.versions[1].output.sha256)
+  for (const text of ['2차 한국어화 패치', 'FFR BETA3', '공개 검증판 v0.9c', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
   for (const download of project.downloads) {
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
@@ -99,13 +102,14 @@ test('Narikiri renders v0.9b as the primary public beta with all selectable patc
   for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
   assert.match(html, /<label for="patch-version">/)
   assert.match(html, /<select id="patch-version">/)
-  assert.match(html, /<option value="v0\.9b" selected="">v0\.9b \(최신\)<\/option>/)
+  assert.match(html, /<option value="v0\.9c" selected="">v0\.9c \(최신\)<\/option>/)
+  assert.match(html, /<option value="v0\.9b">v0\.9b<\/option>/)
   assert.match(html, /<option value="v0\.9a">v0\.9a<\/option>/)
   assert.match(html, /<option value="v0\.9">v0\.9<\/option>/)
   assert.match(html, /type="file"/)
   assert.match(html, /disabled=""/)
   assert.ok(html.includes(project.webPatcher.versions[0].output.filename))
-  assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9b\.gba"/)
+  assert.doesNotMatch(html, /download="NARIKIRI2_AN9J_K_DALMOORI_v0\.9c\.gba"/)
 })
 
 const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))

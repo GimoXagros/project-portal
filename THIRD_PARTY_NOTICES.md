@@ -40,3 +40,19 @@ is the unchanged public prerelease asset from
 - SHA-256: `9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a`
 
 No source ROM or patched ROM is included in this repository.
+
+## Narikiri Dungeon 2 v0.9b and v0.9c BETA3 BPS
+
+The BETA3 assets in `public/patches/narikiri2-save-compat/v0.9b/` and
+`public/patches/narikiri2-save-compat/v0.9c/` are the unchanged public assets from
+[v0.9b](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9b) and
+[v0.9c](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c).
+They are byte-for-byte identical; v0.9c changes PC tools and verification records.
+
+- Size (each): `3189401 bytes`
+- SHA-256 (each): `51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6`
+
+New tool code/documents are MIT; Dalmoori-derived font terms are Apache-2.0.
+Original game, existing FFR translation and identification image rights are excluded.
+See the release package's RIGHTS.md and THIRD_PARTY_NOTICES.md for the boundaries.
+No source ROM, output ROM, save or BIOS is included.

@@ -172,18 +172,20 @@
     "id": "narikiri2-save-compat",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v0.9b",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v0.9c",
     "subtitle": "FFR BETA3 기반 일본어 원문 대조 공개 검증판",
     "description": "FFR BETA3(071102)를 바탕으로 글꼴과 번역, 메뉴·전투 표시를 다듬은 테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치입니다.",
     "type": "korean-patch",
-    "platform": ["Game Boy Advance"],
+    "platform": [
+      "Game Boy Advance"
+    ],
     "status": "beta",
-    "version": "v0.9b",
+    "version": "v0.9c",
     "releasePolicy": "latest-prerelease",
-    "releaseDate": "2026-09-06",
-    "lastUpdated": "2026-09-06",
+    "releaseDate": "2026-09-08",
+    "lastUpdated": "2026-09-08",
     "repository": "https://github.com/GimoXagros/narikiri2-save-compat",
-    "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9b",
+    "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c",
     "issuesUrl": "https://github.com/GimoXagros/narikiri2-save-compat/issues",
     "downloadUrl": "",
     "homepage": "",
@@ -199,12 +201,43 @@
       "accentDark": "#a8d891"
     },
     "screenshots": [],
-    "features": ["FFR BETA3(071102) 전용 누적 BPS와 Python 적용 도구", "달무리 8×8 글꼴, 기본 이름 훌리오·캐로, 대사·고유명사 교정", "메뉴 배경 덧칠, 전투 이름 잘림과 적 정보창 표시 수정"],
-    "scope": ["실제 대사·설명 8,037건과 짧은 이름 필드 1,227개의 일본어 원문 대조", "BETA3 차이 2건 반영 및 문장 285건·짧은 이름 필드 16개 추가 교정", "옷 교환 안내 포인터 테이블 복원과 BETA3 기존 EEPROM 저장 코드 보존"],
-    "requirements": ["사용자가 합법적으로 준비한 수정하지 않은 FFR BETA3(071102) 9961472 bytes", "웹 패처를 지원하는 브라우저 또는 수동 적용용 Python 3.10 이상"],
-    "compatibility": ["mGBA 0.11-219-e31759b HLE 환경에서 새 게임 기본 이름, 두 차례 재실행·재저장, 혼합 이름을 확인했습니다.", "기존 8 KiB 게임 내 저장의 이어하기·재저장과 중단 저장, 전투·필드 복귀를 확인했습니다.", "스펙터클즈·인스펙트 아이 정보창, 아이템 156종, 코스튬 200종, 몬스터 142종, 인물 22명, 기술 이름 224종과 기술 설명 231개를 확인했습니다."],
-    "installGuide": ["GitHub Release 패키지의 apply_ffr_v09b.py를 Python 3.10 이상으로 실행합니다.", "생성 결과가 13107200 bytes이고 SHA-256이 d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4인지 확인합니다.", "기존 저장을 사용할 때 실행기 규칙에 맞춰 ROM과 저장 파일의 기본 이름·위치를 맞추고, 이전 savestate 대신 게임의 이어하기를 사용합니다."],
-    "notes": ["v0.9b는 완성판이 아닌 공개 검증판입니다. 독립적인 사람의 번역 감수, 실기와 장시간 전편 진행은 v1.0 과제로 남아 있습니다. 실제 두 기기 간 통신 교환도 아직 검증하지 않았습니다.", "BETA3에는 EEPROM 저장 코드가 이미 있어 v0.5 저장 복구를 별도로 적용할 필요가 없습니다. v0.5는 새 배포를 중단하고 태그와 이력만 보존합니다.", "시험한 Candidate A/v0.9 계열 8 KiB 게임 내 저장은 이어하기와 재저장이 가능하지만, 출처가 불명확한 32 KiB 저장이나 이전 ROM의 savestate는 변환 대상이 아닙니다.", "공개 자산에는 ROM, 세이브, BIOS, 전체 추출 대본이 포함되지 않습니다.", "식별 이미지는 사용자 제공 자료이며 공식 로고나 권리자의 승인·제휴를 의미하지 않습니다.", "아이템·도감·기술 일괄 표시는 별도 RAM 시험 상태를 사용했으며 자연 습득·해금이나 전편 플레이 증거가 아닙니다.", "원본 ROM과 기존 8 KiB 게임 내 저장을 각각 복사해 안전하게 보관합니다.", "v0.9b는 수정하지 않은 BETA3에 한 번만 적용합니다. BETA2, 일본어판, v0.9·v0.9a 및 다른 수정본에 덧붙이지 않습니다."],
+    "features": [
+      "FFR BETA3(071102) 전용 누적 BPS와 Python 적용 도구",
+      "달무리 8×8 글꼴, 기본 이름 훌리오·캐로, 대사·고유명사 교정",
+      "메뉴 배경 덧칠, 전투 이름 잘림과 적 정보창 표시 수정"
+    ],
+    "scope": [
+      "실제 대사·설명 8,037건과 짧은 이름 필드 1,227개의 일본어 원문 대조",
+      "BETA3 차이 2건 반영 및 문장 285건·짧은 이름 필드 16개 추가 교정",
+      "옷 교환 안내 포인터 테이블 복원과 BETA3 기존 EEPROM 저장 코드 보존",
+      "짧은 이름 1,227필드와 첫 단계 절대 포인터 2,077개를 구분해 기록"
+    ],
+    "requirements": [
+      "사용자가 합법적으로 준비한 수정하지 않은 FFR BETA3(071102) 9961472 bytes",
+      "웹 패처를 지원하는 브라우저 또는 수동 적용용 Python 3.10 이상"
+    ],
+    "compatibility": [
+      "mGBA 0.11-219-e31759b HLE 환경에서 새 게임 기본 이름, 두 차례 재실행·재저장, 혼합 이름을 확인했습니다.",
+      "기존 8 KiB 게임 내 저장의 이어하기·재저장과 중단 저장, 전투·필드 복귀를 확인했습니다.",
+      "스펙터클즈·인스펙트 아이 정보창, 아이템 156종, 코스튬 200종, 몬스터 142종, 인물 22명, 기술 이름 224종과 기술 설명 231개를 확인했습니다.",
+      "v0.9c 공개 기록: 전체 테스트 150/150, 공개 계약 검사 49/49 통과. 반복 빌드·패키지 A/B 일치, ZIP 독립 적용과 한글 파일명을 확인했습니다.",
+      "mGBA에서 기준선·후보 각각 14경로/134화면을 재현했습니다. PC 검증 완료이며 실기 검증은 대기 중입니다."
+    ],
+    "installGuide": [
+      "GitHub Release 패키지의 apply_ffr_v09c.py를 Python 3.10 이상으로 실행합니다.",
+      "생성 결과가 13107200 bytes이고 SHA-256이 d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4인지 확인합니다.",
+      "기존 저장을 사용할 때 실행기 규칙에 맞춰 ROM과 저장 파일의 기본 이름·위치를 맞추고, 이전 savestate 대신 게임의 이어하기를 사용합니다."
+    ],
+    "notes": [
+      "v0.9c는 완성판이 아닌 공개 검증판입니다. 독립적인 사람의 번역 감수, 실기와 장시간 전편 진행은 v1.0 과제로 남아 있습니다. 실제 두 기기 간 통신 교환도 아직 검증하지 않았습니다.",
+      "BETA3에는 EEPROM 저장 코드가 이미 있어 v0.5 저장 복구를 별도로 적용할 필요가 없습니다. v0.5는 새 배포를 중단하고 태그와 이력만 보존합니다.",
+      "시험한 Candidate A/v0.9 계열 8 KiB 게임 내 저장은 이어하기와 재저장이 가능하지만, 출처가 불명확한 32 KiB 저장이나 이전 ROM의 savestate는 변환 대상이 아닙니다.",
+      "공개 자산에는 ROM, 세이브, BIOS, 전체 추출 대본이 포함되지 않습니다.",
+      "식별 이미지는 사용자 제공 자료이며 공식 로고나 권리자의 승인·제휴를 의미하지 않습니다.",
+      "아이템·도감·기술 일괄 표시는 별도 RAM 시험 상태를 사용했으며 자연 습득·해금이나 전편 플레이 증거가 아닙니다.",
+      "원본 ROM과 기존 8 KiB 게임 내 저장을 각각 복사해 안전하게 보관합니다.",
+      "v0.9c는 수정하지 않은 BETA3에 한 번만 적용합니다. BETA2, 일본어판, v0.9·v0.9a 및 다른 수정본에 덧붙이지 않습니다."
+    ],
     "credits": [
       {
         "role": "2차 한국어화 패치·도구·문서",
@@ -216,18 +249,18 @@
       "프로젝트 식별 이미지: 사용자 제공 · 원 게임 권리자 권리 유지 · 공식 승인·제휴를 의미하지 않음"
     ],
     "license": "신규 코드·문서 MIT / 달무리 파생 글꼴 Apache-2.0 / 원 게임·기존 한국어판·식별 이미지 제외",
-    "fileSize": "패키지 228437 bytes · BPS 3189401 bytes",
+    "fileSize": "패키지 190363 bytes · BPS 3189401 bytes",
     "hashes": [
       {
         "label": "FFR BETA3(071102) 입력 (9961472 bytes) SHA-256",
         "value": "c6d7a401aa2a22362b2d27d0d31632cb2180a86b094788815d949b84c7fc944d"
       },
       {
-        "label": "v0.9b BETA3 전용 BPS (3189401 bytes) SHA-256",
+        "label": "v0.9c BETA3 전용 BPS (3189401 bytes) SHA-256",
         "value": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
       },
       {
-        "label": "v0.9b 적용 결과 (13107200 bytes) SHA-256",
+        "label": "v0.9c 적용 결과 (13107200 bytes) SHA-256",
         "value": "d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4"
       }
     ],
@@ -243,17 +276,17 @@
     "downloadEnabled": true,
     "downloads": [
       {
-        "label": "v0.9b BETA3 적용 패키지",
-        "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9b_BETA3_PACKAGE.zip",
-        "size": "228437 bytes",
-        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_BETA3_PACKAGE.zip",
-        "sha256": "800a49eb411f9d251ca37eaacd50a61733c2ce3d7939db9ed3719b18ff432529"
+        "label": "v0.9c BETA3 적용 패키지",
+        "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_BETA3_PACKAGE.zip",
+        "size": "190363 bytes",
+        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_BETA3_PACKAGE.zip",
+        "sha256": "f92c048ed2e4d35ad83599d9c592db26f15a56053e8c4e109b31d8cec369484c"
       },
       {
-        "label": "v0.9b BETA3 전용 누적 BPS",
-        "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
+        "label": "v0.9c BETA3 전용 누적 BPS",
+        "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
         "size": "3189401 bytes",
-        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
+        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
         "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
       }
     ],
@@ -261,14 +294,38 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v0.9b",
+      "defaultVersion": "v0.9c",
       "versions": [
+        {
+          "version": "v0.9c",
+          "releaseDate": "2026-09-08",
+          "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c",
+          "title": "PC 도구 수정 공개 검증판",
+          "summary": "v0.9c는 PC 적용기·패키징 도구를 수정한 버전입니다. ROM과 BPS는 v0.9b와 동일하므로, v0.9b 사용자는 다시 패치할 필요가 없습니다.",
+          "source": {
+            "label": "FFR BETA3(071102)",
+            "size": 9961472,
+            "sha256": "c6d7a401aa2a22362b2d27d0d31632cb2180a86b094788815d949b84c7fc944d"
+          },
+          "patch": {
+            "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+            "path": "patches/narikiri2-save-compat/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+            "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+            "size": 3189401,
+            "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
+          },
+          "output": {
+            "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c.gba",
+            "size": 13107200,
+            "sha256": "d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4"
+          }
+        },
         {
           "version": "v0.9b",
           "releaseDate": "2026-09-06",
           "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9b",
           "title": "FFR BETA3 기반 일본어 원문 대조 공개 검증판",
-          "summary": "FFR BETA3에 달무리 글꼴, 문장·고유명사 교정, 메뉴·전투 표시 수정을 통합한 최신 2차 한국어화 공개 검증판입니다.",
+          "summary": "FFR BETA3에 달무리 글꼴, 문장·고유명사 교정, 메뉴·전투 표시 수정을 통합한 이전 2차 한국어화 공개 검증판입니다.",
           "source": {
             "label": "FFR BETA3(071102)",
             "size": 9961472,
