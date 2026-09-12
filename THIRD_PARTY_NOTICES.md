@@ -56,3 +56,13 @@ New tool code/documents are MIT; Dalmoori-derived font terms are Apache-2.0.
 Original game, existing FFR translation and identification image rights are excluded.
 See the release package's RIGHTS.md and THIRD_PARTY_NOTICES.md for the boundaries.
 No source ROM, output ROM, save or BIOS is included.
+
+## Narikiri Dungeon 2 v0.9d BPS
+
+Unmodified public asset from https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d.
+
+- File: `public/patches/narikiri2-save-compat/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps`
+- Size: `4881466 bytes`
+- SHA-256: `efcbbcc5b0973ecf27ed73e4223211a9875cac0d4ba6192e26e1ea535ac6bcb5`
+- Input: unmodified Japanese AN9J (8388608 bytes); output: 13107200 bytes.
+- Game and prior FFR translation rights remain with their respective owners.

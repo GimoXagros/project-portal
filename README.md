@@ -6,7 +6,7 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치의
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.3`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 `v0.9c`, 테일즈 오브 더 월드 나리키리 던전3 `v1.1a` 다섯 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.3`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 `v0.9d`, 테일즈 오브 더 월드 나리키리 던전3 `v1.1a` 다섯 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
 2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
 
@@ -46,7 +46,7 @@ npm run preview
 - `npm run check`: 정적 검증 → test → 원격 검증 → lint → build 순서로 전체 검사합니다. 각 단계와 build는 한 번만 수행합니다.
 - `npm test`: 날짜, 최신 릴리스 누락·고정 정책·정적 검증·원격 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
 
-나리키리 상세 페이지의 웹 패처는 v0.9c, v0.9b, v0.9a와 v0.9를 선택할 수 있으며 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 기본값은 최신 v0.9c이고, 버전을 바꾸면 이전 입력과 결과를 폐기합니다. v0.9c와 v0.9b는 FFR BETA3(071102), 이전 두 버전은 BETA2 계열 최초 FFR 입력을 각각 요구합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 선택 버전의 원본·내장 패치·생성 결과 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
+나리키리 상세 페이지의 웹 패처는 v0.9d, v0.9c, v0.9b, v0.9a와 v0.9를 선택할 수 있으며 [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 기본값은 최신 v0.9d이고, 버전을 바꾸면 이전 입력과 결과를 폐기합니다. v0.9d는 일본어 AN9J 원본, v0.9c와 v0.9b는 FFR BETA3(071102), 이전 두 버전은 BETA2 계열 최초 FFR 입력을 각각 요구합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 선택 버전의 원본·내장 패치·생성 결과 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
 
 원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰과 내부 전송 오류 원문은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 요청·응답 본문 읽기를 포함해 15초 제한이며 네트워크/서버 오류는 최대 세 번 시도합니다. `RELEASE_NOT_FOUND`(404), `RATE_LIMIT`(호출 제한), `API_SERVER`(5xx), `TIMEOUT`, `NETWORK`, `INVALID_RESPONSE`, `API_ACCESS`를 데이터 불일치와 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
 
@@ -223,7 +223,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 - `#/updates/nitroswan`
 - `#/updates/narikiri2-save-compat`
 
-각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 4개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
+각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 5개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
 
 새 GameYob Custom 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
 
@@ -293,4 +293,4 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 이 포털은 원본 ROM, 게임 데이터, BIOS, 펌웨어, 암호화 키를 배포하지 않습니다. 사용자는 필요한 데이터를 합법적으로 직접 준비해야 하며, 각 게임·플랫폼·상표의 권리는 해당 권리자에게 있습니다.
 
-2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 기존 `narikiri2-save-compat` 페이지 ID는 이전 링크 호환을 위해 유지합니다. 저장소의 v0.9d는 공개 Release가 없는 테스트판 안내이며 다운로드·웹 패처는 v0.9c를 유지합니다. 나리키리 던전3은 공개 v1.1a 패키지·BPS 다운로드와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.
+2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 기존 `narikiri2-save-compat` 페이지 ID는 이전 링크 호환을 위해 유지합니다. 작업 중 공개된 v0.9d의 일본어 원본용 패키지와 BPS를 다운로드·웹 패처에 반영했습니다. 이전 테스트판과 공개 v0.9d의 결과 해시는 다르므로 공개 매니페스트를 기준으로 검증합니다. 나리키리 던전3은 공개 v1.1a 패키지·BPS 다운로드와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.
