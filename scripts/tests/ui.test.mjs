@@ -48,18 +48,19 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-08/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-12/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
-  assert.match(html, /현재 배포 중 · 4 PROJECTS/)
-  assert.equal(projects.length, 4)
+  assert.match(html, /현재 배포 중 · 5 PROJECTS/)
+  assert.equal(projects.length, 5)
 })
 
 test('all projects expose their full public release history from the first recorded point', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const expected = {
     gameyob: ['v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
-    gbarunner3: ['custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    gbarunner3: ['custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
     nitroswan: ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
+    'gba-narikiri3-kor': ['v1.1a'],
     'narikiri2-save-compat': ['v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
   for (const [id, versions] of Object.entries(expected)) {
@@ -91,7 +92,7 @@ test('Narikiri renders v0.9c as the primary public beta with all selectable patc
   assert.ok(html.includes('다시 패치할 필요가 없습니다'))
   assert.deepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
   assert.equal(project.webPatcher.versions[0].output.sha256, project.webPatcher.versions[1].output.sha256)
-  for (const text of ['2차 한국어화 패치', 'FFR BETA3', '공개 검증판 v0.9c', 'logo.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  for (const text of ['테일즈 오브 더 월드 나리키리 던전2', 'FFR BETA3', '공개 검증판 v0.9c', 'logo-20260913.png', project.downloads[0].url]) assert.ok(html.includes(text))
   for (const download of project.downloads) {
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))

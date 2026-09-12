@@ -27,7 +27,7 @@
 /* Project cover-note detail */
 .detail-hero { background: linear-gradient(90deg,color-mix(in srgb,var(--line) 17%,transparent) 1px,transparent 1px),linear-gradient(color-mix(in srgb,var(--line) 17%,transparent) 1px,transparent 1px),var(--paper-soft); background-size: 34px 34px; }
 .detail-hero-grid { grid-template-columns: minmax(260px,.55fr) minmax(0,1.45fr); align-items: center; }
-.detail-hero .logo-detail { width: 100%; min-height: 330px; max-height: 430px; border-radius: 20px 20px 9px 9px; box-shadow: var(--shadow); }
+.detail-hero .logo-detail { width: 100%; height: clamp(180px,40vw,330px); min-height: 330px; max-height: 430px; grid-template-rows: minmax(0,1fr); border-radius: 20px 20px 9px 9px; box-shadow: var(--shadow); }
 .detail-hero .logo-detail img { padding: clamp(25px,4vw,50px); }
 .detail-heading-copy { min-width: 0; }
 .detail-heading-copy h1 { margin-top: 15px; }

@@ -56,3 +56,17 @@
 ## 갱신 원칙
 
 로고를 교체할 때는 지정 브랜치의 파일과 commit/blob SHA를 다시 확인합니다. 원본은 파괴적으로 수정하지 않으며, 공개 파생 파일도 비율·투명도·색상을 유지합니다. `projects.json`의 `branding.logo`, 크기와 대체 텍스트를 함께 갱신한 뒤 `npm run validate:data`와 `npm run build`를 실행합니다.
+
+## 2026-09-13 나리키리 로고 갱신
+
+두 저장소의 logo.png 원본을 변형 없이 사용합니다. 과거 파일은 이력으로 보존하며 새 파일명으로 캐시를 구분합니다.
+
+- 던전2 출처: https://github.com/GimoXagros/gba-narikiri2-kor/blob/bcbb558f434d917526438e4643387354151d7faa/logo.png
+- 던전2 blob: `1d7b894450eef253625eb3ae9d0c93473649b81b`
+- 표시: `public/assets/projects/narikiri2-save-compat/logo-20260913.png` · 1254×1254 · 1897543 bytes
+- SHA-256: `a6d33ce289482f8c5adbb3afc1672a34c1a4a3cfbb30a437c8d864ad7cd1cf0f`
+- 던전3 출처: https://github.com/GimoXagros/gba-narikiri3-kor/blob/a7f8c69abf40f4a87fa4ee05edf05d93b7ba319a/logo.png
+- 던전3 blob: `f45f4ed3a6b88bd709ab2ce97de8732505831646`
+- 표시: `public/assets/projects/gba-narikiri3-kor/logo-20260913.png` · 1254×1254 · 1992674 bytes
+- SHA-256: `925a32f439347150a5f1633849ee7daeb44cbc5e3abcbb61a2fd9dbe6aeee1ae`
+- Xagros 제공 식별 이미지이며 원 게임·원본 도안 권리는 각 권리자에게 있습니다. 도구의 MIT 라이선스는 이미지에 적용되지 않습니다.

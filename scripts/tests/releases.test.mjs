@@ -161,8 +161,9 @@ test('complete static validator rejects invalid policies and missing or misplace
   const good = structuredClone(data)
   Object.assign(good[0], { releasePolicy: 'pinned', pinReason: 'Hardware testing pending' })
   assert.deepEqual(validateData(good).errors, [])
-  const previewIndex = data.findIndex((item) => item.prerelease)
+  const previewIndex = 0
   const badPreview = structuredClone(data)
+  badPreview[previewIndex].prerelease = structuredClone(previewProject.prerelease)
   badPreview[previewIndex].prerelease.releasePolicy = 'latest-stable'
   assert.match(validateData(badPreview).errors.join(), /prerelease\.releasePolicy/)
 
