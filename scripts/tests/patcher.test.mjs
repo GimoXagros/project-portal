@@ -46,7 +46,7 @@ test('pinned engine rejects a BPS patch for the wrong source', () => {
 
 test('published v0.9b BETA3 BPS parses with the registered source and target sizes', () => {
   const context = loadEngine()
-  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps', import.meta.url)))
+  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/gba-narikiri2-kor/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps', import.meta.url)))
   const info = runInContext(`(() => {
     const patch = BPS.fromFile(new BinFile(publishedPatch))
     return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
@@ -56,7 +56,7 @@ test('published v0.9b BETA3 BPS parses with the registered source and target siz
 
 test('published v0.9a BPS parses with the registered source and target sizes', () => {
   const context = loadEngine()
-  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps', import.meta.url)))
+  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/gba-narikiri2-kor/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps', import.meta.url)))
   const info = runInContext(`(() => {
     const patch = BPS.fromFile(new BinFile(publishedPatch))
     return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
@@ -66,7 +66,7 @@ test('published v0.9a BPS parses with the registered source and target sizes', (
 
 test('published v0.9 BPS parses with the registered source and target sizes', () => {
   const context = loadEngine()
-  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps', import.meta.url)))
+  context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/patches/gba-narikiri2-kor/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps', import.meta.url)))
   const info = runInContext(`(() => {
     const patch = BPS.fromFile(new BinFile(publishedPatch))
     return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
@@ -84,7 +84,7 @@ test('vendored engine retains the upstream MIT license and exact source files', 
 })
 
 test('v0.9c public BPS is byte-identical to v0.9b and keeps the same ROM sizes', () => {
-  const root = new URL('../../public/patches/narikiri2-save-compat/', import.meta.url)
+  const root = new URL('../../public/patches/gba-narikiri2-kor/', import.meta.url)
   const current = readFileSync(new URL('v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps', root))
   const previous = readFileSync(new URL('v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps', root))
   assert.deepEqual(current, previous)
@@ -95,4 +95,16 @@ test('v0.9c public BPS is byte-identical to v0.9b and keeps the same ROM sizes',
     return { sourceSize: patch.sourceSize, targetSize: patch.targetSize }
   })()`, context)
   assert.deepEqual({ ...info }, { sourceSize: 9961472, targetSize: 13107200 })
+})
+
+test('all registered public patches parse with their declared ROM sizes', () => {
+  const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+  for (const project of projects.filter(item => item.type === 'korean-patch')) {
+    for (const version of project.webPatcher.versions) {
+      const context = loadEngine()
+      context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/' + version.patch.path, import.meta.url)))
+      const info = runInContext(`(() => { const patch = BPS.fromFile(new BinFile(publishedPatch)); return { sourceSize: patch.sourceSize, targetSize: patch.targetSize } })()`, context)
+      assert.deepEqual({ ...info }, { sourceSize: version.source.size, targetSize: version.output.size })
+    }
+  }
 })

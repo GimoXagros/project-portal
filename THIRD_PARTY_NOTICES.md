@@ -25,14 +25,14 @@ code and is not an upstream RomPatcher.js file.
 
 ## Narikiri Dungeon 2 v0.9 and v0.9a BPS
 
-`public/patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps`
+`public/patches/gba-narikiri2-kor/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps`
 is the unchanged public prerelease asset from
 [`GimoXagros/gba-narikiri2-kor` v0.9](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9).
 
 - Size: `145379 bytes`
 - SHA-256: `38cba8fbf0fee41af02859df1a607eda2dbedee17f37afbb05fac05316449866`
 
-`public/patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps`
+`public/patches/gba-narikiri2-kor/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps`
 is the unchanged public prerelease asset from
 [`GimoXagros/gba-narikiri2-kor` v0.9a](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9a).
 
@@ -43,8 +43,8 @@ No source ROM or patched ROM is included in this repository.
 
 ## Narikiri Dungeon 2 v0.9b and v0.9c BETA3 BPS
 
-The BETA3 assets in `public/patches/narikiri2-save-compat/v0.9b/` and
-`public/patches/narikiri2-save-compat/v0.9c/` are the unchanged public assets from
+The BETA3 assets in `public/patches/gba-narikiri2-kor/v0.9b/` and
+`public/patches/gba-narikiri2-kor/v0.9c/` are the unchanged public assets from
 [v0.9b](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9b) and
 [v0.9c](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9c).
 They are byte-for-byte identical; v0.9c changes PC tools and verification records.
@@ -61,8 +61,21 @@ No source ROM, output ROM, save or BIOS is included.
 
 Unmodified public asset from https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d.
 
-- File: `public/patches/narikiri2-save-compat/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps`
+- File: `public/patches/gba-narikiri2-kor/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps`
 - Size: `4881466 bytes`
 - SHA-256: `efcbbcc5b0973ecf27ed73e4223211a9875cac0d4ba6192e26e1ea535ac6bcb5`
 - Input: unmodified Japanese AN9J (8388608 bytes); output: 13107200 bytes.
 - Game and prior FFR translation rights remain with their respective owners.
+
+## Narikiri Dungeon 3 v1.1a BPS
+
+Unmodified public asset from [gba-narikiri3-kor v1.1a](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a).
+
+- File: `public/patches/gba-narikiri3-kor/v1.1a/ND3_B3TJ_K_v1.1a_FROM_J.bps`
+- Size: `17230086 bytes`
+- SHA-256: `1b07c32665add7c9e76b7251d67195ea9690f420e26d316ec4475a2589ee1db0`
+- Input: Japanese B3TJ (16777216 bytes); output: 33554432 bytes.
+- Original Korean translation 1.1: 짜알; follow-up work: Xagros.
+- Dalmoori: RanolP and contributors, Apache-2.0; inherited tools: MIT.
+- Game, prior translation, and image rights remain separate. See the upstream CREDITS.md and LICENSE.
+- No source ROM, output ROM, save or BIOS is included.

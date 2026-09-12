@@ -16,7 +16,11 @@ import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
 function routeFromHash() {
-  const hash = window.location.hash
+  let hash = window.location.hash
+  if (/^#\/(project|updates)\/narikiri2-save-compat$/.test(hash)) {
+    hash = hash.replace('narikiri2-save-compat', 'gba-narikiri2-kor')
+    window.history.replaceState(null, '', hash)
+  }
   const decode = (value) => { try { return decodeURIComponent(value) } catch { return '__invalid__' } }
   const projectMatch = hash.match(/^#\/project\/([^/]+)$/)
   if (projectMatch) return { type: 'project', id: decode(projectMatch[1]) }
