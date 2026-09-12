@@ -101,6 +101,134 @@
         "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.10/gameyob.zip",
         "sha256": "18c8eff2f7c7b5d38f302e996c68dad5a63935f70782dd13d45343847e4d846c"
       }
+    ],
+    "downloadVersions": [
+      {
+        "version": "v0.5.10",
+        "releaseDate": "2026-09-05",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.10",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GameYob v0.5.10",
+        "summary": "Game Boy, Game Boy Color와 Super Game Boy 계열을 Nintendo DS·DSi에서 실행하는 에뮬레이터입니다.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.10/gameyob.zip",
+            "size": "814552 bytes",
+            "sha256": "18c8eff2f7c7b5d38f302e996c68dad5a63935f70782dd13d45343847e4d846c"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.9-ko",
+        "releaseDate": "2026-09-01",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GameYob v0.5.9-ko",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.9-ko/gameyob.zip",
+            "size": "816695 bytes",
+            "sha256": "96b80ff85d90566a06b435c8ba89c88f09d05cd84efddec45436cfa0838da497"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.8-ko",
+        "releaseDate": "2026-08-29",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.8-ko",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GameYob v0.5.8-ko",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.8-ko/gameyob.zip",
+            "size": "808653 bytes",
+            "sha256": "64fc208342c2005eb596b59c2e88d5555784109946867f36ebd48fe3d2b25003"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.7-ko",
+        "releaseDate": "2026-08-29",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.7-ko",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GameYob v0.5.7-ko",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.7-ko/gameyob.zip",
+            "size": "791669 bytes",
+            "sha256": "ef154e00b6f95521c404f1a90deddf6568696763cb28232b36759e6d7950ffec"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.5-ko",
+        "releaseDate": "2026-08-09",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.5-ko",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "Version 0.5.5-ko",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.5-ko/gameyob.zip",
+            "size": "1166552 bytes",
+            "sha256": "fc89a50290bfd9c5ee6cb7137db2c30402edbd1fcd9afbe15afde85fcd6f8365"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.3-ko",
+        "releaseDate": "2026-07-29",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.3-ko",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "Version 0.5.3-ko",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.3-ko/gameyob.zip",
+            "size": "1010531 bytes",
+            "sha256": "09e0a5f3504eb9e40d8f96c80f7ce1d09e4cf3ec9f4ed790154517777cb718ae"
+          }
+        ]
+      },
+      {
+        "version": "v0.5.2-ko.1",
+        "releaseDate": "2026-07-29",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.2-ko.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "Version 0.5.2-ko.1",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "gameyob.zip",
+            "filename": "gameyob.zip",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.2-ko.1/gameyob.zip",
+            "size": "551465 bytes",
+            "sha256": "659c922b44ff859489aa01c279a6005749af656da153b92e6b921237a52a3790"
+          }
+        ]
+      }
     ]
   },
   {
@@ -210,6 +338,148 @@
         "size": "174420 bytes",
         "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3/GBARunner3.zip",
         "sha256": "aebf23f662106cae207138be1eb98967857ed9a37477996b5a45eecbed313c36"
+      }
+    ],
+    "downloadVersions": [
+      {
+        "version": "custom-v0.1.3",
+        "releaseDate": "2026-09-12",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.3 (Stable)",
+        "summary": "직접 실행, 패치와 에뮬레이션 요소를 결합해 Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 호환 계층입니다.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3/GBARunner3.zip",
+            "size": "174420 bytes",
+            "sha256": "aebf23f662106cae207138be1eb98967857ed9a37477996b5a45eecbed313c36"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.3-rc2",
+        "releaseDate": "2026-09-12",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc2",
+        "releasePolicy": "pinned-prerelease",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.3-rc2 (Settings Diagnostic)",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc2/GBARunner3.zip",
+            "size": "261466 bytes",
+            "sha256": "9f957c79203e90b677016dba7464db38177f6d1f24f9b61c175261a2bf5dbac2"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.3-rc1",
+        "releaseDate": "2026-09-05",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc1",
+        "releasePolicy": "pinned-prerelease",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.3-rc1 (Configuration & Build Hardening)",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc1/GBARunner3.zip",
+            "size": "163881 bytes",
+            "sha256": "a2cbd9c0a6b70f1409e80e403bae71803b017fc4fc1bb9fd000696cb97dbe394"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.2",
+        "releaseDate": "2026-09-05",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.2",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.2 (High-ROM Fix)",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.2/GBARunner3.zip",
+            "size": "163671 bytes",
+            "sha256": "13ae1e2252ecf2245ad2236ff13ebea3ba558c7b4e6ea7fb4f021cb25834ce77"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.1",
+        "releaseDate": "2026-08-29",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.1",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.1/GBARunner3.zip",
+            "size": "163590 bytes",
+            "sha256": "1407136bd311c931d7897a93c3c148ec19bef32a0c8d73c4fd8e8dff0effd006"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.0-rc5",
+        "releaseDate": "2026-08-26",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.0-rc5",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.0-rc5 (Hardware Verified)",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3-custom-v0.1.0-rc5.zip",
+            "filename": "GBARunner3-custom-v0.1.0-rc5.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.0-rc5/GBARunner3-custom-v0.1.0-rc5.zip",
+            "size": "148124 bytes",
+            "sha256": "27241d26f780520e51eb51371500dae827dc3a88c65e5c9690290c0f8c2ccd3d"
+          },
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.0-rc5/GBARunner3.zip",
+            "size": "160011 bytes",
+            "sha256": "3117fcd4abe9ab547bab000dbb7c1ac1d560cfb26d2b6acf0fbf8b4d9238394f"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.0-rc1",
+        "releaseDate": "2026-08-23",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.0-rc1",
+        "releasePolicy": "pinned-prerelease",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 RTC + Korean ROM Hack Compatibility v0.1.0-rc1",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3-RTC-KR-ROMHack-custom-v0.1.0-rc1.zip",
+            "filename": "GBARunner3-RTC-KR-ROMHack-custom-v0.1.0-rc1.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.0-rc1/GBARunner3-RTC-KR-ROMHack-custom-v0.1.0-rc1.zip",
+            "size": "147634 bytes",
+            "sha256": "ce252c3973212fca7521954412489e8052b3bda2c35d19972a831634ea693e1d"
+          },
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.0-rc1/GBARunner3.zip",
+            "size": "158236 bytes",
+            "sha256": "6c2c7e1490ece1eadbc6ebbb4d35153eac1dbd248fe2c85080669e435bc9a3bb"
+          }
+        ]
       }
     ]
   },
@@ -330,10 +600,307 @@
         "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DSi-0.7.7-custom.r8.nds",
         "sha256": "4ea4b1af798371b48dab4b73d1c88d324fdfe65eb0d64aed0ba69b588bdd11ce"
       }
+    ],
+    "downloadVersions": [
+      {
+        "version": "v0.7.7-custom.r8",
+        "releaseDate": "2026-09-05",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r8",
+        "summary": "Bandai WonderSwan, WonderSwan Color, SwanCrystal과 PocketChallenge V2에 대응하는 에뮬레이터입니다.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r8.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r8.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DS-0.7.7-custom.r8.nds",
+            "size": "568320 bytes",
+            "sha256": "ce0ae0b08a2c9ca15fd734529e2008ca6c376fde2f4d2e65ce13627d54e13ee6"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r8.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r8.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DSi-0.7.7-custom.r8.nds",
+            "size": "569344 bytes",
+            "sha256": "4ea4b1af798371b48dab4b73d1c88d324fdfe65eb0d64aed0ba69b588bdd11ce"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r8.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r8.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-v0.7.7-custom.r8.zip",
+            "size": "655362 bytes",
+            "sha256": "84ff24066c434ba47b4e9ebc6e1c47ece9e48c32b28f4a1302770f6a82f07fb5"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r7",
+        "releaseDate": "2026-09-02",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r7",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r7",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r7.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r7.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r7/NitroSwan-DS-0.7.7-custom.r7.nds",
+            "size": "567296 bytes",
+            "sha256": "6d663ec181509eeb99dbdf9aed47bf345e5b6d3ec822d136310333f2d2c35e9d"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r7.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r7.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r7/NitroSwan-DSi-0.7.7-custom.r7.nds",
+            "size": "568320 bytes",
+            "sha256": "d356f54e1ad01eb323b915efc95d9186533ecd029d18b21266df6eece2c82606"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r7.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r7.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r7/NitroSwan-v0.7.7-custom.r7.zip",
+            "size": "691364 bytes",
+            "sha256": "ec4b4ca244105a8ad58529e3b299f8f04945204ca0cbba7483ca85d3e00643bb"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r6",
+        "releaseDate": "2026-08-31",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r6",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r6",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r6.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r6.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r6/NitroSwan-DS-0.7.7-custom.r6.nds",
+            "size": "566272 bytes",
+            "sha256": "fc941b3b4fd5b7bcb67bc867c9e3d24005acc6c4afc4f9a8d8104962a38dfe64"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r6.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r6.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r6/NitroSwan-DSi-0.7.7-custom.r6.nds",
+            "size": "567296 bytes",
+            "sha256": "33288eb78824ac4b54dca9e86d2bb3b52001a6c884f16f9ad4dabfb4e3945b70"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r6.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r6.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r6/NitroSwan-v0.7.7-custom.r6.zip",
+            "size": "638802 bytes",
+            "sha256": "0ac83bbe77f3d35f956dcee700c8bc8862283e792735bbdd166766885d588a2c"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r5",
+        "releaseDate": "2026-08-30",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r5",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r5",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r5.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r5.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r5/NitroSwan-DS-0.7.7-custom.r5.nds",
+            "size": "566272 bytes",
+            "sha256": "7c4f5e7e48ab20e13daeb543d23fdf4cbdb9bf742304326ca063fa4229628531"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r5.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r5.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r5/NitroSwan-DSi-0.7.7-custom.r5.nds",
+            "size": "566272 bytes",
+            "sha256": "4d0377fc97e55801b143f33ae06f497e31b89efb484f0bfa272ba94b72b762c1"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r5.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r5.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r5/NitroSwan-v0.7.7-custom.r5.zip",
+            "size": "637577 bytes",
+            "sha256": "412c7614b370bf3c492e9dfe1868dc4efc3f65b583d0a38da47e334c99305c1d"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r4",
+        "releaseDate": "2026-08-28",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r4",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r4",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r4.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r4.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r4/NitroSwan-DS-0.7.7-custom.r4.nds",
+            "size": "561152 bytes",
+            "sha256": "4821293e15506af242591e1e58608d49b4b0d3b92171f73bc7d7bdf64ef0eb26"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r4.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r4.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r4/NitroSwan-DSi-0.7.7-custom.r4.nds",
+            "size": "562176 bytes",
+            "sha256": "dd75c0905bad04ddcc5a0241c816024c010d0c3b4c1d6b4720aef06e87aaafb1"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r4.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r4.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r4/NitroSwan-v0.7.7-custom.r4.zip",
+            "size": "635587 bytes",
+            "sha256": "fef476da3476c3db00f3473d1f2933301ef3957e539e3087a6eb5e1cd7b077b5"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r3",
+        "releaseDate": "2026-08-23",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r3",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan v0.7.7-custom.r3",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r3.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r3.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r3/NitroSwan-DS-0.7.7-custom.r3.nds",
+            "size": "559104 bytes",
+            "sha256": "432df9d765d968b5eca15af92ee4e0f251b45b9e3e7e394b6b4895c293363e4f"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r3.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r3.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r3/NitroSwan-DSi-0.7.7-custom.r3.nds",
+            "size": "560128 bytes",
+            "sha256": "9c009bbc95a075da6e13c6735784ec6a59a1855e7fdfec093a6735a854dec7f1"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r3.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r3.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r3/NitroSwan-v0.7.7-custom.r3.zip",
+            "size": "631276 bytes",
+            "sha256": "687b2972db1a3c45b45d2dd2e421d8ee887452b6d77ea2fa426081fd30ab0abc"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom.r2",
+        "releaseDate": "2026-08-13",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r2",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan V0.7.7-custom.r2",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r2.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r2.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r2/NitroSwan-DS-0.7.7-custom.r2.nds",
+            "size": "559104 bytes",
+            "sha256": "f00f93ce2c2258c5918ec3f1d51cebbb7d6221de9a439b8ebf23cf8396f17d8f"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r2.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r2.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r2/NitroSwan-DSi-0.7.7-custom.r2.nds",
+            "size": "559104 bytes",
+            "sha256": "707e9c8549312b00790abb99463b16f3473768ed855c079b2402560bde5c5714"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.r2.zip",
+            "filename": "NitroSwan-v0.7.7-custom.r2.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r2/NitroSwan-v0.7.7-custom.r2.zip",
+            "size": "617148 bytes",
+            "sha256": "f16b741c68bb2eb253f23859cca97eca3fa04caa6d21696a3203d034bc04d5e5"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7-custom",
+        "releaseDate": "2026-08-12",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan V0.7.7-custom",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom/NitroSwan-DS-0.7.7-custom.nds",
+            "size": "555008 bytes",
+            "sha256": "7cefbf9832d6f4d2b2d4cd81c4ae25fd0592e1519cd04abec497cd3b5142a13e"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom/NitroSwan-DSi-0.7.7-custom.nds",
+            "size": "555008 bytes",
+            "sha256": "91a3a1d1c40f796ada651c09608760eeac003bfcee804fba73e33dabe2ee106a"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-custom.zip",
+            "filename": "NitroSwan-v0.7.7-custom.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom/NitroSwan-v0.7.7-custom.zip",
+            "size": "610760 bytes",
+            "sha256": "a8090e566ecf22dad0721a17f24ffe9d6a069dd149e0db5fa5ab4506fff691b2"
+          }
+        ]
+      },
+      {
+        "version": "v0.7.7",
+        "releaseDate": "2026-08-09",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "NitroSwan V0.7.7 (Unofficial Build)",
+        "summary": "이전 버전입니다. 적용 전 해당 버전의 릴리스 노트와 사용 조건을 확인하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DSi.nds",
+            "filename": "NitroSwan-DSi.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7/NitroSwan-DSi.nds",
+            "size": "271360 bytes",
+            "sha256": "d0d8a34b6ad28a747288af81e7f875d8741f501b7a9e6f4badb9ac67bc2ea79f"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-build.zip",
+            "filename": "NitroSwan-v0.7.7-build.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7/NitroSwan-v0.7.7-build.zip",
+            "size": "153032 bytes",
+            "sha256": "930569e9e66d0716b3f7aa991455de840dc8a3fa39e72f91f21966ad20fd90e0"
+          },
+          {
+            "label": "NitroSwan-v0.7.7-DSi-build.zip",
+            "filename": "NitroSwan-v0.7.7-DSi-build.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7/NitroSwan-v0.7.7-DSi-build.zip",
+            "size": "153623 bytes",
+            "sha256": "55ca797e4866908b4b6b2f61f41565e4e3a7dc82f22a6cb28dcb9dfa3d552c28"
+          },
+          {
+            "label": "NitroSwan.nds",
+            "filename": "NitroSwan.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7/NitroSwan.nds",
+            "size": "271360 bytes",
+            "sha256": "884ea5e2a53cf8fb1ffad73bf31f8fb6a8b1193fcf8845552f1a034eef8308a3"
+          }
+        ]
+      }
     ]
   },
   {
-    "id": "narikiri2-save-compat",
+    "id": "gba-narikiri2-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2",
     "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v0.9d",
@@ -351,12 +918,11 @@
     "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
     "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/issues",
-    "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
     "coverTone": "olive",
     "branding": {
-      "logo": "assets/projects/narikiri2-save-compat/logo-20260913.png",
+      "logo": "assets/projects/gba-narikiri2-kor/logo-20260913.png",
       "logoAlt": "테일즈 오브 더 월드 나리키리 던전2 — Xagros 제공 프로젝트 이미지",
       "width": 1254,
       "height": 1254,
@@ -377,17 +943,17 @@
     ],
     "requirements": [
       "수정하지 않은 AN9J 일본판 원본 8,388,608 bytes",
-      "웹 패처를 지원하는 브라우저 또는 Python 3.10 이상"
+      "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
       "원본부터 두 번 재생성한 ROM·ZIP 일치, 동봉 도구 독립 적용·오입력·덮어쓰기 방지 및 공개 계약 검사 59개 통과가 기록되어 있습니다.",
       "mGBA PC에서 타이틀·중단 재개·Namco·대열과 아이템 156종, 도감 142/200/22개의 목록·상세 진입·복귀를 확인했습니다."
     ],
     "installGuide": [
-      "웹 패처에서 v0.9d를 선택하고 수정하지 않은 일본판 AN9J 원본을 준비합니다.",
-      "수동 적용은 v0.9d JP 패키지를 풀고 Python 3.10 이상에서 apply_japanese_patch.py에 원본과 새 출력 경로를 지정합니다.",
-      "결과가 13,107,200 bytes이고 SHA-256이 69c5a3e22e00bcacfbaaa7eb28f2efc7d06c8ef37a646ac7236bc78bf76d4012인지 확인합니다.",
-      "기존 8 KiB 게임 저장을 백업한 뒤 ROM과 저장 파일의 이름을 맞춥니다. 이전 ROM의 savestate는 재사용하지 마세요."
+      "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
+      "합법적으로 확보한 입력 파일을 선택합니다. 크기와 SHA-256이 일치해야 패치를 적용할 수 있습니다.",
+      "패치 적용 후 검증을 통과한 결과 ROM을 저장합니다. 원본 ROM과 기존 세이브는 별도로 백업하세요.",
+      "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
       "v0.9d는 mGBA PC 기준 프리릴리즈입니다. 실제 두 기기 통신 교환·실기·장시간 전체 진행은 미검증이며 issue #4에 남아 있습니다.",
@@ -397,16 +963,19 @@
     ],
     "credits": [
       {
-        "role": "2차 한국어화 패치·도구·문서",
-        "name": "GimoXagros/gba-narikiri2-kor",
+        "role": "기존 한국어화",
+        "name": "FFR 팀",
+        "url": "https://github.com/GimoXagros/gba-narikiri2-kor/blob/main/CREDITS.md"
+      },
+      {
+        "role": "후속 제작",
+        "name": "Xagros",
         "url": "https://github.com/GimoXagros/gba-narikiri2-kor"
       },
-      "기존 한국어판: FFR BETA3(071102) · 포털과 배포 파일에 ROM 미포함",
-      "글꼴: 달무리 파생 글꼴 · Apache-2.0 범위는 배포 문서 확인",
-      "프로젝트 식별 이미지: 사용자 제공 · 원 게임 권리자 권리 유지 · 공식 승인·제휴를 의미하지 않음"
+      "소형 글꼴: 달무리 — RanolP와 기여자 (Apache-2.0)",
+      "프로젝트 로고: Xagros 제공 · 원 게임·원본 도안 권리는 각 권리자에게 있음"
     ],
-    "license": "신규 코드·문서 MIT / 달무리 파생 글꼴 Apache-2.0 / 원 게임·기존 한국어판·식별 이미지 제외",
-    "fileSize": "패키지 407172 bytes",
+    "license": "후속 도구·코드: MIT · 달무리 글꼴: Apache-2.0 · 기존 번역 및 원 게임 자산의 권리는 각 권리자에게 있습니다. 자세한 범위는 저장소의 LICENSE와 CREDITS.md를 확인하세요.",
     "hashes": [
       {
         "label": "AN9J 일본판 원본 (8388608 bytes) SHA-256",
@@ -419,30 +988,13 @@
     ],
     "tags": [
       "GBA",
-      "2차 한국어화",
-      "FFR BETA3",
+      "한국어화",
       "BPS",
-      "달무리",
-      "브라우저 패처"
+      "나리키리 던전"
     ],
     "featured": false,
-    "downloadEnabled": true,
-    "downloads": [
-      {
-        "label": "v0.9d 일본판 적용 패키지",
-        "filename": "Xagros_Narikiri2_KOR_v0.9d_JP_PACKAGE.zip",
-        "size": "407172 bytes",
-        "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9d/Xagros_Narikiri2_KOR_v0.9d_JP_PACKAGE.zip",
-        "sha256": "880cf6e64d1688e8905dd7a8f2f422cfffe8a7862a2127bcba5ef287b4d9022f"
-      },
-      {
-        "label": "v0.9d 일본판 원본용 BPS",
-        "filename": "Xagros_Narikiri2_KOR_v0.9d.bps",
-        "size": "4881466 bytes",
-        "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps",
-        "sha256": "efcbbcc5b0973ecf27ed73e4223211a9875cac0d4ba6192e26e1ea535ac6bcb5"
-      }
-    ],
+    "downloadEnabled": false,
+    "downloads": [],
     "webPatcher": {
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
@@ -462,7 +1014,7 @@
           },
           "patch": {
             "filename": "Xagros_Narikiri2_KOR_v0.9d.bps",
-            "path": "patches/narikiri2-save-compat/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps",
+            "path": "patches/gba-narikiri2-kor/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps",
             "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9d/Xagros_Narikiri2_KOR_v0.9d.bps",
             "size": 4881466,
             "sha256": "efcbbcc5b0973ecf27ed73e4223211a9875cac0d4ba6192e26e1ea535ac6bcb5"
@@ -471,7 +1023,8 @@
             "filename": "Xagros_Narikiri2_KOR_v0.9d.gba",
             "size": 13107200,
             "sha256": "69c5a3e22e00bcacfbaaa7eb28f2efc7d06c8ef37a646ac7236bc78bf76d4012"
-          }
+          },
+          "prerelease": true
         },
         {
           "version": "v0.9c",
@@ -486,7 +1039,7 @@
           },
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
-            "path": "patches/narikiri2-save-compat/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+            "path": "patches/gba-narikiri2-kor/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
             "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
             "size": 3189401,
             "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
@@ -495,7 +1048,8 @@
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c.gba",
             "size": 13107200,
             "sha256": "d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4"
-          }
+          },
+          "prerelease": true
         },
         {
           "version": "v0.9b",
@@ -510,7 +1064,7 @@
           },
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
-            "path": "patches/narikiri2-save-compat/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
+            "path": "patches/gba-narikiri2-kor/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
             "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
             "size": 3189401,
             "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
@@ -519,7 +1073,8 @@
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9b.gba",
             "size": 13107200,
             "sha256": "d761088a8549cb5bc60a2f03a4b78eea5282dbc17ed5da4ef1de27da4ad8d4d4"
-          }
+          },
+          "prerelease": true
         },
         {
           "version": "v0.9a",
@@ -534,7 +1089,7 @@
           },
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
-            "path": "patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
+            "path": "patches/gba-narikiri2-kor/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
             "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
             "size": 501338,
             "sha256": "9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a"
@@ -543,7 +1098,8 @@
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a.gba",
             "size": 13041664,
             "sha256": "faa2f0ebe1f7bbd9f4a7e1d38b7d35ca2349bfed1d8c2a5d8ae45feb0f7631f6"
-          }
+          },
+          "prerelease": true
         },
         {
           "version": "v0.9",
@@ -558,7 +1114,7 @@
           },
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
-            "path": "patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
+            "path": "patches/gba-narikiri2-kor/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
             "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
             "size": 145379,
             "sha256": "38cba8fbf0fee41af02859df1a607eda2dbedee17f37afbb05fac05316449866"
@@ -567,7 +1123,8 @@
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9.gba",
             "size": 12713984,
             "sha256": "560535ba5dce7246a4c1b210a082b93a08091b8f9e2bfa96467e44adbbf65c81"
-          }
+          },
+          "prerelease": true
         }
       ]
     }
@@ -591,7 +1148,6 @@
     "repository": "https://github.com/GimoXagros/gba-narikiri3-kor",
     "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/issues",
-    "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
     "coverTone": "slate",
@@ -617,7 +1173,7 @@
     ],
     "requirements": [
       "수정하지 않은 일본판 B3TJ 원본 16,777,216 bytes",
-      "BPS 적용 도구 또는 동봉 Python 적용 도구"
+      "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
       "코드·데이터 검사 30개와 대사 표시 조합 31,248건 통과가 릴리스에 기록되어 있습니다.",
@@ -625,10 +1181,10 @@
       "mGBA / VBA-Next에서 첫 저장·별도 실행의 불러오기·메뉴·아이템 화면을 확인했습니다."
     ],
     "installGuide": [
-      "v1.1a 프리릴리즈 ZIP을 받고 동봉된 먼저_읽어주세요.md를 확인합니다.",
-      "일본판 B3TJ 원본과 ND3_B3TJ_K_v1.1a_FROM_J.bps를 BPS 적용 도구에서 선택합니다. Python을 사용한다면 apply_development.py에 원본과 새 출력 경로를 지정합니다.",
-      "결과가 33,554,432 bytes이고 SHA-256이 b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869인지 확인합니다.",
-      "세이브를 별도로 백업하고 실행기의 파일명·배치 규칙에 맞춰 사용합니다."
+      "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
+      "합법적으로 확보한 입력 파일을 선택합니다. 크기와 SHA-256이 일치해야 패치를 적용할 수 있습니다.",
+      "패치 적용 후 검증을 통과한 결과 ROM을 저장합니다. 원본 ROM과 기존 세이브는 별도로 백업하세요.",
+      "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
       "v1.1a는 검토용 프리릴리즈입니다. 전편 완주·모든 분기·모든 기기에서 무오류를 보증하지 않으며 독립적인 사람의 감수와 추가 플레이 검증이 남아 있습니다.",
@@ -650,7 +1206,6 @@
       "프로젝트 로고: Xagros 제공 · 원 게임·원본 도안 권리는 각 권리자에게 있음"
     ],
     "license": "달무리 글꼴 Apache-2.0 / 계승 도구 MIT / 원 게임·기존 번역·이미지 권리는 별도",
-    "fileSize": "패키지 420612 bytes",
     "hashes": [
       {
         "label": "일본판 B3TJ 원본 (16777216 bytes) SHA-256",
@@ -668,22 +1223,40 @@
       "나리키리 던전"
     ],
     "featured": false,
-    "downloadEnabled": true,
-    "downloads": [
-      {
-        "label": "v1.1a 적용 패키지",
-        "filename": "ND3_Korean_v1.1a_prerelease.zip",
-        "size": "420612 bytes",
-        "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.1a/ND3_Korean_v1.1a_prerelease.zip",
-        "sha256": "2bc441bc7b39a4c003b12b6c13073b3ae0002c1c6c5d54e959f0e575c8f15485"
-      },
-      {
-        "label": "v1.1a 일본판 원본용 BPS",
-        "filename": "ND3_B3TJ_K_v1.1a_FROM_J.bps",
-        "size": "17230086 bytes",
-        "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.1a/ND3_B3TJ_K_v1.1a_FROM_J.bps",
-        "sha256": "1b07c32665add7c9e76b7251d67195ea9690f420e26d316ec4475a2589ee1db0"
-      }
-    ]
+    "downloadEnabled": false,
+    "downloads": [],
+    "webPatcher": {
+      "engine": "RomPatcher.js",
+      "engineVersion": "v3.2.1",
+      "format": "BPS",
+      "defaultVersion": "v1.1a",
+      "versions": [
+        {
+          "version": "v1.1a",
+          "prerelease": true,
+          "releaseDate": "2026-09-12",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a",
+          "title": "일본판 원본 직접 적용 공개 검증판",
+          "summary": "수정하지 않은 B3TJ 일본판 원본에 직접 적용합니다. 기존 한국어화 1.1 기반의 후속 한국어화 공개 검증판입니다.",
+          "source": {
+            "label": "B3TJ 일본판 원본",
+            "size": 16777216,
+            "sha256": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
+          },
+          "patch": {
+            "filename": "ND3_B3TJ_K_v1.1a_FROM_J.bps",
+            "path": "patches/gba-narikiri3-kor/v1.1a/ND3_B3TJ_K_v1.1a_FROM_J.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.1a/ND3_B3TJ_K_v1.1a_FROM_J.bps",
+            "size": 17230086,
+            "sha256": "1b07c32665add7c9e76b7251d67195ea9690f420e26d316ec4475a2589ee1db0"
+          },
+          "output": {
+            "filename": "ND3_B3TJ_K_v1.1a.gba",
+            "size": 33554432,
+            "sha256": "b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869"
+          }
+        }
+      ]
+    }
   }
 ]

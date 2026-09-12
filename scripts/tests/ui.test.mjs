@@ -61,7 +61,7 @@ test('all projects expose their full public release history from the first recor
     gbarunner3: ['custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
     nitroswan: ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
     'gba-narikiri3-kor': ['v1.1a'],
-    'narikiri2-save-compat': ['v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
+    'gba-narikiri2-kor': ['v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
   for (const [id, versions] of Object.entries(expected)) {
     const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
@@ -84,7 +84,7 @@ test('all projects expose their full public release history from the first recor
 
 test('Narikiri renders v0.9d as the primary public beta with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
-  const project = projects.find((item) => item.id === 'narikiri2-save-compat')
+  const project = projects.find((item) => item.id === 'gba-narikiri2-kor')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'korean-patch')
   assert.equal(project.version, 'v0.9d')
@@ -92,14 +92,14 @@ test('Narikiri renders v0.9d as the primary public beta with all selectable patc
   assert.ok(html.includes('일본어 원본에 직접 적용'))
   assert.notDeepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
   assert.notEqual(project.webPatcher.versions[0].output.sha256, project.webPatcher.versions[1].output.sha256)
-  for (const text of ['테일즈 오브 더 월드 나리키리 던전2', 'AN9J', '공개 검증판 v0.9d', 'logo-20260913.png', project.downloads[0].url]) assert.ok(html.includes(text))
+  for (const text of ['테일즈 오브 더 월드 나리키리 던전2', 'AN9J', 'logo-20260913.png']) assert.ok(html.includes(text))
   for (const download of project.downloads) {
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
   }
   assert.match(html, /width="1254" height="1254"/)
   assert.doesNotMatch(html, /href="[^"]+\.(gba|sav|ips)"/)
-  assert.match(html, /PUBLIC BETA/)
+  assert.doesNotMatch(html, /id="download"|href="[^"]*\/releases\/download\//)
   for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
   assert.match(html, /<label for="patch-version">/)
   assert.match(html, /<select id="patch-version">/)
@@ -114,6 +114,23 @@ test('Narikiri renders v0.9d as the primary public beta with all selectable patc
 })
 
 const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
+test('every Korean patch renders a patcher and no direct download controls', async () => {
+  for (const project of projects.filter(item => item.type === 'korean-patch')) {
+    const html = await render('ProjectDetail', { project })
+    assert.match(html, /id="browser-patcher"/)
+    assert.doesNotMatch(html, /id="download"|href="[^"]*\/releases\/download\//)
+    assert.equal(await render('DownloadSection', { project }), '')
+  }
+})
+
+test('emulators and compatibility layers render all version choices', async () => {
+  for (const project of projects.filter(item => item.type !== 'korean-patch')) {
+    const html = await render('DownloadSection', { project })
+    assert.match(html, /select id="download-version"/)
+    for (const version of project.downloadVersions) assert.ok(html.includes('value="' + version.version + '"'))
+    assert.ok(html.includes('value="' + project.version + '" selected=""'))
+  }
+})
 const changelogFor = (id) => JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
 const occurrences = (html, text) => html.split(text).length - 1
 const escape = (text) => text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#x27;')
@@ -191,7 +208,7 @@ test('updates index selects each project once; selected page preserves full hist
 })
 
 test('compact timeline limits entries without reordering same-date versions', async () => {
-  const changelog = changelogFor('narikiri2-save-compat')
+  const changelog = changelogFor('gba-narikiri2-kor')
   const html = await render('UpdateTimeline',{changelog,compact:true,limit:1})
   assert.equal(occurrences(html,'class="update-marker"'),1)
   assert.ok(html.includes(changelog.entries[0].version))

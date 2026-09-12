@@ -3,3 +3,6 @@
 @import './styles/detail.css';
 @import './styles/responsive.css';
 @import './styles/motion.css';
+.download-version-picker { display: grid; gap: .65rem; margin-bottom: 1.25rem; }
+.download-version-picker label { font-weight: 700; }
+.download-version-picker select { width: 100%; min-width: 0; padding: .85rem; border: 1px solid var(--line); border-radius: .5rem; font: inherit; color: inherit; background: var(--paper-strong); }

@@ -80,15 +80,29 @@ async function verifyReleaseRecord(record, { expectedPrerelease, token, fetcher,
 }
 
 export async function verifyProject(project, { token, fetcher = fetch, ...requestOptions } = {}) {
-  const projectIsPrerelease = typeof project.releasePolicy === 'string' && project.releasePolicy.endsWith('prerelease')
-  const stable = await verifyReleaseRecord(project, { expectedPrerelease: projectIsPrerelease, token, fetcher, requestOptions })
-  const prerelease = prereleaseRecord(project)
-  if (!prerelease) return stable
-  const preview = await verifyReleaseRecord(prerelease, { expectedPrerelease: true, token, fetcher, requestOptions })
-  return {
-    errors: [...stable.errors, ...preview.errors.map((error) => `prerelease: ${error}`)],
-    notices: [...stable.notices, ...preview.notices.map((notice) => `prerelease: ${notice}`)],
+  const patchVersions = project.webPatcher?.versions || []
+  const withPatch = (record) => {
+    const patch = patchVersions.find(item => item.version === record.version)?.patch
+    return patch ? { ...record, downloads: [{ ...patch, size: `${patch.size} bytes` }] } : record
   }
+  const records = [withPatch(project)]
+  const preview = prereleaseRecord(project)
+  if (preview) records.push(preview)
+  for (const version of [...(project.downloadVersions || []), ...patchVersions]) {
+    if (records.some(record => record.version === version.version)) continue
+    records.push(withPatch({ repository: project.repository, ...version,
+      releasePolicy: version.releasePolicy || (version.prerelease ? 'pinned-prerelease' : 'pinned'),
+      pinReason: version.pinReason || '사용자가 선택할 수 있는 공개 패치 버전' }))
+  }
+  const result = { errors: [], notices: [] }
+  for (const [index, record] of records.entries()) {
+    const expectedPrerelease = record.releasePolicy?.endsWith('prerelease') || false
+    const checked = await verifyReleaseRecord(record, { expectedPrerelease, token, fetcher, requestOptions })
+    const prefix = index === 0 ? '' : record === preview ? 'prerelease: ' : `${record.version}: `
+    result.errors.push(...checked.errors.map(error => prefix + error))
+    result.notices.push(...checked.notices.map(notice => prefix + notice))
+  }
+  return result
 }
 
 async function main() {

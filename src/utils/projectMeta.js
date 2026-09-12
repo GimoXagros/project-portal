@@ -37,6 +37,7 @@ export function hasReleaseDownload(release) {
 }
 
 export function hasDownload(project) {
+  if (project?.type === 'korean-patch') return Boolean(project.webPatcher?.versions?.length || project.prerelease?.webPatcher?.versions?.length)
   return hasReleaseDownload(project) || hasReleaseDownload(project?.prerelease)
 }
 

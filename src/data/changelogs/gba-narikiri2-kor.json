@@ -1,5 +1,5 @@
 {
-  "projectId": "narikiri2-save-compat",
+  "projectId": "gba-narikiri2-kor",
   "displayName": "테일즈 오브 더 월드 나리키리 던전2",
   "entries": [
     {
@@ -19,7 +19,7 @@
       "status": "prerelease"
     },
     {
-      "id": "narikiri2-save-compat-v0-9c",
+      "id": "gba-narikiri2-kor-v0-9c",
       "version": "v0.9c",
       "date": "2026-09-08",
       "title": "v0.9c — PC 도구 수정 공개 검증판",
@@ -37,7 +37,7 @@
       "status": "prerelease"
     },
     {
-      "id": "narikiri2-save-compat-v0-9b",
+      "id": "gba-narikiri2-kor-v0-9b",
       "version": "v0.9b",
       "date": "2026-09-06",
       "title": "v0.9b — BETA3 기반 일본어 원문 대조 공개 검증판",
@@ -52,7 +52,7 @@
       "status": "prerelease"
     },
     {
-      "id": "narikiri2-save-compat-v0-9a",
+      "id": "gba-narikiri2-kor-v0-9a",
       "version": "v0.9a",
       "date": "2026-09-06",
       "title": "v0.9a — 대사·고유명사 및 전투 정보창 수정 공개 검증판",
@@ -67,7 +67,7 @@
       "status": "prerelease"
     },
     {
-      "id": "narikiri2-save-compat-v0-9",
+      "id": "gba-narikiri2-kor-v0-9",
       "version": "v0.9",
       "date": "2026-09-05",
       "title": "v0.9 — FFR 통합 한국어 패치 공개 검증판",
@@ -82,7 +82,7 @@
       "status": "prerelease"
     },
     {
-      "id": "narikiri2-save-compat-v0-5",
+      "id": "gba-narikiri2-kor-v0-5",
       "version": "v0.5",
       "date": "2026-09-03",
       "title": "v0.5 — BETA2 저장 호환 복구 도구 보존 기록",

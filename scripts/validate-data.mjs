@@ -52,6 +52,39 @@ export function validateData(projectsOverride) {
         catch (error) { fieldError(`${field}.url`, item.url, error.message) }
       }
     }
+    if (project.type === 'korean-patch') {
+      if (!project.webPatcher?.versions?.length) fieldError('webPatcher', project.webPatcher, 'Korean patches require a web patcher')
+      if (project.downloadEnabled || project.downloadUrl || downloadItems(project).length || downloadItems(project.prerelease || {}).length || project.downloadVersions?.length) fieldError('downloads', project.downloads, 'Korean patches are web-patcher only')
+    } else if (project.downloadEnabled) {
+      if (!Array.isArray(project.downloadVersions) || !project.downloadVersions.length) fieldError('downloadVersions', project.downloadVersions, 'non-empty version selector records')
+      const versions = new Set()
+      for (const record of Array.isArray(project.downloadVersions) ? project.downloadVersions : []) {
+        if (!record || typeof record !== 'object' || Array.isArray(record)) {
+          fieldError('downloadVersions', record, 'release record object')
+          continue
+        }
+        const release = { repository: project.repository, ...record }
+        if (versions.has(record.version)) fieldError('downloadVersions.version', record.version, 'unique version')
+        versions.add(record.version)
+        try { releaseIdentity(release); releasePolicy(release) } catch (error) { fieldError('downloadVersions', record.version, error.message) }
+        if (!isISODate(record.releaseDate)) fieldError('downloadVersions.releaseDate', record.releaseDate, 'valid date')
+        if (!downloadItems(record).length) fieldError('downloadVersions.downloads', record.version, 'at least one asset')
+        const names = new Set()
+        for (const item of downloadItems(record)) {
+          if (!item.filename || names.has(item.filename)) fieldError('downloadVersions.filename', item.filename, 'unique non-empty filename')
+          names.add(item.filename)
+          if (!/^\d+ bytes$/.test(item.size || '') || !sha256.test(item.sha256 || '')) fieldError('downloadVersions.asset', item.filename, 'size and SHA-256 required')
+          try { if (item.url !== expectedAssetUrl(release, item.filename)) fieldError('downloadVersions.url', item.url, expectedAssetUrl(release, item.filename)) } catch (error) { fieldError('downloadVersions.url', item.url, error.message) }
+        }
+        if (record.version === project.version) {
+          if (record.releaseUrl !== project.releaseUrl || record.releaseDate !== project.releaseDate) fieldError('downloadVersions.current', record.version, 'matching current release metadata')
+          const currentAssets = downloadItems(project)
+          if (currentAssets.length !== downloadItems(record).length || currentAssets.some(item => !downloadItems(record).some(asset => ['filename','url','size','sha256'].every(key => item[key] === asset[key])))) fieldError('downloadVersions.current', record.version, 'matching current release assets')
+        }
+      }
+      if (!versions.has(project.version)) fieldError('downloadVersions', project.version, 'current version present')
+      if (project.prerelease && !versions.has(project.prerelease.version)) fieldError('downloadVersions', project.prerelease.version, 'preview version present')
+    }
     const preview = prereleaseRecord(project)
     if (project.prerelease !== undefined && !preview) fieldError('prerelease', project.prerelease, 'object with prerelease release metadata')
     if (preview) {
@@ -140,15 +173,6 @@ export function validateData(projectsOverride) {
                   const digest = createHash('sha256').update(contents).digest('hex')
                   if (contents.byteLength !== version.patch.size) fieldError(`${base}.patch.size`, version.patch.size, contents.byteLength)
                   if (digest !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, digest)
-                }
-              }
-              if (version.version === patcherRelease.version) {
-                const releasePatch = downloadItems(patcherRelease).find((item) => item.filename === version.patch?.filename)
-                if (!releasePatch) fieldError(`${base}.patch.filename`, version.patch?.filename, 'matching current release download asset')
-                else {
-                  if (releasePatch.url !== version.patch.url) fieldError(`${base}.patch.url`, version.patch.url, releasePatch.url)
-                  if (releasePatch.sha256 !== version.patch.sha256) fieldError(`${base}.patch.sha256`, version.patch.sha256, releasePatch.sha256)
-                  if (releasePatch.size !== `${version.patch.size} bytes`) fieldError(`${base}.patch.size`, version.patch.size, releasePatch.size)
                 }
               }
             }

@@ -16,6 +16,14 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치의
 
 ## 기술 스택
 
+### 프로젝트 등록·배포 규칙
+
+- 한국어화 패치는 웹 패처로만 제공합니다. 패치 파일 다운로드 탭·링크는 추가하지 않습니다.
+- 새 한글 패치 등록 시 검증된 BPS와 입력·패치·출력 SHA-256/크기를 `webPatcher.versions`에 함께 등록해야 합니다.
+- 그 외 배포 프로젝트는 `downloadVersions`에 공개 정식판·프리릴리즈를 기록하고 공통 버전 선택 상자로 제공합니다. 기본 선택은 프로젝트의 현재 버전입니다.
+- 던전2의 정식 주소는 `#/project/gba-narikiri2-kor`입니다. 이전 상세·업데이트 주소는 새 주소로 이동합니다.
+- 자동 검사는 위 규칙 누락과 버전별 파일 정보 불일치를 거부합니다. 자세한 작업 규칙은 [AGENTS.md](AGENTS.md)를 따릅니다.
+
 - Vite 7 + React 19 + JSX
 - JSON 기반 콘텐츠
 - 반응형 CSS와 OS 설정 기반 라이트/다크 테마
@@ -221,7 +229,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 - `#/updates/gameyob`
 - `#/updates/gbarunner3`
 - `#/updates/nitroswan`
-- `#/updates/narikiri2-save-compat`
+- `#/updates/gba-narikiri2-kor`
 
 각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 5개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
 
@@ -293,4 +301,4 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 이 포털은 원본 ROM, 게임 데이터, BIOS, 펌웨어, 암호화 키를 배포하지 않습니다. 사용자는 필요한 데이터를 합법적으로 직접 준비해야 하며, 각 게임·플랫폼·상표의 권리는 해당 권리자에게 있습니다.
 
-2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 기존 `narikiri2-save-compat` 페이지 ID는 이전 링크 호환을 위해 유지합니다. 작업 중 공개된 v0.9d의 일본어 원본용 패키지와 BPS를 다운로드·웹 패처에 반영했습니다. 이전 테스트판과 공개 v0.9d의 결과 해시는 다르므로 공개 매니페스트를 기준으로 검증합니다. 나리키리 던전3은 공개 v1.1a 패키지·BPS 다운로드와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.
+2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 정식 페이지 ID는 `gba-narikiri2-kor`로 변경했으며 기존 `narikiri2-save-compat` 주소는 새 주소로 이동합니다. 작업 중 공개된 v0.9d의 일본어 원본용 BPS를 웹 패처에 반영했습니다. 이전 테스트판과 공개 v0.9d의 결과 해시는 다르므로 공개 매니페스트를 기준으로 검증합니다. 나리키리 던전3은 공개 v1.1a 웹 패처와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.

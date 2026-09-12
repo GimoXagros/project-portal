@@ -21,41 +21,36 @@ function ReleaseDownloadList({ release, copied, onCopy }) {
 }
 
 export default function DownloadSection({ project }) {
+  const versions = project.downloadVersions?.length ? project.downloadVersions : [project, ...(project.prerelease ? [project.prerelease] : [])]
+  const [selectedVersion, setSelectedVersion] = useState(project.version || '')
   const [copied, setCopied] = useState('')
-  const enabled = hasReleaseDownload(project)
-  const mainIsPrerelease = isPrereleaseChannel(project)
-  const preview = project.prerelease
-  const previewEnabled = hasReleaseDownload(preview)
-  const MainPanel = preview ? 'details' : 'div'
+  const release = versions.find((item) => item.version === selectedVersion) || versions[0]
+  const enabled = hasReleaseDownload(release)
+  const preview = isPrereleaseChannel(release)
   const copy = async (value) => {
-    try {
-      await navigator.clipboard.writeText(value)
-      setCopied(value)
-      window.setTimeout(() => setCopied(''), 1500)
-    } catch {
-      setCopied('')
-    }
+    try { await navigator.clipboard.writeText(value); setCopied(value) }
+    catch { setCopied('') }
   }
-
+  if (project.type === 'korean-patch') return null
   return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
     <div className="detail-section-title"><h2 id="download-title">다운로드</h2></div>
-    {preview && <div className="prerelease-panel">
-      <div className={`download-callout prerelease-callout ${previewEnabled ? 'ready' : ''}`}>
-        <div><span className="download-state">PRE-RELEASE · {preview.releaseDate}</span><h3>{preview.version} 프리릴리즈</h3><p>{preview.summary}</p></div>
-        <a className="button preview" href={preview.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={18} /> 릴리스 노트</a>
-      </div>
-      {preview.notes?.length > 0 && <ul className="prerelease-notes">{preview.notes.map((note) => <li key={note}>{note}</li>)}</ul>}
-      <ReleaseDownloadList release={preview} copied={copied} onCopy={copy} />
+    {versions.some((item) => item.version) && <div className="download-version-picker">
+      <label htmlFor="download-version">다운로드 버전</label>
+      <select id="download-version" value={release.version} onChange={(event) => { setSelectedVersion(event.target.value); setCopied('') }}>
+        {versions.map((item) => <option key={item.version} value={item.version}>{item.version} · {isPrereleaseChannel(item) ? '프리릴리즈' : '정식판'}{item.version === project.version ? ' (기본)' : ''}</option>)}
+      </select>
     </div>}
-    <MainPanel className={preview ? 'stable-release-panel' : ''}>
-    {preview && <summary>정식 릴리스 · {project.version}</summary>}
-    <div className={`download-callout ${enabled ? 'ready' : ''}`}>
-      <div><span className="download-state">{enabled ? (mainIsPrerelease ? 'PUBLIC BETA' : 'STABLE') : 'NOT YET AVAILABLE'}</span>{!preview && <h3>{enabled ? `${mainIsPrerelease ? '공개 검증판' : '정식 릴리스'} ${project.version}` : '배포 준비 중'}</h3>}{!enabled && <p>GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.</p>}</div>
-      {project.releaseUrl && <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 릴리스 노트</a>}
-      {enabled && project.downloadUrl ? <a className="button primary" href={project.downloadUrl} target="_blank" rel="noreferrer"><Download size={18} /> 파일 받기</a> : !enabled && <button className="button primary" type="button" disabled><PackageOpen size={18} /> 배포 준비 중</button>}
+    <div className={`download-callout ${preview ? 'prerelease-callout' : ''} ${enabled ? 'ready' : ''}`}>
+      <div><span className="download-state">{enabled ? (preview ? 'PRE-RELEASE' : 'STABLE') : 'NOT YET AVAILABLE'}{release.releaseDate ? ` · ${release.releaseDate}` : ''}</span>
+        <h3>{enabled ? `${preview ? '프리릴리즈' : '정식 릴리스'} ${release.version}` : '배포 준비 중'}</h3>
+        {release.summary && <p>{release.summary}</p>}
+        {!enabled && <p>GitHub Releases 또는 다운로드 파일이 아직 연결되지 않았습니다.</p>}
+      </div>
+      {release.releaseUrl && <a className="button ghost" href={release.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 릴리스 노트</a>}
+      {!enabled && <button className="button primary" type="button" disabled><PackageOpen size={18} /> 배포 준비 중</button>}
     </div>
-    <ReleaseDownloadList release={project} copied={copied} onCopy={copy} />
-    </MainPanel>
+    {release.notes?.length > 0 && <ul className="prerelease-notes">{release.notes.map((note) => <li key={note}>{note}</li>)}</ul>}
+    <ReleaseDownloadList release={release} copied={copied} onCopy={copy} />
     <div className="external-actions">
       {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><Github size={17} /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
       {project.issuesUrl && <a href={project.issuesUrl} target="_blank" rel="noreferrer">Issues <ExternalLink size={14} /></a>}
