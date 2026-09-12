@@ -7,7 +7,11 @@
     "subtitle": "Nintendo DS·DSi용 Game Boy 계열 에뮬레이터 커스텀 빌드",
     "description": "Game Boy, Game Boy Color와 Super Game Boy 계열을 Nintendo DS·DSi에서 실행하는 에뮬레이터입니다.",
     "type": "emulator",
-    "platform": ["Nintendo DS", "Nintendo DSi", "Nintendo 3DS(DSpico)"],
+    "platform": [
+      "Nintendo DS",
+      "Nintendo DSi",
+      "Nintendo 3DS(DSpico)"
+    ],
     "status": "work-in-progress",
     "version": "v0.5.10",
     "releasePolicy": "latest-stable",
@@ -16,7 +20,10 @@
     "repository": "https://github.com/GimoXagros/GameYob",
     "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.10",
     "issuesUrl": "https://github.com/GimoXagros/GameYob/issues",
-    "upstream": { "name": "Stewmath/GameYob", "url": "https://github.com/Stewmath/GameYob" },
+    "upstream": {
+      "name": "Stewmath/GameYob",
+      "url": "https://github.com/Stewmath/GameYob"
+    },
     "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
@@ -31,56 +38,96 @@
       "accentDark": "#76d2c7"
     },
     "screenshots": [],
-    "features": ["Game Boy·Game Boy Color·Super Game Boy 계열 실행", "세이브 상태 구조 사전 검사", "DS NiFi 조각 전송 방어"],
-    "scope": ["상태 형식 8을 유지하면서 버전 1~8의 prefix·tail 크기와 mapper·SGB tail을 전체 사전 검사", "실험적 Super Game Boy 65C816 명령 디스패치를 256/256으로 확대", "비정상 크기·누락·순서 변경·중복·sequence wrap·잘못된 ACK에 대한 DS NiFi 조각 전송 방어 보강"],
-    "requirements": ["Nintendo DS 또는 Nintendo DSi 계열 실행 환경", "사용자가 합법적으로 확보한 게임 ROM"],
-    "compatibility": ["배포 ZIP에 gameyob.nds와 gameyob_dsi.nds 포함", "Nintendo 3DS에서는 NDS 파일을 DS 모드로 실행 가능"],
-    "installGuide": ["gameyob.zip을 다운로드하고 SHA-256을 확인합니다.", "압축을 풀어 기기에 맞는 gameyob.nds 또는 gameyob_dsi.nds를 선택합니다.", "사용 중인 런처 또는 플래시카드가 안내하는 위치에 NDS 파일을 복사합니다.", "합법적으로 확보한 게임 ROM을 사용해 실행하고 릴리스 주의사항을 확인합니다."],
-    "notes": ["상태 로딩은 구조를 먼저 검사하지만 완전한 트랜잭션 방식은 아니므로 특히 구버전 상태 파일은 백업 권장", "NiFi 소프트웨어 회귀 검사는 실물 DS·DSi·3DS DS-mode 무선 검증을 대신하지 않음", "65C816 256/256은 명령 디스패치 범위이며 완전하거나 cycle-accurate한 SNES CPU 구현을 뜻하지 않음", "ROM, BIOS, DSP 펌웨어와 네이티브 3DSX는 배포 ZIP에 포함되지 않습니다.", "SGB의 SPC700은 21/256 명령만 구현되어 있으며 DSP envelope·echo와 최종 prototype host OBJ는 미완성입니다.", "65C816 cycle accounting·penalty, IRQ/reference trace와 실물 SGB host 검증은 남은 작업입니다.", "모든 타이틀과 주변기기의 완전한 호환성을 보장하지 않습니다."],
+    "features": [
+      "Game Boy·Game Boy Color·Super Game Boy 계열 실행",
+      "세이브 상태 구조 사전 검사",
+      "DS NiFi 조각 전송 방어"
+    ],
+    "scope": [
+      "상태 형식 8을 유지하면서 버전 1~8의 prefix·tail 크기와 mapper·SGB tail을 전체 사전 검사",
+      "실험적 Super Game Boy 65C816 명령 디스패치를 256/256으로 확대",
+      "비정상 크기·누락·순서 변경·중복·sequence wrap·잘못된 ACK에 대한 DS NiFi 조각 전송 방어 보강"
+    ],
+    "requirements": [
+      "Nintendo DS 또는 Nintendo DSi 계열 실행 환경",
+      "사용자가 합법적으로 확보한 게임 ROM"
+    ],
+    "compatibility": [
+      "배포 ZIP에 gameyob.nds와 gameyob_dsi.nds 포함",
+      "Nintendo 3DS에서는 NDS 파일을 DS 모드로 실행 가능"
+    ],
+    "installGuide": [
+      "gameyob.zip을 다운로드하고 SHA-256을 확인합니다.",
+      "압축을 풀어 기기에 맞는 gameyob.nds 또는 gameyob_dsi.nds를 선택합니다.",
+      "사용 중인 런처 또는 플래시카드가 안내하는 위치에 NDS 파일을 복사합니다.",
+      "합법적으로 확보한 게임 ROM을 사용해 실행하고 릴리스 주의사항을 확인합니다."
+    ],
+    "notes": [
+      "상태 로딩은 구조를 먼저 검사하지만 완전한 트랜잭션 방식은 아니므로 특히 구버전 상태 파일은 백업 권장",
+      "NiFi 소프트웨어 회귀 검사는 실물 DS·DSi·3DS DS-mode 무선 검증을 대신하지 않음",
+      "65C816 256/256은 명령 디스패치 범위이며 완전하거나 cycle-accurate한 SNES CPU 구현을 뜻하지 않음",
+      "ROM, BIOS, DSP 펌웨어와 네이티브 3DSX는 배포 ZIP에 포함되지 않습니다.",
+      "SGB의 SPC700은 21/256 명령만 구현되어 있으며 DSP envelope·echo와 최종 prototype host OBJ는 미완성입니다.",
+      "65C816 cycle accounting·penalty, IRQ/reference trace와 실물 SGB host 검증은 남은 작업입니다.",
+      "모든 타이틀과 주변기기의 완전한 호환성을 보장하지 않습니다."
+    ],
     "credits": [
-      { "role": "원본 / Upstream", "name": "Stewmath/GameYob", "url": "https://github.com/Stewmath/GameYob" },
-      { "role": "커스텀 저장소 및 추가 작업", "name": "GimoXagros/GameYob", "url": "https://github.com/GimoXagros/GameYob" }
+      {
+        "role": "원본 / Upstream",
+        "name": "Stewmath/GameYob",
+        "url": "https://github.com/Stewmath/GameYob"
+      },
+      {
+        "role": "커스텀 저장소 및 추가 작업",
+        "name": "GimoXagros/GameYob",
+        "url": "https://github.com/GimoXagros/GameYob"
+      }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
     "fileSize": "814552 bytes",
-    "tags": ["Game Boy", "Game Boy Color", "Super Game Boy", "NDS"],
+    "tags": [
+      "Game Boy",
+      "Game Boy Color",
+      "Super Game Boy",
+      "NDS"
+    ],
     "featured": true,
     "downloadEnabled": true,
     "downloads": [
-      { "label": "GameYob Custom 통합 패키지", "filename": "gameyob.zip", "size": "814552 bytes", "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.10/gameyob.zip", "sha256": "18c8eff2f7c7b5d38f302e996c68dad5a63935f70782dd13d45343847e4d846c" }
+      {
+        "label": "GameYob Custom 통합 패키지",
+        "filename": "gameyob.zip",
+        "size": "814552 bytes",
+        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.10/gameyob.zip",
+        "sha256": "18c8eff2f7c7b5d38f302e996c68dad5a63935f70782dd13d45343847e4d846c"
+      }
     ]
   },
   {
     "id": "gbarunner3",
     "demo": false,
     "title": "GBARunner3 Custom",
-    "titleOriginal": "GBARunner3 Custom v0.1.2 (High-ROM Fix)",
+    "titleOriginal": "GBARunner3 Custom v0.1.3 (Stable)",
     "subtitle": "Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 커스텀 호환 계층",
     "description": "직접 실행, 패치와 에뮬레이션 요소를 결합해 Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 호환 계층입니다.",
     "type": "utility",
-    "platform": ["Nintendo DS", "Nintendo DSi", "Nintendo 3DS(DSpico)"],
-    "status": "beta",
-    "version": "custom-v0.1.2",
+    "platform": [
+      "Nintendo DS",
+      "Nintendo DSi",
+      "Nintendo 3DS(DSpico)"
+    ],
+    "status": "released",
+    "version": "custom-v0.1.3",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-05",
-    "lastUpdated": "2026-09-05",
+    "releaseDate": "2026-09-12",
+    "lastUpdated": "2026-09-12",
     "repository": "https://github.com/GimoXagros/GBARunner3",
-    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.2",
-    "prerelease": {
-      "title": "GBARunner3 Custom v0.1.3-rc1 (Configuration & Build Hardening)",
-      "version": "custom-v0.1.3-rc1",
-      "releasePolicy": "latest-prerelease",
-      "releaseDate": "2026-09-05",
-      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc1",
-      "summary": "설정 검증과 자동 회귀검사, 빌드·배포 기반을 강화한 실기 검증용 후보입니다. 정식 릴리스는 계속 custom-v0.1.2입니다.",
-      "notes": ["새 게임 호환성이나 저장 프로토콜 수정을 보장하지 않습니다.", "이 RC의 신규 실기 검증은 아직 완료되지 않았으며 PR #5·#6의 저장 관련 초안은 포함하지 않습니다."],
-      "downloadEnabled": true,
-      "downloads": [
-        { "label": "GBARunner3 v0.1.3-rc1 시험 패키지", "filename": "GBARunner3.zip", "size": "163881 bytes", "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc1/GBARunner3.zip", "sha256": "a2cbd9c0a6b70f1409e80e403bae71803b017fc4fc1bb9fd000696cb97dbe394" }
-      ]
-    },
+    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3",
     "issuesUrl": "https://github.com/GimoXagros/GBARunner3/issues",
-    "upstream": { "name": "Gericom/GBARunner3", "url": "https://github.com/Gericom/GBARunner3" },
+    "upstream": {
+      "name": "Gericom/GBARunner3",
+      "url": "https://github.com/Gericom/GBARunner3"
+    },
     "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
@@ -95,24 +142,75 @@
       "accentDark": "#a99cff"
     },
     "screenshots": [],
-    "features": ["Nintendo DS 계열에서 GBA 소프트웨어 실행", "직접 실행·패치·에뮬레이션을 결합한 호환 계층"],
-    "scope": ["mapped high-ROM 블록에서 undefined instruction 처리 시 guest Thumb 상태 보존", "instruction-cache word에서 올바른 Thumb halfword 선택", "로드된 SD-cache backing block을 통한 JIT 보조 비트 읽기와 동적 Thumb 패치 기록", "ARM9 전체 instruction cache 무효화 전 hicode MPU 영역 해제", "커스텀 릴리스 패키징"],
-    "requirements": ["호환되는 Nintendo DS 계열 런처", "사용자가 합법적으로 확보한 GBA BIOS", "사용자가 합법적으로 확보한 GBA ROM"],
-    "compatibility": ["Nintendo 3DS와 DSpico에서 Kingdom Hearts: Chain of Memories [B8CJ][K]의 Main Menu → New Game → Save Slot 경로 통과"],
-    "installGuide": ["GBARunner3.zip을 다운로드하고 ZIP SHA-256을 확인합니다.", "ZIP의 GBARunner3.nds를 사용 중인 런처가 요구하는 위치에 복사합니다.", "ZIP의 _gba/configs를 SD 카드의 /_gba/configs에 병합합니다.", "합법적으로 확보한 GBA BIOS를 SD 카드의 /_gba/bios.bin에 배치합니다.", "릴리스 문서와 런처 안내에 따라 합법적으로 확보한 게임을 실행합니다."],
-    "notes": ["Save Slot 이후의 장시간 진행과 더 넓은 게임·기기 범위는 추가 검증 필요", "custom-v0.1.2의 실기 확인은 명시된 한 게임·경로에 한정되며 모든 게임과 기기의 호환성을 뜻하지 않습니다.", "기각된 진단 빌드에서 발생한 검은 선·깜빡임·기계음은 다른 시험 게임에서 관찰되지 않았습니다.", "ROM, 한글패치 ROM, BIOS와 세이브 파일 및 자동 .g3diag 작성기는 배포에 포함되지 않습니다.", "저장소 전체에 단일한 새 라이선스가 적용된다고 가정하지 말고 LICENSE.md와 개별 구성요소 조건을 확인하세요."],
+    "features": [
+      "Nintendo DS 계열에서 GBA 소프트웨어 실행",
+      "JSON 설정 주소 검증과 재현 가능한 빌드",
+      "정상 실행 파일과 게임별 설정 304개 제공"
+    ],
+    "scope": [
+      "v0.1.2 이후 외부 JSON 패치 주소의 형식과 배열 전체 검증 강화",
+      "RC1 정상 실행 파일을 유지하고 linked IRQ C-call 11개 지점의 자동 검사 추가",
+      "정식 패키지에서 RC2 진단 실행 파일 제외"
+    ],
+    "requirements": [
+      "호환되는 Nintendo DS 계열 런처",
+      "사용자가 합법적으로 확보한 GBA BIOS",
+      "사용자가 합법적으로 확보한 GBA ROM"
+    ],
+    "compatibility": [
+      "사용자는 임시 표시 비교 설정을 해제하고 기본 설정으로 복원한 뒤 화면 일그러짐·깜박임이 사라졌다고 보고했습니다.",
+      "공개 ZIP의 정상 NDS 해시, 게임별 설정 304개와 내부 해시 목록 306개가 일치함을 저장소에서 확인했습니다."
+    ],
+    "installGuide": [
+      "GBARunner3.zip을 다운로드하고 ZIP SHA-256을 확인합니다.",
+      "ZIP의 GBARunner3.nds를 사용 중인 런처가 요구하는 위치에 복사합니다.",
+      "ZIP의 _gba/configs를 SD 카드의 /_gba/configs에 병합합니다.",
+      "합법적으로 확보한 GBA BIOS를 SD 카드의 /_gba/bios.bin에 배치합니다.",
+      "릴리스 문서와 런처 안내에 따라 합법적으로 확보한 게임을 실행합니다."
+    ],
+    "notes": [
+      "기본 enableCenterAndMask=true를 유지하세요. false는 표시 엔진·중앙 배치·마스킹을 변경하지만 VBlank 캡처와 VRAM C/D 교대를 중지하지 않습니다.",
+      "기존 개인 설정과 저장 파일을 백업하세요. 임시 비교 설정을 정리할 때 다른 설정이나 저장 파일을 일괄 삭제하지 마세요.",
+      "증상 해소 보고의 정확한 NDS 해시·실행 시간·횟수는 제공되지 않았으며 원래 깜박임의 원인은 미확정입니다. 특정 capture/IRQ 결함 수정이나 모든 게임의 호환성을 의미하지 않습니다.",
+      "물리 SD 오류 전파와 save/RTC 중단 복구, 더 넓은 기기·게임 검증은 남아 있습니다. 미검증 저장 실험 PR #5/#6은 포함하지 않습니다.",
+      "게임 ROM·BIOS·세이브는 배포에 포함하지 않습니다. LICENSE.md 및 개별 구성요소 조건을 확인하세요."
+    ],
     "credits": [
-      { "role": "원본 / Upstream", "name": "Gericom/GBARunner3", "url": "https://github.com/Gericom/GBARunner3" },
-      { "role": "커스텀 저장소 및 추가 작업", "name": "GimoXagros/GBARunner3", "url": "https://github.com/GimoXagros/GBARunner3" }
+      {
+        "role": "원본 / Upstream",
+        "name": "Gericom/GBARunner3",
+        "url": "https://github.com/Gericom/GBARunner3"
+      },
+      {
+        "role": "커스텀 저장소 및 추가 작업",
+        "name": "GimoXagros/GBARunner3",
+        "url": "https://github.com/GimoXagros/GBARunner3"
+      }
     ],
     "license": "LICENSE.md 및 개별 구성요소 조건 확인",
-    "fileSize": "163671 bytes",
-    "hashes": [{ "label": "ZIP 내부 GBARunner3.nds SHA-256", "value": "cc09916848c6fb92092db15d5d8ebda21f4543a63589804f44268d2d810601ce" }],
-    "tags": ["GBA", "호환 계층", "RTC", "DSpico"],
+    "fileSize": "174420 bytes",
+    "hashes": [
+      {
+        "label": "ZIP 내부 GBARunner3.nds SHA-256",
+        "value": "9968bb423430b2fcfc6aacec70a5c2e5603f711952c6eb2d6c57fbfac287a3b2"
+      }
+    ],
+    "tags": [
+      "GBA",
+      "호환 계층",
+      "RTC",
+      "DSpico"
+    ],
     "featured": true,
     "downloadEnabled": true,
     "downloads": [
-      { "label": "GBARunner3 커스텀 패키지", "filename": "GBARunner3.zip", "size": "163671 bytes", "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.2/GBARunner3.zip", "sha256": "13ae1e2252ecf2245ad2236ff13ebea3ba558c7b4e6ea7fb4f021cb25834ce77" }
+      {
+        "label": "GBARunner3 v0.1.3 정식 패키지",
+        "filename": "GBARunner3.zip",
+        "size": "174420 bytes",
+        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3/GBARunner3.zip",
+        "sha256": "aebf23f662106cae207138be1eb98967857ed9a37477996b5a45eecbed313c36"
+      }
     ]
   },
   {
@@ -123,7 +221,11 @@
     "subtitle": "Nintendo DS·DSi 및 호환 런처용 WonderSwan 계열 에뮬레이터",
     "description": "Bandai WonderSwan, WonderSwan Color, SwanCrystal과 PocketChallenge V2에 대응하는 에뮬레이터입니다.",
     "type": "emulator",
-    "platform": ["Nintendo DS", "Nintendo DSi", "Nintendo 3DS(DSpico)"],
+    "platform": [
+      "Nintendo DS",
+      "Nintendo DSi",
+      "Nintendo 3DS(DSpico)"
+    ],
     "status": "work-in-progress",
     "version": "v0.7.7-custom.r8",
     "releasePolicy": "latest-stable",
@@ -132,7 +234,10 @@
     "repository": "https://github.com/GimoXagros/NitroSwan",
     "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8",
     "issuesUrl": "https://github.com/GimoXagros/NitroSwan/issues",
-    "upstream": { "name": "FluBBaOfWard/NitroSwan", "url": "https://github.com/FluBBaOfWard/NitroSwan" },
+    "upstream": {
+      "name": "FluBBaOfWard/NitroSwan",
+      "url": "https://github.com/FluBBaOfWard/NitroSwan"
+    },
     "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
@@ -147,34 +252,93 @@
       "accentDark": "#ff8298"
     },
     "screenshots": [],
-    "features": ["WonderSwan 계열·PocketChallenge V2 실행", "DS·DSi 빌드 분리 제공", "완료 프레임 단위 화면 전달과 상태 복원"],
-    "scope": ["palette·video-register·frame-complete·restore·VBlank의 assembly→C 콜백에서 AAPCS stack alignment와 register 보존 보강", "reset·ROM 변경·save-state 복원 중 renderer publication을 멈추고 완전한 복원 세대만 다시 게시", "한 완료 WS 프레임의 OAM·OBJ tiles·palette·BG bank·palette-raster 상태를 동일한 triple-buffered descriptor로 전달", "OBJ 16KB 복사는 dirty generation에서만 수행하고 seed·publication metric을 분리"],
-    "requirements": ["Nintendo DS·DSi 또는 호환 런처", "사용자가 합법적으로 확보한 게임 ROM"],
-    "compatibility": ["Nintendo DS·DS Lite 또는 일반 DS-mode: NitroSwan-DS-0.7.7-custom.r8.nds 사용", "Nintendo DSi 또는 Nintendo 3DS의 DSpico/Pico Loader: NitroSwan-DSi-0.7.7-custom.r8.nds 권장", "릴리스 기록: Python 회귀 검사 76개, host C RTC·DSpico cache 검사, DS·DSi 빌드, ABI 7개 symbol·10개 call path와 NDS range·header·banner CRC 검사"],
-    "installGuide": ["기기에 맞는 통합 패키지 또는 개별 NDS 빌드를 선택합니다.", "다운로드한 파일의 SHA-256을 확인합니다.", "위의 확인된 환경·사용 범위에서 선택한 빌드를 런처 안내에 따라 복사하고 게임을 실행합니다."],
-    "notes": ["r7 사용자 시험에서는 One Piece와 Digimon Battle Spirit이 크게 개선됐지만 일부 큰 동작에서 잔여 깨짐이 보고됨", "r8의 melonDS 장면 매트릭스와 DSpico 게임플레이·오디오·입력·저장·pacing 실기 검증은 아직 수행되지 않음", "v0.7.7-custom.r8은 렌더러 안전성 릴리스이며 캐릭터 모션 깨짐의 완전한 해결을 의미하지 않습니다.", "optional ABI sentinel의 실기 실행과 reset·save·load 경계 smoke 검사는 아직 수행되지 않았습니다.", "native WonderSwan timing이나 시각 문제가 renderer-safety 결함만으로 발생했다는 증명은 포함하지 않습니다.", "ROM, 사용자 세이브와 BIOS는 배포에 포함되지 않습니다.", "검증 범위는 릴리스 노트와 Docs/ReleaseValidation-r8.md를 확인하세요. 모든 게임의 완전한 호환성을 보장하지 않습니다."],
+    "features": [
+      "WonderSwan 계열·PocketChallenge V2 실행",
+      "DS·DSi 빌드 분리 제공",
+      "완료 프레임 단위 화면 전달과 상태 복원"
+    ],
+    "scope": [
+      "palette·video-register·frame-complete·restore·VBlank의 assembly→C 콜백에서 AAPCS stack alignment와 register 보존 보강",
+      "reset·ROM 변경·save-state 복원 중 renderer publication을 멈추고 완전한 복원 세대만 다시 게시",
+      "한 완료 WS 프레임의 OAM·OBJ tiles·palette·BG bank·palette-raster 상태를 동일한 triple-buffered descriptor로 전달",
+      "OBJ 16KB 복사는 dirty generation에서만 수행하고 seed·publication metric을 분리"
+    ],
+    "requirements": [
+      "Nintendo DS·DSi 또는 호환 런처",
+      "사용자가 합법적으로 확보한 게임 ROM"
+    ],
+    "compatibility": [
+      "Nintendo DS·DS Lite 또는 일반 DS-mode: NitroSwan-DS-0.7.7-custom.r8.nds 사용",
+      "Nintendo DSi 또는 Nintendo 3DS의 DSpico/Pico Loader: NitroSwan-DSi-0.7.7-custom.r8.nds 권장",
+      "릴리스 기록: Python 회귀 검사 76개, host C RTC·DSpico cache 검사, DS·DSi 빌드, ABI 7개 symbol·10개 call path와 NDS range·header·banner CRC 검사"
+    ],
+    "installGuide": [
+      "기기에 맞는 통합 패키지 또는 개별 NDS 빌드를 선택합니다.",
+      "다운로드한 파일의 SHA-256을 확인합니다.",
+      "위의 확인된 환경·사용 범위에서 선택한 빌드를 런처 안내에 따라 복사하고 게임을 실행합니다."
+    ],
+    "notes": [
+      "r7 사용자 시험에서는 One Piece와 Digimon Battle Spirit이 크게 개선됐지만 일부 큰 동작에서 잔여 깨짐이 보고됨",
+      "r8의 melonDS 장면 매트릭스와 DSpico 게임플레이·오디오·입력·저장·pacing 실기 검증은 아직 수행되지 않음",
+      "v0.7.7-custom.r8은 렌더러 안전성 릴리스이며 캐릭터 모션 깨짐의 완전한 해결을 의미하지 않습니다.",
+      "optional ABI sentinel의 실기 실행과 reset·save·load 경계 smoke 검사는 아직 수행되지 않았습니다.",
+      "native WonderSwan timing이나 시각 문제가 renderer-safety 결함만으로 발생했다는 증명은 포함하지 않습니다.",
+      "ROM, 사용자 세이브와 BIOS는 배포에 포함되지 않습니다.",
+      "검증 범위는 릴리스 노트와 Docs/ReleaseValidation-r8.md를 확인하세요. 모든 게임의 완전한 호환성을 보장하지 않습니다."
+    ],
     "credits": [
-      { "role": "원본 / Upstream", "name": "FluBBaOfWard/NitroSwan", "url": "https://github.com/FluBBaOfWard/NitroSwan" },
-      { "role": "커스텀 저장소 및 추가 작업", "name": "GimoXagros/NitroSwan", "url": "https://github.com/GimoXagros/NitroSwan" }
+      {
+        "role": "원본 / Upstream",
+        "name": "FluBBaOfWard/NitroSwan",
+        "url": "https://github.com/FluBBaOfWard/NitroSwan"
+      },
+      {
+        "role": "커스텀 저장소 및 추가 작업",
+        "name": "GimoXagros/NitroSwan",
+        "url": "https://github.com/GimoXagros/NitroSwan"
+      }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
     "fileSize": "통합 655362 bytes",
-    "tags": ["WonderSwan", "SwanCrystal", "PocketChallenge V2", "DSpico"],
+    "tags": [
+      "WonderSwan",
+      "SwanCrystal",
+      "PocketChallenge V2",
+      "DSpico"
+    ],
     "featured": true,
     "downloadEnabled": true,
     "downloads": [
-      { "label": "통합 패키지", "filename": "NitroSwan-v0.7.7-custom.r8.zip", "size": "655362 bytes", "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-v0.7.7-custom.r8.zip", "sha256": "84ff24066c434ba47b4e9ebc6e1c47ece9e48c32b28f4a1302770f6a82f07fb5" },
-      { "label": "Nintendo DS 빌드", "filename": "NitroSwan-DS-0.7.7-custom.r8.nds", "size": "568320 bytes", "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DS-0.7.7-custom.r8.nds", "sha256": "ce0ae0b08a2c9ca15fd734529e2008ca6c376fde2f4d2e65ce13627d54e13ee6" },
-      { "label": "Nintendo DSi / DSpico 권장 빌드", "filename": "NitroSwan-DSi-0.7.7-custom.r8.nds", "size": "569344 bytes", "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DSi-0.7.7-custom.r8.nds", "sha256": "4ea4b1af798371b48dab4b73d1c88d324fdfe65eb0d64aed0ba69b588bdd11ce" }
+      {
+        "label": "통합 패키지",
+        "filename": "NitroSwan-v0.7.7-custom.r8.zip",
+        "size": "655362 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-v0.7.7-custom.r8.zip",
+        "sha256": "84ff24066c434ba47b4e9ebc6e1c47ece9e48c32b28f4a1302770f6a82f07fb5"
+      },
+      {
+        "label": "Nintendo DS 빌드",
+        "filename": "NitroSwan-DS-0.7.7-custom.r8.nds",
+        "size": "568320 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DS-0.7.7-custom.r8.nds",
+        "sha256": "ce0ae0b08a2c9ca15fd734529e2008ca6c376fde2f4d2e65ce13627d54e13ee6"
+      },
+      {
+        "label": "Nintendo DSi / DSpico 권장 빌드",
+        "filename": "NitroSwan-DSi-0.7.7-custom.r8.nds",
+        "size": "569344 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r8/NitroSwan-DSi-0.7.7-custom.r8.nds",
+        "sha256": "4ea4b1af798371b48dab4b73d1c88d324fdfe65eb0d64aed0ba69b588bdd11ce"
+      }
     ]
   },
   {
     "id": "narikiri2-save-compat",
     "demo": false,
-    "title": "테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치",
+    "title": "테일즈 오브 더 월드 나리키리 던전2",
     "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v0.9c",
     "subtitle": "FFR BETA3 기반 일본어 원문 대조 공개 검증판",
-    "description": "FFR BETA3(071102)를 바탕으로 글꼴과 번역, 메뉴·전투 표시를 다듬은 테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치입니다.",
+    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 글꼴·대사·메뉴·전투 표시를 보완하는 GBA 한국어화 프로젝트입니다. 현재 공개 다운로드는 FFR BETA3 전용 v0.9c입니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
@@ -184,16 +348,16 @@
     "releasePolicy": "latest-prerelease",
     "releaseDate": "2026-09-08",
     "lastUpdated": "2026-09-08",
-    "repository": "https://github.com/GimoXagros/narikiri2-save-compat",
-    "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c",
-    "issuesUrl": "https://github.com/GimoXagros/narikiri2-save-compat/issues",
+    "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9c",
+    "issuesUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/issues",
     "downloadUrl": "",
     "homepage": "",
     "coverImage": "",
     "coverTone": "olive",
     "branding": {
-      "logo": "assets/projects/narikiri2-save-compat/logo.png",
-      "logoAlt": "사용자 제공 『테일즈 오브 더 월드: 나리키리 던전 2』 프로젝트 식별 이미지",
+      "logo": "assets/projects/narikiri2-save-compat/logo-20260913.png",
+      "logoAlt": "테일즈 오브 더 월드 나리키리 던전2 — Xagros 제공 프로젝트 이미지",
       "width": 1254,
       "height": 1254,
       "accent": "#38764d",
@@ -229,6 +393,7 @@
       "기존 저장을 사용할 때 실행기 규칙에 맞춰 ROM과 저장 파일의 기본 이름·위치를 맞추고, 이전 savestate 대신 게임의 이어하기를 사용합니다."
     ],
     "notes": [
+      "저장소 main에는 일본어 원본에 직접 적용하는 v0.9d 그래픽 테스트판 안내가 있습니다. 아직 공개 Release 자산은 없으므로 웹 패처와 다운로드는 공개된 v0.9c를 기준으로 제공합니다. v0.9d는 Namco 시작 화면과 대열 선택 테두리를 복구하며 추가 대사 교정은 포함하지 않습니다.",
       "v0.9c는 완성판이 아닌 공개 검증판입니다. 독립적인 사람의 번역 감수, 실기와 장시간 전편 진행은 v1.0 과제로 남아 있습니다. 실제 두 기기 간 통신 교환도 아직 검증하지 않았습니다.",
       "BETA3에는 EEPROM 저장 코드가 이미 있어 v0.5 저장 복구를 별도로 적용할 필요가 없습니다. v0.5는 새 배포를 중단하고 태그와 이력만 보존합니다.",
       "시험한 Candidate A/v0.9 계열 8 KiB 게임 내 저장은 이어하기와 재저장이 가능하지만, 출처가 불명확한 32 KiB 저장이나 이전 ROM의 savestate는 변환 대상이 아닙니다.",
@@ -241,8 +406,8 @@
     "credits": [
       {
         "role": "2차 한국어화 패치·도구·문서",
-        "name": "GimoXagros/narikiri2-save-compat",
-        "url": "https://github.com/GimoXagros/narikiri2-save-compat"
+        "name": "GimoXagros/gba-narikiri2-kor",
+        "url": "https://github.com/GimoXagros/gba-narikiri2-kor"
       },
       "기존 한국어판: FFR BETA3(071102) · 포털과 배포 파일에 ROM 미포함",
       "글꼴: 달무리 파생 글꼴 · Apache-2.0 범위는 배포 문서 확인",
@@ -279,14 +444,14 @@
         "label": "v0.9c BETA3 적용 패키지",
         "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_BETA3_PACKAGE.zip",
         "size": "190363 bytes",
-        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_BETA3_PACKAGE.zip",
+        "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_BETA3_PACKAGE.zip",
         "sha256": "f92c048ed2e4d35ad83599d9c592db26f15a56053e8c4e109b31d8cec369484c"
       },
       {
         "label": "v0.9c BETA3 전용 누적 BPS",
         "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
         "size": "3189401 bytes",
-        "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+        "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
         "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
       }
     ],
@@ -299,7 +464,7 @@
         {
           "version": "v0.9c",
           "releaseDate": "2026-09-08",
-          "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9c",
           "title": "PC 도구 수정 공개 검증판",
           "summary": "v0.9c는 PC 적용기·패키징 도구를 수정한 버전입니다. ROM과 BPS는 v0.9b와 동일하므로, v0.9b 사용자는 다시 패치할 필요가 없습니다.",
           "source": {
@@ -310,7 +475,7 @@
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
             "path": "patches/narikiri2-save-compat/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
-            "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9c/NARIKIRI2_AN9J_K_DALMOORI_v0.9c_FROM_BETA3.bps",
             "size": 3189401,
             "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
           },
@@ -323,7 +488,7 @@
         {
           "version": "v0.9b",
           "releaseDate": "2026-09-06",
-          "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9b",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9b",
           "title": "FFR BETA3 기반 일본어 원문 대조 공개 검증판",
           "summary": "FFR BETA3에 달무리 글꼴, 문장·고유명사 교정, 메뉴·전투 표시 수정을 통합한 이전 2차 한국어화 공개 검증판입니다.",
           "source": {
@@ -334,7 +499,7 @@
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
             "path": "patches/narikiri2-save-compat/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
-            "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9b/NARIKIRI2_AN9J_K_DALMOORI_v0.9b_FROM_BETA3.bps",
             "size": 3189401,
             "sha256": "51dbdb8ef24a32ca5efb05ec3196b98ae08a32f3a4d6bb88673d58266837dcf6"
           },
@@ -347,7 +512,7 @@
         {
           "version": "v0.9a",
           "releaseDate": "2026-09-06",
-          "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9a",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9a",
           "title": "대사·고유명사 및 전투 정보창 수정 공개 검증판",
           "summary": "BETA2 계열 최초 FFR 입력에 저장 복구, 달무리 글꼴, 대사·고유명사 교정과 적 정보창 수정을 통합한 이전 공개 검증판입니다.",
           "source": {
@@ -358,7 +523,7 @@
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
             "path": "patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
-            "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps",
             "size": 501338,
             "sha256": "9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a"
           },
@@ -371,7 +536,7 @@
         {
           "version": "v0.9",
           "releaseDate": "2026-09-05",
-          "releaseUrl": "https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9",
           "title": "FFR 통합 한국어 패치 공개 검증판",
           "summary": "BETA2 계열 최초 FFR 입력에 저장 복구와 달무리 글꼴, 이름·메뉴·전투 표시 수정을 통합한 이전 공개 검증판입니다.",
           "source": {
@@ -382,7 +547,7 @@
           "patch": {
             "filename": "NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
             "path": "patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
-            "url": "https://github.com/GimoXagros/narikiri2-save-compat/releases/download/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps",
             "size": 145379,
             "sha256": "38cba8fbf0fee41af02859df1a607eda2dbedee17f37afbb05fac05316449866"
           },
@@ -394,5 +559,119 @@
         }
       ]
     }
+  },
+  {
+    "id": "gba-narikiri3-kor",
+    "demo": false,
+    "title": "테일즈 오브 더 월드 나리키리 던전3",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 3 · v1.1a",
+    "subtitle": "일본판 B3TJ 원본용 누적 한국어화 공개 검토판",
+    "description": "짜알님의 기존 한국어화 1.1을 허가받아 계승하고 Xagros가 후속 작업을 진행하는 프로젝트입니다. 일본어 원문과 대사를 대조해 번역 오류·누락을 수정하고 소형 한글 글꼴과 메뉴·인물 정보를 보완합니다.",
+    "type": "korean-patch",
+    "platform": [
+      "Game Boy Advance"
+    ],
+    "status": "beta",
+    "version": "v1.1a",
+    "releasePolicy": "latest-prerelease",
+    "releaseDate": "2026-09-12",
+    "lastUpdated": "2026-09-12",
+    "repository": "https://github.com/GimoXagros/gba-narikiri3-kor",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a",
+    "issuesUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/issues",
+    "downloadUrl": "",
+    "homepage": "",
+    "coverImage": "",
+    "coverTone": "slate",
+    "branding": {
+      "logo": "assets/projects/gba-narikiri3-kor/logo-20260913.png",
+      "logoAlt": "테일즈 오브 더 월드 나리키리 던전3 — Xagros 제공 프로젝트 이미지",
+      "width": 1254,
+      "height": 1254,
+      "accent": "#385da8",
+      "accentSoft": "#e0e8f8",
+      "accentDark": "#9bbafb"
+    },
+    "screenshots": [],
+    "features": [
+      "일본판 B3TJ에 적용하는 누적 BPS",
+      "소형 한글 글꼴과 인물·코스튬 명칭 보완",
+      "인물 명함·갈아입기 메뉴·아이템 설명 수정"
+    ],
+    "scope": [
+      "확인된 대사 5,208개 위치와 중복 제외 4,788개 문장쌍의 일본어 원문 대조",
+      "오역·누락·오타·명칭 불일치 403개 수정 묶음을 실제 대사 425개 위치에 반영",
+      "빠진 대기 명령 7개와 이름 치환 호출 14개 복원"
+    ],
+    "requirements": [
+      "수정하지 않은 일본판 B3TJ 원본 16,777,216 bytes",
+      "BPS 적용 도구 또는 동봉 Python 적용 도구"
+    ],
+    "compatibility": [
+      "코드·데이터 검사 30개와 대사 표시 조합 31,248건 통과가 릴리스에 기록되어 있습니다.",
+      "재빌드와 ZIP 동봉 도구의 적용 결과 일치, 잘못된 원본 거부와 출력 덮어쓰기 방지를 확인했습니다.",
+      "mGBA / VBA-Next에서 첫 저장·별도 실행의 불러오기·메뉴·아이템 화면을 확인했습니다."
+    ],
+    "installGuide": [
+      "v1.1a 프리릴리즈 ZIP을 받고 동봉된 먼저_읽어주세요.md를 확인합니다.",
+      "일본판 B3TJ 원본과 ND3_B3TJ_K_v1.1a_FROM_J.bps를 BPS 적용 도구에서 선택합니다. Python을 사용한다면 apply_development.py에 원본과 새 출력 경로를 지정합니다.",
+      "결과가 33,554,432 bytes이고 SHA-256이 b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869인지 확인합니다.",
+      "세이브를 별도로 백업하고 실행기의 파일명·배치 규칙에 맞춰 사용합니다."
+    ],
+    "notes": [
+      "v1.1a는 검토용 프리릴리즈입니다. 전편 완주·모든 분기·모든 기기에서 무오류를 보증하지 않으며 독립적인 사람의 감수와 추가 플레이 검증이 남아 있습니다.",
+      "기존 한국어화 ROM에는 적용하지 마세요. 일본판 원본에 한 번 적용하는 누적 패치입니다.",
+      "모든 기존 세이브의 호환성을 보증하지 않습니다. ROM·BIOS·개인 세이브·에뮬레이터 실행 파일은 배포하지 않습니다."
+    ],
+    "credits": [
+      {
+        "role": "기존 한국어화 1.1",
+        "name": "짜알",
+        "url": "https://github.com/GimoXagros/gba-narikiri3-kor/blob/main/CREDITS.md"
+      },
+      {
+        "role": "후속 제작",
+        "name": "Xagros",
+        "url": "https://github.com/GimoXagros/gba-narikiri3-kor"
+      },
+      "소형 글꼴: 달무리 — RanolP와 기여자 (Apache-2.0)",
+      "프로젝트 로고: Xagros 제공 · 원 게임·원본 도안 권리는 각 권리자에게 있음"
+    ],
+    "license": "달무리 글꼴 Apache-2.0 / 계승 도구 MIT / 원 게임·기존 번역·이미지 권리는 별도",
+    "fileSize": "패키지 420612 bytes",
+    "hashes": [
+      {
+        "label": "일본판 B3TJ 원본 (16777216 bytes) SHA-256",
+        "value": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
+      },
+      {
+        "label": "v1.1a 결과 (33554432 bytes) SHA-256",
+        "value": "b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869"
+      }
+    ],
+    "tags": [
+      "GBA",
+      "한국어화",
+      "BPS",
+      "나리키리 던전"
+    ],
+    "featured": false,
+    "downloadEnabled": true,
+    "downloads": [
+      {
+        "label": "v1.1a 적용 패키지",
+        "filename": "ND3_Korean_v1.1a_prerelease.zip",
+        "size": "420612 bytes",
+        "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.1a/ND3_Korean_v1.1a_prerelease.zip",
+        "sha256": "2bc441bc7b39a4c003b12b6c13073b3ae0002c1c6c5d54e959f0e575c8f15485"
+      },
+      {
+        "label": "v1.1a 일본판 원본용 BPS",
+        "filename": "ND3_B3TJ_K_v1.1a_FROM_J.bps",
+        "size": "17230086 bytes",
+        "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.1a/ND3_B3TJ_K_v1.1a_FROM_J.bps",
+        "sha256": "1b07c32665add7c9e76b7251d67195ea9690f420e26d316ec4475a2589ee1db0"
+      }
+    ]
   }
 ]

@@ -1,0 +1,22 @@
+{
+  "projectId": "gba-narikiri3-kor",
+  "displayName": "테일즈 오브 더 월드 나리키리 던전3",
+  "entries": [
+    {
+      "id": "narikiri3-v1-1a",
+      "version": "v1.1a",
+      "date": "2026-09-12",
+      "title": "v1.1a — 대사 원문 대조 및 수정 프리릴리즈",
+      "summary": "기존 한국어화 1.1을 계승하고 확인된 대사 5,208개를 대조해 425개 위치를 수정한 일본판 원본용 누적 패치입니다.",
+      "changes": [
+        "확인된 대사 5,208개 위치와 중복 제외 4,788개 문장쌍의 일본어 원문 대조",
+        "오역·누락·오타·명칭 불일치 403개 수정 묶음을 실제 대사 425개 위치에 반영",
+        "빠진 대기 명령 7개와 이름 치환 호출 14개 복원",
+        "소형 한글 글꼴·인물 명함·메뉴·아이템 설명과 제공 로고 반영",
+        "mGBA / VBA-Next의 저장·불러오기와 제한된 화면 경로 확인; 전편 완주·독립 감수는 남은 과제"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a",
+      "status": "prerelease"
+    }
+  ]
+}

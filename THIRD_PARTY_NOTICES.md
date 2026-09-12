@@ -27,14 +27,14 @@ code and is not an upstream RomPatcher.js file.
 
 `public/patches/narikiri2-save-compat/v0.9/NARIKIRI2_AN9J_K_DALMOORI_v0.9_FROM_FFR.bps`
 is the unchanged public prerelease asset from
-[`GimoXagros/narikiri2-save-compat` v0.9](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9).
+[`GimoXagros/gba-narikiri2-kor` v0.9](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9).
 
 - Size: `145379 bytes`
 - SHA-256: `38cba8fbf0fee41af02859df1a607eda2dbedee17f37afbb05fac05316449866`
 
 `public/patches/narikiri2-save-compat/v0.9a/NARIKIRI2_AN9J_K_DALMOORI_v0.9a_FROM_FFR.bps`
 is the unchanged public prerelease asset from
-[`GimoXagros/narikiri2-save-compat` v0.9a](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9a).
+[`GimoXagros/gba-narikiri2-kor` v0.9a](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9a).
 
 - Size: `501338 bytes`
 - SHA-256: `9289ff85f946fa661c17dee9a9cb6afcd91278caf1af23590e59964ad461810a`
@@ -45,8 +45,8 @@ No source ROM or patched ROM is included in this repository.
 
 The BETA3 assets in `public/patches/narikiri2-save-compat/v0.9b/` and
 `public/patches/narikiri2-save-compat/v0.9c/` are the unchanged public assets from
-[v0.9b](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9b) and
-[v0.9c](https://github.com/GimoXagros/narikiri2-save-compat/releases/tag/v0.9c).
+[v0.9b](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9b) and
+[v0.9c](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9c).
 They are byte-for-byte identical; v0.9c changes PC tools and verification records.
 
 - Size (each): `3189401 bytes`

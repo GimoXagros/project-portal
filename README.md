@@ -6,7 +6,7 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치의
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.2`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 2차 한국어화 패치 `v0.9c` 네 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.3`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 `v0.9c`, 테일즈 오브 더 월드 나리키리 던전3 `v1.1a` 다섯 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
 2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
 
@@ -52,7 +52,7 @@ npm run preview
 
 대표 배포의 `releasePolicy`는 `latest-stable`(생략 시 기본값), `latest-prerelease`, `pinned` 또는 `pinned-prerelease`입니다. 정식판과 별도로 시험판을 병행할 때는 선택적인 `prerelease` 객체에 프리릴리즈 정책을 사용합니다. 최신 정책에서 구성 태그가 실제 최신 채널 태그와 다르면 각각 `LATEST_RELEASE_DRIFT` 또는 `LATEST_PRERELEASE_DRIFT`로 실패합니다. draft는 항상 거부하고 정식·프리릴리즈 표식이 서로 바뀐 경우도 실패합니다. 의도적으로 이전 버전을 유지하는 `pinned` 계열 정책에는 비어 있지 않은 `pinReason`이 필요합니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
 
-날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 나리키리 던전 2 v0.9c 프리릴리즈가 2026-09-08(UTC, 한국 시간 2026-09-09)에 공개되어 홈의 최근 업데이트는 **2026-09-08**으로 표시됩니다.
+날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. GBARunner3 v0.1.3과 나리키리 던전3 v1.1a가 2026-09-12(UTC, 한국 시간 2026-09-13)에 공개되어 홈의 최근 업데이트는 **2026-09-12**로 표시됩니다.
 
 ## 폴더 구조
 
@@ -223,7 +223,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 - `#/updates/nitroswan`
 - `#/updates/narikiri2-save-compat`
 
-각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 5개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 3개와 보존된 v0.5 태그 기록까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
+각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 4개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
 
 새 GameYob Custom 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
 
@@ -292,3 +292,5 @@ Get-FileHash .\release.zip -Algorithm SHA256
 ## 배포 원칙
 
 이 포털은 원본 ROM, 게임 데이터, BIOS, 펌웨어, 암호화 키를 배포하지 않습니다. 사용자는 필요한 데이터를 합법적으로 직접 준비해야 하며, 각 게임·플랫폼·상표의 권리는 해당 권리자에게 있습니다.
+
+2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 기존 `narikiri2-save-compat` 페이지 ID는 이전 링크 호환을 위해 유지합니다. 저장소의 v0.9d는 공개 Release가 없는 테스트판 안내이며 다운로드·웹 패처는 v0.9c를 유지합니다. 나리키리 던전3은 공개 v1.1a 패키지·BPS 다운로드와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.
