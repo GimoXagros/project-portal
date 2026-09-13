@@ -1,5 +1,14 @@
 # Third-party notices
 
+## Narikiri Dungeon 3 replacement logo
+
+The user supplied the unmodified 2508 × 2508 replacement image used at
+`public/assets/projects/gba-narikiri3-kor/logo-2c98215cc7e8.png`.
+SHA-256: `2c98215cc7e8d55c06918e53f8a5b3d00c4a9e9a481bf840017544edadb56a2c`.
+The repository's logo at commit `a7f8c69abf40f4a87fa4ee05edf05d93b7ba319a`
+still differed; the explicitly supplied attachment takes precedence for this portal update.
+Original game, artwork and trademark rights remain with their respective owners.
+
 ## RomPatcher.js
 
 The browser-local BPS workflow uses an unmodified subset of
