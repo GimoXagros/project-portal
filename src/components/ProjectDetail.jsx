@@ -27,7 +27,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
   const hasHashes = project.originalHash || project.patchHash || project.patchedHash || project.hashes?.length
   const hasConditions = ['requirements', 'compatibility', 'scope', 'notes'].some((field) => project[field]?.length)
   const sections = [
-    ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', '다운로드']]),
+    ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
     ...(project.installGuide?.length ? [['installation', '설치']] : []),
     ...(hasConditions ? [['conditions', '검증·제한']] : []), ...(hasHashes ? [['integrity', '무결성']] : []),
     ['project-changelog', '업데이트'], ...(project.credits?.length || project.license ? [['credits', 'Credits·라이선스']] : []),

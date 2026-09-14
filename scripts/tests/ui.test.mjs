@@ -48,10 +48,10 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-12/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-14/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
-  assert.match(html, /현재 배포 중 · 5 PROJECTS/)
-  assert.equal(projects.length, 5)
+  assert.match(html, /파일 다운로드·웹 패치 · 5 PROJECTS/)
+  assert.equal(projects.length, 6)
 })
 
 test('all projects expose their full public release history from the first recorded point', async () => {
@@ -124,7 +124,7 @@ test('every Korean patch renders a patcher and no direct download controls', asy
 })
 
 test('emulators and compatibility layers render all version choices', async () => {
-  for (const project of projects.filter(item => item.type !== 'korean-patch')) {
+  for (const project of projects.filter(item => item.downloadEnabled)) {
     const html = await render('DownloadSection', { project })
     assert.match(html, /select id="download-version"/)
     for (const version of project.downloadVersions) assert.ok(html.includes('value="' + version.version + '"'))
@@ -188,7 +188,7 @@ test('detail has one copy of notes, real jump targets and one compact update', a
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1])
     assert.equal(new Set(ids).size,ids.length)
     for (const hash of project.downloads.map(d=>d.sha256)) assert.ok(html.includes(hash))
-    assert.match(html,/SHA-256 복사/)
+    if (project.type === 'korean-patch' || project.downloads.length) assert.match(html,/SHA-256 복사/)
     assert.doesNotMatch(html,/warning-aside/)
   }
 })
@@ -229,4 +229,14 @@ test('home feed caps latest projects at four with no repeated logos', async () =
 test('unknown project and update routes retain 404', async () => {
   assert.match(await render('ProjectDetail',{project:null}),/404/)
   assert.match(await render('UpdatesPage',{projects,projectId:'unknown'}),/404/)
+})
+
+test('source-only release exposes installation and release notes without unavailable or file controls', async () => {
+  const project = projects.find(p => p.id === 'ai-work-skills')
+  const html = await render('ProjectDetail', { project, changelog: changelogFor(project.id) })
+  assert.ok(html.includes(project.releaseUrl))
+  assert.ok(html.includes(project.repository + '#readme'))
+  assert.match(html, /저장소에서 설치/)
+  assert.match(html, /python install.py/)
+  assert.doesNotMatch(html, /배포 준비 중|NOT YET AVAILABLE|id="download-version"|SHA-256 복사/)
 })

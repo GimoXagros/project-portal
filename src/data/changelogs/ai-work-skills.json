@@ -1,0 +1,20 @@
+{
+  "projectId": "ai-work-skills",
+  "displayName": "AI Work Skills",
+  "entries": [
+    {
+      "id": "ai-work-skills-20260914-2",
+      "version": "v2026.09.14.2",
+      "date": "2026-09-14",
+      "title": "활성 스킬 15개 기준 설치 구성 정리",
+      "summary": "README와 REVIEW를 실제 설치 상태에 맞추고 은퇴 스킬의 대체 정책과 설치 문서를 정리했습니다.",
+      "changes": [
+        "create-plan은 exec-plan으로, code-review는 Codex 내장 /review로 대체",
+        "create-kr-patch의 install.py 기반 번들·직접 설치 안내 정리",
+        "활성 스킬 15개 설치 점검 정상, 미해결 항목 없음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2",
+      "status": "release"
+    }
+  ]
+}
