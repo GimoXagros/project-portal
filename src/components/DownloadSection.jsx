@@ -32,6 +32,14 @@ export default function DownloadSection({ project }) {
     catch { setCopied('') }
   }
   if (project.type === 'korean-patch') return null
+  if (project.sourceInstall) return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
+    <div className="detail-section-title"><h2 id="download-title">저장소에서 설치</h2></div>
+    <div className="download-callout ready">
+      <div><span className="download-state">SOURCE · {project.releaseDate}</span><h3>{project.version}</h3><p>별도 실행 파일 없이 Git으로 저장소를 복제한 뒤 아래 설치 안내를 따라 실행하세요.</p></div>
+      <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 릴리스 노트</a>
+    </div>
+    <div className="external-actions"><a href={`${project.repository}#readme`} target="_blank" rel="noreferrer"><Github size={17} /> 원본 설치 문서 <ExternalLink size={14} /></a></div>
+  </section>
   return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
     <div className="detail-section-title"><h2 id="download-title">다운로드</h2></div>
     {versions.some((item) => item.version) && <div className="download-version-picker">

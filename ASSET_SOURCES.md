@@ -70,3 +70,11 @@
 - 표시: `public/assets/projects/gba-narikiri3-kor/logo-20260913.png` · 1254×1254 · 1992674 bytes
 - SHA-256: `925a32f439347150a5f1633849ee7daeb44cbc5e3abcbb61a2fd9dbe6aeee1ae`
 - Xagros 제공 식별 이미지이며 원 게임·원본 도안 권리는 각 권리자에게 있습니다. 도구의 MIT 라이선스는 이미지에 적용되지 않습니다.
+
+## AI Work Skills
+
+- 원본: https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.14.2/logo.png
+- 확인 태그: `v2026.09.14.2`
+- 원본 blob SHA: `27233433e2d10709226833628453bca0fa99fd4d`
+- 표시 파일: `public/assets/projects/ai-work-skills/logo.png` (원본 PNG, 1254×1254, 1,739,479 bytes)
+- 출처: GimoXagros/ai-work-skills. 로고를 프로젝트 식별 목적으로 사용하며 저장소 고지를 따릅니다.

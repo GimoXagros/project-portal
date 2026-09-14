@@ -1258,5 +1258,90 @@
         }
       ]
     }
+  },
+  {
+    "id": "ai-work-skills",
+    "demo": false,
+    "title": "AI Work Skills",
+    "subtitle": "Codex용 15개 스킬을 고정된 버전으로 설치하는 작업 도구 모음",
+    "description": "계획 수립, 요구사항 정리, 프런트엔드 검증, 로그 분석, 지식 관리와 게임 역공학에 사용하는 개인 Codex 스킬을 재현 가능한 설치 절차로 관리합니다.",
+    "type": "tool",
+    "platform": [
+      "Codex",
+      "Python 3.10+"
+    ],
+    "status": "released",
+    "version": "v2026.09.14.2",
+    "releasePolicy": "latest-stable",
+    "releaseDate": "2026-09-14",
+    "lastUpdated": "2026-09-14",
+    "repository": "https://github.com/GimoXagros/ai-work-skills",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2",
+    "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
+    "downloadEnabled": false,
+    "downloads": [],
+    "sourceInstall": true,
+    "branding": {
+      "logo": "assets/projects/ai-work-skills/logo.png",
+      "logoAlt": "AI Work Skills 로고",
+      "width": 1254,
+      "height": 1254,
+      "accent": "#426fa0",
+      "accentSoft": "#e2edf6",
+      "accentDark": "#96c8ef"
+    },
+    "screenshots": [],
+    "features": [
+      "고정된 upstream 커밋과 번들로 15개 활성 스킬 설치",
+      "변경된 스킬 백업 및 동일한 설치 내용 건너뛰기",
+      "선택 설치·오프라인 재설치 지원"
+    ],
+    "scope": [
+      "계획·요구사항: exec-plan, deep-interview",
+      "품질·분석 및 지식 관리: frontend-testing-debugging, log-analyzer, akm-workflow",
+      "역공학·한글화: create-kr-patch, binary-re, re 및 포인터·인코딩·글꼴·타일 관련 도구 7개"
+    ],
+    "requirements": [
+      "Codex 실행 환경, Git, Python 3.10 이상",
+      "최초 설치 및 도구 준비 시 인터넷 연결"
+    ],
+    "compatibility": [
+      "저장소의 2026-09-14 설치 점검에서 활성 스킬 15개 모두 정상, 미해결 항목 없음으로 보고되었습니다.",
+      "기본 설치 위치는 $CODEX_HOME/skills 또는 ~/.codex/skills입니다."
+    ],
+    "installGuide": [
+      "Git으로 저장소를 복제합니다: git clone https://github.com/GimoXagros/ai-work-skills.git",
+      "복제한 폴더로 이동합니다: cd ai-work-skills",
+      "스킬을 설치합니다: python install.py",
+      "글꼴·이미지 도구 의존성을 준비합니다: python setup_tools.py",
+      "스킬 목록이 갱신되지 않으면 Codex를 다시 시작합니다. 업데이트 시 git pull --ff-only 후 두 설치 명령을 다시 실행합니다."
+    ],
+    "notes": [
+      "개인 스킬 구성 저장소이며 OpenAI 공식 배포판이 아닙니다.",
+      "deep-interview의 OMX 상태 저장·자동 인계에는 별도의 OMX 런타임이 필요합니다.",
+      "합성 데이터와 설치 검사는 실제 게임의 호환성을 보장하지 않습니다.",
+      "스킬별 원본 라이선스가 적용됩니다. MIT 고지와 설치 도구의 Apache-2.0 조건 등 저장소 안내를 확인하세요."
+    ],
+    "credits": [
+      {
+        "role": "스킬 구성·설치 도구 관리",
+        "name": "GimoXagros/ai-work-skills",
+        "url": "https://github.com/GimoXagros/ai-work-skills"
+      },
+      {
+        "role": "외부 스킬 출처·고정 버전",
+        "name": "skills-lock.json",
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.14.2/skills-lock.json"
+      }
+    ],
+    "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
+    "tags": [
+      "AI",
+      "Codex",
+      "스킬",
+      "자동화",
+      "개발 도구"
+    ],
+    "featured": false
   }
 ]

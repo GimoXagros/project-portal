@@ -1,12 +1,12 @@
 # GimoXagros Project Archive
 
-Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치의 배포 정보, 설치 방법, 호환성 주의사항과 SHA-256을 한곳에서 확인하는 정적 프로젝트 자료실입니다.
+Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치, AI 작업 도구의 배포 정보, 설치 방법, 호환성 주의사항과 SHA-256을 한곳에서 확인하는 정적 프로젝트 자료실입니다.
 
 - 공개 사이트: <https://gimoxagros.github.io/project-portal/>
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.3`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 `v0.9d`, 테일즈 오브 더 월드 나리키리 던전3 `v1.1a` 다섯 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom `custom-v0.1.3`, NitroSwan Custom `v0.7.7-custom.r8`, 테일즈 오브 더 월드 나리키리 던전2 `v0.9d`, 테일즈 오브 더 월드 나리키리 던전3 `v1.1a`, AI Work Skills `v2026.09.14.2` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 사이트 실행이 GitHub API에 의존하지 않습니다.
 
 2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
 
