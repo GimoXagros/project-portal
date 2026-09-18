@@ -1,7 +1,6 @@
 [
   {
     "id": "gameyob",
-    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "GameYob Custom",
     "titleOriginal": "GameYob Custom v0.5.10",
@@ -234,7 +233,6 @@
   },
   {
     "id": "gbarunner3",
-    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "GBARunner3 Custom",
     "titleOriginal": "GBARunner3 Custom v0.1.3 (Stable)",
@@ -487,7 +485,6 @@
   },
   {
     "id": "nitroswan",
-    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "NitroSwan Custom",
     "titleOriginal": "NitroSwan Custom v0.7.7-custom.r8",
