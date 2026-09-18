@@ -3,6 +3,22 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-20260919-2",
+      "version": "v2026.09.19.2",
+      "date": "2026-09-18",
+      "title": "활성 스킬 28개 전체 관리와 로그 분석 개선",
+      "summary": "에뮬레이터 전문 스킬 13개와 log-analyzer v3.0.0을 main에 통합하고 모든 활성 스킬의 설치·업데이트·선택 설치·백업 절차를 정리했습니다.",
+      "changes": [
+        "저장소 번들 25개와 고정 upstream 3개로 활성 스킬 28개 관리",
+        "공통 에뮬레이터 스킬 8개, GameYob 2개, GBARunner3 1개, NitroSwan 2개 추가",
+        "정상/실패 로그 비교, 최초 차이 추적, 반복 패턴 보조 분류와 여러 로그·실행 비교 지침 개선",
+        "install.py --list의 관리 총수·선택 수 표시와 설치 문서 갱신",
+        "공개 검증 기록: 자동 검사 49개 통과, 새 체크아웃의 28개 전체 설치·원본 해시·오프라인 재설치 확인"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-20260914-2",
       "version": "v2026.09.14.2",
       "date": "2026-09-14",

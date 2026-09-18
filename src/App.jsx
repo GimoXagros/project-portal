@@ -14,6 +14,7 @@ import UpdatesPage from './components/UpdatesPage'
 import About from './components/About'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import ReportCenter from './components/ReportCenter'
 
 function routeFromHash() {
   let hash = window.location.hash
@@ -50,7 +51,7 @@ function App() {
     else if (route.type.startsWith('updates')) document.title = `${route.id ? (projects.find((item) => item.id === route.id)?.title || '프로젝트 없음') + ' · ' : ''}업데이트 기록 | ${site.name}`
     else document.title = `${site.name} | 개인 게임 프로젝트 아카이브`
     const frame = requestAnimationFrame(() => {
-      const anchor = route.type === 'home' && ['#top', '#projects', '#about', '#faq', '#updates'].includes(route.anchor) ? document.getElementById(route.anchor.slice(1)) : null
+      const anchor = route.type === 'home' && ['#top', '#projects', '#about', '#faq', '#updates', '#reports'].includes(route.anchor) ? document.getElementById(route.anchor.slice(1)) : null
       if (anchor) anchor.scrollIntoView({ behavior: 'instant' })
       else window.scrollTo({ top: 0, behavior: 'instant' })
       if (previousPage.current !== pageKey) {
@@ -80,6 +81,7 @@ function App() {
     <Hero site={site} projects={projects} onNavigate={navigateHome} />
     <ProjectGrid projects={projects} onOpen={openProject} />
     <Timeline updates={latestUpdates} projects={projects} />
+    <ReportCenter projects={projects} />
     <About site={site} />
     <FAQ items={faq} />
   </main>

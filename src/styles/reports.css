@@ -1,0 +1,46 @@
+.report-center { color: var(--ink); }
+.report-center > .detail-section-title h2 { margin-top: 0; }
+main > .report-center { background: var(--paper); border-block: 1px solid var(--line); }
+.report-intro { max-width: 75ch; line-height: 1.85; }
+.report-notice { color: var(--danger); line-height: 1.7; }
+.report-compose,.report-status-panel { border: 1px solid var(--line); border-radius: var(--radius-control); background: var(--paper-strong); padding: 22px; margin-top: 22px; min-width: 0; }
+.report-compose > summary { font-weight: 700; font-size: 1.15rem; cursor: pointer; }
+.report-compose > summary svg { display: inline; vertical-align: middle; margin-right: 6px; }
+.report-form { display: grid; gap: 18px; margin-top: 22px; }
+.report-center label { display: grid; gap: 8px; font-weight: 600; min-width: 0; }
+.report-center label > span { font-size: .85rem; color: var(--muted); }
+.report-center input,.report-center textarea,.report-center select { width: 100%; min-width: 0; border: 1px solid var(--line-strong); border-radius: 8px; padding: 12px; background: var(--paper); color: var(--ink); font: inherit; font-weight: 400; }
+.report-center textarea { resize: vertical; }
+.report-center input::placeholder,.report-center textarea::placeholder { color: var(--muted); }
+.report-project-select { max-width: 680px; }
+.report-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.report-form > button { justify-self: start; }
+.report-prepared { margin-top: 22px; border-top: 1px dashed var(--line); padding-top: 18px; }
+.report-prepared pre { white-space: pre-wrap; overflow-wrap: anywhere; font: .9rem/1.7 var(--mono); max-height: 350px; overflow: auto; }
+.report-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.report-panel-title { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.report-panel-title h3 { margin: 0; }
+.report-counts { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 24px 0 16px; }
+.report-counts > div { border: 1px solid currentColor; border-radius: 10px; padding: 15px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.report-counts dt { font-size: 1rem; font-weight: 700; }
+.report-counts dd { margin: 0; font: 700 1.25rem var(--mono); }
+.report-received { color: var(--accent-strong); }
+.report-confirmed { color: var(--focus); }
+:root[data-theme='dark'] .report-confirmed { color: #92bfff; }
+.report-resolved { color: var(--success); }
+.report-closed { color: var(--muted); }
+.report-feed-note { color: var(--muted); font-size: .875rem; line-height: 1.7; }
+.report-list > summary { padding: 16px 0; cursor: pointer; font-weight: 700; }
+.report-list label { margin-bottom: 16px; max-width: 280px; }
+.report-list ul { padding: 0; list-style: none; }
+.report-list li { display: flex; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.report-list a { min-width: 0; overflow-wrap: anywhere; }
+.report-list a svg,.report-all-link svg { display: inline; vertical-align: middle; }
+.report-state { white-space: nowrap; font-size: .875rem; font-weight: 700; }
+.report-all-link { display: inline-block; margin-top: 8px; }
+@media(max-width: 600px) {
+  .report-compose,.report-status-panel { padding: 16px; }
+  .report-field-grid { grid-template-columns: 1fr; }
+  .report-counts { grid-template-columns: repeat(2,1fr); }
+  .report-actions .button { width: 100%; }
+}
