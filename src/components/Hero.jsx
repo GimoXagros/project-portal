@@ -1,17 +1,15 @@
 import { ArrowDownRight, Github } from 'lucide-react'
 import { latestDate } from '../utils/dates'
-import { hasDownload } from '../utils/projectMeta'
 
 export default function Hero({ site, projects, onNavigate }) {
   const published = projects
-  const availableCount = published.filter(hasDownload).length
   const categoryCount = new Set(published.map((project) => project.type)).size
   const latest = latestDate(published.map((project) => project.lastUpdated))
 
   return <section className="hero" id="top" aria-labelledby="hero-title">
     <div className="hero-copy-block">
       <p className="kicker">RETRO GAMES · AI TOOLS · RELEASE ARCHIVE</p>
-      {availableCount > 0 && <span className="hero-release-label">파일 다운로드·웹 패치 · {availableCount} PROJECTS</span>}
+      {published.length > 0 && <span className="hero-release-label">등록 프로젝트 · {published.length} PROJECTS</span>}
       <h1 id="hero-title"><span>프로젝트를 모으고,</span><span>맥락을 기록하고,</span><em>안전하게 배포합니다.</em></h1>
       <p className="hero-copy">{site.description}</p>
       <div className="hero-actions">

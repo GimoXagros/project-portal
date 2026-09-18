@@ -215,7 +215,7 @@ project-portal/
 5. Upstream과 커스텀 저장소 Credits 링크가 여전히 구분되는지 확인합니다.
 6. `npm run check`를 실행합니다(테스트 포함). `pinned` 정책은 실제 고정 사유가 있을 때만 사용합니다.
 
-여러 파일은 `downloads` 배열에 각각 추가합니다. 분할 파일은 다운로드 항목 아래 `parts` 배열로 표현할 수 있습니다. `downloadEnabled: false`이거나 URL이 없으면 배포 준비 상태로 표시합니다. URL을 추측해 만들지 않습니다.
+여러 파일은 `downloads` 배열에 각각 추가하고 버전 선택은 `downloadVersions`로 구성합니다. 분할 파일은 다운로드 항목 아래 `parts` 배열로 표현할 수 있습니다. 한글 패치는 `webPatcher`만 제공하고, `sourceInstall: true`인 프로젝트는 저장소 설치로 안내합니다. 그 외 프로젝트에서 다운로드 URL이 없으면 배포 준비 상태로 표시합니다. URL을 추측해 만들지 않습니다.
 
 Windows에서 SHA-256은 다음 명령으로 확인할 수 있습니다.
 
@@ -240,8 +240,10 @@ Get-FileHash .\release.zip -Algorithm SHA256
 - `#/updates/gbarunner3`
 - `#/updates/nitroswan`
 - `#/updates/gba-narikiri2-kor`
+- `#/updates/gba-narikiri3-kor`
+- `#/updates/ai-work-skills`
 
-각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 5개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개까지 등록되어 있어 프로젝트별 업데이트 페이지에서 최초 기록부터 모두 확인할 수 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 브라우저에서 GitHub API를 호출하지 않습니다.
+각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 공개된 GitHub Release는 GameYob 7개, GBARunner3 7개(정식·프리릴리즈 포함), NitroSwan 9개, 나리키리 던전2 5개와 보존된 v0.5 태그 기록, 나리키리 던전3 1개, AI Work Skills 2개까지 등록되어 있습니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 업데이트 기록은 정적 JSON에서 읽으며 제보 현황만 사용자의 조회 요청 시 GitHub API를 사용합니다.
 
 새 GameYob Custom 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
 
@@ -277,7 +279,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 3. 워크플로가 `npm ci` → `validate:data` → `npm test` → `verify:releases` → `lint` → `build`를 수행합니다. 원격 검증에만 `${{ github.token }}`을 `GITHUB_TOKEN`으로 전달합니다.
 4. 공식 Pages Actions로 `dist/`를 업로드하고 `github-pages` 환경에 배포합니다. `pages: write`, `id-token: write`, concurrency와 이전 실행 취소 설정을 유지합니다.
 
-작업 브랜치 push만으로 공개 사이트가 바뀌지는 않습니다. 원격 검증에 실패한 경우 로그에서 데이터 불일치와 네트워크 오류를 구분하여 해결해야 합니다. 검사를 무조건 성공시키는 우회는 하지 않습니다. GitHub API는 이 **빌드 전 검증**에만 사용되며, 브라우저 런타임의 기준은 항상 번들에 포함된 정적 JSON입니다.
+작업 브랜치 push만으로 공개 사이트가 바뀌지는 않습니다. 원격 검증에 실패한 경우 로그에서 데이터 불일치와 네트워크 오류를 구분하여 해결해야 합니다. 검사를 무조건 성공시키는 우회는 하지 않습니다. GitHub API는 **빌드 전 검증**과 사용자가 요청한 제보 현황 조회에 사용됩니다. 프로젝트 정보·업데이트·웹 패처의 기준은 번들에 포함된 정적 JSON입니다.
 
 ## 접근성과 가벼운 모션
 

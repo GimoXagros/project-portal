@@ -2,14 +2,14 @@
   "name": "GimoXagros Project Archive",
   "shortName": "GX",
   "subtitle": "레트로 게임 프로젝트와 AI 작업 도구 자료실",
-  "description": "Nintendo DS·DSi 에뮬레이터, 호환 계층·커스텀 빌드와 GBA 한국어화 패치, AI 작업 도구의 배포 정보·설치 방법·파일 무결성을 정리하는 개인 프로젝트 아카이브입니다.",
+  "description": "Nintendo DS·DSi·Nintendo 3DS(DSpico)용 에뮬레이터·호환 계층, GBA 한국어화 웹 패치와 AI 작업 도구의 설치·사용 안내, 업데이트와 제보를 모은 개인 프로젝트 아카이브입니다.",
   "authorName": "GimoXagros",
   "githubUrl": "https://github.com/GimoXagros",
   "repository": "https://github.com/GimoXagros/project-portal",
   "siteUrl": "https://gimoxagros.github.io/project-portal/",
   "notice": {
     "label": "RELEASE ARCHIVE",
-    "text": "다운로드 전에 대상 기기, 빌드 종류, 릴리스 주의사항과 SHA-256을 확인해 주세요."
+    "text": "사용 전에 프로젝트별 설치·웹 패치 방법, 지원 환경과 릴리스 주의사항을 확인해 주세요."
   },
   "links": [],
   "legal": [
