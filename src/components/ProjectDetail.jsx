@@ -5,6 +5,7 @@ import HashInfo from './HashInfo'
 import ProjectLogo from './ProjectLogo'
 import ScreenshotGallery from './ScreenshotGallery'
 import UpdateTimeline from './UpdateTimeline'
+import ReportCenter from './ReportCenter'
 import { projectBrandStyle, statusLabels, typeLabels } from '../utils/projectMeta'
 
 function ListBlock({ title, items, emphasis = false, headingLevel = 3 }) {
@@ -30,7 +31,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
     ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
     ...(project.installGuide?.length ? [['installation', '설치']] : []),
     ...(hasConditions ? [['conditions', '검증·제한']] : []), ...(hasHashes ? [['integrity', '무결성']] : []),
-    ['project-changelog', '업데이트'], ...(project.credits?.length || project.license ? [['credits', 'Credits·라이선스']] : []),
+    ['project-changelog', '업데이트'], ['reports', '제보'], ...(project.credits?.length || project.license ? [['credits', 'Credits·라이선스']] : []),
   ]
   const installation = <ol className="install-steps">{project.installGuide?.map((step, index) => <li key={`${step}-${index}`}><span>{String(index + 1).padStart(2, '0')}</span><p>{step}</p></li>)}</ol>
   return <main className="project-detail project-branded" id="main-content" style={projectBrandStyle(project)}>
@@ -67,6 +68,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
           <ListBlock title="주의 및 제한" items={project.notes} emphasis />
         </section>}
         <HashInfo project={project} />
+        <ReportCenter project={project} />
         <section className="detail-section project-changelog-section" id="project-changelog" aria-labelledby="project-changelog-title"><div className="detail-section-title"><h2 id="project-changelog-title">최신 업데이트</h2></div><UpdateTimeline changelog={changelog} compact limit={1} /><button className="button ghost" type="button" onClick={() => onOpenUpdates(project.id)}>전체 업데이트 기록 보기 <ArrowUpRight size={17} /></button></section>
         {(project.credits?.length > 0 || project.license) && <section className="detail-section credit-card" id="credits"><div className="detail-section-title"><h2>Credits·라이선스</h2></div>{project.credits?.length > 0 && <ul>{project.credits.map((credit, index) => <li key={index}>{typeof credit === 'string' ? credit : <><span>{credit.role}</span><a href={credit.url} target="_blank" rel="noreferrer">{credit.name}</a></>}</li>)}</ul>}{project.license && <p>{project.license}</p>}</section>}
       </div>

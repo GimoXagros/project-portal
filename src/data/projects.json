@@ -1,6 +1,7 @@
 [
   {
     "id": "gameyob",
+    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "GameYob Custom",
     "titleOriginal": "GameYob Custom v0.5.10",
@@ -233,6 +234,7 @@
   },
   {
     "id": "gbarunner3",
+    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "GBARunner3 Custom",
     "titleOriginal": "GBARunner3 Custom v0.1.3 (Stable)",
@@ -485,6 +487,7 @@
   },
   {
     "id": "nitroswan",
+    "reportRepository": "https://github.com/GimoXagros/project-portal",
     "demo": false,
     "title": "NitroSwan Custom",
     "titleOriginal": "NitroSwan Custom v0.7.7-custom.r8",
@@ -1263,20 +1266,20 @@
     "id": "ai-work-skills",
     "demo": false,
     "title": "AI Work Skills",
-    "subtitle": "Codex용 15개 스킬을 고정된 버전으로 설치하는 작업 도구 모음",
-    "description": "계획 수립, 요구사항 정리, 프런트엔드 검증, 로그 분석, 지식 관리와 게임 역공학에 사용하는 개인 Codex 스킬을 재현 가능한 설치 절차로 관리합니다.",
+    "subtitle": "Codex용 28개 스킬을 고정된 버전으로 설치하는 작업 도구 모음",
+    "description": "계획 수립, 프런트엔드 검증, 로그 분석, 지식 관리와 게임 역공학, 에뮬레이터 개발에 사용하는 28개 Codex 스킬을 동일한 설치기로 관리합니다. 에뮬레이터 전문 스킬 13개도 기본 설치·업데이트·선택 설치·백업에 포함됩니다.",
     "type": "tool",
     "platform": [
       "Codex",
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.09.14.2",
+    "version": "v2026.09.19.2",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-14",
-    "lastUpdated": "2026-09-14",
+    "releaseDate": "2026-09-18",
+    "lastUpdated": "2026-09-18",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
     "downloadEnabled": false,
     "downloads": [],
@@ -1292,35 +1295,41 @@
     },
     "screenshots": [],
     "features": [
-      "고정된 upstream 커밋과 번들로 15개 활성 스킬 설치",
-      "변경된 스킬 백업 및 동일한 설치 내용 건너뛰기",
-      "선택 설치·오프라인 재설치 지원"
+      "활성 스킬 28개 전체 관리: 저장소 번들 25개와 고정 upstream 3개",
+      "에뮬레이터 전문 분석·검증 스킬 13개 통합: 공통 8개, GameYob 2개, GBARunner3 1개, NitroSwan 2개",
+      "log-analyzer v3.0.0: 정상·실패 로그 비교, 최초 차이 추적, 여러 로그·실행 비교",
+      "변경 전 백업·동일한 내용 건너뛰기·선택 설치·오프라인 재설치와 관리 총수/선택 수 표시"
     ],
     "scope": [
       "계획·요구사항: exec-plan, deep-interview",
       "품질·분석 및 지식 관리: frontend-testing-debugging, log-analyzer, akm-workflow",
-      "역공학·한글화: create-kr-patch, binary-re, re 및 포인터·인코딩·글꼴·타일 관련 도구 7개"
+      "역공학·한글화: create-kr-patch, binary-re, re 및 포인터·인코딩·글꼴·타일 관련 도구 7개",
+      "에뮬레이터 공통: 회귀 검사, CPU 명령, 타이밍·IRQ·DMA, Git 회귀 추적, NDS 빌드, 그래픽·VRAM, 저장 상태, 카트리지 주변 장치",
+      "GameYob: SGB 호스트·NiFi 링크 / GBARunner3: ARM7→ARM946 JIT / NitroSwan: V30MZ CPU·WonderSwan 하드웨어"
     ],
     "requirements": [
       "Codex 실행 환경, Git, Python 3.10 이상",
       "최초 설치 및 도구 준비 시 인터넷 연결"
     ],
     "compatibility": [
-      "저장소의 2026-09-14 설치 점검에서 활성 스킬 15개 모두 정상, 미해결 항목 없음으로 보고되었습니다.",
+      "공개 릴리스 기록: 자동 검사 49개 통과, 번들 스킬 형식·전체/선택 설치·도구 준비·백업·해시 검사 통과",
+      "새 체크아웃에서 28개 전체 설치와 고정 원본 해시 일치를 확인했으며 오프라인 재설치에서도 28개 모두 CURRENT로 기록되었습니다.",
       "기본 설치 위치는 $CODEX_HOME/skills 또는 ~/.codex/skills입니다."
     ],
     "installGuide": [
-      "Git으로 저장소를 복제합니다: git clone https://github.com/GimoXagros/ai-work-skills.git",
+      "Git으로 main 브랜치를 복제합니다: git clone --branch main https://github.com/GimoXagros/ai-work-skills.git",
       "복제한 폴더로 이동합니다: cd ai-work-skills",
       "스킬을 설치합니다: python install.py",
       "글꼴·이미지 도구 의존성을 준비합니다: python setup_tools.py",
+      "관리 목록과 선택 범위를 확인합니다: python install.py --list. 선택 설치는 python install.py --skill 스킬이름으로 실행합니다.",
       "스킬 목록이 갱신되지 않으면 Codex를 다시 시작합니다. 업데이트 시 git pull --ff-only 후 두 설치 명령을 다시 실행합니다."
     ],
     "notes": [
       "개인 스킬 구성 저장소이며 OpenAI 공식 배포판이 아닙니다.",
       "deep-interview의 OMX 상태 저장·자동 인계에는 별도의 OMX 런타임이 필요합니다.",
       "합성 데이터와 설치 검사는 실제 게임의 호환성을 보장하지 않습니다.",
-      "스킬별 원본 라이선스가 적용됩니다. MIT 고지와 설치 도구의 Apache-2.0 조건 등 저장소 안내를 확인하세요."
+      "스킬별 원본 라이선스가 적용됩니다. MIT 고지와 설치 도구의 Apache-2.0 조건 등 저장소 안내를 확인하세요.",
+      "검증은 스킬 패키지와 설치 동작을 대상으로 합니다. 실제 하드웨어 정확도와 실행 중 작업의 자동 스킬 선택을 검증한 결과는 아닙니다."
     ],
     "credits": [
       {
@@ -1331,7 +1340,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.14.2/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",

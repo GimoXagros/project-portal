@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Github, Menu, Moon, Sun, X } from 'lucide-react'
 
-const navigation = [['홈', '#top'], ['프로젝트', '#projects'], ['업데이트', '#/updates'], ['소개', '#about'], ['FAQ', '#faq']]
+const navigation = [['홈', '#top'], ['프로젝트', '#projects'], ['업데이트', '#/updates'], ['제보', '#reports'], ['소개', '#about'], ['FAQ', '#faq']]
 const themeKey = 'project-portal-theme'
 function savedTheme() {
   try { const value = localStorage.getItem(themeKey); return ['light', 'dark'].includes(value) ? value : null } catch { return null }
@@ -43,7 +43,7 @@ export default function Header({ site, routeType, pageKey, onNavigateHome }) {
 
   useEffect(() => {
     if (routeType !== 'home' || !window.IntersectionObserver) return undefined
-    const sections = ['top', 'projects', 'about', 'faq'].map((id) => document.getElementById(id)).filter(Boolean)
+    const sections = ['top', 'projects', 'reports', 'about', 'faq'].map((id) => document.getElementById(id)).filter(Boolean)
     const update = () => {
       if (performance.now() < spyLock.current) return
       const current = sections.filter((node) => node.getBoundingClientRect().top <= window.innerHeight * .3).at(-1)

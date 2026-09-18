@@ -4,6 +4,7 @@ import { basename, extname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { isISODate } from '../src/utils/dates.js'
 import { downloadItems, expectedAssetUrl, prereleaseRecord, releaseIdentity, releasePolicy } from './release-utils.mjs'
+import { githubRepository } from '../src/utils/reports.js'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 // The CLI and offline tests use the same complete static validation path.
@@ -35,6 +36,9 @@ export function validateData(projectsOverride) {
     if (!safeId.test(project.id || '')) fail('src/data/projects.json', project.id, 'id는 소문자 영문, 숫자, 하이픈만 사용할 수 있습니다.')
     if (seen.has(project.id)) fail('src/data/projects.json', project.id, '중복된 프로젝트 id입니다.')
     seen.add(project.id)
+    if (project.reportRepository) {
+      try { githubRepository(project.reportRepository) } catch (error) { fail('src/data/projects.json', project.id, error.message) }
+    }
     const fieldError = (field, actual, expected) => fail('src/data/projects.json', project.id, `${field}: actual=${JSON.stringify(actual)} expected=${JSON.stringify(expected)}`)
     for (const field of ['releaseDate', 'lastUpdated']) if (!isISODate(project[field])) fieldError(field, project[field], 'valid YYYY-MM-DD calendar date')
     if (project.releaseDate > project.lastUpdated) fieldError('releaseDate', project.releaseDate, `<= lastUpdated (${project.lastUpdated})`)
