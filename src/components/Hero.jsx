@@ -1,5 +1,6 @@
 import { ArrowDownRight, Github } from 'lucide-react'
 import { latestDate } from '../utils/dates'
+import { assetUrl } from '../utils/projectMeta'
 
 export default function Hero({ site, projects, onNavigate }) {
   const published = projects
@@ -18,7 +19,7 @@ export default function Hero({ site, projects, onNavigate }) {
       </div>
     </div>
     <div className="hero-side" aria-hidden="true">
-      <div className="archive-mark"><span>GIMOXAGROS</span><strong>ARCHIVE</strong><small>GAMES / AI TOOLS · RELEASE INDEX</small></div>
+      <div className="archive-mark"><img className="archive-logo" src={assetUrl('assets/branding/logo.png')} width="1280" height="1280" alt="" /><small>GAMES / AI TOOLS · RELEASE INDEX</small></div>
       <div className="dial"><span>01</span><span>06</span><span>12</span><span>18</span></div>
     </div>
     <div className="hero-scrap-decor" aria-hidden="true"><span /><span /><span /></div>

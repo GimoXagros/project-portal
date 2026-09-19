@@ -3,6 +3,8 @@
 .topbar { position: sticky; top: 0; z-index: 50; height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(18px,4.7vw,80px); border-bottom: 1px solid var(--line); background: color-mix(in srgb,var(--paper) 94%,transparent); backdrop-filter: blur(8px); box-shadow: 0 3px 0 color-mix(in srgb,var(--line) 28%,transparent); }
 .brand { display: flex; align-items: center; gap: 12px; border: 0; background: transparent; text-decoration: none; letter-spacing: .09em; font-size: .8rem; }
 .brand-button { padding: 0; cursor: pointer; }
+.archive-icon { width: 36px; height: 36px; flex: 0 0 36px; object-fit: contain; }
+.archive-logo { display: block; width: 100%; height: auto; object-fit: contain; }
 .brand span,.footer-brand > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px 9px 4px 4px; color: var(--paper); background: var(--dark); font: 800 .7rem var(--mono); letter-spacing: .06em; }
 .brand small { padding: 4px 7px; border: 1px dashed var(--line-strong); border-radius: 5px; color: var(--faint); font: 700 .56rem var(--mono); letter-spacing: .08em; }
 .desktop-nav { display: flex; align-items: center; gap: 4px; }

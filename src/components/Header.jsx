@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Github, Menu, Moon, Sun, X } from 'lucide-react'
+import { assetUrl } from '../utils/projectMeta'
 
 const navigation = [['홈', '#top'], ['프로젝트', '#projects'], ['업데이트', '#/updates'], ['제보', '#reports'], ['소개', '#about'], ['FAQ', '#faq']]
 const themeKey = 'project-portal-theme'
@@ -92,7 +93,7 @@ export default function Header({ site, routeType, pageKey, onNavigateHome }) {
 
   return <header className="topbar" ref={headerRef}>
     <button className="brand brand-button" type="button" onClick={() => follow('#top')} aria-label={site.name + ' 홈'}>
-      <span aria-hidden="true">{site.shortName}</span><strong>{site.name}</strong><small aria-hidden="true">ARCHIVE NOTE</small>
+      <img className="archive-icon" src={assetUrl('assets/branding/ICO_rev.1.png')} width="36" height="36" alt="" /><strong>{site.name}</strong><small aria-hidden="true">ARCHIVE NOTE</small>
     </button>
     <nav className="desktop-nav" aria-label="주요 메뉴">
       {navigation.map(([label, href]) => <button type="button" className={current(href) ? 'active' : ''} aria-current={current(href)} key={href} onClick={() => follow(href)}>{label}</button>)}
