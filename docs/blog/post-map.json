@@ -1,6 +1,6 @@
 {
   "blogUrl": "https://gimoxagros.tistory.com/",
-  "observedAt": "2026-09-24T01:58:08+09:00",
+  "observedAt": "2026-09-24T02:40:00+09:00",
   "inventorySources": [
     "https://gimoxagros.tistory.com/rss",
     "https://gimoxagros.tistory.com/sitemap.xml",
@@ -8,7 +8,7 @@
     "https://gimoxagros.tistory.com/2",
     "https://gimoxagros.tistory.com/3"
   ],
-  "inventoryScope": "The signed-in management list showed nine public posts (/2 through /10) after publication; public pages /3 through /10 were checked individually. This makes no claim about private, scheduled, or unpublished content.",
+  "inventoryScope": "The signed-in management list showed twelve posts (/2 through /13) after publication; the three new technical articles were checked individually on their public pages. This makes no claim about private, scheduled, or unpublished content outside the observed list.",
   "posts": [
     {
       "projectId": "project-portal",
@@ -187,11 +187,67 @@
       "postStatus": "published_verified",
       "publishedBodySha256": "41408c6846e034bd69fec865e024e1e6019afd6750881e496042d8651ef1b184",
       "publishGate": "Re-check public portal count and issue links before publishing."
+    },
+    {
+      "projectId": "project-portal;gba-narikiri2-kor;gba-narikiri3-kor",
+      "noteKey": "patcher-integrity-boundaries",
+      "postType": "technical-article",
+      "postId": "11",
+      "url": "https://gimoxagros.tistory.com/11",
+      "title": "[기술자료] 웹 패처의 세 가지 검증 — 파일이 맞는 것과 게임이 맞는 것은 다릅니다",
+      "publicStatus": "published",
+      "bodyRead": "not_applicable",
+      "handling": "create",
+      "reason": "Existing /3 explains patcher use and troubleshooting; /7 and /8 summarize game-specific releases. This article instead explains patcher implementation state transitions and the meaning/limits of each integrity check.",
+      "draftPath": "articles/patcher-integrity-boundaries.md",
+      "htmlPath": "articles/patcher-integrity-boundaries.html",
+      "metadataPath": "articles/patcher-integrity-boundaries.metadata.json",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "9e3878760894a9b3ec6bdcb81ff6532bc8e5fba61f3d7c98ea9f94be66dae1d7",
+      "publishGate": "Root/source audit and current deployed patcher version confirmation before publishing."
+    },
+    {
+      "projectId": "gameyob;gbarunner3;nitroswan;gba-narikiri2-kor;gba-narikiri3-kor;ai-work-skills",
+      "noteKey": "validation-evidence-layers",
+      "postType": "technical-article",
+      "postId": "12",
+      "url": "https://gimoxagros.tistory.com/12",
+      "title": "[기술자료] 테스트 통과는 어디까지 말해 주나 — 자동 검사와 실기 확인을 구분하기",
+      "publicStatus": "published",
+      "bodyRead": "not_applicable",
+      "handling": "create",
+      "reason": "Existing /4–/9 report project-specific changes and test results. This article is a cross-project guide to interpreting evidence classes and limits, not another version/release summary.",
+      "draftPath": "articles/validation-evidence-layers.md",
+      "htmlPath": "articles/validation-evidence-layers.html",
+      "metadataPath": "articles/validation-evidence-layers.metadata.json",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "2b6193f41359e4197c5a2514da935e115b6a0268f55096bc34a607d6ed2c9a76",
+      "publishGate": "Root/source audit; keep public recorded tests distinct from tests rerun for this article."
+    },
+    {
+      "projectId": "ai-work-skills;gameyob;gbarunner3;nitroswan",
+      "noteKey": "codex-skill-design-boundaries",
+      "postType": "technical-article",
+      "postId": "13",
+      "url": "https://gimoxagros.tistory.com/13",
+      "title": "[기술자료] 전문 Codex 스킬 설계 — 요청을 좁히고, 근거와 한계를 남기기",
+      "publicStatus": "published",
+      "bodyRead": "not_applicable",
+      "handling": "create",
+      "reason": "Existing /9 introduces the skill repository's current management/install update. This article focuses on public skill role boundaries, routing fixtures, evidence limits, and separated validation methods.",
+      "draftPath": "articles/codex-skill-design-boundaries.md",
+      "htmlPath": "articles/codex-skill-design-boundaries.html",
+      "metadataPath": "articles/codex-skill-design-boundaries.metadata.json",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "12347121315283fa48d6465625e004c2608360aa1aaadf096437264d98be4b76",
+      "publishGate": "Root/source audit; distinguish synthetic routing and package verification from live skill selection or hardware correctness."
     }
   ],
   "notes": [
     "All URLs /3–/10 were taken from the signed-in management list and checked on their public pages.",
     "Existing /2 was not changed; /3 was updated additively; seven project development notes were published separately.",
-    "publishedBodySha256 hashes UTF-8 bytes of the public .tt_article_useless_p_margin innerHTML observed on 2026-09-24 KST."
+    "publishedBodySha256 hashes UTF-8 bytes of the public .tt_article_useless_p_margin innerHTML observed on 2026-09-24 KST.",
+    "Three technical articles were publicly published at /11, /12, and /13 on 2026-09-24 KST; each URL, category, body, and source links were checked on its public page.",
+    "The Tistory basic editor normalized comparison tables: /11 uses a separate heading line plus a three-row table, while /12 and /13 use meaning-preserving lists. Published-body hashes are of the public DOM after normalization."
   ]
 }
