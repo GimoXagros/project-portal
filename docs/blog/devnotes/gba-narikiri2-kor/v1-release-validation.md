@@ -20,4 +20,4 @@ v1.0 결과물은 직전 최종 검증 후보와 같고 공개 v0.9d와는 바�
 
 원작 게임 및 번역 자산의 권리는 각 권리자에게 있습니다. 기존 번역과 패치 작업은 FFR 팀, 후속 패치·수정과 검증은 Xagros, 달무리 비트맵 글꼴은 RanolP와 기여자에게 각각 귀속됩니다. 세부 권리 고지는 [CREDITS](https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/CREDITS.md), [RIGHTS](https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/RIGHTS.md), [검증 기록](https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/verification/v1.0.json)에서 확인할 수 있습니다.
 
-근거: [v1.0 릴리스](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0), [v0.9d 이전 공개판](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d). ※ 포털에 v1.0 웹 패처 버전이 동기화된 것을 확인한 뒤 게시해야 합니다.
+근거: [v1.0 릴리스](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0), [v0.9d 이전 공개판](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d).

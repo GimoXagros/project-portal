@@ -15,12 +15,13 @@
   "sourceHeadCommit": "8792b76d625787b8b774b3bca6aaf8659611db40;fd59e655e01335ad0788eb5f09891ec6bc01559f",
   "releaseTags": ["v1.0", "v1.2"],
   "developmentState": "both source repositories publish current releases",
-  "deploymentState": "draft requires current portal patcher synchronization confirmation",
+  "deploymentState": "public portal patcher verified; existing guide updated and publicly verified",
   "draftedThroughCommit": "8792b76d625787b8b774b3bca6aaf8659611db40;fd59e655e01335ad0788eb5f09891ec6bc01559f",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown proposal file bytes", "value": "c28ceb6c4173699f98b76044f7fc6545b7e8abc0d45afe754f1aadd3085ed007"},
-  "changeSummary": "Add dated v1.0/v1.2 current-release block before preparation steps; retain the 2026-09-19 v0.9d sentence as a historical record; keep all user patch actions on the portal web patcher.",
+  "publishedThroughCommit": "8792b76d625787b8b774b3bca6aaf8659611db40;fd59e655e01335ad0788eb5f09891ec6bc01559f",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown proposal file bytes", "value": "00fa81ff478d477e52843969180669b12c4ed7c632f1e19e2fe22cc3ce4798cb"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "39063a7b0ffc6066b6639512ee76b683bfa2615a41e676669154f5a9c49a2ca3"},
+  "changeSummary": "Append dated v1.0/v1.2 current-release block after the existing body; retain the 2026-09-19 v0.9d sentence as a historical record; keep all user patch actions on the portal web patcher.",
   "evidenceUrls": [
     "https://gimoxagros.tistory.com/3",
     "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
@@ -30,8 +31,7 @@
     "https://gimoxagros.github.io/project-portal/#/project/gba-narikiri2-kor",
     "https://gimoxagros.github.io/project-portal/#/project/gba-narikiri3-kor"
   ],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "updated_verified",
   "handling": "update",
   "publishGate": "Confirm current deployed portal exposes v1.0 and v1.2 in the web patchers; re-read live article immediately before additive edit."
 }

@@ -18,5 +18,5 @@
 
 - 프로젝트별 공개 Release 목록과 선택한 태그의 상세를 2026-09-24 KST에 확인했습니다. `draft=false`인 공개 자산만 게시 근거로 사용했습니다.
 - 대상 블로그의 공개 RSS·사이트맵과 `/2`, `/3` 전체 공개 본문을 확인했습니다. 공개 인벤토리에 없는 URL이나 향후 post ID는 만들지 않았습니다.
-- 포털 배포 run `35444093435`는 대상 commit `cf71b4e`에 대해 GitHub Actions에서 `success`였습니다. 글 발행 직전에는 실제 페이지에서 현재 상태를 다시 확인해야 합니다.
-- 게시 버튼, 저장 결과, 신규 글 URL은 이 문서가 생성될 때 확인되지 않았습니다. 각 metadata의 `postStatus`는 모두 `draft_ready` 또는 `no_change`입니다.
+- 포털 배포 run `35444093435`는 대상 commit `cf71b4e`에 대해 GitHub Actions에서 `success`였습니다. 후속 [PR #19](https://github.com/GimoXagros/project-portal/pull/19) 배포 후에도 N2 v1.0·N3 v1.2 웹 패처를 확인했습니다.
+- 이 근거표 작성 시점에는 신규 글 URL이 없었습니다. 이후 실제 공개된 `/4`–`/10`과 갱신된 `/3`의 상태·본문 지문은 `post-map.json` 및 글별 metadata에 기록했습니다.

@@ -1,6 +1,6 @@
 {
   "blogUrl": "https://gimoxagros.tistory.com/",
-  "observedAt": "2026-09-24T00:58:35+09:00",
+  "observedAt": "2026-09-24T01:58:08+09:00",
   "inventorySources": [
     "https://gimoxagros.tistory.com/rss",
     "https://gimoxagros.tistory.com/sitemap.xml",
@@ -8,7 +8,7 @@
     "https://gimoxagros.tistory.com/2",
     "https://gimoxagros.tistory.com/3"
   ],
-  "inventoryScope": "Public RSS and sitemap exposed two post entries (/2 and /3) plus one policy page. The two public bodies were read in full; no images or attachments were present. The inventory makes no claim about private, scheduled, or unpublished content.",
+  "inventoryScope": "The signed-in management list showed nine public posts (/2 through /10) after publication; public pages /3 through /10 were checked individually. This makes no claim about private, scheduled, or unpublished content.",
   "posts": [
     {
       "projectId": "project-portal",
@@ -48,18 +48,18 @@
       "draftPath": "updates/post-3-patcher-guide.md",
       "htmlPath": "updates/post-3-patcher-guide.html",
       "metadataPath": "updates/post-3-patcher-guide.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+      "postStatus": "updated_verified",
+      "publishedBodySha256": "39063a7b0ffc6066b6639512ee76b683bfa2615a41e676669154f5a9c49a2ca3",
       "publishGate": "Confirm the live portal patcher includes v1.0 and v1.2; re-read the article before an additive edit."
     },
     {
       "projectId": "gameyob",
       "noteKey": "state-preflight-sgb-opcodes",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "4",
+      "url": "https://gimoxagros.tistory.com/4",
       "title": "[개발노트] GameYob Custom — 상태 파일 선검사와 SGB 호스트 명령 범위",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "The public v0.5.10 release contains a separately documentable state-preflight and experimental 65C816/NiFi development stage; no GameYob-specific post appears in the checked public inventory.",
@@ -68,17 +68,17 @@
       "draftPath": "devnotes/gameyob/state-preflight-sgb-opcodes.md",
       "htmlPath": "devnotes/gameyob/state-preflight-sgb-opcodes.html",
       "metadataPath": "devnotes/gameyob/state-preflight-sgb-opcodes.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
+      "postStatus": "published_verified",
+      "publishedBodySha256": "751aeca7576e3c831e49797038b035590f132fc336d26406bf8d25a8ffbc2649"
     },
     {
       "projectId": "gbarunner3",
       "noteKey": "storage-validation-rc3",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "5",
+      "url": "https://gimoxagros.tistory.com/5",
       "title": "[개발노트] GBARunner3 Custom — 저장 경계 검증 후보 rc3",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "Public rc3 release documents a distinct storage-validation candidate, automatic tests, and an explicit incomplete hardware status.",
@@ -87,17 +87,17 @@
       "draftPath": "devnotes/gbarunner3/storage-validation-rc3.md",
       "htmlPath": "devnotes/gbarunner3/storage-validation-rc3.html",
       "metadataPath": "devnotes/gbarunner3/storage-validation-rc3.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
+      "postStatus": "published_verified",
+      "publishedBodySha256": "6c6feeb2b32c95d36f2eb4e8c475f2e8ec6304a3aa5c7ceafa2f8d688307fab4"
     },
     {
       "projectId": "nitroswan",
       "noteKey": "renderer-stability-r9",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "6",
+      "url": "https://gimoxagros.tistory.com/6",
       "title": "[개발노트] NitroSwan Custom — r9 렌더러 안정화 후보와 남은 확인",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "Public r9 release documents a new renderer/DMA prerelease with explicit tests and unrun DSpico/battle-scene/audio/save checks; stable r8 remains current recommendation.",
@@ -106,17 +106,17 @@
       "draftPath": "devnotes/nitroswan/renderer-stability-r9.md",
       "htmlPath": "devnotes/nitroswan/renderer-stability-r9.html",
       "metadataPath": "devnotes/nitroswan/renderer-stability-r9.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
+      "postStatus": "published_verified",
+      "publishedBodySha256": "835d33ee2e2900f71860700ff2b2e185b092bed09ef0d1f1fb02b35e7d017966"
     },
     {
       "projectId": "gba-narikiri2-kor",
       "noteKey": "v1-release-validation",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "7",
+      "url": "https://gimoxagros.tistory.com/7",
       "title": "[개발노트] 나리키리 던전2 — v1.0 공개와 검증 범위",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "Public v1.0 is a new stable release with a clearly documented change set and tested/unverified boundary; the existing shared web-patcher guide is a different post type.",
@@ -125,18 +125,18 @@
       "draftPath": "devnotes/gba-narikiri2-kor/v1-release-validation.md",
       "htmlPath": "devnotes/gba-narikiri2-kor/v1-release-validation.html",
       "metadataPath": "devnotes/gba-narikiri2-kor/v1-release-validation.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "02e92172b31337374d545f8f51f5d1e4dc7a60de4bab1a574e4019550673adcf",
       "publishGate": "Confirm v1.0 exists in the deployed web patcher."
     },
     {
       "projectId": "gba-narikiri3-kor",
       "noteKey": "v1-2-dialogue-review",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "8",
+      "url": "https://gimoxagros.tistory.com/8",
       "title": "[개발노트] 나리키리 던전3 — v1.2 대사·표기 보완",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "Public v1.2 is a new stable release with a distinct dialogue-review increment and documented PC/core verification; the existing shared web-patcher guide is a different post type.",
@@ -145,18 +145,18 @@
       "draftPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.md",
       "htmlPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.html",
       "metadataPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "9141103d95a2baddfdb3d76ef59e438eee2c068c961772a6459ca759c2b34bd9",
       "publishGate": "Confirm v1.2 exists in the deployed web patcher."
     },
     {
       "projectId": "ai-work-skills",
       "noteKey": "managed-emulator-analysis-suite",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "9",
+      "url": "https://gimoxagros.tistory.com/9",
       "title": "[개발노트] AI Work Skills — 에뮬레이터 분석 묶음과 로그 비교 개선",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "The latest public release documents a distinct addition of 13 emulator-analysis skills and log-analyzer v3 with installation verification; no project-specific public post appears in the checked inventory.",
@@ -165,17 +165,17 @@
       "draftPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.md",
       "htmlPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.html",
       "metadataPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
+      "postStatus": "published_verified",
+      "publishedBodySha256": "28232de149bd616b79149f6a92d875d7060847f41cec5822fec79d8bc53a37af"
     },
     {
       "projectId": "project-portal",
       "noteKey": "report-routing-project-count",
       "postType": "development-note",
-      "postId": null,
-      "url": null,
+      "postId": "10",
+      "url": "https://gimoxagros.tistory.com/10",
       "title": "[개발노트] Project Portal — 프로젝트 수와 제보 경로 정리",
-      "publicStatus": "no matching public post found",
+      "publicStatus": "published",
       "bodyRead": "not_applicable",
       "handling": "create",
       "reason": "Merged PRs #16–18 cover the report flow, direct issue routing and a concrete registered-project count defect; the subsequent branding commit is recorded separately in the same dated portal update.",
@@ -184,14 +184,14 @@
       "draftPath": "devnotes/project-portal/report-routing-project-count.md",
       "htmlPath": "devnotes/project-portal/report-routing-project-count.html",
       "metadataPath": "devnotes/project-portal/report-routing-project-count.metadata.json",
-      "postStatus": "blocked",
-      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+      "postStatus": "published_verified",
+      "publishedBodySha256": "41408c6846e034bd69fec865e024e1e6019afd6750881e496042d8651ef1b184",
       "publishGate": "Re-check public portal count and issue links before publishing."
     }
   ],
   "notes": [
-    "No placeholder or future post URLs are assigned.",
-    "No blog editor changes or publications were made as part of this draft-only handoff.",
-    "Project-specific development notes may be published as individual entries; they should not all be merged into the existing guide post."
+    "All URLs /3–/10 were taken from the signed-in management list and checked on their public pages.",
+    "Existing /2 was not changed; /3 was updated additively; seven project development notes were published separately.",
+    "publishedBodySha256 hashes UTF-8 bytes of the public .tt_article_useless_p_margin innerHTML observed on 2026-09-24 KST."
   ]
 }

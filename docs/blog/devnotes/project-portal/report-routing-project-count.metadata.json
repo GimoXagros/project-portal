@@ -5,8 +5,8 @@
   "title": "[개발노트] Project Portal — 프로젝트 수와 제보 경로 정리",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "10",
+  "publishedUrl": "https://gimoxagros.tistory.com/10",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["Project Portal", "개발노트", "GitHub Issues", "제보", "GitHub Pages"],
@@ -18,9 +18,10 @@
   "sourceBaseCommit": "c4434558c5055fcdb80847a4dfd847e578cbbcd0",
   "sourceHeadCommit": "cf71b4ed6bf74c1167f93d772490204728a7fa72",
   "draftedThroughCommit": "cf71b4ed6bf74c1167f93d772490204728a7fa72",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "7082febc4dbef96fd852215b102a1588b0f842ef11e87db3612e1ab0bfbf8add"},
+  "publishedThroughCommit": "cf71b4ed6bf74c1167f93d772490204728a7fa72",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "b57fe7e9aef1d14e406fbe453a1e0f811665ec16a9791881a34972641c6e35a3"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "41408c6846e034bd69fec865e024e1e6019afd6750881e496042d8651ef1b184"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/project-portal/pull/16",
     "https://github.com/GimoXagros/project-portal/pull/17",
@@ -30,8 +31,7 @@
     "https://gimoxagros.github.io/project-portal/"
   ],
   "unverified": ["a user-submitted issue was intentionally not created during QA"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "Re-open the public page and confirm current project count and issue links before posting. Explain that opening the GitHub composer does not submit an issue."
 }

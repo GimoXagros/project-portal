@@ -12,7 +12,10 @@ export default function UpdateTimeline({ changelog, compact = false, limit }) {
         <h3>{entry.title}</h3>
         <p>{entry.summary}</p>
         {!compact && entry.changes?.length > 0 && <ul>{entry.changes.map((change) => <li key={change}>{change}</li>)}</ul>}
-        {!compact && entry.releaseUrl && <a href={entry.releaseUrl} target="_blank" rel="noreferrer">{entry.sourceLabel || 'GitHub 릴리스 보기'} <ExternalLink size={14} /></a>}
+        {(entry.devNoteUrl || (!compact && entry.releaseUrl)) && <div className="update-source-links">
+          {entry.devNoteUrl && <a href={entry.devNoteUrl} target="_blank" rel="noreferrer">개발노트 읽기 <ExternalLink size={14} /></a>}
+          {!compact && entry.releaseUrl && <a href={entry.releaseUrl} target="_blank" rel="noreferrer">{entry.sourceLabel || 'GitHub 릴리스 보기'} <ExternalLink size={14} /></a>}
+        </div>}
       </article>
     </li>)}
   </ol>

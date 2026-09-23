@@ -219,6 +219,20 @@ test('compact timeline limits entries without reordering same-date versions', as
   assert.equal(occurrences(all,'class="update-marker"'),changelog.entries.length)
 })
 
+test('published development notes link from project timelines and updates index', async () => {
+  for (const project of projects) {
+    const changelog = changelogFor(project.id)
+    const url = changelog.entries[0].devNoteUrl
+    assert.match(url, /^https:\/\/gimoxagros\.tistory\.com\/\d+$/)
+    const compact = await render('UpdateTimeline', { changelog, compact: true, limit: 1 })
+    const full = await render('UpdateTimeline', { changelog })
+    assert.ok(compact.includes(url))
+    assert.ok(full.includes(url))
+  }
+  const index = await render('UpdatesPage', { projects })
+  assert.ok(index.includes('https://gimoxagros.tistory.com/10'))
+})
+
 test('home feed caps latest projects at four with no repeated logos', async () => {
   const fixtures = Array.from({length:6},(_,i)=>({...projects[0],id:`project-${i}`}))
   const updates = fixtures.map((p,i)=>({...changelogFor('gameyob').entries[0],projectId:p.id,date:`2026-09-0${i+1}`}))
