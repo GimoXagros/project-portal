@@ -48,7 +48,8 @@
       "draftPath": "updates/post-3-patcher-guide.md",
       "htmlPath": "updates/post-3-patcher-guide.html",
       "metadataPath": "updates/post-3-patcher-guide.metadata.json",
-      "postStatus": "draft_ready",
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
       "publishGate": "Confirm the live portal patcher includes v1.0 and v1.2; re-read the article before an additive edit."
     },
     {
@@ -67,7 +68,8 @@
       "draftPath": "devnotes/gameyob/state-preflight-sgb-opcodes.md",
       "htmlPath": "devnotes/gameyob/state-preflight-sgb-opcodes.html",
       "metadataPath": "devnotes/gameyob/state-preflight-sgb-opcodes.metadata.json",
-      "postStatus": "draft_ready"
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
     },
     {
       "projectId": "gbarunner3",
@@ -85,7 +87,8 @@
       "draftPath": "devnotes/gbarunner3/storage-validation-rc3.md",
       "htmlPath": "devnotes/gbarunner3/storage-validation-rc3.html",
       "metadataPath": "devnotes/gbarunner3/storage-validation-rc3.metadata.json",
-      "postStatus": "draft_ready"
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
     },
     {
       "projectId": "nitroswan",
@@ -103,7 +106,8 @@
       "draftPath": "devnotes/nitroswan/renderer-stability-r9.md",
       "htmlPath": "devnotes/nitroswan/renderer-stability-r9.html",
       "metadataPath": "devnotes/nitroswan/renderer-stability-r9.metadata.json",
-      "postStatus": "draft_ready"
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
     },
     {
       "projectId": "gba-narikiri2-kor",
@@ -121,7 +125,8 @@
       "draftPath": "devnotes/gba-narikiri2-kor/v1-release-validation.md",
       "htmlPath": "devnotes/gba-narikiri2-kor/v1-release-validation.html",
       "metadataPath": "devnotes/gba-narikiri2-kor/v1-release-validation.metadata.json",
-      "postStatus": "draft_ready",
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
       "publishGate": "Confirm v1.0 exists in the deployed web patcher."
     },
     {
@@ -140,7 +145,8 @@
       "draftPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.md",
       "htmlPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.html",
       "metadataPath": "devnotes/gba-narikiri3-kor/v1-2-dialogue-review.metadata.json",
-      "postStatus": "draft_ready",
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
       "publishGate": "Confirm v1.2 exists in the deployed web patcher."
     },
     {
@@ -159,7 +165,8 @@
       "draftPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.md",
       "htmlPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.html",
       "metadataPath": "devnotes/ai-work-skills/managed-emulator-analysis-suite.metadata.json",
-      "postStatus": "draft_ready"
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음."
     },
     {
       "projectId": "project-portal",
@@ -177,7 +184,8 @@
       "draftPath": "devnotes/project-portal/report-routing-project-count.md",
       "htmlPath": "devnotes/project-portal/report-routing-project-count.html",
       "metadataPath": "devnotes/project-portal/report-routing-project-count.metadata.json",
-      "postStatus": "draft_ready",
+      "postStatus": "blocked",
+      "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
       "publishGate": "Re-check public portal count and issue links before publishing."
     }
   ],
