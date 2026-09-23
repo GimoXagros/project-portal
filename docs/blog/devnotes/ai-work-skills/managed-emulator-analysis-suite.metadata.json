@@ -5,8 +5,8 @@
   "title": "[개발노트] AI Work Skills — 에뮬레이터 분석 묶음과 로그 비교 개선",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "9",
+  "publishedUrl": "https://gimoxagros.tistory.com/9",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["AI Work Skills", "개발노트", "Codex", "스킬", "로그 분석"],
@@ -18,9 +18,10 @@
   "sourceBaseCommit": "06badc7e4b6f6f7f1f2bfde4ec0c23b2ae8a8efc",
   "sourceHeadCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
   "draftedThroughCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "f8ad3d3db3c33ea9cca4eeae3458c705d0deaaa0e260027d30cda081cfb01e47"},
+  "publishedThroughCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "a47ae16922d3312338dc3b38a4701e6613f50b57db2fb555a635b4147203c933"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "28232de149bd616b79149f6a92d875d7060847f41cec5822fec79d8bc53a37af"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2",
     "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/MANAGED_SKILLS.md",
@@ -28,8 +29,7 @@
     "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2"
   ],
   "unverified": ["automatic skill selection in Codex runtime", "emulator/hardware behavior and project compatibility", "external upstream repositories beyond pinned source audit"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "Keep distinction between package/install checks and emulator behavior; identify repository as personal, not an official OpenAI distribution."
 }

@@ -13,6 +13,7 @@ export default function UpdatesPage({ projects, projectId, onHome, onOpenProject
       <h1>{project ? `${project.title} 업데이트` : '프로젝트별 업데이트 기록'}</h1>
       <p>{project ? project.subtitle : '프로젝트를 선택해 최초 공개부터 최신 릴리스까지 확인하세요.'}</p>
       {project && <button className="button ghost" type="button" onClick={() => onOpenProject(project.id)}>프로젝트 상세 <ArrowUpRight size={17} /></button>}
+      {!project && <a className="button ghost" href="https://gimoxagros.tistory.com/10" target="_blank" rel="noreferrer">포털 개발노트 읽기 <ArrowUpRight size={17} /></a>}
     </header>
     <div className="updates-layout section-pad">
       {project ? <>

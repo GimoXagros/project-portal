@@ -18,4 +18,4 @@ v1.1a 이후 대사 위치 972곳의 내용이 달라졌다고 공개 릴리스�
 
 기존 한국어화 1.1은 짜알님, 후속 수정은 Xagros, 달무리 소형 글꼴은 RanolP와 기여자가 맡았습니다. 원작 게임과 프로젝트 로고 권리는 별도입니다. 자세한 내용은 [CREDITS](https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/CREDITS.md), [v1.2 릴리스 노트](https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/docs/RELEASE_NOTES_V1_2.md)와 [v1.1a 원문 대조 기록](https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.1a/docs/DIALOGUE_REVIEW_V1_1A.md)을 참고하세요.
 
-근거: [v1.2 릴리스](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2), [v1.1a 이전 프리릴리스](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a). ※ 포털에 v1.2 웹 패처 버전이 동기화된 것을 확인한 뒤 게시해야 합니다.
+근거: [v1.2 릴리스](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2), [v1.1a 이전 프리릴리스](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a).

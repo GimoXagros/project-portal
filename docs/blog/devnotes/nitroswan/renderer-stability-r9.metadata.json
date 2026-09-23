@@ -5,8 +5,8 @@
   "title": "[개발노트] NitroSwan Custom — r9 렌더러 안정화 후보와 남은 확인",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "6",
+  "publishedUrl": "https://gimoxagros.tistory.com/6",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["NitroSwan", "개발노트", "렌더링", "프리릴리스", "WonderSwan"],
@@ -18,9 +18,10 @@
   "sourceBaseCommit": "20ce30634dab50fc95c369833b5f033da38fe2cd",
   "sourceHeadCommit": "dffa5d6ac20c99bb27502a0a3d565c1189705ecc",
   "draftedThroughCommit": "dffa5d6ac20c99bb27502a0a3d565c1189705ecc",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "109be92ac765f356849e3cf46c16ae37e6a8abbd65d23d98d059255525a4b24d"},
+  "publishedThroughCommit": "dffa5d6ac20c99bb27502a0a3d565c1189705ecc",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "3cf012db82c1d0f0d906ab7084c7d909aceec0454fb6f9637e2dcc2961218f06"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "835d33ee2e2900f71860700ff2b2e185b092bed09ef0d1f1fb02b35e7d017966"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r9",
     "https://github.com/GimoXagros/NitroSwan/pull/11",
@@ -28,8 +29,7 @@
     "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8"
   ],
   "unverified": ["DSpico hardware validation", "matched battle-scene comparison", "audio/save round trips", "full game matrix and pixel accuracy"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "Do not title or describe as a complete afterimage fix; retain r8 as stable."
 }

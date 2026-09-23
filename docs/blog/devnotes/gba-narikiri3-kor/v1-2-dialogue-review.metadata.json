@@ -5,8 +5,8 @@
   "title": "[개발노트] 나리키리 던전3 — v1.2 대사·표기 보완",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "8",
+  "publishedUrl": "https://gimoxagros.tistory.com/8",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["나리키리 던전3", "개발노트", "한국어화", "웹 패처", "GBA"],
@@ -18,9 +18,10 @@
   "sourceBaseCommit": "a7f8c69abf40f4a87fa4ee05edf05d93b7ba319a",
   "sourceHeadCommit": "fd59e655e01335ad0788eb5f09891ec6bc01559f",
   "draftedThroughCommit": "fd59e655e01335ad0788eb5f09891ec6bc01559f",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "353243dbf6d7384f4afe156c629330c0795c1456a7102e491f37b24db16e3a41"},
+  "publishedThroughCommit": "fd59e655e01335ad0788eb5f09891ec6bc01559f",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "56af144f3db696c3a15fcda5bcd3d473d7060e6c76d965287659af66859f8599"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "9141103d95a2baddfdb3d76ef59e438eee2c068c961772a6459ca759c2b34bd9"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2",
     "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/docs/RELEASE_NOTES_V1_2.md",
@@ -29,8 +30,7 @@
     "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a"
   ],
   "unverified": ["all changed scenes", "full natural play and every branch", "all devices/emulators", "universal legacy save compatibility"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "Verify the portal web patcher has v1.2 synced before publishing. User action points only to the web patcher; do not add ZIP/BPS direct download links."
 }

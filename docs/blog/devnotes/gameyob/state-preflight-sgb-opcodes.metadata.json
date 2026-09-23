@@ -5,8 +5,8 @@
   "title": "[개발노트] GameYob Custom — 상태 파일 선검사와 SGB 호스트 명령 범위",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "4",
+  "publishedUrl": "https://gimoxagros.tistory.com/4",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["GameYob", "개발노트", "저장 상태", "Super Game Boy", "Nintendo DS"],
@@ -18,17 +18,17 @@
   "sourceBaseCommit": "ab334e79999fd4010dfad173793f05bdd7fe86bb",
   "sourceHeadCommit": "4d0f29f7e07c26dbaea1006aec310fea7b50828e",
   "draftedThroughCommit": "4d0f29f7e07c26dbaea1006aec310fea7b50828e",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "9dcce2a91767c6298bdf973a9bfeec0e39dc773c6a29db216838e5f326c1a423"},
+  "publishedThroughCommit": "4d0f29f7e07c26dbaea1006aec310fea7b50828e",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "0739dc3d7725392828cc74b0b1f98b1e79279896955baccbe3915d00f56018a7"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "751aeca7576e3c831e49797038b035590f132fc336d26406bf8d25a8ffbc2649"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.10",
     "https://github.com/GimoXagros/GameYob/commit/4d0f29f7e07c26dbaea1006aec310fea7b50828e",
     "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko"
   ],
   "unverified": ["physical DS/DSi wireless validation", "real SGB host-program validation", "cycle-accurate 65C816 behavior", "full SGB completion"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "No related public Tistory development note found in the checked public post inventory. Draft contains no direct ROM or binary download link."
 }

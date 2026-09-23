@@ -5,8 +5,8 @@
   "title": "[개발노트] 나리키리 던전2 — v1.0 공개와 검증 범위",
   "existingPostId": null,
   "existingPostUrl": null,
-  "publishedPostId": null,
-  "publishedUrl": null,
+  "publishedPostId": "7",
+  "publishedUrl": "https://gimoxagros.tistory.com/7",
   "existingPublicPostFound": false,
   "categoryProposal": "프로젝트 안내",
   "tags": ["나리키리 던전2", "개발노트", "한국어화", "웹 패처", "GBA"],
@@ -18,9 +18,10 @@
   "sourceBaseCommit": "3318803c31a1c1e3879db9abfe24ff3ffa3d5e25",
   "sourceHeadCommit": "8792b76d625787b8b774b3bca6aaf8659611db40",
   "draftedThroughCommit": "8792b76d625787b8b774b3bca6aaf8659611db40",
-  "publishedThroughCommit": null,
-  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
-  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "a66584c6c1ee9ae006031b20df7c36c6473f2d3800a9f09e29f5c51236111353"},
+  "publishedThroughCommit": "8792b76d625787b8b774b3bca6aaf8659611db40",
+  "lastVerifiedAt": "2026-09-24T01:58:08+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "00d1e31b65ca90bcc58f4da049ad237b1fd2d3b23ce8be4413759566beb7c0c3"},
+  "publishedBodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 bytes of public Tistory .tt_article_useless_p_margin innerHTML", "value": "02e92172b31337374d545f8f51f5d1e4dc7a60de4bab1a574e4019550673adcf"},
   "evidenceUrls": [
     "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
     "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/verification/v1.0.json",
@@ -29,8 +30,7 @@
     "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/RIGHTS.md"
   ],
   "unverified": ["public asset reapplication at publication time per release note", "final ROM hash-linked hardware new game/cold load/save resume", "full natural play and major branches", "two-device communication"],
-  "postStatus": "blocked",
-  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
+  "postStatus": "published_verified",
   "handling": "create",
   "publishGate": "Verify the portal web patcher has v1.0 synced before publishing. User action points only to the web patcher; do not add ZIP/BPS direct download links."
 }

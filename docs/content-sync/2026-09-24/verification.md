@@ -3,7 +3,7 @@
 - 기준: 2026-09-24 KST, 브랜치 `codex/portal-devnotes-20260924`, 포털 6개 프로젝트. 원본 게임·에뮬레이터·스킬 저장소는 읽기 전용 조사.
 - 작업자 요청 설정: Sol `gpt-6-sol` / `medium`; 실행 모델·추론 수준은 런타임 정보가 제공되지 않아 `unknown`.
 - 정적 데이터: `node scripts/validate-data.mjs` 통과(프로젝트 6, changelog 6, featured 3).
-- 단위·렌더 테스트: `node --test scripts/tests/*.test.mjs` 61/61 통과. 신규 BPS 2개 포함 등록된 공개 BPS의 선언 입력·출력 크기 파싱, 합성 BPS 정상/오원본 거부, 선택기 렌더와 기록 보존 확인.
+- 단위·렌더 테스트: 후속 게시 링크 검사 추가 후 `node --test scripts/tests/*.test.mjs` 62/62 통과. 신규 BPS 2개 포함 등록된 공개 BPS의 선언 입력·출력 크기 파싱, 합성 BPS 정상/오원본 거부, 선택기 렌더와 기록 보존 확인.
 - 원격 릴리스: 인증된 GitHub API를 사용한 `node scripts/verify-releases.mjs` 6/6 통과. 처음 무인증 실행은 API rate limit으로 실패해 공개 자료 부재로 판단하지 않았다. token은 로그와 문서에 저장하지 않았다.
 - lint: `node node_modules/oxlint/bin/oxlint` 통과.
 - production build: `node node_modules/vite/bin/vite.js build` 통과. 기존 vendor RomPatcher.js 비모듈 스크립트에 대한 Vite 번들링 경고 4개는 기존 로드 방식에 따른 것으로 빌드는 성공.
@@ -13,4 +13,5 @@
 - `git diff --check` 통과. Git의 LF→CRLF 변환 경고는 Windows 작업본 줄바꿈 안내이며 whitespace 오류는 없었다.
 - 블로그 원고 최종 교차검사: `docs/blog/`의 고유 외부 URL 44개를 HTTP HEAD로 확인해 모두 200. 잘못된 나리키리3 v1.2 검증 JSON 경로는 공개 릴리스 노트 링크로 교체한 후 재검사했다. Markdown/HTML 8쌍의 버전 표기 집합이 일치한다. HTML 8개에서 script/iframe/event-handler와 BPS/ZIP/ROM 직접 다운로드 행동 링크가 검출되지 않았다. 정식·프리릴리즈 분리, AN9J/B3TJ 입력, 미검증 기기·전편 진행 범위가 공통 사실표와 충돌하지 않는다.
 - 감사 GO 후 [PR #19](https://github.com/GimoXagros/project-portal/pull/19)를 main에 병합했다. merge commit `0762cab01d41de657d4651d3ab913638f57e211f`; [Pages 실행 35887805241](https://github.com/GimoXagros/project-portal/actions/runs/35887805241)의 데이터 검사·61개 테스트·원격 Release 검사·lint·build·deploy가 모두 성공했다. 공개 포털의 나리키리2 v1.0 및 나리키리3 v1.2 기본 패처 선택을 Chrome에서 확인했다.
-- Tistory 관리자 `/3` HTML 모드 전환 중 Chrome 확장 연결이 끊어졌다. 기존 작업 탭 재연결도 같은 오류였고 다른 프로필로 전환하거나 탭을 종료하지 않았다. 본문 입력·저장·발행을 수행하지 않았으며 신규 7편도 게시하지 않았다. 현재 공개 게시글은 기존 `/2`, `/3`뿐이고 이번 실행의 새 URL·게시 결과는 없다. 원본 백업은 Git이 무시하는 로컬 `qa-artifacts/blog-backups/`에 남아 있다. 복구 절차는 [변경 요약](change-summary.md)의 게시·배포 선후관계를 따른다.
+- Tistory 관리자 `/3` HTML 모드 전환 중 일시적으로 브라우저 제어가 끊겼으나, 새 관리 탭에서 기본 편집기 경로로 작업을 재개했다. `/3` 편집기 원문 2,458자가 백업과 동일함을 재확인하고 원문 뒤에 v1.0/v1.2 블록을 한 번만 추가했다. `/2`는 수정하지 않았고 신규 7편을 `/4`–`/10`에 공개했다. 관리 목록 9건과 각 공개 페이지의 제목·주요 본문·근거 링크를 확인했다. 공개 본문 DOM의 UTF-8 SHA-256은 `docs/blog/` metadata에 기록했고 원문 백업은 Git이 무시하는 로컬 `qa-artifacts/blog-backups/`에만 남아 있다.
+- 후속 링크 검증: 데이터 검사, 62개 테스트, lint, production build 통과. 로컬 production preview의 여섯 프로젝트 상세에 해당 개발노트 `/4`–`/9`가 각각 1회 연결되고 전체 업데이트 목록에 `/10`이 연결되는지 확인했다. Chrome 390px 모바일에서 N3 상세와 업데이트 목록 링크가 보이며 수평 넘침이 없었다. 이 검증은 후속 PR 병합과 공개 Pages 배포 전 로컬 결과다.

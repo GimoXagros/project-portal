@@ -257,6 +257,7 @@ export function validateData(projectsOverride) {
       if (previousDate && entry.date > previousDate) fail(relativeFile, changelog.projectId, `${entry.id}.date: actual=${JSON.stringify(entry.date)} expected=<= ${previousDate} (entries 최신순)`)
       previousDate = entry.date
       if (entry.releaseUrl && !remote.test(entry.releaseUrl)) fail(relativeFile, changelog.projectId, `${entry.id}의 releaseUrl은 https://로 시작해야 합니다.`)
+      if (entry.devNoteUrl && !/^https:\/\/gimoxagros\.tistory\.com\/\d+$/.test(entry.devNoteUrl)) fail(relativeFile, changelog.projectId, `${entry.id}의 devNoteUrl은 확인된 티스토리 글 주소여야 합니다.`)
       if (entry.status !== undefined && !['release', 'beta', 'prerelease'].includes(entry.status)) fail(relativeFile, changelog.projectId, `${entry.id}.status: actual=${JSON.stringify(entry.status)} expected=release, beta or prerelease`)
       if (!Array.isArray(entry.changes) || entry.changes.some((change) => typeof change !== 'string')) fail(relativeFile, changelog.projectId, `${entry.id}의 changes는 문자열 배열이어야 합니다.`)
     }
