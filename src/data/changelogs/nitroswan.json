@@ -3,6 +3,22 @@
   "displayName": "NitroSwan Custom",
   "entries": [
     {
+      "id": "nitroswan-v0-7-7-custom-r9",
+      "version": "v0.7.7-custom.r9",
+      "date": "2026-09-19",
+      "title": "NitroSwan Custom v0.7.7-custom.r9 — 안정화 프리릴리즈",
+      "summary": "완료 프레임의 OAM·팔레트·화면 갱신과 초기 메뉴 입력을 보완한 실기 재검증 후보입니다. 정식 권장판은 r8입니다.",
+      "changes": [
+        "완료 OAM 주소가 스크롤 값으로 덮이던 ARM/DMA 오류와 다음 프레임 OBJ 팔레트 작업 버퍼를 덮던 VBlank 경계를 수정했습니다.",
+        "새 WS 프레임이 없는 갱신의 BG 팔레트를 유지하고 초기 ROM 선택·reset 중 메뉴 입력 갱신을 보강했습니다.",
+        "완료 프레임 색상으로 감마·대비를 변환하고 실제 OAM 주소와 로그 누락을 구분하는 진단을 추가했습니다.",
+        "80개 Python 검사, host C 벡터, DS·DSi 빌드와 linked ARM·synthetic ARM·NDS 구조 검사가 기록되었습니다.",
+        "melonDS 부팅·파일 탐색 smoke 외 전투 장면 대조, 오디오·저장 왕복과 DSpico 실기는 미검증입니다. 원피스·디지몬 잔상 완전 해결판으로 안내하지 않습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r9",
+      "status": "prerelease"
+    },
+    {
       "id": "nitroswan-v0-7-7-custom-r8",
       "version": "v0.7.7-custom.r8",
       "date": "2026-09-05",

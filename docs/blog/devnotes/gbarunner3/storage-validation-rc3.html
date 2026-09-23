@@ -1,0 +1,10 @@
+<p>custom-v0.1.3-rc3는 저장 경로와 저장 기능 탐색을 확인하기 위해 공개된 프리릴리스입니다. 이 후보는 정식판이 아니며 실기 검증은 완료되지 않았습니다. 현재 권장 정식판은 <code>custom-v0.1.3</code>입니다.</p>
+<h2>이번 후보가 다루는 범위</h2>
+<p>릴리스 설명에 따르면 PR #15는 ARM7의 DLDI/DSi-SD 읽기·쓰기 결과를 ARM9 쪽으로 전달할 때 sequence/token으로 완료 결과를 확인하고, 지연·재진입·재사용된 완료 값을 구별하도록 변경했습니다. 실패는 diskio/FatFs로 전달되며, 오류가 난 SD 캐시 매핑은 유효한 것처럼 공개하지 않고 ROM 로드·JIT fetch·ROM DMA 읽기를 fail-closed로 중단합니다.</p>
+<p>PR #19는 저장 기능 signature가 논리 4 KiB 경계를 넘거나 실제 ROM cache 슬롯이 연속하지 않은 경우를 위한 bounded overlap 탐색을 추가했습니다. 찾기 과정에서 실패한 데이터 읽기를 성공한 ROM 내용으로 취급하지 않으며, signature 일치 후에만 영구 backing 요청을 진행합니다. rc3 검토에서 기존 assembly 검색기가 앞선 잘못된 prefix 다음의 정상 후보를 놓치는 상황과 선형 2 MiB ROM 경계가 추가 보완됐다고 릴리스가 기록합니다. 기존 4-byte alignment 조건은 유지됩니다.</p>
+<h2>자동 검사와 실기 상태</h2>
+<p>공개 프리릴리스 설명은 baseline에서 storage 실패 6건 재현, 후보 자동 검사(storage 48/48, synthetic FatFs 22/22, ARM7/ARM9 transport 16/16, linked save search 893/893, ROM DMA 63/63 등) 및 nightly/sanitizer 검사를 기록합니다. 고정 도구 j1/j2/j4 반복 빌드의 결과 해시도 일치했다고 적혀 있습니다. 이 수치는 해당 프리릴리스가 공개한 자동 검사 결과이지, 이번 글 작성자가 다시 실행한 결과가 아닙니다.</p>
+<p>실기 검증은 미완료입니다. 물리 SD 오류·제거·전원 차단, 저장 파일 손상 뒤 복구, 중요 저장의 보존은 검증되지 않았습니다. 자동 복구 UI나 자동 재시도는 포함되지 않았고 성능 개선도 주장하지 않습니다. PR #18의 save recovery와 PR #16 RTC BCD 수정은 후보에서 제외됐습니다. 공개 권장판과 후보를 혼동하지 마세요.</p>
+<h2>사용자 안내</h2>
+<p>정식판은 <a href="https://gimoxagros.github.io/project-portal/#/project/gbarunner3">GBARunner3 상세 페이지</a>에서 선택할 수 있습니다. rc3를 평가하려는 경우에는 <a href="https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc3">프리릴리스 기록과 동봉 하드웨어 시험 안내</a>를 먼저 읽고, 기존 저장과 개인 설정을 백업한 복사본으로 진행하세요. SD 카드 제거·전원 차단 실험을 일반 사용자에게 요청하는 단계는 아닙니다.</p>
+<p>근거: <a href="https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc3">rc3 릴리스</a>, <a href="https://github.com/GimoXagros/GBARunner3/pull/15">PR #15</a>, <a href="https://github.com/GimoXagros/GBARunner3/pull/19">PR #19</a>, <a href="https://github.com/GimoXagros/GBARunner3/pull/17">linked ROM DMA 회귀 PR #17</a>, <a href="https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3">권장 정식판 v0.1.3</a>.</p>

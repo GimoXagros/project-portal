@@ -1,0 +1,33 @@
+{
+  "noteKey": "v1-2-dialogue-review",
+  "projectId": "gba-narikiri3-kor",
+  "postType": "development-note",
+  "title": "[개발노트] 나리키리 던전3 — v1.2 대사·표기 보완",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["나리키리 던전3", "개발노트", "한국어화", "웹 패처", "GBA"],
+  "summary": "v1.2에서 수정한 대사 위치 수와 mGBA/VBA-Next 실행 확인을 기록하고 전체 진행·기기 호환 미보증을 설명합니다.",
+  "releaseTag": "v1.2",
+  "releasePublishedAt": "2026-09-23T15:05:52Z",
+  "developmentState": "public release v1.2; previous v1.1a prerelease is retained as historical record",
+  "deploymentState": "stable release",
+  "sourceBaseCommit": "a7f8c69abf40f4a87fa4ee05edf05d93b7ba319a",
+  "sourceHeadCommit": "fd59e655e01335ad0788eb5f09891ec6bc01559f",
+  "draftedThroughCommit": "fd59e655e01335ad0788eb5f09891ec6bc01559f",
+  "publishedThroughCommit": null,
+  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "353243dbf6d7384f4afe156c629330c0795c1456a7102e491f37b24db16e3a41"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2",
+    "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/docs/RELEASE_NOTES_V1_2.md",
+    "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/CREDITS.md",
+    "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.1a/docs/DIALOGUE_REVIEW_V1_1A.md",
+    "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a"
+  ],
+  "unverified": ["all changed scenes", "full natural play and every branch", "all devices/emulators", "universal legacy save compatibility"],
+  "postStatus": "draft_ready",
+  "handling": "create",
+  "publishGate": "Verify the portal web patcher has v1.2 synced before publishing. User action points only to the web patcher; do not add ZIP/BPS direct download links."
+}
