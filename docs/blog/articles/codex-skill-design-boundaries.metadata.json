@@ -1,0 +1,33 @@
+{
+  "noteKey": "codex-skill-design-boundaries",
+  "projectId": "ai-work-skills;gameyob;gbarunner3;nitroswan",
+  "postType": "technical-article",
+  "title": "[기술자료] 전문 Codex 스킬 설계 — 요청을 좁히고, 근거와 한계를 남기기",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "publishedPostId": "13",
+  "publishedUrl": "https://gimoxagros.tistory.com/13",
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["Codex", "AI Work Skills", "스킬 설계", "에뮬레이터 분석", "기술자료"],
+  "summary": "공개 AI Work Skills 저장소의 역할 경계·라우팅 fixture·설치 및 감사 기록을 바탕으로 전문 스킬 지침을 설계하고 검증하는 절차를 소개합니다.",
+  "developmentState": "public skill design audit and test artifacts reviewed; behavior described is limited to the dated public records",
+  "deploymentState": "public v2026.09.19.2 tag",
+  "sourceHeadCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "draftedThroughCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "publishedThroughCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "lastVerifiedAt": "2026-09-24T02:40:00+09:00",
+  "publishedBodySha256": "12347121315283fa48d6465625e004c2608360aa1aaadf096437264d98be4b76",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes with LF line endings", "value": "7f73a99ab5cddc54cbdb1b7add9358b31171f24c53b9270a810a4bda68dede14"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/README.md",
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/EMULATOR_SKILL_AUDIT.md",
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/REVIEW.md",
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/tests/fixtures/emulator-routing.json",
+    "https://developers.openai.com/plugins/concepts/skills"
+  ],
+  "unverified": ["implicit automatic skill selection in Codex was not tested by the repository's synthetic routing fixtures", "project hardware and game compatibility are outside packaging/routing test evidence", "2026-09-19 audit/test results were not rerun for this article"],
+  "postStatus": "published_verified",
+  "handling": "create",
+  "publishGate": "Root/source audit before publication; label the repository as personally maintained, not an official OpenAI distribution."
+}
