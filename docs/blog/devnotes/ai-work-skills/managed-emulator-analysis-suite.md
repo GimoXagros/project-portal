@@ -1,0 +1,21 @@
+# [개발노트] AI Work Skills — 에뮬레이터 분석 묶음과 로그 비교 개선
+
+AI Work Skills v2026.09.19.2는 Codex용 스킬 저장소의 공개 정식 릴리스입니다. 저장소는 2026-09-18 15:52:52 UTC에 공개됐으며, 현재 안내는 저장소가 관리하는 활성 스킬 28개에 맞춰졌습니다. 릴리스 검증은 스킬 패키지와 설치 과정을 다루며, 실제 게임이나 에뮬레이터의 정확도를 검증한 결과는 아닙니다.
+
+## 무엇이 달라졌나
+
+이전 설치 구성에서 에뮬레이터 분석용 지침 13개를 추가해 함께 관리하도록 정리했습니다. GameYob의 SGB 호스트·NiFi 링크, GBARunner3의 ARM7→ARM946 JIT, NitroSwan의 V30MZ CPU·WonderSwan 하드웨어 주제를 구분하고, 공통 회귀·CPU·타이밍·빌드·그래픽·저장·카트리지 분석도 포함합니다. 저장소 번들 25개와 고정 upstream 3개를 하나의 설치기로 관리하는 구조입니다.
+
+`log-analyzer v3.0.0`은 정상 실행 로그와 실패 로그를 비교해 최초 차이를 찾는 흐름을 보완했습니다. 여러 로그 사이의 시계 불확실성, 간헐적 실패, 재시도·건너뜀·시간 초과와 환경 차이를 구분하도록 지침을 정리했습니다. 별도 자동 파서, MCP 서버나 상주 프로세스를 추가한 것은 아닙니다.
+
+## 확인된 설치 검증과 한계
+
+공개 릴리스는 49개 자동 검사의 통과, 스킬 형식과 전체·선택 설치, 도구 준비, 파일 목록·해시·백업 점검을 기록합니다. 캐시 없는 새 체크아웃에서 28개를 설치하고 원본 해시를 비교했으며, 오프라인 재설치도 28개 항목을 `CURRENT`로 기록했다고 설명합니다. 이는 릴리스 문서가 보고한 패키지·설치 검증입니다.
+
+스킬이 실제 작업에서 항상 자동 선택되는지, 하드웨어 동작 분석이 올바른지, 게임별 호환성이 개선되는지는 이 검사로 확인되지 않습니다. 각 스킬의 개별 upstream 라이선스와 사용 범위는 저장소 안내를 따라야 합니다. 이 모음은 OpenAI 공식 배포판이 아니라 개인 관리 저장소입니다.
+
+## 설치 안내
+
+[AI Work Skills 프로젝트 페이지](https://gimoxagros.github.io/project-portal/#/project/ai-work-skills)와 [저장소의 설치 안내](https://github.com/GimoXagros/ai-work-skills/tree/v2026.09.19.2)를 확인하세요. 릴리스가 안내하는 설치 순서는 main 복제 후 `python install.py`, 필요 도구 설치를 위한 `python setup_tools.py`, 그리고 `python install.py --list`로 목록을 확인하는 방식입니다. 외부 원본과 라이선스는 저장소의 고정 목록과 각 스킬 문서를 확인해야 합니다.
+
+근거: [v2026.09.19.2 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2), [28개 관리 목록](https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/MANAGED_SKILLS.md), [에뮬레이터 스킬 감사](https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/EMULATOR_SKILL_AUDIT.md), [이전 정식판](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2).

@@ -48,7 +48,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-18/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-23/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.ok(html.includes('등록 프로젝트 · ' + projects.length + ' PROJECTS'))
   assert.equal(projects.length, 6)
@@ -58,10 +58,10 @@ test('all projects expose their full public release history from the first recor
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const expected = {
     gameyob: ['v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
-    gbarunner3: ['custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
-    nitroswan: ['v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
-    'gba-narikiri3-kor': ['v1.1a'],
-    'gba-narikiri2-kor': ['v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
+    gbarunner3: ['custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    nitroswan: ['v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
+    'gba-narikiri3-kor': ['v1.2', 'v1.1a'],
+    'gba-narikiri2-kor': ['v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
   for (const [id, versions] of Object.entries(expected)) {
     const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
@@ -82,15 +82,16 @@ test('all projects expose their full public release history from the first recor
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri renders v0.9d as the primary public beta with all selectable patch versions', async () => {
+test('Narikiri renders v1.0 as the primary stable release with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'gba-narikiri2-kor')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'korean-patch')
-  assert.equal(project.version, 'v0.9d')
-  assert.equal(project.releasePolicy, 'latest-prerelease')
+  assert.equal(project.version, 'v1.0')
+  assert.equal(project.releasePolicy, 'latest-stable')
   assert.ok(html.includes('일본어 원본에 직접 적용'))
-  assert.notDeepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
+  assert.deepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
+  assert.notDeepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[2].source)
   assert.notEqual(project.webPatcher.versions[0].output.sha256, project.webPatcher.versions[1].output.sha256)
   for (const text of ['테일즈 오브 더 월드 나리키리 던전2', 'AN9J', 'logo-20260913.png']) assert.ok(html.includes(text))
   for (const download of project.downloads) {
@@ -103,7 +104,8 @@ test('Narikiri renders v0.9d as the primary public beta with all selectable patc
   for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
   assert.match(html, /<label for="patch-version">/)
   assert.match(html, /<select id="patch-version">/)
-  assert.match(html, /<option value="v0\.9d" selected="">v0\.9d \(최신\)<\/option>/)
+  assert.match(html, /<option value="v1\.0" selected="">v1\.0 \(최신\)<\/option>/)
+  assert.match(html, /<option value="v0\.9d">v0\.9d<\/option>/)
   assert.match(html, /<option value="v0\.9b">v0\.9b<\/option>/)
   assert.match(html, /<option value="v0\.9a">v0\.9a<\/option>/)
   assert.match(html, /<option value="v0\.9">v0\.9<\/option>/)

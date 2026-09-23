@@ -1,0 +1,33 @@
+{
+  "noteKey": "v1-release-validation",
+  "projectId": "gba-narikiri2-kor",
+  "postType": "development-note",
+  "title": "[개발노트] 나리키리 던전2 — v1.0 공개와 검증 범위",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["나리키리 던전2", "개발노트", "한국어화", "웹 패처", "GBA"],
+  "summary": "v1.0의 공개 수정·PC/자동 검증 범위와 남은 실기·전체 진행 검증을 구분하고 웹 패처 경로를 안내합니다.",
+  "releaseTag": "v1.0",
+  "releasePublishedAt": "2026-09-23T15:40:36Z",
+  "developmentState": "public release v1.0; remaining validation is explicitly documented",
+  "deploymentState": "stable release",
+  "sourceBaseCommit": "3318803c31a1c1e3879db9abfe24ff3ffa3d5e25",
+  "sourceHeadCommit": "8792b76d625787b8b774b3bca6aaf8659611db40",
+  "draftedThroughCommit": "8792b76d625787b8b774b3bca6aaf8659611db40",
+  "publishedThroughCommit": null,
+  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "a66584c6c1ee9ae006031b20df7c36c6473f2d3800a9f09e29f5c51236111353"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
+    "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/verification/v1.0.json",
+    "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d",
+    "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/CREDITS.md",
+    "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/RIGHTS.md"
+  ],
+  "unverified": ["public asset reapplication at publication time per release note", "final ROM hash-linked hardware new game/cold load/save resume", "full natural play and major branches", "two-device communication"],
+  "postStatus": "draft_ready",
+  "handling": "create",
+  "publishGate": "Verify the portal web patcher has v1.0 synced before publishing. User action points only to the web patcher; do not add ZIP/BPS direct download links."
+}

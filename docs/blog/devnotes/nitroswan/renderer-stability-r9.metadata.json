@@ -1,0 +1,32 @@
+{
+  "noteKey": "renderer-stability-r9",
+  "projectId": "nitroswan",
+  "postType": "development-note",
+  "title": "[개발노트] NitroSwan Custom — r9 렌더러 안정화 후보와 남은 확인",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["NitroSwan", "개발노트", "렌더링", "프리릴리스", "WonderSwan"],
+  "summary": "r9에서 기록한 OAM/DMA·팔레트 안전성 수정과 CI 범위를 소개하고, 정식 r8 유지 및 DSpico 미검증을 구분합니다.",
+  "releaseTag": "v0.7.7-custom.r9",
+  "releasePublishedAt": "2026-09-19T13:48:07Z",
+  "developmentState": "public stabilization prerelease from Draft PR #11",
+  "deploymentState": "prerelease r9; stable r8 remains unchanged",
+  "sourceBaseCommit": "20ce30634dab50fc95c369833b5f033da38fe2cd",
+  "sourceHeadCommit": "dffa5d6ac20c99bb27502a0a3d565c1189705ecc",
+  "draftedThroughCommit": "dffa5d6ac20c99bb27502a0a3d565c1189705ecc",
+  "publishedThroughCommit": null,
+  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "109be92ac765f356849e3cf46c16ae37e6a8abbd65d23d98d059255525a4b24d"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r9",
+    "https://github.com/GimoXagros/NitroSwan/pull/11",
+    "https://github.com/GimoXagros/NitroSwan/blob/v0.7.7-custom.r9/Docs/ReleaseValidation-r9.md",
+    "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8"
+  ],
+  "unverified": ["DSpico hardware validation", "matched battle-scene comparison", "audio/save round trips", "full game matrix and pixel accuracy"],
+  "postStatus": "draft_ready",
+  "handling": "create",
+  "publishGate": "Do not title or describe as a complete afterimage fix; retain r8 as stable."
+}

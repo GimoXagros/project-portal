@@ -1,0 +1,32 @@
+{
+  "noteKey": "managed-emulator-analysis-suite",
+  "projectId": "ai-work-skills",
+  "postType": "development-note",
+  "title": "[개발노트] AI Work Skills — 에뮬레이터 분석 묶음과 로그 비교 개선",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["AI Work Skills", "개발노트", "Codex", "스킬", "로그 분석"],
+  "summary": "v2026.09.19.2의 활성 스킬 28개 관리, 에뮬레이터 전문 지침 13개 및 log-analyzer v3 설치 검증을 설명합니다.",
+  "releaseTag": "v2026.09.19.2",
+  "releasePublishedAt": "2026-09-18T15:52:52Z",
+  "developmentState": "public release; bundled skills and installer workflows documented",
+  "deploymentState": "stable release",
+  "sourceBaseCommit": "06badc7e4b6f6f7f1f2bfde4ec0c23b2ae8a8efc",
+  "sourceHeadCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "draftedThroughCommit": "71a26c048ae9f7f8c6138d3874678a629492fc4e",
+  "publishedThroughCommit": null,
+  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "f8ad3d3db3c33ea9cca4eeae3458c705d0deaaa0e260027d30cda081cfb01e47"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2",
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/MANAGED_SKILLS.md",
+    "https://github.com/GimoXagros/ai-work-skills/blob/v2026.09.19.2/docs/EMULATOR_SKILL_AUDIT.md",
+    "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.14.2"
+  ],
+  "unverified": ["automatic skill selection in Codex runtime", "emulator/hardware behavior and project compatibility", "external upstream repositories beyond pinned source audit"],
+  "postStatus": "draft_ready",
+  "handling": "create",
+  "publishGate": "Keep distinction between package/install checks and emulator behavior; identify repository as personal, not an official OpenAI distribution."
+}

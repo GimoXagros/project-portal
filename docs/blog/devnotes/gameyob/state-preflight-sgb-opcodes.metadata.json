@@ -1,0 +1,31 @@
+{
+  "noteKey": "state-preflight-sgb-opcodes",
+  "projectId": "gameyob",
+  "postType": "development-note",
+  "title": "[개발노트] GameYob Custom — 상태 파일 선검사와 SGB 호스트 명령 범위",
+  "existingPostId": null,
+  "existingPostUrl": null,
+  "existingPublicPostFound": false,
+  "categoryProposal": "프로젝트 안내",
+  "tags": ["GameYob", "개발노트", "저장 상태", "Super Game Boy", "Nintendo DS"],
+  "summary": "v0.5.10의 상태 파일 구조 선검사, 실험적 65C816 명령 디스패치 확대와 남은 SGB·무선 검증을 설명합니다.",
+  "releaseTag": "v0.5.10",
+  "releasePublishedAt": "2026-09-05T04:29:59Z",
+  "developmentState": "tagged release v0.5.10; release notes describe implemented changes and automated checks",
+  "deploymentState": "public stable release",
+  "sourceBaseCommit": "ab334e79999fd4010dfad173793f05bdd7fe86bb",
+  "sourceHeadCommit": "4d0f29f7e07c26dbaea1006aec310fea7b50828e",
+  "draftedThroughCommit": "4d0f29f7e07c26dbaea1006aec310fea7b50828e",
+  "publishedThroughCommit": null,
+  "lastVerifiedAt": "2026-09-24T00:58:35+09:00",
+  "bodyFingerprint": {"algorithm": "sha256", "scope": "UTF-8 Markdown file bytes", "value": "9dcce2a91767c6298bdf973a9bfeec0e39dc773c6a29db216838e5f326c1a423"},
+  "evidenceUrls": [
+    "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.10",
+    "https://github.com/GimoXagros/GameYob/commit/4d0f29f7e07c26dbaea1006aec310fea7b50828e",
+    "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.9-ko"
+  ],
+  "unverified": ["physical DS/DSi wireless validation", "real SGB host-program validation", "cycle-accurate 65C816 behavior", "full SGB completion"],
+  "postStatus": "draft_ready",
+  "handling": "create",
+  "publishGate": "No related public Tistory development note found in the checked public post inventory. Draft contains no direct ROM or binary download link."
+}

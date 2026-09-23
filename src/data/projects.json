@@ -248,7 +248,7 @@
     "version": "custom-v0.1.3",
     "releasePolicy": "latest-stable",
     "releaseDate": "2026-09-12",
-    "lastUpdated": "2026-09-12",
+    "lastUpdated": "2026-09-19",
     "repository": "https://github.com/GimoXagros/GBARunner3",
     "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3",
     "issuesUrl": "https://github.com/GimoXagros/GBARunner3/issues",
@@ -340,6 +340,28 @@
         "sha256": "aebf23f662106cae207138be1eb98967857ed9a37477996b5a45eecbed313c36"
       }
     ],
+    "prerelease": {
+      "repository": "https://github.com/GimoXagros/GBARunner3",
+      "version": "custom-v0.1.3-rc3",
+      "releasePolicy": "latest-prerelease",
+      "releaseDate": "2026-09-19",
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc3",
+      "title": "GBARunner3 Custom v0.1.3-rc3 (Storage Validation Candidate)",
+      "summary": "저장장치 오류 전달과 save signature 경계 검색의 실기 검증 후보입니다. 정식 권장판은 custom-v0.1.3입니다.",
+      "notes": [
+        "실기 검증이 완료되지 않았습니다. 중요한 저장과 개인 설정을 백업하고 복사본에서 시험하세요.",
+        "물리 SD 오류·제거·전원 차단과 저장 실패 후 복구는 검증되지 않았습니다. 일반 사용자에게 전원 차단 실험을 권하지 않습니다."
+      ],
+      "downloads": [
+        {
+          "label": "GBARunner3.zip",
+          "filename": "GBARunner3.zip",
+          "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc3/GBARunner3.zip",
+          "size": "159820 bytes",
+          "sha256": "e9c8e49c34729856b2d0389c26def1176155934ac414393859675db29d780b53"
+        }
+      ]
+    },
     "downloadVersions": [
       {
         "version": "custom-v0.1.3",
@@ -356,6 +378,24 @@
             "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3/GBARunner3.zip",
             "size": "174420 bytes",
             "sha256": "aebf23f662106cae207138be1eb98967857ed9a37477996b5a45eecbed313c36"
+          }
+        ]
+      },
+      {
+        "version": "custom-v0.1.3-rc3",
+        "releaseDate": "2026-09-19",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.3-rc3",
+        "releasePolicy": "pinned-prerelease",
+        "pinReason": "정식 권장판 v0.1.3과 구분하는 공개 실기 검증 후보",
+        "title": "GBARunner3 Custom v0.1.3-rc3 (Storage Validation Candidate)",
+        "summary": "저장장치 오류 전달과 저장 signature 경계 검색 검증 후보입니다. 실기 검증은 완료되지 않았으므로 중요한 저장과 설정을 백업하고 복사본으로 시험하세요. 정식 권장판은 custom-v0.1.3입니다.",
+        "downloads": [
+          {
+            "label": "GBARunner3.zip",
+            "filename": "GBARunner3.zip",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.3-rc3/GBARunner3.zip",
+            "size": "159820 bytes",
+            "sha256": "e9c8e49c34729856b2d0389c26def1176155934ac414393859675db29d780b53"
           }
         ]
       },
@@ -500,7 +540,7 @@
     "version": "v0.7.7-custom.r8",
     "releasePolicy": "latest-stable",
     "releaseDate": "2026-09-05",
-    "lastUpdated": "2026-09-05",
+    "lastUpdated": "2026-09-19",
     "repository": "https://github.com/GimoXagros/NitroSwan",
     "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r8",
     "issuesUrl": "https://github.com/GimoXagros/NitroSwan/issues",
@@ -601,7 +641,75 @@
         "sha256": "4ea4b1af798371b48dab4b73d1c88d324fdfe65eb0d64aed0ba69b588bdd11ce"
       }
     ],
+    "prerelease": {
+      "repository": "https://github.com/GimoXagros/NitroSwan",
+      "version": "v0.7.7-custom.r9",
+      "releasePolicy": "latest-prerelease",
+      "releaseDate": "2026-09-19",
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r9",
+      "title": "NitroSwan v0.7.7-custom.r9 — 안정화 프리릴리즈",
+      "summary": "OAM·팔레트·화면 갱신과 초기 메뉴 입력을 보완한 실기 재검증 후보입니다. 정식 권장판은 r8입니다.",
+      "notes": [
+        "원피스·디지몬 잔상이 완전히 해결됐다는 검증이 없고 DSpico 실기 재확인이 필요합니다.",
+        "r8을 보관하고 기존 저장을 백업한 뒤 선택·전투·오디오·저장·복귀를 각각 시험하세요."
+      ],
+      "downloads": [
+        {
+          "label": "NitroSwan-DS-0.7.7-custom.r9.nds",
+          "filename": "NitroSwan-DS-0.7.7-custom.r9.nds",
+          "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-DS-0.7.7-custom.r9.nds",
+          "size": "569344 bytes",
+          "sha256": "e0f6531d36b6a0d8f83e2268b0e1d929b2a9f2459e852080e08e143b668f01f4"
+        },
+        {
+          "label": "NitroSwan-DSi-0.7.7-custom.r9.nds",
+          "filename": "NitroSwan-DSi-0.7.7-custom.r9.nds",
+          "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-DSi-0.7.7-custom.r9.nds",
+          "size": "569344 bytes",
+          "sha256": "09a8bc138b3594010b0e596afbca740ff1543fb74b48ba2f634f083be90cc334"
+        },
+        {
+          "label": "NitroSwan-0.7.7-custom.r9.zip",
+          "filename": "NitroSwan-0.7.7-custom.r9.zip",
+          "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-0.7.7-custom.r9.zip",
+          "size": "658141 bytes",
+          "sha256": "657fc9cf3b9f546c171f560ff24fcbdf67ffabeaadcb14e3c4c1eecd3f3d51f4"
+        }
+      ]
+    },
     "downloadVersions": [
+      {
+        "version": "v0.7.7-custom.r9",
+        "releaseDate": "2026-09-19",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r9",
+        "releasePolicy": "pinned-prerelease",
+        "pinReason": "정식 권장판 r8과 구분하는 공개 안정화 검증판",
+        "title": "NitroSwan v0.7.7-custom.r9 — 안정화 프리릴리즈",
+        "summary": "OAM·팔레트·화면 갱신과 초기 메뉴 입력을 보강한 검증판입니다. 원피스·디지몬 잔상 완전 해결이나 DSpico 실기 검증을 뜻하지 않습니다. 기존 저장을 백업하고 r8도 보관하세요.",
+        "downloads": [
+          {
+            "label": "NitroSwan-DS-0.7.7-custom.r9.nds",
+            "filename": "NitroSwan-DS-0.7.7-custom.r9.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-DS-0.7.7-custom.r9.nds",
+            "size": "569344 bytes",
+            "sha256": "e0f6531d36b6a0d8f83e2268b0e1d929b2a9f2459e852080e08e143b668f01f4"
+          },
+          {
+            "label": "NitroSwan-DSi-0.7.7-custom.r9.nds",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r9.nds",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-DSi-0.7.7-custom.r9.nds",
+            "size": "569344 bytes",
+            "sha256": "09a8bc138b3594010b0e596afbca740ff1543fb74b48ba2f634f083be90cc334"
+          },
+          {
+            "label": "NitroSwan-0.7.7-custom.r9.zip",
+            "filename": "NitroSwan-0.7.7-custom.r9.zip",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r9/NitroSwan-0.7.7-custom.r9.zip",
+            "size": "658141 bytes",
+            "sha256": "657fc9cf3b9f546c171f560ff24fcbdf67ffabeaadcb14e3c4c1eecd3f3d51f4"
+          }
+        ]
+      },
       {
         "version": "v0.7.7-custom.r8",
         "releaseDate": "2026-09-05",
@@ -903,20 +1011,20 @@
     "id": "gba-narikiri2-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v0.9d",
-    "subtitle": "일본판 AN9J 원본용 타이틀 글꼴·그래픽 수정 공개 검증판",
-    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 글꼴·대사·메뉴·전투 표시를 보완하는 GBA 한국어화 프로젝트입니다. v0.9d는 일본어 원본에 직접 적용하며 FFR 패치를 별도로 적용할 필요가 없습니다.",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.0",
+    "subtitle": "일본판 AN9J 원본용 한국어화 정식 릴리스",
+    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 글꼴·대사·메뉴·전투 표시를 보완하는 GBA 한국어화 프로젝트입니다. v1.0은 일본어 원본에 직접 적용하며 FFR 패치를 별도로 적용할 필요가 없습니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
-    "status": "beta",
-    "version": "v0.9d",
-    "releasePolicy": "latest-prerelease",
-    "releaseDate": "2026-09-12",
-    "lastUpdated": "2026-09-12",
+    "status": "released",
+    "version": "v1.0",
+    "releasePolicy": "latest-stable",
+    "releaseDate": "2026-09-23",
+    "lastUpdated": "2026-09-23",
     "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
-    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v0.9d",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/issues",
     "homepage": "",
     "coverImage": "",
@@ -932,22 +1040,22 @@
     },
     "screenshots": [],
     "features": [
-      "일본어 AN9J 원본용 누적 BPS와 Python 적용 도구",
-      "교환 메뉴를 처음부터·이어하기·중단부터와 같은 달무리 글꼴로 통일",
-      "Namco 시작 화면 및 대열 위치 변경 시 선택 테두리 복구"
+      "일본어 AN9J 원본용 누적 BPS를 웹 패처에서 적용",
+      "한국어 타이틀·엔딩 크레딧·부팅 안내와 장소·힌트 표기 보완",
+      "아이템·몬스터 설명 검토 및 대사 교정"
     ],
     "scope": [
-      "v0.9c의 번역·글꼴·저장 수정을 계승하며 이번 버전에서 추가 대사 교정은 하지 않음",
-      "저장 없음·일반 저장·중단 저장 상태의 타이틀 메뉴 표시와 전환 수정",
-      "일본어 원본에 한 번 적용하는 배포 패키지 제공"
+      "v0.9d의 일본어 원본 직접 적용 경로를 계승하고 공개 v0.9d와 다른 최종 결과 ROM을 제공",
+      "22개 장소 표기, 17개 힌트와 CP #44 머리글, 156개 아이템·142개 몬스터 설명 검토",
+      "본문 8,037개 고유 ID/8,945개 바인딩과 이름·UI 1,227개를 대조하고 본문 60개 ID/98개 바인딩 교정"
     ],
     "requirements": [
       "수정하지 않은 AN9J 일본판 원본 8,388,608 bytes",
       "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
-      "원본부터 두 번 재생성한 ROM·ZIP 일치, 동봉 도구 독립 적용·오입력·덮어쓰기 방지 및 공개 계약 검사 59개 통과가 기록되어 있습니다.",
-      "mGBA PC에서 타이틀·중단 재개·Namco·대열과 아이템 156종, 도감 142/200/22개의 목록·상세 진입·복귀를 확인했습니다."
+      "릴리스 검증 기록: 전체 체인 A/B 결과 일치, 실데이터 검사 166/166, 공개 CI 43/43, v1.0 적용기 검사 7/7 통과",
+      "PC mGBA에서 혼합 이름을 입력한 새 게임의 8 KiB 저장·두 번의 재시작과 기존 저장·중단 저장 복귀 확인"
     ],
     "installGuide": [
       "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
@@ -956,9 +1064,10 @@
       "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
-      "v0.9d는 mGBA PC 기준 프리릴리즈입니다. 실제 두 기기 통신 교환·실기·장시간 전체 진행은 미검증이며 issue #4에 남아 있습니다.",
-      "v0.9d는 일본어 원본 전용입니다. BETA3·v0.9c·이전 v0.9d 테스트 ROM에 추가 적용하지 마세요. v0.5 저장 복구도 필요하지 않습니다.",
-      "도감·아이템 검사는 편집한 테스트 세이브를 사용했으며 자연 해금·전편 완주 검증을 뜻하지 않습니다.",
+      "v1.0은 정식 공개판이지만 대상 기기에서 정확한 최종 ROM의 새 게임·두 번의 cold load·중단 저장 복귀, 모든 분기 자연 진행과 두 기기 통신은 미검증이며 issue #4에 남아 있습니다.",
+      "사용자는 OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행했다고 보고했습니다. 일부 구간에 치트를 사용했고 최종 ROM 해시와 기기 실행 기록의 명시적 연결은 없습니다.",
+      "v1.0은 일본어 AN9J 원본 전용입니다. 기존 한국어 ROM이나 이전 패치 ROM에 추가 적용하지 마세요. 기존 8 KiB SAV를 백업하고 ROM/SAV 파일명을 확장자 제외하고 맞추며 이전 ROM의 savestate는 사용하지 마세요.",
+      "도감·설명 검토와 자동 표시는 자연 획득·전편 완주 검증을 뜻하지 않습니다.",
       "ROM·세이브·BIOS는 배포하지 않습니다. 신규 도구의 MIT 라이선스는 원 게임·FFR 번역·이미지의 제3자 권리를 변경하지 않습니다."
     ],
     "credits": [
@@ -982,8 +1091,8 @@
         "value": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
       },
       {
-        "label": "v0.9d 결과 (13107200 bytes) SHA-256",
-        "value": "69c5a3e22e00bcacfbaaa7eb28f2efc7d06c8ef37a646ac7236bc78bf76d4012"
+      "label": "v1.0 결과 (13270790 bytes) SHA-256",
+      "value": "7505ef506e4fc11e1e0f36672956627e7522d2441cedfb06a5f359e7f5bd2b50"
       }
     ],
     "tags": [
@@ -999,8 +1108,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v0.9d",
+      "defaultVersion": "v1.0",
       "versions": [
+        {
+          "version": "v1.0",
+          "releaseDate": "2026-09-23",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
+          "title": "일본판 원본용 한국어화 정식 릴리스",
+          "summary": "AN9J 일본어 원본에 한 번 적용합니다. 타이틀·크레딧·장소·설명·대사를 보완했으며 전편 자연 진행과 정확한 최종 ROM의 실기 새 게임 검증은 남아 있습니다.",
+          "source": {
+            "label": "AN9J 일본판 원본",
+            "size": 8388608,
+            "sha256": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
+          },
+          "patch": {
+            "filename": "Xagros_Narikiri2_KOR_v1.0.bps",
+            "path": "patches/gba-narikiri2-kor/v1.0/Xagros_Narikiri2_KOR_v1.0.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v1.0/Xagros_Narikiri2_KOR_v1.0.bps",
+            "size": 5045193,
+            "sha256": "8d4a102714dccca1228215d97ae38b55eaca7ed9b74552150d3ab6aee2fa16e6"
+          },
+          "output": {
+            "filename": "Xagros_Narikiri2_KOR_v1.0.gba",
+            "size": 13270790,
+            "sha256": "7505ef506e4fc11e1e0f36672956627e7522d2441cedfb06a5f359e7f5bd2b50"
+          },
+          "prerelease": false
+        },
         {
           "version": "v0.9d",
           "releaseDate": "2026-09-12",
@@ -1133,20 +1267,20 @@
     "id": "gba-narikiri3-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전3",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 3 · v1.1a",
-    "subtitle": "일본판 B3TJ 원본용 누적 한국어화 공개 검토판",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 3 · v1.2",
+    "subtitle": "일본판 B3TJ 원본용 누적 한국어화 정식 릴리스",
     "description": "짜알님의 기존 한국어화 1.1을 허가받아 계승하고 Xagros가 후속 작업을 진행하는 프로젝트입니다. 일본어 원문과 대사를 대조해 번역 오류·누락을 수정하고 소형 한글 글꼴과 메뉴·인물 정보를 보완합니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
-    "status": "beta",
-    "version": "v1.1a",
-    "releasePolicy": "latest-prerelease",
-    "releaseDate": "2026-09-12",
-    "lastUpdated": "2026-09-12",
+    "status": "released",
+    "version": "v1.2",
+    "releasePolicy": "latest-stable",
+    "releaseDate": "2026-09-23",
+    "lastUpdated": "2026-09-23",
     "repository": "https://github.com/GimoXagros/gba-narikiri3-kor",
-    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.1a",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/issues",
     "homepage": "",
     "coverImage": "",
@@ -1164,21 +1298,21 @@
     "features": [
       "일본판 B3TJ에 적용하는 누적 BPS",
       "소형 한글 글꼴과 인물·코스튬 명칭 보완",
-      "인물 명함·갈아입기 메뉴·아이템 설명 수정"
+      "인물 명함·갈아입기 메뉴·아이템·몬스터 설명 수정"
     ],
     "scope": [
-      "확인된 대사 5,208개 위치와 중복 제외 4,788개 문장쌍의 일본어 원문 대조",
-      "오역·누락·오타·명칭 불일치 403개 수정 묶음을 실제 대사 425개 위치에 반영",
-      "빠진 대기 명령 7개와 이름 치환 호출 14개 복원"
+      "추출 대사 5,208개 위치 중 누적 1,363개 수정 묶음·1,385개 수정 위치 기록",
+      "v1.1a 대비 새 위치 960개와 기존 위치 재수정 12개, 총 972개 위치의 대사 변경",
+      "고유명사·장소, 아이템·몬스터 도감 속성 표기 보완"
     ],
     "requirements": [
       "수정하지 않은 일본판 B3TJ 원본 16,777,216 bytes",
       "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
-      "코드·데이터 검사 30개와 대사 표시 조합 31,248건 통과가 릴리스에 기록되어 있습니다.",
-      "재빌드와 ZIP 동봉 도구의 적용 결과 일치, 잘못된 원본 거부와 출력 덮어쓰기 방지를 확인했습니다.",
-      "mGBA / VBA-Next에서 첫 저장·별도 실행의 불러오기·메뉴·아이템 화면을 확인했습니다."
+      "공개 패키지 manifest의 BPS 왕복 및 결과 해시 일치가 기록되어 있습니다.",
+      "mGBA / VBA-Next에서 신규 게임 첫 저장, 별도 실행 저장 재로드, 메뉴·아이템 설명과 첫 전투 경로를 확인했습니다.",
+      "mGBA에서 타이틀·스탭롤 화면을 확인했지만 전체 자연 진행이나 모든 분기 검증은 아닙니다."
     ],
     "installGuide": [
       "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
@@ -1187,7 +1321,8 @@
       "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
-      "v1.1a는 검토용 프리릴리즈입니다. 전편 완주·모든 분기·모든 기기에서 무오류를 보증하지 않으며 독립적인 사람의 감수와 추가 플레이 검증이 남아 있습니다.",
+      "v1.2는 정식 릴리스이지만 완성도 100%, 전편 무오류 또는 모든 분기·기기의 검증 완료를 뜻하지 않습니다.",
+      "OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행했다는 사용자 보고가 있습니다. 사용한 GBARunner3 버전은 확인되지 않았고 새 게임·모든 분기 검증은 아닙니다.",
       "기존 한국어화 ROM에는 적용하지 마세요. 일본판 원본에 한 번 적용하는 누적 패치입니다.",
       "모든 기존 세이브의 호환성을 보증하지 않습니다. ROM·BIOS·개인 세이브·에뮬레이터 실행 파일은 배포하지 않습니다."
     ],
@@ -1212,8 +1347,8 @@
         "value": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
       },
       {
-        "label": "v1.1a 결과 (33554432 bytes) SHA-256",
-        "value": "b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869"
+      "label": "v1.2 결과 (33554432 bytes) SHA-256",
+      "value": "8953b6a98a9b39e340aecdc74739598ee47c4d59088f688e471a81c289a67793"
       }
     ],
     "tags": [
@@ -1229,8 +1364,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v1.1a",
+      "defaultVersion": "v1.2",
       "versions": [
+        {
+          "version": "v1.2",
+          "prerelease": false,
+          "releaseDate": "2026-09-23",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2",
+          "title": "일본판 원본용 누적 한국어화 정식 릴리스",
+          "summary": "수정하지 않은 B3TJ 일본판 원본에 한 번 적용합니다. 기존 한국어화 1.1을 계승한 후속판으로 대사·고유명사·장소와 도감 표기를 보완했습니다.",
+          "source": {
+            "label": "B3TJ 일본판 원본",
+            "size": 16777216,
+            "sha256": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
+          },
+          "patch": {
+            "filename": "ND3_B3TJ_K_v1.2_FROM_J.bps",
+            "path": "patches/gba-narikiri3-kor/v1.2/ND3_B3TJ_K_v1.2_FROM_J.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.2/ND3_B3TJ_K_v1.2_FROM_J.bps",
+            "size": 17235368,
+            "sha256": "e1ca88f6e12b1629b160166d33baeba035b8e738e184c98ee24f2370b2a767c2"
+          },
+          "output": {
+            "filename": "ND3_B3TJ_K_v1.2.gba",
+            "size": 33554432,
+            "sha256": "8953b6a98a9b39e340aecdc74739598ee47c4d59088f688e471a81c289a67793"
+          }
+        },
         {
           "version": "v1.1a",
           "prerelease": true,

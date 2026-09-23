@@ -88,3 +88,25 @@ Unmodified public asset from [gba-narikiri3-kor v1.1a](https://github.com/GimoXa
 - Dalmoori: RanolP and contributors, Apache-2.0; inherited tools: MIT.
 - Game, prior translation, and image rights remain separate. See the upstream CREDITS.md and LICENSE.
 - No source ROM, output ROM, save or BIOS is included.
+
+## Narikiri Dungeon 2 v1.0 BPS
+
+Unmodified public asset from [gba-narikiri2-kor v1.0](https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0).
+
+- File: `public/patches/gba-narikiri2-kor/v1.0/Xagros_Narikiri2_KOR_v1.0.bps`
+- Size: `5045193 bytes`
+- SHA-256: `8d4a102714dccca1228215d97ae38b55eaca7ed9b74552150d3ab6aee2fa16e6`
+- Input: unmodified Japanese AN9J (8388608 bytes); output: 13270790 bytes.
+- Prior Korean translation: FFR team; follow-up work: Xagros. Dalmoori font: RanolP and contributors, Apache-2.0. Follow-up tools: MIT. Game, translation, and image rights remain separate. See the tagged CREDITS.md and LICENSE.
+- No source ROM, output ROM, save or BIOS is included.
+
+## Narikiri Dungeon 3 v1.2 BPS
+
+Unmodified public asset from [gba-narikiri3-kor v1.2](https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2).
+
+- File: `public/patches/gba-narikiri3-kor/v1.2/ND3_B3TJ_K_v1.2_FROM_J.bps`
+- Size: `17235368 bytes`
+- SHA-256: `e1ca88f6e12b1629b160166d33baeba035b8e738e184c98ee24f2370b2a767c2`
+- Input: unmodified Japanese B3TJ (16777216 bytes); output: 33554432 bytes.
+- Prior Korean translation 1.1: 짜알; follow-up work: Xagros. Dalmoori font: RanolP and contributors, Apache-2.0. Inherited tools: MIT. Game, translation, and image rights remain separate. See the tagged CREDITS.md and LICENSE.
+- No source ROM, output ROM, save or BIOS is included.
