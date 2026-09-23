@@ -12,4 +12,5 @@
 - UI 검사 환경: Browser 개발 플러그인은 설치/목록에 없어 기존 Chrome의 Computer Use 브라우저 인터페이스로 확인했다. 처음 홈의 앱 콘솔 warning/error는 없었다. 이후 탭 이동 시 Chrome 확장 메시지 채널 종료 오류 4건이 기록되었으나 앱 소스 URL이 없는 확장 메시지였고 페이지 렌더/상호작용 실패는 없었다. 별도 Playwright 패키지는 저장소에 설치되어 있지 않아 새 의존성을 넣지 않았다.
 - `git diff --check` 통과. Git의 LF→CRLF 변환 경고는 Windows 작업본 줄바꿈 안내이며 whitespace 오류는 없었다.
 - 블로그 원고 최종 교차검사: `docs/blog/`의 고유 외부 URL 44개를 HTTP HEAD로 확인해 모두 200. 잘못된 나리키리3 v1.2 검증 JSON 경로는 공개 릴리스 노트 링크로 교체한 후 재검사했다. Markdown/HTML 8쌍의 버전 표기 집합이 일치한다. HTML 8개에서 script/iframe/event-handler와 BPS/ZIP/ROM 직접 다운로드 행동 링크가 검출되지 않았다. 정식·프리릴리즈 분리, AN9J/B3TJ 입력, 미검증 기기·전편 진행 범위가 공통 사실표와 충돌하지 않는다.
-- Git 원격 커밋·push·Pages 배포와 Tistory 저장·발행은 사전 감사 전 아직 수행하지 않았다. 브라우저 조사 시 기존 글을 수정하지 않았다.
+- 감사 GO 후 [PR #19](https://github.com/GimoXagros/project-portal/pull/19)를 main에 병합했다. merge commit `0762cab01d41de657d4651d3ab913638f57e211f`; [Pages 실행 35887805241](https://github.com/GimoXagros/project-portal/actions/runs/35887805241)의 데이터 검사·61개 테스트·원격 Release 검사·lint·build·deploy가 모두 성공했다. 공개 포털의 나리키리2 v1.0 및 나리키리3 v1.2 기본 패처 선택을 Chrome에서 확인했다.
+- Tistory 관리자 `/3` HTML 모드 전환 중 Chrome 확장 연결이 끊어졌다. 기존 작업 탭 재연결도 같은 오류였고 다른 프로필로 전환하거나 탭을 종료하지 않았다. 본문 입력·저장·발행을 수행하지 않았으며 신규 7편도 게시하지 않았다. 현재 공개 게시글은 기존 `/2`, `/3`뿐이고 이번 실행의 새 URL·게시 결과는 없다. 원본 백업은 Git이 무시하는 로컬 `qa-artifacts/blog-backups/`에 남아 있다. 복구 절차는 [변경 요약](change-summary.md)의 게시·배포 선후관계를 따른다.

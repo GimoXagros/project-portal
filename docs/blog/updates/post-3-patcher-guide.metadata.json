@@ -30,7 +30,8 @@
     "https://gimoxagros.github.io/project-portal/#/project/gba-narikiri2-kor",
     "https://gimoxagros.github.io/project-portal/#/project/gba-narikiri3-kor"
   ],
-  "postStatus": "draft_ready",
+  "postStatus": "blocked",
+  "blockedReason": "로그인된 Chrome 세션의 브라우저 제어 연결 실패(반복된 Debugger unattached/프로필 창 이동 제한). 원고·백업·포털 배포는 준비됨. 이번 실행에서 본문 입력·저장·게시 시도 없음.",
   "handling": "update",
   "publishGate": "Confirm current deployed portal exposes v1.0 and v1.2 in the web patchers; re-read live article immediately before additive edit."
 }
