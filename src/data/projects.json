@@ -1254,44 +1254,6 @@
           "prerelease": true
         }
       ]
-    },
-    "progress": {
-      "updatedAt": "2026-09-29",
-      "summary": "v1.0 공개 후 번역·플레이 검증을 이어갑니다. 전체 번역률은 공개되지 않았으며 아래 수치는 해당 검사 범위에만 적용됩니다.",
-      "stages": [
-        {
-          "id": "translation",
-          "label": "번역·원문 대조",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "본문 8,037개 고유 ID·8,945개 바인딩과 이름/UI 1,227개를 대조했습니다. 전체 번역 완료율은 공개되지 않았습니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/README.md"
-        },
-        {
-          "id": "review",
-          "label": "대사·표기 교정",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "본문 60개 ID·98개 바인딩을 교정하고 아이템 156개·몬스터 142개 설명을 검토했습니다. 수정 수는 전체 검수율이 아닙니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0"
-        },
-        {
-          "id": "patch-checks",
-          "label": "패치 적용 검사",
-          "percent": 100,
-          "status": "complete",
-          "detail": "v1.0 적용기 검사 7/7 통과: 정상 적용·왕복, 입력·출력 보호, 변조 파일·손상 패치·경로 충돌 검사입니다. 게임 완주율이 아닙니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/verification/v1.0.json"
-        },
-        {
-          "id": "playtest",
-          "label": "실기·전체 플레이",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행했다는 보고가 있습니다. 최종 ROM의 새 게임·모든 분기·통신 검증은 남아 있습니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/blob/v1.0/verification/v1.0.json"
-        }
-      ]
     }
   },
   {
@@ -1446,44 +1408,6 @@
             "size": 33554432,
             "sha256": "b01911f260e53cadbf08c9ef1b54c7f20f9a04e6ffba8fc8de21258da93b7869"
           }
-        }
-      ]
-    },
-    "progress": {
-      "updatedAt": "2026-09-29",
-      "summary": "v1.2 정식판을 공개하고 번역 보완과 실행 확인을 이어갑니다. 전체 완료율이 공개되지 않아 단계별 확인 범위를 표시합니다.",
-      "stages": [
-        {
-          "id": "translation",
-          "label": "번역·원문 대조",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "기존 한국어화 1.1을 계승해 대사·고유명사·장소·도감 표기를 보완했습니다. 전체 번역 완료율은 공개되지 않았습니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/README.md"
-        },
-        {
-          "id": "review",
-          "label": "대사·표기 교정",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "추출 대사 5,208개 위치 중 누적 1,385개 위치를 수정했습니다. 이는 수정 기록이며 번역률·검수 완료율이 아닙니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/blob/v1.2/docs/RELEASE_NOTES_V1_2.md"
-        },
-        {
-          "id": "patch-checks",
-          "label": "에뮬레이터 실행 확인",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "mGBA·VBA-Next에서 신규 첫 저장, 재실행 후 저장 로드와 첫 전투를 확인했습니다. 모든 수정 장면의 검증은 아닙니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2"
-        },
-        {
-          "id": "playtest",
-          "label": "실기·전체 플레이",
-          "percent": null,
-          "status": "in-progress",
-          "detail": "OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행한 사용자 보고가 있습니다. 새 게임·모든 분기·다른 기기의 검증은 남아 있습니다.",
-          "sourceUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2"
         }
       ]
     }
