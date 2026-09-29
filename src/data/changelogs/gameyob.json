@@ -3,6 +3,21 @@
   "displayName": "GameYob Custom",
   "entries": [
     {
+      "id": "gameyob-v0-5-11",
+      "version": "v0.5.11",
+      "date": "2026-09-29",
+      "title": "GameYob v0.5.11 — SGB 보더·프린터 처리 보강",
+      "summary": "ROM 반복 실행 안정화와 SGB 보더 탐색 분리, Printer 검증·BMP 출력 보강을 통합한 정식 DS/DSi판입니다.",
+      "changes": [
+        "v0.5.10·PR #6 작업을 유지하고 PR #7의 보더·프린터·선택형 화면 진단을 통합했습니다. 일반판의 실험적 렌더러와 계측은 비활성입니다.",
+        "런처 배너와 Version Info를 갱신하고 상태 파일 형식 8을 유지합니다. 기존 세이브·상태·설정·인쇄 BMP를 먼저 백업하세요.",
+        "3DS DS 모드+DSpico의 전반적 안정성 사용자 보고가 있으나 Castlevania Legends L 배속 중 흰 가로줄은 미해결 이슈 #8입니다.",
+        "기존 3in1 코드 조각의 명시적 허락 문서 미확인 상태를 릴리스에 공개했습니다. 합성 검사와 CI가 모든 게임·SD·프린터 동작을 보증하지는 않습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.11",
+      "status": "release"
+    },
+    {
       "id": "gameyob-v0-5-10",
       "version": "v0.5.10",
       "date": "2026-09-05",

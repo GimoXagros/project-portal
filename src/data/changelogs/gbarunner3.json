@@ -3,6 +3,21 @@
   "displayName": "GBARunner3 Custom",
   "entries": [
     {
+      "id": "gbarunner3-custom-v0-1-5",
+      "version": "custom-v0.1.5",
+      "date": "2026-09-29",
+      "title": "GBARunner3 Custom v0.1.5 — RTC 시각 처리와 전환 안내",
+      "summary": "RTC BCD 시각 처리와 기존 파일을 보존하는 명시적 RTC 전환, 커스텀 런처 배너를 포함한 정식판입니다.",
+      "changes": [
+        "PR #16의 RTC BCD·기존 RTC 호환·ARM946 시작 코드와 PR #23의 배너·패키지 검증을 통합했습니다.",
+        "3DS+DSpico 정상 실행·저장 및 에메랄드 재실행 후 시간 반영 사용자 보고가 있습니다. 배포본 실행 데이터는 해당 후보와 같지만 배너는 달라졌습니다.",
+        "기존 .sav·모든 .g3rtc*·설정을 백업하고 RTC-COMPATIBILITY.md를 확인하세요. 전환 도구는 기본 검사 모드이며 손실된 과거 시각을 복원하지 않습니다.",
+        "새 배너·다른 기기·물리 SD 제거·전원 차단과 RTC 전환 실패의 실기 검증은 남아 있습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.5",
+      "status": "release"
+    },
+    {
       "id": "gbarunner3-custom-v0-1-4",
       "version": "custom-v0.1.4",
       "date": "2026-09-26",
