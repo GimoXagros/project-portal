@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import ProjectLogo from './ProjectLogo'
+import ProjectProgress from './ProjectProgress'
 import { projectBrandStyle, statusLabels, typeLabels } from '../utils/projectMeta'
 
 export default function ProjectCard({ project, onOpen, featured = false }) {
@@ -14,6 +15,7 @@ export default function ProjectCard({ project, onOpen, featured = false }) {
       <div className="project-release-line"><span>{project.version || '버전 미정'}</span><span className={`status-badge status-${project.status}`}>{statusLabels[project.status] || project.status}</span></div>
       {project.prerelease && <div className="project-prerelease-line"><span>시험판 · {project.prerelease.version}</span></div>}
       <p className="project-summary">{project.subtitle || project.description}</p>
+      <ProjectProgress project={project} compact />
       <div className="chip-row" aria-label={`플랫폼: ${(project.platform || []).join(', ')}`} title={(project.platform || []).join(', ')}>{(project.platform || []).slice(0, 2).map((platform) => <span className="chip" key={platform}>{platform}</span>)}{project.platform?.length > 2 && <span className="chip">+{project.platform.length - 2}</span>}</div>
       <div className="card-footer">
         <button type="button" onClick={() => onOpen(project.id)} aria-label={`${project.title} 상세보기`}>상세보기 <ArrowUpRight size={17} /></button>

@@ -8,7 +8,9 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치, A
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom 정식 `custom-v0.1.3`·시험판 `custom-v0.1.3-rc3`, NitroSwan Custom 정식 `v0.7.7-custom.r8`·시험판 `v0.7.7-custom.r9`, 테일즈 오브 더 월드 나리키리 던전2 `v1.0`, 테일즈 오브 더 월드 나리키리 던전3 `v1.2`, AI Work Skills `v2026.09.19.2` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 계속 정식판입니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.10`, GBARunner3 Custom 정식 `custom-v0.1.4`, NitroSwan Custom 정식 `v0.7.7-custom.r10`, 테일즈 오브 더 월드 나리키리 던전2 `v1.0`, 테일즈 오브 더 월드 나리키리 던전3 `v1.2`, AI Work Skills `v2026.09.19.2` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 최신 정식판이며 이전 시험판도 버전 선택기에서 확인할 수 있습니다.
+
+2026-09-29에 여섯 저장소의 최신 공개 릴리스를 확인하고 GBARunner3·NitroSwan을 갱신했습니다. 한글패치 카드와 상세 화면은 번역·교정·검증 단계별 진행 현황을 표시합니다. `progress.updatedAt`은 자료 확인일이고 `lastUpdated`는 릴리스 기준일입니다. 각 단계의 `percent`는 공개된 수치나 명확한 완료/전체 수가 있을 때만 입력하며, 미공개 수치는 `null`로 둡니다. 단계마다 상태, 확인 범위와 출처 링크를 기록하고 관련 없는 단계를 평균내지 않습니다.
 
 2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
 
