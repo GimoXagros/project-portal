@@ -3,7 +3,7 @@
     "id": "gameyob",
     "demo": false,
     "title": "GameYob Custom",
-    "titleOriginal": "GameYob Custom v0.5.10",
+    "titleOriginal": "GameYob Custom v0.5.11",
     "subtitle": "Nintendo DS·DSi용 Game Boy 계열 에뮬레이터 커스텀 빌드",
     "description": "Game Boy, Game Boy Color와 Super Game Boy 계열을 Nintendo DS·DSi에서 실행하는 에뮬레이터입니다.",
     "type": "emulator",
@@ -13,12 +13,12 @@
       "Nintendo 3DS(DSpico)"
     ],
     "status": "work-in-progress",
-    "version": "v0.5.10",
+    "version": "v0.5.11",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-05",
-    "lastUpdated": "2026-09-05",
+    "releaseDate": "2026-09-29",
+    "lastUpdated": "2026-09-29",
     "repository": "https://github.com/GimoXagros/GameYob",
-    "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.10",
+    "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.11",
     "issuesUrl": "https://github.com/GimoXagros/GameYob/issues",
     "upstream": {
       "name": "Stewmath/GameYob",
@@ -40,29 +40,34 @@
     "screenshots": [],
     "features": [
       "Game Boy·Game Boy Color·Super Game Boy 계열 실행",
-      "세이브 상태 구조 사전 검사",
-      "DS NiFi 조각 전송 방어"
+      "ROM 반복 실행 안정화와 SGB 보더 탐색 분리",
+      "Game Boy Printer 입력 검사와 번호형 BMP 저장"
     ],
     "scope": [
-      "상태 형식 8을 유지하면서 버전 1~8의 prefix·tail 크기와 mapper·SGB tail을 전체 사전 검사",
-      "실험적 Super Game Boy 65C816 명령 디스패치를 256/256으로 확대",
-      "비정상 크기·누락·순서 변경·중복·sequence wrap·잘못된 ACK에 대한 DS NiFi 조각 전송 방어 보강"
+      "v0.5.10의 상태 선검사·NiFi 방어와 PR #6의 ROM 반복 실행 안정화 유지",
+      "임시 SGB 보더 탐색을 일반 게임 상태에서 분리하고 L 배속 입력 처리 보존",
+      "Printer 패킷·시리얼·RLE 검증과 임시 파일을 통한 번호형 BMP 출력 보강",
+      "런처 배너·Version Info 갱신, 상태 파일 형식 8 유지; 일반판에서 실험적 렌더러·Video/HBlank 계측 비활성"
     ],
     "requirements": [
       "Nintendo DS 또는 Nintendo DSi 계열 실행 환경",
       "사용자가 합법적으로 확보한 게임 ROM"
     ],
     "compatibility": [
-      "배포 ZIP에 gameyob.nds와 gameyob_dsi.nds 포함",
-      "Nintendo 3DS에서는 NDS 파일을 DS 모드로 실행 가능"
+      "배포 ZIP에 gameyob.nds·gameyob_dsi.nds와 영어·일본어·한국어 안내 포함",
+      "Nintendo 3DS DS 모드+DSpico에서 전반적인 안정성·성능에 만족한다는 사용자 보고가 있으나 모든 게임·기기 검증은 아닙니다.",
+      "고정 BlocksDS 1.22.2 DS/DSi 빌드와 합성 회귀·패키지 검사는 실제 게임·SD 경로 전체를 보증하지 않습니다."
     ],
     "installGuide": [
-      "gameyob.zip을 다운로드하고 SHA-256을 확인합니다.",
+      "세이브·상태·설정·프린터 BMP를 먼저 백업하고 gameyob-v0.5.11.zip의 SHA-256을 확인합니다.",
       "압축을 풀어 기기에 맞는 gameyob.nds 또는 gameyob_dsi.nds를 선택합니다.",
       "사용 중인 런처 또는 플래시카드가 안내하는 위치에 NDS 파일을 복사합니다.",
       "합법적으로 확보한 게임 ROM을 사용해 실행하고 릴리스 주의사항을 확인합니다."
     ],
     "notes": [
+      "Castlevania Legends에서 L 배속 중 간헐적인 얇은 흰 가로줄은 미해결 이슈 #8입니다. 화면 문제 전체가 수정됐다고 보증하지 않습니다.",
+      "프린터 BMP는 ROM 옆에 임시 .tmp 파일을 거쳐 번호형으로 저장됩니다. SD 여유 공간을 확보하고 기존 출력물을 보존하세요. 실제 종이·다중 인쇄·여백·노출 표현은 보증하지 않습니다.",
+      "기존 3in1.cpp/3in1.h 조각의 명시적 허락 문서는 확인되지 않았습니다. 원 출처 표기는 유지하며 후대 저장소의 GPL 표기가 과거 조각의 권한을 소급 해결하지는 않는다는 공개 릴리스 고지를 확인하세요.",
       "상태 로딩은 구조를 먼저 검사하지만 완전한 트랜잭션 방식은 아니므로 특히 구버전 상태 파일은 백업 권장",
       "NiFi 소프트웨어 회귀 검사는 실물 DS·DSi·3DS DS-mode 무선 검증을 대신하지 않음",
       "65C816 256/256은 명령 디스패치 범위이며 완전하거나 cycle-accurate한 SNES CPU 구현을 뜻하지 않음",
@@ -84,7 +89,7 @@
       }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
-    "fileSize": "814552 bytes",
+    "fileSize": "845733 bytes",
     "tags": [
       "Game Boy",
       "Game Boy Color",
@@ -96,13 +101,31 @@
     "downloads": [
       {
         "label": "GameYob Custom 통합 패키지",
-        "filename": "gameyob.zip",
-        "size": "814552 bytes",
-        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.10/gameyob.zip",
-        "sha256": "18c8eff2f7c7b5d38f302e996c68dad5a63935f70782dd13d45343847e4d846c"
+        "filename": "gameyob-v0.5.11.zip",
+        "size": "845733 bytes",
+        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.11/gameyob-v0.5.11.zip",
+        "sha256": "a51e5abba03d117251b0846a78b450f752dbfd8d96833b2ee405d4aab882f69a"
       }
     ],
     "downloadVersions": [
+      {
+        "version": "v0.5.11",
+        "releaseDate": "2026-09-29",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.11",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GameYob v0.5.11",
+        "summary": "ROM 반복 실행 안정화, SGB 보더 탐색 분리와 Printer 검증·BMP 출력 보강. L 배속 중 흰 가로줄 문제는 남아 있습니다.",
+        "downloads": [
+          {
+            "label": "GameYob Custom 통합 패키지",
+            "filename": "gameyob-v0.5.11.zip",
+            "size": "845733 bytes",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.11/gameyob-v0.5.11.zip",
+            "sha256": "a51e5abba03d117251b0846a78b450f752dbfd8d96833b2ee405d4aab882f69a"
+          }
+        ]
+      },
       {
         "version": "v0.5.10",
         "releaseDate": "2026-09-05",
@@ -235,7 +258,7 @@
     "id": "gbarunner3",
     "demo": false,
     "title": "GBARunner3 Custom",
-    "titleOriginal": "GBARunner3 Custom v0.1.4 (Stable)",
+    "titleOriginal": "GBARunner3 Custom v0.1.5 (Stable)",
     "subtitle": "Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 커스텀 호환 계층",
     "description": "직접 실행, 패치와 에뮬레이션 요소를 결합해 Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 호환 계층입니다.",
     "type": "utility",
@@ -245,12 +268,12 @@
       "Nintendo 3DS(DSpico)"
     ],
     "status": "released",
-    "version": "custom-v0.1.4",
+    "version": "custom-v0.1.5",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-26",
-    "lastUpdated": "2026-09-26",
+    "releaseDate": "2026-09-29",
+    "lastUpdated": "2026-09-29",
     "repository": "https://github.com/GimoXagros/GBARunner3",
-    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.4",
+    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.5",
     "issuesUrl": "https://github.com/GimoXagros/GBARunner3/issues",
     "upstream": {
       "name": "Gericom/GBARunner3",
@@ -272,13 +295,13 @@
     "screenshots": [],
     "features": [
       "Nintendo DS 계열에서 GBA 소프트웨어 실행",
-      "저장장치 오류 전달과 저장 실패 시 안전 중단",
+      "RTC BCD 시각 처리 보완과 기존 RTC 파일의 명시적 전환",
       "정상 실행 파일과 게임별 설정 304개 제공"
     ],
     "scope": [
-      "RC3의 저장장치 오류 전달과 logical 4 KiB 경계 저장 signature 검색을 정식판에 통합",
-      "저장 초기화·읽기·쓰기·동기화 결과와 실제 처리 길이를 확인",
-      "저장 실패 시 SAVE ERROR 화면으로 중단하고 소리·추가 저장·RTC 쓰기 차단"
+      "RTC BCD 십의 자리 비트 처리, 기존 RTC 파일 보존형 호환 전환과 ARM946 시작 코드 보완",
+      "커스텀 런처 배너·투명 아이콘 검증 및 RTC 업그레이드 안내와 전환 도구 제공",
+      ".sav 형식은 유지하며 RTC는 별도 파일에 저장; 저장·RTC 오류 시 안전 중단과 자동 재시도 금지 유지"
     ],
     "requirements": [
       "호환되는 Nintendo DS 계열 런처",
@@ -286,22 +309,24 @@
       "사용자가 합법적으로 확보한 GBA ROM"
     ],
     "compatibility": [
-      "RC3가 실기에서 정상 작동했다는 사용자 보고가 있으나 구체적인 기기·게임 목록은 제공되지 않았습니다.",
-      "공개 ZIP의 308개 파일 구성, 내부 해시와 게임별 설정 304개를 검증한 기록이 있습니다.",
-      "새 저장 오류 화면은 자동 검사로 확인했으며 실기 검증은 아직 남아 있습니다."
+      "3DS+DSpico에서 정상 실행·저장과 포켓몬스터 에메랄드의 시간 설정→저장→종료→대기→재실행 후 경과 시간 반영을 확인했다는 사용자 보고가 있습니다.",
+      "실기 보고 대상은 RTC 후보이며 배포본 ARM7/ARM9 실행 데이터는 동일합니다. 배너와 관련 체크섬은 달라졌고 정확한 대기 시간·ROM 해시는 제공되지 않았습니다.",
+      "공개 ZIP 310개 파일, 게임 설정 304개와 해시 검증 및 고정 도구 체인의 6회 재현 빌드가 기록되어 있습니다. 자동 검사 수는 실기 게임 수가 아닙니다."
     ],
     "installGuide": [
-      "GBARunner3.zip을 다운로드하고 ZIP SHA-256을 확인합니다.",
+      "기존 .sav·모든 .g3rtc*·개인 설정을 백업하고 GBARunner3.zip의 SHA-256을 확인합니다.",
       "ZIP의 GBARunner3.nds를 사용 중인 런처가 요구하는 위치에 복사합니다.",
-      "ZIP의 _gba/configs를 SD 카드의 /_gba/configs에 병합합니다.",
+      "ZIP의 _gba/configs를 기존 개인 설정과 비교한 뒤 SD 카드의 /_gba/configs에 적용합니다.",
+      "기존 RTC 전환이 필요하면 RTC-COMPATIBILITY.md를 읽고 tools/rtc_migrate.py로 명시적으로 진행합니다. 기본 동작은 검사이며 기존 파일을 삭제해 안내를 우회하지 마세요.",
       "합법적으로 확보한 GBA BIOS를 SD 카드의 /_gba/bios.bin에 배치합니다.",
       "릴리스 문서와 런처 안내에 따라 합법적으로 확보한 게임을 실행합니다."
     ],
     "notes": [
       "중요한 저장과 개인 설정을 먼저 백업하고 복사본으로 저장→정상 종료→재시작→로드를 확인하세요.",
       "SAVE ERROR 화면에서는 SD 카드를 그대로 두고 전원 버튼을 길게 눌러 종료하세요. 자동 복구나 손실 데이터 복원은 제공하지 않습니다.",
-      "물리 SD 장애·전원 차단 내구성, 새 오류 화면의 수동 종료 경로는 실기 미검증입니다.",
-      "RTC 이전 PR #16과 과거 실험 #5/#6은 포함하지 않습니다. 성능 향상이나 모든 게임의 호환성을 보증하지 않습니다.",
+      "새 배너·다른 기기·물리 SD 제거·전원 차단과 구형 RTC 전환 실패 시나리오는 실기 미검증입니다. 전체 게임 호환성이나 성능 향상을 보증하지 않습니다.",
+      "새 RTC 상태와 유효한 .g3rtc2는 전환이 필요 없습니다. 구형 스냅샷의 명시적 채택은 잃어버린 원래 시각이나 알 수 없는 과거 경과 시간을 복원하지 못합니다.",
+      "v0.1.4로 되돌릴 때는 당시 실행 파일과 백업을 함께 사용하세요. v0.1.4는 새 RTC 상태를 읽지 않으며 구형 RTC 파일 변경은 재업그레이드 시 충돌로 감지됩니다.",
       "기본 enableCenterAndMask=true를 유지하고 업데이트할 때 개인 설정을 무조건 덮어쓰지 마세요.",
       "게임 ROM·BIOS·세이브는 배포하지 않습니다. LICENSE.md 및 개별 구성요소 조건을 확인하세요."
     ],
@@ -318,11 +343,11 @@
       }
     ],
     "license": "LICENSE.md 및 개별 구성요소 조건 확인",
-    "fileSize": "160456 bytes",
+    "fileSize": "165568 bytes",
     "hashes": [
       {
         "label": "ZIP 내부 GBARunner3.nds SHA-256",
-        "value": "9ddceb528334e6cadb9342245dd6f52a4ae16eafe54a36938dfb71cb5252f758"
+        "value": "96b9db9efdc70aa43bb582078bf4dfc944826156e13365c8466119c6a507b7a4"
       }
     ],
     "tags": [
@@ -335,14 +360,32 @@
     "downloadEnabled": true,
     "downloads": [
       {
-        "label": "GBARunner3 v0.1.4 정식 패키지",
+        "label": "GBARunner3 v0.1.5 정식 패키지",
         "filename": "GBARunner3.zip",
-        "size": "160456 bytes",
-        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.4/GBARunner3.zip",
-        "sha256": "ad01b0d864b411f51dfea38ec01821530e1c968eddcd082c48a58b665ad3258b"
+        "size": "165568 bytes",
+        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.5/GBARunner3.zip",
+        "sha256": "bdc5cecdd166d2ebe0ada3f5e7479da7081c01f534a7f8607a82d428694df1c0"
       }
     ],
     "downloadVersions": [
+      {
+        "version": "custom-v0.1.5",
+        "releaseDate": "2026-09-29",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.5",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "GBARunner3 Custom v0.1.5 (Stable)",
+        "summary": "RTC BCD 시각 처리와 파일 보존형 기존 RTC 전환을 포함한 정식판입니다. 업그레이드 전 모든 저장·RTC 파일을 백업하세요.",
+        "downloads": [
+          {
+            "label": "GBARunner3 v0.1.5 정식 패키지",
+            "filename": "GBARunner3.zip",
+            "size": "165568 bytes",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.5/GBARunner3.zip",
+            "sha256": "bdc5cecdd166d2ebe0ada3f5e7479da7081c01f534a7f8607a82d428694df1c0"
+          }
+        ]
+      },
       {
         "version": "custom-v0.1.4",
         "releaseDate": "2026-09-26",
@@ -386,7 +429,7 @@
         "releasePolicy": "pinned-prerelease",
         "pinReason": "정식판 이전의 공개 실기 검증 후보 보존",
         "title": "GBARunner3 Custom v0.1.3-rc3 (Storage Validation Candidate)",
-        "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다. 현재 권장판은 custom-v0.1.4이며 새 저장 오류 처리도 포함합니다.",
+      "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다. 현재 정식판은 custom-v0.1.5입니다.",
         "downloads": [
           {
             "label": "GBARunner3.zip",
