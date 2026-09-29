@@ -23,25 +23,29 @@ const project = {
   },
 }
 
-test('progress shows only measured percentages with accessible stage labels, evidence and date', async () => {
+test('progress shows compact stage labels and measured percentages without explanatory content', async () => {
   const html = await render('ProjectProgress', { project })
   assert.equal((html.match(/role="progressbar"/g) || []).length, 2)
   assert.match(html, /aria-label="테스트 한글패치 · 텍스트 번역"/)
   assert.match(html, /aria-valuenow="100"/)
   assert.match(html, /aria-valuenow="0"/)
-  assert.match(html, /진행률 미공개/)
-  assert.match(html, /진행 중/)
-  assert.match(html, /dateTime="2026-09-29"/)
-  assert.match(html, /텍스트 번역 진행 현황 근거 보기/)
-  assert.ok(html.includes(project.progress.stages[0].sourceUrl))
+  assert.match(html, /aria-label="진행률 미공개" title="진행률 미공개">—<\/span>/)
+  assert.match(html, /progress-track-unknown" aria-hidden="true"/)
+  assert.doesNotMatch(html, /진행 중|dateTime=|근거 보기|확인 기준|progress-stage-status|progress-footnote/)
+  assert.ok(!html.includes(project.progress.stages[0].sourceUrl))
+  assert.ok(!html.includes(project.progress.summary))
+  for (const stage of project.progress.stages) {
+    assert.ok(html.includes(stage.label))
+    if (stage.detail) assert.ok(!html.includes(stage.detail))
+  }
   assert.doesNotMatch(html, /33\.3|전체 진행률/)
 })
 
 test('compact progress preserves stage context without long descriptions or evidence links', async () => {
   const html = await render('ProjectCard', { project })
   for (const stage of project.progress.stages) assert.ok(html.includes(stage.label))
-  assert.match(html, /진행률 미공개/)
-  assert.doesNotMatch(html, /공개 번역 범위입니다|근거 보기|번역과 검수를 구분합니다/)
+  assert.match(html, /title="진행률 미공개">—<\/span>/)
+  assert.doesNotMatch(html, /공개 번역 범위입니다|근거 보기|번역과 검수를 구분합니다|progress-stage-status|progress-footnote/)
 })
 
 test('progress hides for unrelated projects and treats absent or invalid percentages as unknown', async () => {
@@ -51,8 +55,9 @@ test('progress hides for unrelated projects and treats absent or invalid percent
   for (const percent of [null, undefined, -1, 101, '50', NaN, Infinity]) {
     const html = await render('ProjectProgress', { project: { ...project, progress: { stages: [{ id: 'test', label: '검수', status: 'unverified', percent }] } } })
     assert.doesNotMatch(html, /role="progressbar"|aria-valuenow/)
-    assert.match(html, /진행률 미공개/)
-    assert.match(html, /확인 필요/)
+    assert.match(html, /aria-label="진행률 미공개" title="진행률 미공개">—<\/span>/)
+    assert.match(html, /progress-track-unknown" aria-hidden="true"/)
+    assert.doesNotMatch(html, /확인 필요|>0%<|>100%</)
   }
 })
 
