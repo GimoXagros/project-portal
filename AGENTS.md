@@ -6,5 +6,6 @@
 - Verify every selectable release against the repository's official public release metadata. Do not assume prereleases are stable or older builds include current fixes.
 - Use canonical repository slugs for project IDs, hash routes, changelogs, and assets. Retain explicit old-route aliases when renaming.
 - Credits must identify the actual original translation contributors, follow-up author, font license, and separate game-asset rights.
+- Korean patch progress must include a checked date and sourced stages. Only show percentages explicitly supported by a completed/total count or a published percentage; use null for unpublished progress. Counts of changed lines do not measure translation or review completion. Keep automated patch checks distinct from full-game playtesting and never average unrelated stages into an overall completion percentage.
 - Every project detail uses the shared ReportCenter. Check whether a new project's Issues are enabled. If disabled, set reportRepository to the portal repository: the form includes a project ID marker and its status feed filters by that marker. Do not embed tokens or treat opening GitHub's composer as successful submission.
 - Before publishing, run data validation, tests, remote release verification, lint, build, and rendered desktop/mobile interaction checks. Follow these rules for future projects as well as updates.

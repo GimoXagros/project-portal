@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { isISODate } from '../src/utils/dates.js'
 import { downloadItems, expectedAssetUrl, prereleaseRecord, releaseIdentity, releasePolicy } from './release-utils.mjs'
 import { githubRepository } from '../src/utils/reports.js'
+import { validateProgress } from './progress-validation.mjs'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 // The CLI and offline tests use the same complete static validation path.
@@ -22,6 +23,9 @@ export function validateData(projectsOverride) {
 
   const seen = new Set()
   for (const project of projects) {
+    if (project.type === 'korean-patch' || project.progress !== undefined) {
+      for (const message of validateProgress(project.progress)) fail('src/data/projects.json', project.id, message)
+    }
     const sentences = new Map()
     for (const field of ['features', 'scope', 'requirements', 'compatibility', 'notes', 'installGuide']) {
       for (const sentence of project[field] || []) {

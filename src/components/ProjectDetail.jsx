@@ -3,6 +3,7 @@ import DownloadSection from './DownloadSection'
 import BrowserPatcher from './BrowserPatcher'
 import HashInfo from './HashInfo'
 import ProjectLogo from './ProjectLogo'
+import ProjectProgress from './ProjectProgress'
 import ScreenshotGallery from './ScreenshotGallery'
 import UpdateTimeline from './UpdateTimeline'
 import ReportCenter from './ReportCenter'
@@ -28,7 +29,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
   const hasHashes = project.originalHash || project.patchHash || project.patchedHash || project.hashes?.length
   const hasConditions = ['requirements', 'compatibility', 'scope', 'notes'].some((field) => project[field]?.length)
   const sections = [
-    ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
+    ['overview', '개요'], ...(project.type === 'korean-patch' && project.progress?.stages?.length ? [['translation-progress', '진행 현황']] : []), ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
     ...(project.installGuide?.length ? [['installation', '설치']] : []),
     ...(hasConditions ? [['conditions', '검증·제한']] : []), ...(hasHashes ? [['integrity', '무결성']] : []),
     ['project-changelog', '업데이트'], ['reports', '제보'], ...(project.credits?.length || project.license ? [['credits', 'Credits·라이선스']] : []),
@@ -59,6 +60,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
       <div className="detail-main">
         <section className="detail-section intro-section" id="overview"><div className="detail-section-title"><h2>프로젝트 개요</h2></div><p className="lead-description">{project.description}</p><ListBlock title="핵심 기능" items={project.features} /></section>
         <ScreenshotGallery screenshots={project.screenshots} />
+        <ProjectProgress project={project} />
         <BrowserPatcher project={project} />
         <DownloadSection project={project} />
         {project.installGuide?.length > 0 && <section className="detail-section" id="installation">{patcher ? <details><summary>웹 패처 사용·기기 배치 안내</summary>{installation}</details> : <><div className="detail-section-title"><h2>설치·사용 안내</h2></div>{installation}</>}</section>}

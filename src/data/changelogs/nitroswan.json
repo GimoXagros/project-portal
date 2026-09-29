@@ -3,6 +3,22 @@
   "displayName": "NitroSwan Custom",
   "entries": [
     {
+      "id": "nitroswan-v0-7-7-custom-r10",
+      "version": "v0.7.7-custom.r10",
+      "date": "2026-09-27",
+      "title": "NitroSwan Custom r10 — 캐릭터·팔레트·ROM 전환 수정",
+      "summary": "캐릭터 프레임과 타일의 일치, 2bpp 팔레트와 ROM 교체 동작을 보완했습니다.",
+      "changes": [
+        "표시 중인 프레임의 OAM·타일을 함께 준비하고 ROM 교체 전 HBlank DMA를 정지합니다.",
+        "Sphinx 2bpp OBJ 주소 오류를 수정하고 흑백·컬러 팔레트와 프레임별 배경 raster를 보존합니다.",
+        "DS·DSi linked-ARM 각 60건, Python 80건과 host C·빌드·NDS 구조 검증을 기록했습니다.",
+        "사용자 실기 확인은 직전 동일 런타임 테스트판의 특정 장면에 해당하며 최종 r10 파일명의 별도 실기 재검사는 하지 않았습니다.",
+        "디버그 Step Frame 호출 정렬 한계는 남아 있어 보완 전 사용을 피하도록 안내합니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r10",
+      "status": "release"
+    },
+    {
       "id": "nitroswan-v0-7-7-custom-r9",
       "version": "v0.7.7-custom.r9",
       "date": "2026-09-19",

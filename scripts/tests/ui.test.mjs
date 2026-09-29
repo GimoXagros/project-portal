@@ -6,7 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from 'vite'
 
 // Vite compiles the real JSX. No duplicate hand-written component fixtures.
-const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' })
+const server = await createServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: 'custom' })
 after(() => server.close())
 const render = async (name, props) => {
   const { default: Component } = await server.ssrLoadModule(`/src/components/${name}.jsx`)
@@ -48,7 +48,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-23/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-09-27/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.ok(html.includes('등록 프로젝트 · ' + projects.length + ' PROJECTS'))
   assert.equal(projects.length, 6)
@@ -58,8 +58,8 @@ test('all projects expose their full public release history from the first recor
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const expected = {
     gameyob: ['v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
-    gbarunner3: ['custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
-    nitroswan: ['v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
+    gbarunner3: ['custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    nitroswan: ['v0.7.7-custom.r10', 'v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
     'gba-narikiri3-kor': ['v1.2', 'v1.1a'],
     'gba-narikiri2-kor': ['v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
@@ -70,10 +70,10 @@ test('all projects expose their full public release history from the first recor
   const project = projects.find((item) => item.id === 'nitroswan')
   const changelog = JSON.parse(readFileSync(new URL('../../src/data/changelogs/nitroswan.json', import.meta.url), 'utf8'))
   const html = await render('ProjectDetail', { project, changelog })
-  assert.match(html, /캐릭터 모션 깨짐의 완전한 해결을 의미하지 않습니다/)
-  assert.match(html, /아직 수행되지 않았습니다/)
+  assert.match(html, /최종 파일명의 별도 실기 재검사는 하지 않았습니다/)
+  assert.match(html, /모든 게임·BIOS·표시 모드의 완전한 호환성이나 속도 향상을 보증하지 않습니다/)
   for (const download of project.downloads) {
-    assert.match(download.url, /custom\.r8\//)
+    assert.match(download.url, /custom\.r10\//)
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
   }
@@ -222,11 +222,12 @@ test('compact timeline limits entries without reordering same-date versions', as
 test('published development notes link from project timelines and updates index', async () => {
   for (const project of projects) {
     const changelog = changelogFor(project.id)
-    const url = changelog.entries[0].devNoteUrl
+    const url = changelog.entries.find(entry => entry.devNoteUrl)?.devNoteUrl
     assert.match(url, /^https:\/\/gimoxagros\.tistory\.com\/\d+$/)
     const compact = await render('UpdateTimeline', { changelog, compact: true, limit: 1 })
     const full = await render('UpdateTimeline', { changelog })
-    assert.ok(compact.includes(url))
+    if (changelog.entries[0].devNoteUrl) assert.ok(compact.includes(changelog.entries[0].devNoteUrl))
+    else assert.ok(!compact.includes(url), 'old articles must not be attributed to a new release')
     assert.ok(full.includes(url))
   }
   const index = await render('UpdatesPage', { projects })
