@@ -27,7 +27,10 @@ test('repository links use supported decorative icons and retain GitHub labels',
     assert.match(source, /import GithubIcon from '\.\/icons\/GithubIcon'/)
   }
   const html = await render('Hero', { site: { description: 'test', githubUrl: 'https://github.com/GimoXagros' }, projects: [] })
-  assert.match(html, /stroke-width="2"/)
+  assert.match(html, /fill="currentColor"/)
+  assert.match(html, /stroke="none"/)
+  const originalSVG = readFileSync(new URL('../../public/assets/icons/simple-icons/github.svg', import.meta.url), 'utf8')
+  assert.ok(html.includes(originalSVG.match(/<path d="([^"]+)"/)[1]))
   assert.match(html, /focusable="false"/)
   assert.match(html, /href="https:\/\/github.com\/GimoXagros"/)
   assert.match(html, /GitHub<\/a>/)
