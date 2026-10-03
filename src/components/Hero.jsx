@@ -1,4 +1,5 @@
-import { ArrowDownRight, BookOpen } from 'lucide-react'
+import GithubIcon from './icons/GithubIcon'
+import { ArrowDownRight } from 'lucide-react'
 import { latestDate } from '../utils/dates'
 import { assetUrl } from '../utils/projectMeta'
 
@@ -15,7 +16,7 @@ export default function Hero({ site, projects, onNavigate }) {
       <p className="hero-copy">{site.description}</p>
       <div className="hero-actions">
         <button className="button primary" type="button" onClick={() => onNavigate('#projects')}>프로젝트 보기 <ArrowDownRight size={18} /></button>
-        {site.githubUrl ? <a className="button ghost" href={site.githubUrl} target="_blank" rel="noreferrer"><BookOpen size={18} aria-hidden="true" /> GitHub</a> : <span className="mode-label">GitHub 주소 연결 전</span>}
+        {site.githubUrl ? <a className="button ghost" href={site.githubUrl} target="_blank" rel="noreferrer"><GithubIcon size={18} aria-hidden="true" /> GitHub</a> : <span className="mode-label">GitHub 주소 연결 전</span>}
       </div>
     </div>
     <div className="hero-side" aria-hidden="true">

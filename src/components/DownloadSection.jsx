@@ -1,4 +1,5 @@
-import { Check, Copy, Download, ExternalLink, FileArchive, BookOpen, PackageOpen } from 'lucide-react'
+import GithubIcon from './icons/GithubIcon'
+import { Check, Copy, Download, ExternalLink, FileArchive, PackageOpen } from 'lucide-react'
 import { useState } from 'react'
 import { hasReleaseDownload, isPrereleaseChannel } from '../utils/projectMeta'
 
@@ -38,7 +39,7 @@ export default function DownloadSection({ project }) {
       <div><span className="download-state">SOURCE · {project.releaseDate}</span><h3>{project.version}</h3><p>별도 실행 파일 없이 Git으로 저장소를 복제한 뒤 아래 설치 안내를 따라 실행하세요.</p></div>
       <a className="button ghost" href={project.releaseUrl} target="_blank" rel="noreferrer"><PackageOpen size={17} /> 릴리스 노트</a>
     </div>
-    <div className="external-actions"><a href={`${project.repository}#readme`} target="_blank" rel="noreferrer"><BookOpen size={17} aria-hidden="true" /> 원본 설치 문서 <ExternalLink size={14} /></a></div>
+    <div className="external-actions"><a href={`${project.repository}#readme`} target="_blank" rel="noreferrer"><GithubIcon size={17} aria-hidden="true" /> 원본 설치 문서 <ExternalLink size={14} /></a></div>
   </section>
   return <section className="detail-section download-section" id="download" aria-labelledby="download-title">
     <div className="detail-section-title"><h2 id="download-title">다운로드</h2></div>
@@ -60,7 +61,7 @@ export default function DownloadSection({ project }) {
     {release.notes?.length > 0 && <ul className="prerelease-notes">{release.notes.map((note) => <li key={note}>{note}</li>)}</ul>}
     <ReleaseDownloadList release={release} copied={copied} onCopy={copy} />
     <div className="external-actions">
-      {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><BookOpen size={17} aria-hidden="true" /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
+      {project.upstream?.url && <a href={project.upstream.url} target="_blank" rel="noreferrer"><GithubIcon size={17} aria-hidden="true" /> Upstream: {project.upstream.name} <ExternalLink size={14} /></a>}
       {project.issuesUrl && <a href={project.issuesUrl} target="_blank" rel="noreferrer">Issues <ExternalLink size={14} /></a>}
     </div>
   </section>

@@ -1,4 +1,5 @@
-import { ArrowLeft, ArrowUpRight, CalendarDays, BookOpen } from 'lucide-react'
+import GithubIcon from './icons/GithubIcon'
+import { ArrowLeft, ArrowUpRight, CalendarDays } from 'lucide-react'
 import DownloadSection from './DownloadSection'
 import BrowserPatcher from './BrowserPatcher'
 import HashInfo from './HashInfo'
@@ -44,7 +45,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
           <h1>{project.title}</h1>
           {project.titleOriginal && <p className="detail-original">{project.titleOriginal}</p>}
           <p className="detail-subtitle">{project.subtitle}</p>
-          {project.repository && <div className="detail-actions"><a className="button ghost" href={project.repository} target="_blank" rel="noreferrer"><BookOpen size={17} aria-hidden="true" /> GitHub 저장소</a></div>}
+          {project.repository && <div className="detail-actions"><a className="button ghost" href={project.repository} target="_blank" rel="noreferrer"><GithubIcon size={17} aria-hidden="true" /> GitHub 저장소</a></div>}
         </div>
       </div>
       <dl className="detail-facts">
