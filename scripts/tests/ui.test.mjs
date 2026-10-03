@@ -16,6 +16,22 @@ test('empty catalog renders safely', async () => {
   assert.match(await render('ProjectGrid', { projects: [] }), /아직 공개된 프로젝트가 없습니다/)
   assert.equal(await render('Timeline', { projects: [], updates: [] }), '')
 })
+
+test('repository links use supported decorative icons and retain GitHub labels', async () => {
+  for (const name of ['Header', 'Hero', 'ProjectDetail', 'Footer', 'DownloadSection']) {
+    const component = await server.ssrLoadModule(`/src/components/${name}.jsx`)
+    assert.equal(typeof component.default, 'function')
+    const source = readFileSync(new URL(`../../src/components/${name}.jsx`, import.meta.url), 'utf8')
+    assert.doesNotMatch(source, /\bGithub\b/)
+    assert.match(source, /<BookOpen[^>]*aria-hidden="true"/)
+  }
+  const html = await render('Hero', { site: { description: 'test', githubUrl: 'https://github.com/GimoXagros' }, projects: [] })
+  assert.match(html, /lucide-book-open/)
+  assert.match(html, /href="https:\/\/github.com\/GimoXagros"/)
+  assert.match(html, /GitHub<\/a>/)
+  const footer = await render('Footer', { site: { githubUrl: 'https://github.com/GimoXagros' }, onNavigate() {} })
+  assert.match(footer, /aria-label="GitHub 방문"/)
+})
 test('Hero date does not depend on project order or timezone', async () => {
   const site = { description: 'test' }
   const projects = [{ lastUpdated: '2026-08-29' }, { lastUpdated: '2026-09-01' }, { lastUpdated: 'invalid' }]
