@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Github, Menu, Moon, Sun, X } from 'lucide-react'
+import { BookOpen, Menu, Moon, Sun, X } from 'lucide-react'
 import { assetUrl } from '../utils/projectMeta'
 
 const navigation = [['홈', '#top'], ['프로젝트', '#projects'], ['업데이트', '#/updates'], ['제보', '#reports'], ['소개', '#about'], ['FAQ', '#faq']]
@@ -97,7 +97,7 @@ export default function Header({ site, routeType, pageKey, onNavigateHome }) {
     </button>
     <nav className="desktop-nav" aria-label="주요 메뉴">
       {navigation.map(([label, href]) => <button type="button" className={current(href) ? 'active' : ''} aria-current={current(href)} key={href} onClick={() => follow(href)}>{label}</button>)}
-      {site.githubUrl && <a href={site.githubUrl} target="_blank" rel="noreferrer"><Github size={16} aria-hidden="true" /> GitHub</a>}
+      {site.githubUrl && <a href={site.githubUrl} target="_blank" rel="noreferrer"><BookOpen size={16} aria-hidden="true" /> GitHub</a>}
     </nav>
     <div className="header-actions">
       <button className="icon-button theme-button" type="button" onClick={toggleTheme} aria-label={theme === 'dark' ? '라이트 테마로 변경' : '다크 테마로 변경'}>
