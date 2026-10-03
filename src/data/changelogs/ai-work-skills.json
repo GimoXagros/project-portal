@@ -3,6 +3,22 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-20261002-1",
+      "version": "v2026.10.02.1",
+      "date": "2026-10-02",
+      "title": "무료 LLM API 설정 스킬 추가와 외부 원본 갱신",
+      "summary": "free-llm-apis를 추가해 활성 관리 스킬을 29개로 늘리고 create-kr-patch와 binary-re의 검토된 원본을 갱신했습니다.",
+      "changes": [
+        "free-llm-apis의 CC0 원본과 참조 문서를 저장소 관리 스킬에 추가",
+        "저장소 번들 26개와 고정 upstream 3개로 활성 스킬 29개 관리",
+        "create-kr-patch 고정 커밋과 최신 참조 자료 갱신",
+        "binary-re 상위 원본 검토 및 Codex 적응판 1.2.0 반영",
+        "공개 릴리스 검증 기록: 회귀 검사 49개 통과, 활성 29개·은퇴 2개·미해결 항목 없음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.02.1",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-20260919-2",
       "version": "v2026.09.19.2",
       "date": "2026-09-18",
