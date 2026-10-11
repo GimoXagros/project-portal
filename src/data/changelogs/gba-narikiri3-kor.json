@@ -18,7 +18,8 @@
         "v1.3은 전체 자연 완주·모든 분기·모든 기기 무오류를 보증하지 않습니다. 이전 버전의 실기 보고를 새 후보의 직접 검증으로 간주하지 않습니다."
       ],
       "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.3",
-      "status": "release"
+      "status": "release",
+      "devNoteUrl": "https://gimoxagros.tistory.com/32"
     },
     {
       "id": "narikiri3-v1-2",

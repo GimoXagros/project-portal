@@ -3,6 +3,25 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-10-11-1",
+      "version": "v2026.10.11.1",
+      "date": "2026-10-11",
+      "title": "외부 원본 검토와 Codex 어댑터 갱신",
+      "summary": "활성 30개 스킬의 외부 원본 8개를 재검토하고 고정 커밋과 어댑터를 갱신했습니다.",
+      "changes": [
+        "외부 원본 8개 재검토, create-kr-patch 3.4.0·akm-workflow 1.1.0·free-llm-apis 1.0.0-codex.1 반영",
+        "deep-interview·frontend-testing-debugging은 내용 변경 없이 원본 pin 갱신",
+        "free-llm-apis의 오래된 한도·모델 단정을 제거하고 공식 문서 확인 절차 반영",
+        "v2026.10.11.1 공개 기록: 30개 새 설치·로컬 파일 해시 대조, 자동 테스트 49개와 pip check 통과",
+        "메타데이터 검사 29개 통과. deep-interview의 원본 argument-hint 필드는 범용 검사기 경고 1건으로 남아 있습니다.",
+        "외부 API 호출·결제 설정·게임 실기기 검증은 이 배포 검사에 포함하지 않습니다. 이번 포털 갱신에서 전체 설치 검사를 재실행한 것은 아닙니다.",
+        "fonttools 4.66.1을 반영하되 Python 3.10에서는 4.65.0 고정을 유지합니다. 새 스킬이 보이지 않으면 작업을 다시 열거나 Codex를 재시작하세요."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.11.1",
+      "status": "release",
+      "devNoteUrl": "https://gimoxagros.tistory.com/32"
+    },
+    {
       "id": "ai-work-skills-v2026-10-07-1",
       "version": "v2026.10.07.1",
       "date": "2026-10-07",
@@ -22,7 +41,8 @@
         "개인 스킬 구성 저장소이며 OpenAI 공식 배포판이 아닙니다."
       ],
       "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.07.1",
-      "status": "release"
+      "status": "release",
+      "devNoteUrl": "https://gimoxagros.tistory.com/35"
     },
     {
       "id": "ai-work-skills-20261002-1",
