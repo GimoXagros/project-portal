@@ -429,7 +429,7 @@
         "releasePolicy": "pinned-prerelease",
         "pinReason": "정식판 이전의 공개 실기 검증 후보 보존",
         "title": "GBARunner3 Custom v0.1.3-rc3 (Storage Validation Candidate)",
-      "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다. 현재 정식판은 custom-v0.1.5입니다.",
+        "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다. 현재 정식판은 custom-v0.1.5입니다.",
         "downloads": [
           {
             "label": "GBARunner3.zip",
@@ -1047,20 +1047,20 @@
     "id": "gba-narikiri2-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.0",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.1",
     "subtitle": "일본판 AN9J 원본용 한국어화 정식 릴리스",
-    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 글꼴·대사·메뉴·전투 표시를 보완하는 GBA 한국어화 프로젝트입니다. v1.0은 일본어 원본에 직접 적용하며 FFR 패치를 별도로 적용할 필요가 없습니다.",
+    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 글꼴·대사·메뉴·전투 표시를 보완하는 GBA 한국어화 프로젝트입니다. v1.1은 일본어 원본에 직접 적용하며 결과를 8MiB로 통합했습니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
     "status": "released",
-    "version": "v1.0",
+    "version": "v1.1",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-23",
-    "lastUpdated": "2026-09-23",
+    "releaseDate": "2026-10-11",
+    "lastUpdated": "2026-10-11",
     "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
-    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.0",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/issues",
     "homepage": "",
     "coverImage": "",
@@ -1077,21 +1077,22 @@
     "screenshots": [],
     "features": [
       "일본어 AN9J 원본용 누적 BPS를 웹 패처에서 적용",
-      "한국어 타이틀·엔딩 크레딧·부팅 안내와 장소·힌트 표기 보완",
-      "아이템·몬스터 설명 검토 및 대사 교정"
+      "결과 ROM 8MiB 통합과 원본 주소 배치 보존",
+      "이름 저장·불러오기, 타일 검색·글자 합성 개선"
     ],
     "scope": [
-      "v0.9d의 일본어 원본 직접 적용 경로를 계승하고 공개 v0.9d와 다른 최종 결과 ROM을 제공",
-      "22개 장소 표기, 17개 힌트와 CP #44 머리글, 156개 아이템·142개 몬스터 설명 검토",
-      "본문 8,037개 고유 ID/8,945개 바인딩과 이름·UI 1,227개를 대조하고 본문 60개 ID/98개 바인딩 교정"
+      "원본 텍스트 포인터 10,172개·문자열 시작 9,246곳·공유 주소 7곳 보존",
+      "압축 문구를 실제 게임 경로에서 복원하고 공유 주소 문구를 호출 문맥으로 선택",
+      "채택된 대사·부팅 안내·타이틀·엔딩 보존, 새 RAM·저장 필드 없음"
     ],
     "requirements": [
       "수정하지 않은 AN9J 일본판 원본 8,388,608 bytes",
       "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
-      "릴리스 검증 기록: 전체 체인 A/B 결과 일치, 실데이터 검사 166/166, 공개 CI 43/43, v1.0 적용기 검사 7/7 통과",
-      "PC mGBA에서 혼합 이름을 입력한 새 게임의 8 KiB 저장·두 번의 재시작과 기존 저장·중단 저장 복귀 확인"
+      "v1.1 공개 기록: 두 차례 전체 빌드와 독립 BPS 적용 결과 일치",
+      "공개 검증 범위: 기본·혼합 이름 새 게임, 기존 저장 재저장, 두 차례 콜드 로드와 중단 저장",
+      "사용자 정상 동작 확인은 USER_ATTESTED이며 기기·로더·개별 항목과 독립 해시 대조는 별도 보고되지 않았습니다."
     ],
     "installGuide": [
       "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
@@ -1100,10 +1101,9 @@
       "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
-      "v1.0은 정식 공개판이지만 대상 기기에서 정확한 최종 ROM의 새 게임·두 번의 cold load·중단 저장 복귀, 모든 분기 자연 진행과 두 기기 통신은 미검증이며 issue #4에 남아 있습니다.",
-      "사용자는 OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행했다고 보고했습니다. 일부 구간에 치트를 사용했고 최종 ROM 해시와 기기 실행 기록의 명시적 연결은 없습니다.",
-      "v1.0은 일본어 AN9J 원본 전용입니다. 기존 한국어 ROM이나 이전 패치 ROM에 추가 적용하지 마세요. 기존 8 KiB SAV를 백업하고 ROM/SAV 파일명을 확장자 제외하고 맞추며 이전 ROM의 savestate는 사용하지 마세요.",
-      "도감·설명 검토와 자동 표시는 자연 획득·전편 완주 검증을 뜻하지 않습니다.",
+      "기존 v1.0 OLD 2DS 검수 결과를 v1.1 실기 결과로 승계하지 않습니다. 전체 자연 완주·모든 분기·두 기기 통신은 미확인입니다.",
+      "수정하지 않은 일본판 원본 전용입니다. 기존 한국어 ROM에 덧붙이지 마세요. 정상 8KiB SAV는 백업하고 파일명을 맞추며 다른 ROM 버전의 SGM은 재사용하지 마세요.",
+      "고정 가상 코어의 목록 P99는 경로별 7~17프레임입니다. 모든 기기·경로의 속도 보장이 아닙니다.",
       "ROM·세이브·BIOS는 배포하지 않습니다. 신규 도구의 MIT 라이선스는 원 게임·FFR 번역·이미지의 제3자 권리를 변경하지 않습니다."
     ],
     "credits": [
@@ -1127,8 +1127,8 @@
         "value": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
       },
       {
-        "label": "v1.0 결과 (13270790 bytes) SHA-256",
-        "value": "7505ef506e4fc11e1e0f36672956627e7522d2441cedfb06a5f359e7f5bd2b50"
+        "label": "v1.1 결과 (8388608 bytes) SHA-256",
+        "value": "9fd341b827a8ba282781d7f8f214f2ba8641365b541564d53e9ef5267511889b"
       }
     ],
     "tags": [
@@ -1144,8 +1144,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v1.0",
+      "defaultVersion": "v1.1",
       "versions": [
+        {
+          "version": "v1.1",
+          "releaseDate": "2026-10-11",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1",
+          "title": "v1.1 — 8MiB 정식 릴리스",
+          "summary": "일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 주소 배치를 보존하고 이름 저장·글자 합성을 개선했습니다.",
+          "source": {
+            "label": "AN9J 일본판 원본",
+            "size": 8388608,
+            "sha256": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
+          },
+          "patch": {
+            "filename": "Xagros_Narikiri2_KOR_v1.1.bps",
+            "path": "patches/gba-narikiri2-kor/v1.1/Xagros_Narikiri2_KOR_v1.1.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v1.1/Xagros_Narikiri2_KOR_v1.1.bps",
+            "size": 378033,
+            "sha256": "4e4ad0229b22ea5bd8e6b351adfa79a749e2b5288aabb24d7d1e356a7bfafade"
+          },
+          "output": {
+            "filename": "Xagros_Narikiri2_KOR_v1.1.gba",
+            "size": 8388608,
+            "sha256": "9fd341b827a8ba282781d7f8f214f2ba8641365b541564d53e9ef5267511889b"
+          },
+          "prerelease": false
+        },
         {
           "version": "v1.0",
           "releaseDate": "2026-09-23",
@@ -1303,20 +1328,20 @@
     "id": "gba-narikiri3-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전3",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 3 · v1.2",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 3 · v1.3",
     "subtitle": "일본판 B3TJ 원본용 누적 한국어화 정식 릴리스",
-    "description": "짜알님의 기존 한국어화 1.1을 허가받아 계승하고 Xagros가 후속 작업을 진행하는 프로젝트입니다. 일본어 원문과 대사를 대조해 번역 오류·누락을 수정하고 소형 한글 글꼴과 메뉴·인물 정보를 보완합니다.",
+    "description": "짜알님의 기존 한국어화 1.1을 계승하고 Xagros가 대사·표기와 화면 자원을 보완한 GBA 한국어화 프로젝트입니다. v1.3은 일본판 원본용 16MiB 누적 BPS입니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
     "status": "released",
-    "version": "v1.2",
+    "version": "v1.3",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-23",
-    "lastUpdated": "2026-09-23",
+    "releaseDate": "2026-10-11",
+    "lastUpdated": "2026-10-11",
     "repository": "https://github.com/GimoXagros/gba-narikiri3-kor",
-    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.2",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.3",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/issues",
     "homepage": "",
     "coverImage": "",
@@ -1332,23 +1357,23 @@
     },
     "screenshots": [],
     "features": [
-      "일본판 B3TJ에 적용하는 누적 BPS",
-      "소형 한글 글꼴과 인물·코스튬 명칭 보완",
-      "인물 명함·갈아입기 메뉴·아이템·몬스터 설명 수정"
+      "일본판 B3TJ 원본용 16MiB 누적 BPS",
+      "맵 목록 전용 20타일 할당·위치표와 지역명 연결 보완",
+      "필드·시스템 버튼 및 특기 제목 가독성 개선"
     ],
     "scope": [
-      "추출 대사 5,208개 위치 중 누적 1,363개 수정 묶음·1,385개 수정 위치 기록",
-      "v1.1a 대비 새 위치 960개와 기존 위치 재수정 12개, 총 972개 위치의 대사 변경",
-      "고유명사·장소, 아이템·몬스터 도감 속성 표기 보완"
+      "v1.2의 번역·표기와 기존 메뉴 성능 최적화 유지",
+      "시간의 더미·냥인 마을·총영주 저택·불꽃 미궁·시간의 더미2 등 확인 경로의 맵 목록 보완",
+      "다른 세계 인물 동적 명찰의 접두부와 갈아입기 표시 수정"
     ],
     "requirements": [
       "수정하지 않은 일본판 B3TJ 원본 16,777,216 bytes",
       "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
-      "공개 패키지 manifest의 BPS 왕복 및 결과 해시 일치가 기록되어 있습니다.",
-      "mGBA / VBA-Next에서 신규 게임 첫 저장, 별도 실행 저장 재로드, 메뉴·아이템 설명과 첫 전투 경로를 확인했습니다.",
-      "mGBA에서 타이틀·스탭롤 화면을 확인했지만 전체 자연 진행이나 모든 분기 검증은 아닙니다."
+      "공개 v1.3 기록: 깨끗한 소스 빌드와 누적 BPS 적용 결과가 16MiB·최종 해시에 일치",
+      "정확 후보의 첫 저장과 별도 실행 콜드 로드를 PC에서 확인한 기록이 있습니다.",
+      "사용자는 검수 후 추가 문제 없음과 공개를 승인했지만 해당 회신의 기기·로더·개별 결과는 UNKNOWN입니다."
     ],
     "installGuide": [
       "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
@@ -1357,10 +1382,10 @@
       "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
-      "v1.2는 정식 릴리스이지만 완성도 100%, 전편 무오류 또는 모든 분기·기기의 검증 완료를 뜻하지 않습니다.",
-      "OLD 2DS + DSPico + GBARunner3에서 기존 저장으로 스탭롤까지 진행했다는 사용자 보고가 있습니다. 사용한 GBARunner3 버전은 확인되지 않았고 새 게임·모든 분기 검증은 아닙니다.",
-      "기존 한국어화 ROM에는 적용하지 마세요. 일본판 원본에 한 번 적용하는 누적 패치입니다.",
-      "모든 기존 세이브의 호환성을 보증하지 않습니다. ROM·BIOS·개인 세이브·에뮬레이터 실행 파일은 배포하지 않습니다."
+      "v1.3은 전체 자연 완주·모든 분기·모든 기기 무오류를 보증하지 않습니다. 이전 버전의 실기 보고를 새 후보의 직접 검증으로 간주하지 않습니다.",
+      "기존 첫 저장 타이머 검사 실패와 과거 영상 차이는 보존되며, 새 관측 계약이나 제한된 화면 비교 통과가 이를 지우지 않습니다.",
+      "기존 한국어 ROM이 아닌 수정하지 않은 일본판 원본에 한 번 적용합니다. 세이브는 백업한 사본으로 확인하세요.",
+      "ROM·BIOS·SAV·전체 대사집·별도 폰트 바이너리는 배포하지 않습니다."
     ],
     "credits": [
       {
@@ -1383,8 +1408,8 @@
         "value": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
       },
       {
-        "label": "v1.2 결과 (33554432 bytes) SHA-256",
-        "value": "8953b6a98a9b39e340aecdc74739598ee47c4d59088f688e471a81c289a67793"
+        "label": "v1.3 결과 (16777216 bytes) SHA-256",
+        "value": "d1d27b49dfeb6bbacb77b2112664efbb679f7f30a89f2cd17a1037d64fef1c4b"
       }
     ],
     "tags": [
@@ -1400,8 +1425,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v1.2",
+      "defaultVersion": "v1.3",
       "versions": [
+        {
+          "version": "v1.3",
+          "prerelease": false,
+          "releaseDate": "2026-10-11",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.3",
+          "title": "v1.3 — 16MiB 정식 릴리스",
+          "summary": "일본판 원본에 적용하는 16MiB 누적 패치입니다. 맵 목록·지역명·갈아입기 표시와 버튼 가독성을 보완했습니다.",
+          "source": {
+            "label": "B3TJ 일본판 원본",
+            "size": 16777216,
+            "sha256": "d083d66b818b1353a449af7f1dd4232b490c254a4107951a3749973d03a0a394"
+          },
+          "patch": {
+            "filename": "ND3_B3TJ_K_v1.3_FROM_J.bps",
+            "path": "patches/gba-narikiri3-kor/v1.3/ND3_B3TJ_K_v1.3_FROM_J.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/download/v1.3/ND3_B3TJ_K_v1.3_FROM_J.bps",
+            "size": 525693,
+            "sha256": "772fdb97a075c79a9f2e11202043ce0e0c20305597788fe94256a3280f85c55f"
+          },
+          "output": {
+            "filename": "ND3_B3TJ_K_v1.3.gba",
+            "size": 16777216,
+            "sha256": "d1d27b49dfeb6bbacb77b2112664efbb679f7f30a89f2cd17a1037d64fef1c4b"
+          }
+        },
         {
           "version": "v1.2",
           "prerelease": false,
@@ -1459,24 +1509,32 @@
     "id": "ai-work-skills",
     "demo": false,
     "title": "AI Work Skills",
-    "subtitle": "Codex용 29개 스킬을 고정된 버전으로 설치하는 작업 도구 모음",
-    "description": "계획 수립, 프런트엔드 검증, 로그 분석, 지식 관리, LLM API 설정과 게임 역공학, 에뮬레이터 개발에 사용하는 29개 Codex 스킬을 동일한 설치기로 관리합니다. 에뮬레이터 전문 스킬 13개도 기본 설치·업데이트·선택 설치·백업에 포함됩니다.",
+    "subtitle": "Codex용 30개 스킬을 고정된 버전으로 설치하는 작업 도구 모음",
+    "description": "계획 수립, 프런트엔드 검증, 로그 분석, 지식 관리, 한국어 윤문, LLM API 설정과 게임 역공학, 에뮬레이터 개발에 사용하는 30개 Codex 스킬을 동일한 설치기로 관리합니다. 에뮬레이터 전문 스킬 13개도 기본 설치·업데이트·선택 설치·백업에 포함됩니다.",
     "type": "tool",
     "platform": [
       "Codex",
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.10.02.1",
+    "version": "v2026.10.11.1",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-10-02",
-    "lastUpdated": "2026-10-02",
+    "releaseDate": "2026-10-11",
+    "lastUpdated": "2026-10-11",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.02.1",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.11.1",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
-    "downloadEnabled": false,
-    "downloads": [],
-    "sourceInstall": true,
+    "downloadEnabled": true,
+    "downloads": [
+      {
+        "label": "AI Work Skills 소스·설치 도구 ZIP",
+        "filename": "ai-work-skills-v2026.10.11.1.zip",
+        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.11.1/ai-work-skills-v2026.10.11.1.zip",
+        "size": "2133241 bytes",
+        "sha256": "91a4a8cf1c9b5c6efbe9b5ff7f43cad8934eded07d89b79c1e93a2cf6ab16f1a"
+      }
+    ],
+    "sourceInstall": false,
     "branding": {
       "logo": "assets/projects/ai-work-skills/logo.png",
       "logoAlt": "AI Work Skills 로고",
@@ -1488,7 +1546,9 @@
     },
     "screenshots": [],
     "features": [
-      "활성 스킬 29개 전체 관리: 저장소 번들 26개와 고정 upstream 3개",
+      "외부 원본 8개 재검토, create-kr-patch 3.4.0·akm-workflow 1.1.0·free-llm-apis 1.0.0-codex.1 반영",
+      "humanize-korean 추가: 한국어 윤문과 원문 보존 검사, MIT 원본 고지 유지",
+      "활성 스킬 30개 전체 관리: 저장소 번들 27개와 고정 upstream 3개",
       "free-llm-apis 추가: 무료 LLM API 공급자 선택·키 발급·OpenAI 호환 엔드포인트 설정 안내",
       "create-kr-patch 고정 원본 갱신 및 binary-re Codex 적응판 1.2.0 반영",
       "에뮬레이터 전문 분석·검증 스킬 13개 통합: 공통 8개, GameYob 2개, GBARunner3 1개, NitroSwan 2개",
@@ -1496,6 +1556,7 @@
       "변경 전 백업·동일한 내용 건너뛰기·선택 설치·오프라인 재설치와 관리 총수/선택 수 표시"
     ],
     "scope": [
+      "한국어 윤문: humanize-korean",
       "계획·요구사항: exec-plan, deep-interview",
       "LLM API 설정: free-llm-apis",
       "품질·분석 및 지식 관리: frontend-testing-debugging, log-analyzer, akm-workflow",
@@ -1508,16 +1569,17 @@
       "최초 설치 및 도구 준비 시 인터넷 연결"
     ],
     "compatibility": [
-      "공개 릴리스 기록: 자동 검사 49개 통과, 번들 스킬 형식·전체/선택 설치·도구 준비·백업·해시 검사 통과",
-      "v2026.10.02.1 공개 기록: 활성 29개·은퇴 2개, 미해결 항목 없음. 이 포털 갱신에서 스킬 전체 설치 검사를 재실행한 것은 아닙니다.",
-      "기본 설치 위치는 $CODEX_HOME/skills 또는 ~/.codex/skills입니다."
+      "v2026.10.11.1 공개 기록: 30개 새 설치·로컬 파일 해시 대조, 자동 테스트 49개와 pip check 통과",
+      "메타데이터 검사 29개 통과. deep-interview의 원본 argument-hint 필드는 범용 검사기 경고 1건으로 남아 있습니다.",
+      "외부 API 호출·결제 설정·게임 실기기 검증은 이 배포 검사에 포함하지 않습니다. 이번 포털 갱신에서 전체 설치 검사를 재실행한 것은 아닙니다."
     ],
     "installGuide": [
+      "공식 ZIP을 내려받는 경우 SHA-256을 확인하고 새 폴더에 푼 뒤 Python 설치 명령을 실행합니다.",
       "Git으로 main 브랜치를 복제합니다: git clone --branch main https://github.com/GimoXagros/ai-work-skills.git",
       "복제한 폴더로 이동합니다: cd ai-work-skills",
-      "스킬을 설치합니다: python install.py",
-      "글꼴·이미지 도구 의존성을 준비합니다: python setup_tools.py",
-      "관리 목록과 선택 범위를 확인합니다: python install.py --list. 선택 설치는 python install.py --skill 스킬이름으로 실행합니다.",
+      "스킬을 설치합니다: python -X utf8 install.py",
+      "글꼴·이미지 도구 의존성을 준비합니다: python -X utf8 setup_tools.py",
+      "관리 목록과 선택 범위를 확인합니다: python -X utf8 install.py --list. 선택 설치는 python -X utf8 install.py --skill 스킬이름으로 실행합니다.",
       "스킬 목록이 갱신되지 않으면 Codex를 다시 시작합니다. 업데이트 시 git pull --ff-only 후 두 설치 명령을 다시 실행합니다."
     ],
     "notes": [
@@ -1525,7 +1587,8 @@
       "deep-interview의 OMX 상태 저장·자동 인계에는 별도의 OMX 런타임이 필요합니다.",
       "합성 데이터와 설치 검사는 실제 게임의 호환성을 보장하지 않습니다.",
       "스킬별 원본 라이선스가 적용됩니다. MIT 고지와 설치 도구의 Apache-2.0 조건 등 저장소 안내를 확인하세요.",
-      "검증은 스킬 패키지와 설치 동작을 대상으로 합니다. 실제 하드웨어 정확도와 실행 중 작업의 자동 스킬 선택을 검증한 결과는 아닙니다."
+      "검증은 스킬 패키지와 설치 동작을 대상으로 합니다. 실제 하드웨어 정확도와 실행 중 작업의 자동 스킬 선택을 검증한 결과는 아닙니다.",
+      "fonttools 4.66.1을 반영하되 Python 3.10에서는 4.65.0 고정을 유지합니다. 새 스킬이 보이지 않으면 작업을 다시 열거나 Codex를 재시작하세요."
     ],
     "credits": [
       {
@@ -1536,7 +1599,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.02.1/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.11.1/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
@@ -1547,6 +1610,44 @@
       "자동화",
       "개발 도구"
     ],
-    "featured": false
+    "featured": false,
+    "downloadVersions": [
+      {
+        "version": "v2026.10.11.1",
+        "releaseDate": "2026-10-11",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.11.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "외부 원본 검토와 Codex 어댑터 갱신",
+        "summary": "30개 스킬의 검토된 원본과 어댑터를 반영한 설치 도구입니다.",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.10.11.1.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.11.1/ai-work-skills-v2026.10.11.1.zip",
+            "size": "2133241 bytes",
+            "sha256": "91a4a8cf1c9b5c6efbe9b5ff7f43cad8934eded07d89b79c1e93a2cf6ab16f1a"
+          }
+        ]
+      },
+      {
+        "version": "v2026.10.07.1",
+        "releaseDate": "2026-10-07",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.07.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "한국어 윤문 스킬 추가",
+        "summary": "ZIP을 새 폴더에 풀고 Python 설치 안내를 따르세요. 독립 실행 프로그램이 아닙니다.",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.10.07.1.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.07.1/ai-work-skills-v2026.10.07.1.zip",
+            "size": "2128015 bytes",
+            "sha256": "6006839e5dbc9395b98613d84225d3c26a2ff6ae721878ad506e76ca9c9fa696"
+          }
+        ]
+      }
+    ]
   }
 ]
