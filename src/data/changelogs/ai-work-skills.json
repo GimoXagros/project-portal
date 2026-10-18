@@ -3,6 +3,21 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-10-19-1",
+      "version": "v2026.10.19.1",
+      "date": "2026-10-18",
+      "title": "훅 의존성 복구와 다른 PC 설정 안내",
+      "summary": "ECC SessionStart 의존성을 복구하고 Bun·uv·uvx 경로와 새 PC 활성화 절차를 보완했습니다.",
+      "changes": [
+        "원본 잠금 파일의 ECC 실행 의존성을 설치하되 npm 설치 스크립트는 실행하지 않음",
+        "Bun 1.4.3 공식 ZIP·SHA-256 고정과 Bun·uv·uvx 경로 반영",
+        "공식 Claude-Mem 로컬 런타임 활성 PC에서는 중복 플러그인 재활성화 방지",
+        "독립 스킬 64개 유지. 계정 인증·훅 신뢰·모델은 별도 준비하며 모든 훅과 플러그인 workflow 검증을 뜻하지 않음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.19.1",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-v2026-10-18-1",
       "version": "v2026.10.18.1",
       "date": "2026-10-18",

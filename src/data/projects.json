@@ -1541,21 +1541,21 @@
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.10.18.1",
+    "version": "v2026.10.19.1",
     "releasePolicy": "latest-stable",
     "releaseDate": "2026-10-18",
     "lastUpdated": "2026-10-18",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.19.1",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
     "downloadEnabled": true,
     "downloads": [
       {
         "label": "AI Work Skills 소스·설치 도구 ZIP",
-        "filename": "ai-work-skills-v2026.10.18.1.zip",
-        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.18.1/ai-work-skills-v2026.10.18.1.zip",
-        "size": "2933151 bytes",
-        "sha256": "0df7849f8fe4c3351d2bfd4ab777ee6aae0b0960ae9eddeb502aa309ae8785b6"
+        "filename": "ai-work-skills-v2026.10.19.1.zip",
+        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.19.1/ai-work-skills-v2026.10.19.1.zip",
+        "size": "2938896 bytes",
+        "sha256": "e07783373617dcc4961e54096243aadb30a0f8286773d5649578f1039a09e812"
       }
     ],
     "sourceInstall": false,
@@ -1570,6 +1570,7 @@
     },
     "screenshots": [],
     "features": [
+      "ECC 훅 의존성 자동 설치와 Bun·uv·uvx 경로 설정, 다른 PC 활성화 안내",
       "외부 원본 8개 재검토, create-kr-patch 3.4.0·akm-workflow 1.1.0·free-llm-apis 1.0.0-codex.1 반영",
       "humanize-korean 추가: 한국어 윤문과 원문 보존 검사, MIT 원본 고지 유지",
       "독립 스킬 64개 전체 관리: 저장소 번들 43개와 고정 upstream 21개",
@@ -1593,7 +1594,7 @@
       "최초 설치 및 도구 준비 시 인터넷 연결"
     ],
     "compatibility": [
-      "v2026.10.18.1 공개 기록: 자동 검사 53개 통과, 독립 스킬 64개 해시 대조, 공식 플러그인 5개·GSD 생성 스킬 72개 등록 확인",
+      "v2026.10.19.1 공개 기록: ECC SessionStart의 js-yaml 누락 복구, 독립 관리 스킬 64개 유지. 모든 훅 이벤트와 플러그인 workflow를 검증한 것은 아닙니다.",
       "Windows x64 실행 도구 설치기와 다운로드 SHA-256 검증을 지원합니다. 플러그인 등록은 인증·훅 신뢰·모델 준비 완료를 뜻하지 않습니다.",
       "외부 API 호출·결제 설정·게임 실기기 검증은 이 배포 검사에 포함하지 않습니다. 이번 포털 갱신에서 전체 설치 검사를 재실행한 것은 아닙니다."
     ],
@@ -1624,7 +1625,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.18.1/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.19.1/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
@@ -1637,6 +1638,23 @@
     ],
     "featured": false,
     "downloadVersions": [
+      {
+        "version": "v2026.10.19.1",
+        "releaseDate": "2026-10-18",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.19.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "summary": "훅 의존성 복구와 다른 PC 설정 안내",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.10.19.1.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.19.1/ai-work-skills-v2026.10.19.1.zip",
+            "size": "2938896 bytes",
+            "sha256": "e07783373617dcc4961e54096243aadb30a0f8286773d5649578f1039a09e812"
+          }
+        ]
+      },
       {
         "version": "v2026.10.18.1",
         "releaseDate": "2026-10-18",
