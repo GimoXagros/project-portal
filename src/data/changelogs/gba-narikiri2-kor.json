@@ -17,6 +17,7 @@
         "v1.1 ROM에 덧붙이지 말고 일본어 원본에 적용. 기존 SAV 백업 및 다른 ROM 버전 강제저장 상태 재사용 금지"
       ],
       "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1a",
+      "devNoteUrl": "https://gimoxagros.tistory.com/41",
       "status": "release"
     },
     {
