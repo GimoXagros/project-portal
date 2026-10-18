@@ -3,6 +3,23 @@
   "displayName": "테일즈 오브 더 월드 나리키리 던전2",
   "entries": [
     {
+      "id": "gba-narikiri2-kor-v1-1a",
+      "version": "v1.1a",
+      "date": "2026-10-18",
+      "title": "v1.1a — 문구 간격과 화면 지우기 교정",
+      "summary": "597개 검토 바인딩 중 552개를 교정하고 45개는 유지했습니다. 일본어 AN9J 원본에 적용하는 8MiB 누적 패치입니다.",
+      "changes": [
+        "원래 문자열 시작 544곳에 공백 578개와 화면 지우기 제어 1개 조정",
+        "10,371개 바인딩의 포인터·문자열 시작 위치, 8MiB 크기와 보호 구간 52곳 유지",
+        "최종 교정본에 연결한 사용자 수정 수락은 USER_ATTESTED이며 기기·에뮬레이터·항목별 검사 내역은 NOT_REPORTED",
+        "CPU 고정 시험은 PASS_CPU_FIXTURE_NOT_NORMAL_PLAY로 구분하며 일반 플레이·저장 호환·실기 통과로 확대하지 않음",
+        "v1.1 실행·성능 기록을 이번 검증으로 승계하지 않으며 미확인 범위의 이슈 #4 유지",
+        "v1.1 ROM에 덧붙이지 말고 일본어 원본에 적용. 기존 SAV 백업 및 다른 ROM 버전 강제저장 상태 재사용 금지"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1a",
+      "status": "release"
+    },
+    {
       "id": "gba-narikiri2-kor-v1-1",
       "version": "v1.1",
       "date": "2026-10-11",
