@@ -3,6 +3,21 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-10-18-1",
+      "version": "v2026.10.18.1",
+      "date": "2026-10-18",
+      "title": "외부 스킬·플러그인 통합 관리",
+      "summary": "독립 스킬 64개와 공식 플러그인 5개, GSD 생성 스킬 72개를 각각의 설치 체계로 관리합니다.",
+      "changes": [
+        "브라우저·웹 개발·미디어 안내 스킬 추가 및 원본 커밋 고정",
+        "Windows x64 실행 도구 설치기, 다운로드 SHA-256 검증과 사용자 PATH 보존",
+        "공개 릴리스 기록: 자동 검사 53개 통과와 독립 스킬 64개 파일 해시 대조",
+        "인증·훅 신뢰·모델 다운로드 및 실제 작업 품질은 별도 확인 사항이며 이번 포털 갱신에서 설치 검사를 재실행하지 않았습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-v2026-10-11-1",
       "version": "v2026.10.11.1",
       "date": "2026-10-11",
