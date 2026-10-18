@@ -1520,7 +1520,7 @@
     "version": "v2026.10.18.1",
     "releasePolicy": "latest-stable",
     "releaseDate": "2026-10-18",
-    "lastUpdated": "2026-10-19",
+    "lastUpdated": "2026-10-18",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
     "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
@@ -1617,7 +1617,8 @@
         "version": "v2026.10.18.1",
         "releaseDate": "2026-10-18",
         "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1",
-        "releasePolicy": "pinned-stable",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
         "summary": "독립 스킬 64개와 공식 플러그인·외부 실행 도구 통합 관리",
         "downloads": [
           {
