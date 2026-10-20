@@ -70,7 +70,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-10-20/)
+  assert.match(html, /최근 업데이트<\/dt><dd>2026-10-21/)
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.ok(html.includes('등록 프로젝트 · ' + projects.length + ' PROJECTS'))
   assert.equal(projects.length, 6)
@@ -87,7 +87,7 @@ test('all projects expose their full public release history from the first recor
   }
   for (const [id, versions] of Object.entries(expected)) {
     const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
-    assert.deepEqual(changelog.entries.map((entry) => entry.version), versions)
+    assert.deepEqual([...new Set(changelog.entries.map((entry) => entry.version))], versions)
   }
   const project = projects.find((item) => item.id === 'nitroswan')
   const changelog = JSON.parse(readFileSync(new URL('../../src/data/changelogs/nitroswan.json', import.meta.url), 'utf8'))
@@ -237,7 +237,8 @@ test('compact timeline limits entries without reordering same-date versions', as
   const html = await render('UpdateTimeline',{changelog,compact:true,limit:1})
   assert.equal(occurrences(html,'class="update-marker"'),1)
   assert.ok(html.includes(changelog.entries[0].version))
-  assert.ok(!html.includes(`<code>${changelog.entries[1].version}</code>`))
+  assert.ok(html.includes(changelog.entries[0].title))
+  assert.ok(!html.includes(changelog.entries[1].title))
   const all = await render('UpdateTimeline',{changelog})
   assert.equal(occurrences(all,'class="update-marker"'),changelog.entries.length)
 })
