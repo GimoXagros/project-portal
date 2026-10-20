@@ -36,6 +36,7 @@ test('repository links use supported decorative icons and retain GitHub labels',
   assert.match(html, /GitHub<\/a>/)
   const footer = await render('Footer', { site: { githubUrl: 'https://github.com/GimoXagros' }, onNavigate() {} })
   assert.match(footer, /aria-label="GitHub 방문"/)
+  assert.ok(footer.includes(`© ${new Date().getFullYear()}`))
 })
 test('Hero date does not depend on project order or timezone', async () => {
   const site = { description: 'test' }

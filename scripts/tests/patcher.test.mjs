@@ -14,7 +14,11 @@ function loadEngine() {
     HTMLElement: class HTMLElement {},
   })
   context.window = context
-  for (const file of ['modules/HashCalculator.js', 'modules/BinFile.js', 'modules/RomPatcher.format.bps.js', 'adapter.js']) {
+  const html = readFileSync(new URL('../../index.html', import.meta.url), 'utf8')
+  const scripts = [...html.matchAll(/<script\b([^>]*)src="\.\/vendor\/rom-patcher-js\/v3\.2\.1\/([^"]+)"([^>]*)><\/script>/g)]
+  assert.equal(scripts.length, 4)
+  for (const [, before, file, after] of scripts) {
+    assert.doesNotMatch(before + after, /\b(?:type|async|defer)\b/, 'patcher scripts must retain ordered classic execution')
     runInContext(readFileSync(new URL(file, vendor), 'utf8'), context, { filename: file })
   }
   return context
