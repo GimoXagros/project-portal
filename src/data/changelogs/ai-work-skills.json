@@ -3,6 +3,22 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-10-21-1",
+      "version": "v2026.10.21.1",
+      "date": "2026-10-20",
+      "title": "스킬 목록 용량과 Chrome MCP 설정 재현",
+      "summary": "스킬 목록 예산과 Chrome 실행 경로 설정, 사용자 승인 검사 및 CLI 시작 오류 해결 절차를 배포했습니다.",
+      "changes": [
+        "configure_codex.py: config.toml 백업 후 skills.max_context_tokens=10000 및 Chrome MCP 절대 경로 설정",
+        "Chrome DevTools MCP 1.10.1 고정 설치, 분리된 브라우저 실행 및 통계·CrUX 조회 비활성화",
+        "verify_browser.ps1: 페이지 열기·동일 ID 스냅샷 승인 검사, CLI 시작 오류 시 -NoDaemon 안내",
+        "공개 배포 검사 59개 통과·독립 스킬 64개 해시 오류 0개. 별도 실물 PC와 모든 모델·workflow 검증은 포함하지 않음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.21.1",
+      "devNoteUrl": "https://gimoxagros.tistory.com/45",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-v2026-10-19-1",
       "version": "v2026.10.19.1",
       "date": "2026-10-18",
