@@ -1541,21 +1541,21 @@
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.10.19.1",
+    "version": "v2026.10.21.1",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-10-18",
-    "lastUpdated": "2026-10-18",
+    "releaseDate": "2026-10-20",
+    "lastUpdated": "2026-10-20",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.19.1",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.21.1",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
     "downloadEnabled": true,
     "downloads": [
       {
         "label": "AI Work Skills 소스·설치 도구 ZIP",
-        "filename": "ai-work-skills-v2026.10.19.1.zip",
-        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.19.1/ai-work-skills-v2026.10.19.1.zip",
-        "size": "2938896 bytes",
-        "sha256": "e07783373617dcc4961e54096243aadb30a0f8286773d5649578f1039a09e812"
+        "filename": "ai-work-skills-v2026.10.21.1.zip",
+        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.21.1/ai-work-skills-v2026.10.21.1.zip",
+        "size": "2947743 bytes",
+        "sha256": "5dc90b3ac37fb108bbbdfd874fb4dee6d062735454ce9b64dca554d31ce78980"
       }
     ],
     "sourceInstall": false,
@@ -1570,6 +1570,7 @@
     },
     "screenshots": [],
     "features": [
+      "스킬 목록 예산 10000 설정, Chrome DevTools MCP 1.10.1 고정 설치와 새 CLI 페이지·스냅샷 검사 안내",
       "ECC 훅 의존성 자동 설치와 Bun·uv·uvx 경로 설정, 다른 PC 활성화 안내",
       "외부 원본 8개 재검토, create-kr-patch 3.4.0·akm-workflow 1.1.0·free-llm-apis 1.0.0-codex.1 반영",
       "humanize-korean 추가: 한국어 윤문과 원문 보존 검사, MIT 원본 고지 유지",
@@ -1591,10 +1592,11 @@
     ],
     "requirements": [
       "Codex 실행 환경, Git, Python 3.10 이상",
-      "최초 설치 및 도구 준비 시 인터넷 연결"
+      "최초 설치 및 도구 준비 시 인터넷 연결",
+      "Chrome MCP 검사: Windows x64, Google Chrome, PowerShell 7(pwsh)"
     ],
     "compatibility": [
-      "v2026.10.19.1 공개 기록: ECC SessionStart의 js-yaml 누락 복구, 독립 관리 스킬 64개 유지. 모든 훅 이벤트와 플러그인 workflow를 검증한 것은 아닙니다.",
+      "v2026.10.21.1 공개 기록: 자동 검사 59개 통과, 새 폴더 설치 64개 해시 오류 0개. 사용자 승인 후 새 CLI 페이지·스냅샷 검사와 최종 관리 경로의 MCP 초기화·도구 조회를 구분해 기록했습니다.",
       "Windows x64 실행 도구 설치기와 다운로드 SHA-256 검증을 지원합니다. 플러그인 등록은 인증·훅 신뢰·모델 준비 완료를 뜻하지 않습니다.",
       "외부 API 호출·결제 설정·게임 실기기 검증은 이 배포 검사에 포함하지 않습니다. 이번 포털 갱신에서 전체 설치 검사를 재실행한 것은 아닙니다."
     ],
@@ -1605,6 +1607,8 @@
       "스킬을 설치합니다: python -X utf8 install.py",
       "글꼴·이미지 도구 의존성을 준비합니다: python -X utf8 setup_tools.py",
       "외부 실행 도구와 공식 플러그인도 필요한 경우(Windows x64): python -X utf8 setup_integrations.py --install --plugins --user-path",
+      "스킬 목록 예산과 Chrome MCP 절대 경로를 설정합니다: python -X utf8 configure_codex.py. 기존 설정은 백업하며 같은 이름의 사용자 MCP 구성을 교체합니다.",
+      "새 PowerShell 창에서 검사합니다: pwsh -NoProfile -File ./verify_browser.ps1. CLI 패키지 시작 오류가 나면 -NoDaemon을 추가하고 페이지 열기·스냅샷 요청을 직접 승인합니다.",
       "관리 목록과 선택 범위를 확인합니다: python -X utf8 install.py --list. 선택 설치는 python -X utf8 install.py --skill 스킬이름으로 실행합니다.",
       "스킬 목록이 갱신되지 않으면 Codex를 다시 시작합니다. 업데이트 시 git pull --ff-only 후 두 설치 명령을 다시 실행합니다."
     ],
@@ -1625,7 +1629,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.19.1/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.21.1/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
@@ -1638,6 +1642,23 @@
     ],
     "featured": false,
     "downloadVersions": [
+      {
+        "version": "v2026.10.21.1",
+        "releaseDate": "2026-10-20",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.21.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "summary": "스킬 목록 예산·Chrome MCP 경로 설정과 대화형 CLI 검사",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.10.21.1.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.21.1/ai-work-skills-v2026.10.21.1.zip",
+            "size": "2947743 bytes",
+            "sha256": "5dc90b3ac37fb108bbbdfd874fb4dee6d062735454ce9b64dca554d31ce78980"
+          }
+        ]
+      },
       {
         "version": "v2026.10.19.1",
         "releaseDate": "2026-10-18",
