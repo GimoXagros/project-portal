@@ -1364,7 +1364,7 @@
     ],
     "status": "released",
     "version": "v1.3",
-    "releasePolicy": "latest-stable",
+    "releasePolicy": "pinned",
     "releaseDate": "2026-10-11",
     "lastUpdated": "2026-10-21",
     "repository": "https://github.com/GimoXagros/gba-narikiri3-kor",
@@ -1533,35 +1533,36 @@
           }
         }
       ]
-    }
+    },
+    "pinReason": "포털 웹 패처 검증을 완료한 v1.3 고정 제공. 새 v1.3a의 포털 적용 검증은 별도 진행 대상입니다."
   },
   {
     "id": "ai-work-skills",
     "demo": false,
     "title": "AI Work Skills",
-    "subtitle": "독립 스킬 64개와 공식 플러그인을 고정 버전으로 관리하는 작업 도구 모음",
-    "description": "계획 수립, 웹 개발, 한국어 윤문, 미디어 처리와 게임 역공학에 사용하는 독립 스킬 64개를 관리합니다. 공식 플러그인 5개와 GSD 생성 스킬 72개는 별도 설치 체계로 관리하며, 실행 도구 설치와 백업·해시 검증을 지원합니다.",
+    "subtitle": "독립 스킬 77개와 공식 플러그인을 고정 버전으로 관리하는 작업 도구 모음",
+    "description": "계획 수립, 웹 개발, 한국어 윤문, 미디어 처리와 게임 역공학에 사용하는 독립 스킬 77개를 관리합니다. 공식 플러그인 5개와 GSD 생성 스킬 72개는 별도 설치 체계로 관리하며, 실행 도구 설치와 백업·해시 검증을 지원합니다.",
     "type": "tool",
     "platform": [
       "Codex",
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.10.21.1",
+    "version": "v2026.10.25.2",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-10-20",
-    "lastUpdated": "2026-10-20",
+    "releaseDate": "2026-10-24",
+    "lastUpdated": "2026-10-25",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.21.1",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.25.2",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
     "downloadEnabled": true,
     "downloads": [
       {
         "label": "AI Work Skills 소스·설치 도구 ZIP",
-        "filename": "ai-work-skills-v2026.10.21.1.zip",
-        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.21.1/ai-work-skills-v2026.10.21.1.zip",
-        "size": "2947743 bytes",
-        "sha256": "5dc90b3ac37fb108bbbdfd874fb4dee6d062735454ce9b64dca554d31ce78980"
+        "filename": "ai-work-skills-v2026.10.25.2.zip",
+        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.25.2/ai-work-skills-v2026.10.25.2.zip",
+        "size": "3078707 bytes",
+        "sha256": "93b52800c3c298973d1a2179fea141120b5b47dacb5ba20c589a5f4279944e46"
       }
     ],
     "sourceInstall": false,
@@ -1576,11 +1577,12 @@
     },
     "screenshots": [],
     "features": [
-      "스킬 목록 예산 10000 설정, Chrome DevTools MCP 1.10.1 고정 설치와 새 CLI 페이지·스냅샷 검사 안내",
+      "보안 의존성 수정 후 GitHub 재평가에서 기존 경고 49개 모두 fixed 전환, 열린 경고·수동 무시 0개 확인",
+      "스킬 목록 예산 10000 설정, Chrome DevTools MCP 1.12.0 고정 설치와 새 CLI 페이지·스냅샷 검사 안내",
       "ECC 훅 의존성 자동 설치와 Bun·uv·uvx 경로 설정, 다른 PC 활성화 안내",
       "외부 원본 8개 재검토, create-kr-patch 3.4.0·akm-workflow 1.1.0·free-llm-apis 1.0.0-codex.1 반영",
       "humanize-korean 추가: 한국어 윤문과 원문 보존 검사, MIT 원본 고지 유지",
-      "독립 스킬 64개 전체 관리: 저장소 번들 43개와 고정 upstream 21개",
+      "독립 스킬 77개 전체 관리: 저장소 번들 56개와 고정 upstream 21개",
       "free-llm-apis 추가: 무료 LLM API 공급자 선택·키 발급·OpenAI 호환 엔드포인트 설정 안내",
       "create-kr-patch 고정 원본 갱신 및 binary-re Codex 적응판 1.2.0 반영",
       "에뮬레이터 전문 분석·검증 스킬 13개 통합: 공통 8개, GameYob 2개, GBARunner3 1개, NitroSwan 2개",
@@ -1599,12 +1601,13 @@
     "requirements": [
       "Codex 실행 환경, Git, Python 3.10 이상",
       "최초 설치 및 도구 준비 시 인터넷 연결",
-      "Chrome MCP 검사: Windows x64, Google Chrome, PowerShell 7(pwsh)"
+      "Chrome MCP 검사: Windows x64, Google Chrome, PowerShell 7(pwsh)",
+      "글꼴·이미지 도구 setup_tools.py는 Python 3.11 이상 필요 (핵심 스킬 설치는 Python 3.10 이상)"
     ],
     "compatibility": [
-      "v2026.10.21.1 공개 기록: 자동 검사 59개 통과, 새 폴더 설치 64개 해시 오류 0개. 사용자 승인 후 새 CLI 페이지·스냅샷 검사와 최종 관리 경로의 MCP 초기화·도구 조회를 구분해 기록했습니다.",
+      "v2026.10.25.2 공개 기록: 자동 검사 62개 통과, 독립 스킬 77개 설치 파일 대조. npm 및 glyph 직접 의존성 검사와 실제 실행 검증은 저장소 기록의 범위에 한정합니다.",
       "Windows x64 실행 도구 설치기와 다운로드 SHA-256 검증을 지원합니다. 플러그인 등록은 인증·훅 신뢰·모델 준비 완료를 뜻하지 않습니다.",
-      "외부 API 호출·결제 설정·게임 실기기 검증은 이 배포 검사에 포함하지 않습니다. 이번 포털 갱신에서 전체 설치 검사를 재실행한 것은 아닙니다."
+      "이번 포털 갱신은 기존 검증 결과를 게시한 작업이며 전체 설치·실행 검사를 다시 수행한 것은 아닙니다. 모든 훅 생명주기·다른 실물 PC·미공개 취약점까지 검증한 결과는 아닙니다."
     ],
     "installGuide": [
       "공식 ZIP을 내려받는 경우 SHA-256을 확인하고 새 폴더에 푼 뒤 Python 설치 명령을 실행합니다.",
@@ -1624,7 +1627,7 @@
       "합성 데이터와 설치 검사는 실제 게임의 호환성을 보장하지 않습니다.",
       "스킬별 원본 라이선스가 적용됩니다. MIT 고지와 설치 도구의 Apache-2.0 조건 등 저장소 안내를 확인하세요.",
       "검증은 스킬 패키지와 설치 동작을 대상으로 합니다. 실제 하드웨어 정확도와 실행 중 작업의 자동 스킬 선택을 검증한 결과는 아닙니다.",
-      "fonttools 4.66.1을 반영하되 Python 3.10에서는 4.65.0 고정을 유지합니다. 새 스킬이 보이지 않으면 작업을 다시 열거나 Codex를 재시작하세요."
+      "Pillow 13.0.0·fonttools 4.67.0을 사용하며 취약한 Python 3.10용 글꼴 의존성 대체 설치는 제공하지 않습니다."
     ],
     "credits": [
       {
@@ -1635,7 +1638,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.21.1/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.10.25.2/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
@@ -1648,6 +1651,23 @@
     ],
     "featured": false,
     "downloadVersions": [
+      {
+        "version": "v2026.10.25.2",
+        "releaseDate": "2026-10-24",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.25.2",
+        "releasePolicy": "pinned",
+        "pinReason": "보안 수정이 포함된 검증 배포 보존",
+        "summary": "보안 의존성 갱신·독립 스킬 77개 및 실행 도구 검증",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.10.25.2.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.10.25.2/ai-work-skills-v2026.10.25.2.zip",
+            "size": "3078707 bytes",
+            "sha256": "93b52800c3c298973d1a2179fea141120b5b47dacb5ba20c589a5f4279944e46"
+          }
+        ]
+      },
       {
         "version": "v2026.10.21.1",
         "releaseDate": "2026-10-20",
