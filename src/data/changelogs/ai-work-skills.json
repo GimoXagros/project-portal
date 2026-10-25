@@ -3,6 +3,21 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-security-resolution-20261025",
+      "version": "v2026.10.25.2",
+      "date": "2026-10-25",
+      "title": "보안 경고 49개 수정 완료·재평가 결과 확인",
+      "summary": "수정된 의존성과 GitHub 경고 상태를 대조하고 공식 재평가를 요청했습니다. 기존 49개 모두 fixed, 열린 경고 0개·수동 무시 0개를 확인한 검증 기록입니다.",
+      "changes": [
+        "Pillow 13.0.0(41개), fallow 3.35.0(2개), fast-uri 3.1.9(4개), body-parser 2.4.0(1개), zod 4.6.7(1개)로 취약 범위 해소",
+        "10월 25일 02:09 KST경 Refresh Dependabot alerts 요청 후 03:16:14–03:16:28 KST에 49개 fixed 처리, 19:01 KST 최종 확인",
+        "SBOM 내보내기 시각과 실제 의존성 검사 시각은 구분. GitHub 내부 지연 원인은 확정하지 않음",
+        "경고 무시·보안 기능 비활성화 없이 종료. 전체 코드 보안·모든 실행 경로·다른 PC 검증을 의미하지 않음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.25.2",
+      "devNoteUrl": "https://gimoxagros.tistory.com/48"
+    },
+    {
       "id": "ai-work-skills-v2026-10-21-1",
       "version": "v2026.10.21.1",
       "date": "2026-10-20",
