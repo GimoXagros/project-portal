@@ -3,6 +3,36 @@
   "displayName": "테일즈 오브 더 월드 나리키리 던전3",
   "entries": [
     {
+      "id": "gba-narikiri3-kor-v1-3b",
+      "version": "v1.3b",
+      "date": "2026-10-30",
+      "title": "v1.3b — 공백·줄바꿈과 목록 출력 보완",
+      "summary": "일본어 원본에 직접 적용하는 16MiB 누적 패치입니다. 설명·대사의 공백과 줄바꿈, 목록 타일 처리를 보완했습니다.",
+      "changes": [
+        "일본어 원본에 직접 적용하는 16MiB 누적 패치입니다. 설명·대사의 공백과 줄바꿈, 목록 타일 처리를 보완했습니다.",
+        "수정하지 않은 일본판 원본에 한 번 적용하며 기존 ROM·저장은 백업한 사본으로 사용합니다.",
+        "실기·전체 분기·장시간 전편 진행 검증은 완료로 간주하지 않습니다. 공개 릴리스의 확인 범위와 한계를 따릅니다.",
+        "목록 타일 처리와 슬롯 소진 시 대체 출력·커서 동작 보완",
+        "mGBA·VBA-Next 첫 저장·별도 프로세스 로드 확인 기록, 최종 실기 검수는 미실행"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.3b",
+      "status": "prerelease"
+    },
+    {
+      "id": "gba-narikiri3-kor-v1-3a",
+      "version": "v1.3a",
+      "date": "2026-10-25",
+      "title": "v1.3a — 대사 간격과 메뉴 그림 보완",
+      "summary": "반각 공백·줄바꿈과 메뉴 그림을 보완한 16MiB 프리릴리즈입니다. 일부 목록 전환 타이밍 차이가 남아 있습니다.",
+      "changes": [
+        "반각 공백·줄바꿈과 메뉴 그림을 보완한 16MiB 프리릴리즈입니다. 일부 목록 전환 타이밍 차이가 남아 있습니다.",
+        "수정하지 않은 일본판 원본에 한 번 적용하며 기존 ROM·저장은 백업한 사본으로 사용합니다.",
+        "실기·전체 분기·장시간 전편 진행 검증은 완료로 간주하지 않습니다. 공개 릴리스의 확인 범위와 한계를 따릅니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri3-kor/releases/tag/v1.3a",
+      "status": "prerelease"
+    },
+    {
       "id": "gba-narikiri3-kor-webpatch-verification-20261021",
       "version": "v1.3",
       "date": "2026-10-21",
