@@ -104,13 +104,16 @@ test('all projects expose their full public release history from the first recor
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri renders v1.1a as the primary stable release with all selectable patch versions', async () => {
+test('Narikiri renders v1.1a as the verified pinned prerelease with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'gba-narikiri2-kor')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'korean-patch')
   assert.equal(project.version, 'v1.1a')
-  assert.equal(project.releasePolicy, 'latest-stable')
+  assert.equal(project.releasePolicy, 'pinned-prerelease')
+  assert.equal(project.status, 'beta')
+  assert.equal(project.webPatcher.versions[0].prerelease, true)
+  assert.ok(html.includes('프리릴리즈'))
   assert.ok(html.includes('일본어 원본에 직접 적용'))
   assert.deepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions[1].source)
   assert.notDeepEqual(project.webPatcher.versions[0].source, project.webPatcher.versions.find(v => v.version === 'v0.9c').source)
