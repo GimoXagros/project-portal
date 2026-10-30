@@ -15,7 +15,8 @@
         "게임 부팅·플레이·세이브 호환·실물 기기·다른 PC 검사는 미실행. 이전 검증과 미확인 범위는 그대로 보존"
       ],
       "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1a",
-      "devNoteUrl": "https://gimoxagros.tistory.com/46"
+      "devNoteUrl": "https://gimoxagros.tistory.com/46",
+      "status": "prerelease"
     },
     {
       "id": "gba-narikiri2-kor-v1-1a",
@@ -33,7 +34,7 @@
       ],
       "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1a",
       "devNoteUrl": "https://gimoxagros.tistory.com/41",
-      "status": "release"
+      "status": "prerelease"
     },
     {
       "id": "gba-narikiri2-kor-v1-1",

@@ -1048,15 +1048,15 @@
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2",
     "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.1a",
-    "subtitle": "일본판 AN9J 원본용 한국어화 정식 릴리스",
+    "subtitle": "일본판 AN9J 원본용 한국어화 프리릴리즈",
     "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 보완하는 GBA 한국어화 프로젝트입니다. v1.1a는 문구 간격과 화면 지우기를 교정했으며, 일본어 원본에 직접 적용하는 8MiB 누적 패치입니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
-    "status": "released",
+    "status": "beta",
     "version": "v1.1a",
-    "releasePolicy": "latest-stable",
+    "releasePolicy": "pinned-prerelease",
     "releaseDate": "2026-10-18",
     "lastUpdated": "2026-10-21",
     "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
@@ -1171,7 +1171,7 @@
             "size": 8388608,
             "sha256": "8823db1cb72f1328136ccfd8fff1fbdca0c8489cbc7ccf90f7e4ecdbb1c37776"
           },
-          "prerelease": false
+          "prerelease": true
         },
         {
           "version": "v1.1",
@@ -1349,7 +1349,8 @@
           "prerelease": true
         }
       ]
-    }
+    },
+    "pinReason": "실제 원본 웹 패처 검증을 마친 v1.1a 유지. 후속 버전은 웹 패처 검증 후 등록합니다."
   },
   {
     "id": "gba-narikiri3-kor",
