@@ -3,6 +3,37 @@
   "displayName": "테일즈 오브 더 월드 나리키리 던전2",
   "entries": [
     {
+      "id": "gba-narikiri2-kor-v1-1c",
+      "version": "v1.1c",
+      "date": "2026-10-30",
+      "title": "v1.1c — 기술 설정 제목 여백 보완",
+      "summary": "일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 반각 공백·목록 개선을 유지하며 기술 설정 제목의 상단 여백을 조정했습니다.",
+      "changes": [
+        "일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 반각 공백·목록 개선을 유지하며 기술 설정 제목의 상단 여백을 조정했습니다.",
+        "수정하지 않은 일본판 원본에 한 번 적용하며 기존 ROM·저장은 백업한 사본으로 사용합니다.",
+        "실기·전체 분기·장시간 전편 진행 검증은 완료로 간주하지 않습니다. 공개 릴리스의 확인 범위와 한계를 따릅니다.",
+        "기술 설정 제목의 기존 픽셀을 유지한 채 Y 위치만 4px 조정",
+        "ROM 음원·오디오 코드는 변경하지 않음. 기존 mGBA 시험 코어와 별도 참조 코어의 결과를 구분",
+        "VBA 기술 설정 진입의 검은 화면과 최종 실기 미검증 한계 유지"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1c",
+      "status": "prerelease"
+    },
+    {
+      "id": "gba-narikiri2-kor-v1-1b",
+      "version": "v1.1b",
+      "date": "2026-10-28",
+      "title": "v1.1b — 반각 공백과 소형 목록 개선",
+      "summary": "일반 대사·지원 소형 문자열의 공백과 목록 처리를 보완한 프리릴리즈입니다. 제목 여백 문제는 v1.1c에서 보완했습니다.",
+      "changes": [
+        "일반 대사·지원 소형 문자열의 공백과 목록 처리를 보완한 프리릴리즈입니다. 제목 여백 문제는 v1.1c에서 보완했습니다.",
+        "수정하지 않은 일본판 원본에 한 번 적용하며 기존 ROM·저장은 백업한 사본으로 사용합니다.",
+        "실기·전체 분기·장시간 전편 진행 검증은 완료로 간주하지 않습니다. 공개 릴리스의 확인 범위와 한계를 따릅니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1b",
+      "status": "prerelease"
+    },
+    {
       "id": "gba-narikiri2-kor-webpatch-verification-20261021",
       "version": "v1.1a",
       "date": "2026-10-21",

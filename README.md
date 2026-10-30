@@ -68,13 +68,13 @@ npm run preview
 - `npm run check`: 정적 검증 → test → 원격 검증 → lint → build 순서로 전체 검사합니다. 각 단계와 build는 한 번만 수행합니다.
 - `npm test`: 날짜, 최신 릴리스 누락·고정 정책·정적 검증·원격 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
 
-나리키리2 상세 페이지의 웹 패처는 v1.0, v0.9d, v0.9c, v0.9b, v0.9a와 v0.9를 선택할 수 있으며 나리키리3은 v1.2와 v1.1a를 선택할 수 있습니다. [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용하고 각 게임의 최신 정식판을 기본값으로 둡니다. 버전을 바꾸면 이전 입력과 결과를 폐기합니다. 나리키리2 v1.0과 v0.9d는 일본어 AN9J 원본, v0.9c와 v0.9b는 FFR BETA3(071102), 이전 두 버전은 BETA2 계열 최초 FFR 입력을 각각 요구합니다. 나리키리3 v1.2는 일본어 B3TJ 원본을 요구합니다. 원본 파일은 업로드하지 않고 브라우저 메모리에서만 처리하며, 선택 버전의 원본·내장 패치·생성 결과 크기와 SHA-256이 모두 등록값과 일치해야 결과 저장 링크를 만듭니다. 포함한 upstream 파일과 라이선스, BPS 출처는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 고정해 기록했습니다.
+나리키리2의 기본 웹 패치는 **v1.1c 프리릴리즈 (8MiB)**, 나리키리3은 **v1.3b 프리릴리즈 (16MiB)**입니다. v1.1b·v1.3a 프리릴리즈와 기존 선택 버전도 보존하며 프리릴리즈를 표시합니다. [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 최신 버전은 수정하지 않은 일본판 AN9J(2편)·B3TJ(3편) 원본에 직접 적용하며, 구버전은 선택한 버전의 입력 조건을 따릅니다. 버전을 바꾸면 이전 입력과 결과를 폐기합니다. 원본은 서버로 전송하지 않고 브라우저 메모리에서만 처리하며, 원본·내장 패치·결과의 크기와 SHA-256이 모두 일치해야 결과 저장 링크를 만듭니다. 출처·권리 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 보존합니다.
 
 원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰과 내부 전송 오류 원문은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 요청·응답 본문 읽기를 포함해 15초 제한이며 네트워크/서버 오류는 최대 세 번 시도합니다. `RELEASE_NOT_FOUND`(404), `RATE_LIMIT`(호출 제한), `API_SERVER`(5xx), `TIMEOUT`, `NETWORK`, `INVALID_RESPONSE`, `API_ACCESS`를 데이터 불일치와 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
 
 대표 배포의 `releasePolicy`는 `latest-stable`(생략 시 기본값), `latest-prerelease`, `pinned` 또는 `pinned-prerelease`입니다. 정식판과 별도로 시험판을 병행할 때는 선택적인 `prerelease` 객체에 프리릴리즈 정책을 사용합니다. 최신 정책에서 구성 태그가 실제 최신 채널 태그와 다르면 각각 `LATEST_RELEASE_DRIFT` 또는 `LATEST_PRERELEASE_DRIFT`로 실패합니다. draft는 항상 거부하고 정식·프리릴리즈 표식이 서로 바뀐 경우도 실패합니다. 의도적으로 이전 버전을 유지하는 `pinned` 계열 정책에는 비어 있지 않은 `pinReason`이 필요합니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
 
-날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 나리키리 던전2 v1.0과 던전3 v1.2가 2026-09-23 UTC에 공개되어 홈의 최근 업데이트는 **2026-09-23**으로 표시됩니다(한국 시간 2026-09-24).
+날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 2026-10-30에 공개된 나리키리2 v1.1c와 나리키리3 v1.3b를 반영해 최근 업데이트는 **2026-10-30**으로 표시됩니다.
 
 ## 폴더 구조
 

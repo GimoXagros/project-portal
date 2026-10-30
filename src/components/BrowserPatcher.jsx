@@ -99,7 +99,7 @@ export default function BrowserPatcher({ project }) {
     <div className="detail-section-title"><h2 id="browser-patcher-title">브라우저에서 바로 패치</h2></div>
     <div className="patcher-privacy"><ShieldCheck size={22} /><p><strong>ROM은 업로드되지 않습니다.</strong> 선택한 파일의 검증과 BPS 적용은 이 브라우저 안에서만 처리됩니다.</p></div>
     <div className="patcher-version">
-      <label htmlFor="patch-version"><span>패치 버전</span><select id="patch-version" value={selectedVersion} onChange={changeVersion}>{config.versions.map((item) => <option key={item.version} value={item.version}>{item.version}{item.version === config.defaultVersion ? ' (최신)' : ''}</option>)}</select></label>
+      <label htmlFor="patch-version"><span>패치 버전</span><select id="patch-version" value={selectedVersion} onChange={changeVersion}>{config.versions.map((item) => <option key={item.version} value={item.version}>{item.version}{item.prerelease ? ' (프리릴리즈)' : ''}{item.version === config.defaultVersion ? ' (최신)' : ''}</option>)}</select></label>
       <div><strong>{selected.title}</strong><p>{selected.summary}</p><a href={selected.releaseUrl} target="_blank" rel="noreferrer">{selected.version} 릴리스 정보 <ExternalLink size={14} /></a></div>
     </div>
     <div className="patcher-grid">
