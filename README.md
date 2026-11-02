@@ -8,27 +8,31 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치, A
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.11`, GBARunner3 Custom 정식 `custom-v0.1.5`, NitroSwan Custom 정식 `v0.7.7-custom.r10`, 테일즈 오브 더 월드 나리키리 던전2 `v1.0`, 테일즈 오브 더 월드 나리키리 던전3 `v1.2`, AI Work Skills `v2026.09.19.2` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 최신 정식판이며 이전 시험판도 버전 선택기에서 확인할 수 있습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.11`, GBARunner3 Custom 정식 `custom-v0.1.5`, NitroSwan Custom 정식 `v0.7.7-custom.r10`, 테일즈 오브 더 월드 나리키리 던전2 프리릴리즈 `v1.1c`, 테일즈 오브 더 월드 나리키리 던전3 프리릴리즈 `v1.3b`, AI Work Skills `v2026.10.25.2` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 최신 정식판이며 이전 시험판도 버전 선택기에서 확인할 수 있습니다.
 
-2026-09-29에 여섯 저장소의 최신 공개 릴리스를 확인하고 GBARunner3·NitroSwan을 갱신했습니다. 한글화 진행 현황은 사용자 요청으로 홈페이지에서 제거했습니다. 구현·진행 데이터·검사는 [백업 태그](https://github.com/GimoXagros/project-portal/tree/codex/backup-korean-progress-20260929)에 보존되어 있습니다. 복원할 때에는 해당 태그의 진행 현황 관련 변경만 선택적으로 적용하고, 이후의 릴리스와 제보 기능 갱신을 유지해야 합니다.
-
-2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
-
-2026-09-07 콘텐츠 갱신은 나리키리 프로젝트를 FFR BETA3(071102) 기반 **2차 한국어화 패치 v0.9b 공개 검증판**으로 전환하고, 네 프로젝트의 GitHub Releases 이력을 최초 공개 지점부터 모두 연결합니다. v0.9b는 BETA3의 기존 EEPROM 저장 코드를 유지하므로 v0.5 저장 복구를 별도로 적용하지 않습니다. 원본 ROM과 생성 ROM은 배포하지 않으며, 각 릴리스의 미검증 범위와 알려진 제한은 상세 화면에 함께 기록합니다. 이전 검증 근거는 [2026-09-05 갱신 기록](QA_RELEASE_REFRESH_20260905.md)과 [나리키리 등록 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
-
-디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
+2026-10-30에 나리키리2·3의 최신 프리릴리즈와 기존 웹 패처 버전을 확인하고 갱신했습니다. 검증 범위는 [갱신 기록](QA_RELEASE_REFRESH_20261030.md)을 확인하세요. 2026-09-29에는 GBARunner3·NitroSwan을 갱신했습니다. 한글화 진행 현황은 사용자 요청으로 홈페이지에서 제거했습니다. 구현·진행 데이터·검사는 [백업 태그](https://github.com/GimoXagros/project-portal/tree/codex/backup-korean-progress-20260929)에 보존되어 있습니다. 복원할 때에는 해당 태그의 진행 현황 관련 변경만 선택적으로 적용하고 이후의 릴리스와 제보 기능 갱신을 유지해야 합니다.
 
 ## 기술 스택
 
-제보 기능은 현재 GitHub Pages와 저장소를 유지합니다. 홈의 `#reports`에서 프로젝트를 선택하거나 각 상세 페이지의 제보 탭으로 이동할 수 있습니다. 웹 양식에서 제목·종류·버전·환경·내용·재현 순서·수정 의견을 작성하면 GitHub 이슈 작성 화면에 전달합니다. 실제 접수는 GitHub 로그인 후 최종 등록 시 이루어집니다. 긴 내용은 복사 후 직접 붙여 넣는 대안을 제공하며 비밀글·익명 등록은 제공하지 않습니다. 스크린샷과 후속 댓글은 GitHub에서 추가합니다.
+- Vite 8 + React 19 + JSX
+- JSON 기반 콘텐츠
+- 반응형 CSS와 OS 설정 기반 라이트/다크 테마
+- hash route 프로젝트 상세 주소 (`#/project/gameyob` 형식)
+- GitHub Pages 및 공식 GitHub Actions 배포 구성
 
-`현황 불러오기`는 선택한 저장소의 공개 이슈 API를 읽으며, 최근 업데이트된 최대 100개 항목에서 PR을 제외합니다. 더 오래된 기록이 있으면 부분 집계임을 표시합니다. 조회 실패를 0건으로 표시하지 않고 GitHub 원본 링크와 재시도를 제공합니다. 콘텐츠·릴리스·패처는 API 장애와 관계없이 정적 데이터로 제공됩니다. 브라우저에 토큰이나 인증 정보를 저장하지 않습니다.
+`vite.config.js`의 `base: './'` 설정으로 저장소 하위 경로에서 정적 자산을 상대 경로로 읽습니다.
 
-GameYob·GBARunner3·NitroSwan도 Issues를 활성화하여 모든 프로젝트의 제보와 처리 현황이 각 프로젝트 저장소로 직접 연결됩니다. 웹페이지 자체 제보는 포털 저장소에 접수합니다. 향후 이슈를 사용할 수 없는 프로젝트는 `reportRepository`를 포털 저장소로 지정하는 대안을 지원하며, 웹 양식의 프로젝트 식별 주석으로 현황을 구분합니다. 신규 프로젝트도 이슈 활성화 여부를 확인합니다.
+## 제보 운영과 프로젝트 등록
+
+제보 기능은 현재 GitHub Pages와 저장소를 유지합니다. 홈의 `#reports`에서 프로젝트를 선택하거나 각 상세 페이지의 제보 영역으로 이동할 수 있습니다. 웹 양식에서 제목·종류·버전·환경·내용·재현 순서·수정 의견을 작성하면 GitHub 이슈 작성 화면에 전달합니다. 실제 접수는 GitHub 로그인 후 최종 등록 시 이루어집니다. 긴 내용은 복사 후 직접 붙여 넣는 대안을 제공하며 비밀글·익명 등록은 제공하지 않습니다. 스크린샷과 후속 댓글은 GitHub에서 추가합니다.
+
+`현황 불러오기`는 선택한 저장소의 공개 이슈 API를 읽으며 최근 업데이트된 최대 100개 항목에서 PR을 제외합니다. 더 오래된 기록이 있으면 부분 집계임을 표시합니다. 조회 실패를 0건으로 표시하지 않고 GitHub 원본 링크와 재시도를 제공합니다. 콘텐츠·릴리스·패처는 API 장애와 관계없이 정적 데이터로 제공됩니다. 브라우저에 토큰이나 인증 정보를 저장하지 않습니다.
+
+GameYob·GBARunner3·NitroSwan도 Issues를 활성화하여 모든 프로젝트의 제보와 처리 현황이 각 프로젝트 저장소로 직접 연결됩니다. 웹페이지 자체 제보는 포털 저장소에 접수합니다. 향후 이슈를 사용할 수 없는 프로젝트는 `reportRepository`를 포털 저장소로 지정하는 대안을 지원하며 웹 양식의 프로젝트 식별 주석으로 현황을 구분합니다. 신규 프로젝트도 이슈 활성화 여부를 확인합니다.
 
 관리자는 열린 이슈에 `confirmed`, `triaged`, `in-progress`, `status:confirmed`, `확인`, `확인됨`, `진행중` 등의 라벨로 확인 상태를 표시할 수 있습니다. GitHub의 완료 사유(`completed`)로 닫으면 해결, 기타 닫힘은 종료로 분류합니다. 응원·사용 후기도 공개 이슈로 받습니다. 제보 종류는 제목·본문에 기록하며 관리자 권한이 필요한 라벨·담당자를 URL로 지정하지 않습니다.
 
-AI Work Skills 최신 정식판은 `v2026.09.19.2`이며 28개 전체 관리(번들 25개 + 고정 upstream 3개), 전문 에뮬레이터 스킬 13개, log-analyzer v3.0.0을 반영했습니다. 사이트 날짜는 GitHub 공개 시각의 UTC 날짜 `2026-09-18`을 기존 표기 규칙에 맞춰 사용합니다(한국 시각 9월 19일).
+AI Work Skills의 현재 등록 정식판은 `v2026.10.25.2`입니다. 독립 스킬 77개(번들 56개 + 고정 upstream 21개)를 관리하며 공식 플러그인 5개와 GSD 생성 스킬 72개는 별도 설치 체계입니다. 사이트 배포일은 GitHub 공개 시각의 UTC 날짜 `2026-10-24`를 사용합니다(한국 시각 10월 25일).
 
 ### 프로젝트 등록·배포 규칙
 
@@ -38,17 +42,9 @@ AI Work Skills 최신 정식판은 `v2026.09.19.2`이며 28개 전체 관리(번
 - 던전2의 정식 주소는 `#/project/gba-narikiri2-kor`입니다. 이전 상세·업데이트 주소는 새 주소로 이동합니다.
 - 자동 검사는 위 규칙 누락과 버전별 파일 정보 불일치를 거부합니다. 자세한 작업 규칙은 [AGENTS.md](AGENTS.md)를 따릅니다.
 
-- Vite 7 + React 19 + JSX
-- JSON 기반 콘텐츠
-- 반응형 CSS와 OS 설정 기반 라이트/다크 테마
-- hash route 프로젝트 상세 주소 (`#/project/gameyob` 형식)
-- GitHub Pages 및 공식 GitHub Actions 배포 구성
-
-`vite.config.js`의 `base: './'` 설정으로 저장소 하위 경로에서 정적 자산을 상대 경로로 읽습니다.
-
 ## 로컬 실행과 검증
 
-GitHub Actions와 동일한 Node.js 22.12 이상(22 LTS)을 권장합니다.
+GitHub Actions는 Node.js 22를 사용합니다. 로컬에서도 Vite 8의 요구 조건에 맞는 Node.js 22.12 이상을 사용하세요.
 
 ```bash
 npm ci
@@ -68,13 +64,13 @@ npm run preview
 - `npm run check`: 정적 검증 → test → 원격 검증 → lint → build 순서로 전체 검사합니다. 각 단계와 build는 한 번만 수행합니다.
 - `npm test`: 날짜, 최신 릴리스 누락·고정 정책·정적 검증·원격 오류 처리, 실제 JSX의 빈 데이터 렌더링, reduced-motion 정적 규칙을 외부 API 호출 없이 테스트합니다.
 
-나리키리2의 기본 웹 패치는 **v1.1c 프리릴리즈 (8MiB)**, 나리키리3은 **v1.3b 프리릴리즈 (16MiB)**입니다. v1.1b·v1.3a 프리릴리즈와 기존 선택 버전도 보존하며 프리릴리즈를 표시합니다. [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 최신 버전은 수정하지 않은 일본판 AN9J(2편)·B3TJ(3편) 원본에 직접 적용하며, 구버전은 선택한 버전의 입력 조건을 따릅니다. 버전을 바꾸면 이전 입력과 결과를 폐기합니다. 원본은 서버로 전송하지 않고 브라우저 메모리에서만 처리하며, 원본·내장 패치·결과의 크기와 SHA-256이 모두 일치해야 결과 저장 링크를 만듭니다. 출처·권리 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 보존합니다.
+나리키리2의 기본 웹 패치는 **v1.1c 프리릴리즈 (8MiB)**, 나리키리3은 **v1.3b 프리릴리즈 (16MiB)**입니다. v1.1b·v1.3a 프리릴리즈와 기존 선택 버전도 보존하며 프리릴리즈를 표시합니다. [RomPatcher.js](https://github.com/marcrobledo/RomPatcher.js) v3.2.1의 BPS 모듈을 사용합니다. 최신 버전은 수정하지 않은 일본판 AN9J(2편)·B3TJ(3편) 원본에 직접 적용하며 구버전은 선택한 버전의 입력 조건을 따릅니다. 버전을 바꾸면 이전 입력과 결과를 폐기합니다. 원본은 서버로 전송하지 않고 브라우저 메모리에서만 처리하며 원본·내장 패치·결과의 크기와 SHA-256이 모두 일치해야 결과 저장 링크를 만듭니다. 출처·권리 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 보존합니다.
 
 원격 검증은 선택적으로 `GITHUB_TOKEN`을 사용합니다. 토큰과 내부 전송 오류 원문은 로그에 출력하지 않습니다. 요청은 한 번에 하나씩, 요청·응답 본문 읽기를 포함해 15초 제한이며 네트워크/서버 오류는 최대 세 번 시도합니다. `RELEASE_NOT_FOUND`(404), `RATE_LIMIT`(호출 제한), `API_SERVER`(5xx), `TIMEOUT`, `NETWORK`, `INVALID_RESPONSE`, `API_ACCESS`를 데이터 불일치와 구분하고 실패 시 종료 코드 1을 반환합니다. GitHub가 digest를 제공하지 않으면 SHA 원격 비교 생략을 명시하며 로컬 형식은 계속 검사합니다. 장애나 호출 제한도 배포를 중단하므로 원인을 확인한 뒤 재실행하세요.
 
 대표 배포의 `releasePolicy`는 `latest-stable`(생략 시 기본값), `latest-prerelease`, `pinned` 또는 `pinned-prerelease`입니다. 정식판과 별도로 시험판을 병행할 때는 선택적인 `prerelease` 객체에 프리릴리즈 정책을 사용합니다. 최신 정책에서 구성 태그가 실제 최신 채널 태그와 다르면 각각 `LATEST_RELEASE_DRIFT` 또는 `LATEST_PRERELEASE_DRIFT`로 실패합니다. draft는 항상 거부하고 정식·프리릴리즈 표식이 서로 바뀐 경우도 실패합니다. 의도적으로 이전 버전을 유지하는 `pinned` 계열 정책에는 비어 있지 않은 `pinReason`이 필요합니다. 검증기는 버전을 자동 선택하거나 데이터를 수정하지 않습니다.
 
-날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고, 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 2026-10-30에 공개된 나리키리2 v1.1c와 나리키리3 v1.3b를 반영해 최근 업데이트는 **2026-10-30**으로 표시됩니다.
+날짜는 API `published_at`의 YYYY-MM-DD 부분(UTC 기준)을 보존합니다. 화면에서 다시 시간대 변환하지 않습니다. Hero는 유효한 `lastUpdated`의 최댓값을 계산하고 타임라인도 날짜로 정렬하므로 프로젝트 배열 순서에 의존하지 않습니다. 2026-10-30에 공개된 나리키리2 v1.1c와 나리키리3 v1.3b를 반영해 최근 업데이트는 **2026-10-30**으로 표시됩니다.
 
 ## 폴더 구조
 
@@ -119,7 +115,7 @@ project-portal/
 
 ## 새 프로젝트 추가
 
-`src/data/projects.json` 배열에 객체 하나를 추가합니다. 필수 구조의 예시는 다음과 같습니다.
+`src/data/projects.json` 배열에 객체 하나를 추가합니다. 아래는 다운로드가 있는 에뮬레이터의 구조 예시입니다. 예시 URL·파일 크기·해시·이미지는 실제 배포 정보로 바꿔야 합니다. 한국어 패치는 이 예시의 다운로드 항목 대신 `webPatcher.versions`를 사용합니다.
 
 ```json
 {
@@ -130,7 +126,9 @@ project-portal/
   "subtitle": "한 줄 설명",
   "description": "검증된 프로젝트 소개",
   "type": "emulator",
-  "platform": ["Nintendo DS"],
+  "platform": [
+    "Nintendo DS"
+  ],
   "status": "work-in-progress",
   "version": "v1.0.0",
   "releasePolicy": "latest-stable",
@@ -138,25 +136,6 @@ project-portal/
   "lastUpdated": "2026-09-01",
   "repository": "https://github.com/OWNER/REPOSITORY",
   "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/v1.0.0",
-  "prerelease": {
-    "title": "v1.1.0-rc1 시험 배포",
-    "version": "v1.1.0-rc1",
-    "releasePolicy": "latest-prerelease",
-    "releaseDate": "2026-09-02",
-    "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/v1.1.0-rc1",
-    "summary": "정식 배포 전 확인할 변경 사항",
-    "notes": ["실기 검증 범위와 남은 제한"],
-    "downloadEnabled": true,
-    "downloads": [
-      {
-        "label": "시험 배포 파일",
-        "filename": "release-rc1.zip",
-        "size": "123789 bytes",
-        "url": "https://github.com/OWNER/REPOSITORY/releases/download/v1.1.0-rc1/release-rc1.zip",
-        "sha256": "64자리 SHA-256"
-      }
-    ]
-  },
   "issuesUrl": "https://github.com/OWNER/REPOSITORY/issues",
   "upstream": {
     "name": "UPSTREAM_OWNER/REPOSITORY",
@@ -174,18 +153,41 @@ project-portal/
     "accentDark": "#76d2c7"
   },
   "screenshots": [],
-  "features": ["확인된 특징"],
-  "scope": ["작업 범위"],
-  "requirements": ["필수 환경"],
-  "compatibility": ["검증된 범위와 제한"],
-  "installGuide": ["첫 번째 단계", "두 번째 단계"],
-  "notes": ["주의사항"],
+  "features": [
+    "확인된 특징"
+  ],
+  "scope": [
+    "작업 범위"
+  ],
+  "requirements": [
+    "필수 환경"
+  ],
+  "compatibility": [
+    "검증된 범위와 제한"
+  ],
+  "installGuide": [
+    "첫 번째 단계",
+    "두 번째 단계"
+  ],
+  "notes": [
+    "주의사항"
+  ],
   "credits": [
-    { "role": "원본 / Upstream", "name": "UPSTREAM_OWNER/REPOSITORY", "url": "https://github.com/UPSTREAM_OWNER/REPOSITORY" },
-    { "role": "커스텀 저장소 및 추가 작업", "name": "OWNER/REPOSITORY", "url": "https://github.com/OWNER/REPOSITORY" }
+    {
+      "role": "원본 / Upstream",
+      "name": "UPSTREAM_OWNER/REPOSITORY",
+      "url": "https://github.com/UPSTREAM_OWNER/REPOSITORY"
+    },
+    {
+      "role": "커스텀 저장소 및 추가 작업",
+      "name": "OWNER/REPOSITORY",
+      "url": "https://github.com/OWNER/REPOSITORY"
+    }
   ],
   "license": "저장소 조건 확인",
-  "tags": ["태그"],
+  "tags": [
+    "태그"
+  ],
   "featured": false,
   "downloadEnabled": true,
   "downloads": [
@@ -196,13 +198,31 @@ project-portal/
       "url": "https://github.com/OWNER/REPOSITORY/releases/download/v1.0.0/release.zip",
       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
     }
+  ],
+  "downloadVersions": [
+    {
+      "version": "v1.0.0",
+      "releaseDate": "2026-09-01",
+      "releaseUrl": "https://github.com/OWNER/REPOSITORY/releases/tag/v1.0.0",
+      "releasePolicy": "pinned",
+      "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+      "downloads": [
+        {
+          "label": "배포 파일",
+          "filename": "release.zip",
+          "size": "123456 bytes",
+          "url": "https://github.com/OWNER/REPOSITORY/releases/download/v1.0.0/release.zip",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    }
   ]
 }
 ```
 
 지원 `type`은 `korean-patch`, `emulator`, `port`, `tool`, `translation`, `utility`, `other`이며 이 사이트에서 `utility`는 “호환 계층”으로 표시합니다. 지원 `status`는 `released`, `beta`, `work-in-progress`, `archived`, `planned`입니다.
 
-프로젝트 배열을 비우면 정상적인 빈 상태가 표시되고, featured 항목이 없으면 주요 프로젝트 섹션이 숨겨집니다. 스크린샷, 해시, 설치 안내가 없으면 대응 블록도 렌더링하지 않습니다.
+프로젝트 배열을 비우면 빈 상태 안내가 표시됩니다. 프로젝트는 하나의 목록에 표시하며 `featured` 항목을 먼저 정렬하고 추천 표식을 붙입니다. 스크린샷, 해시, 설치 안내가 없으면 대응 블록도 렌더링하지 않습니다.
 
 새 프로젝트는 다음 세 가지를 추가하면 됩니다.
 
@@ -212,14 +232,14 @@ project-portal/
 
 ## 릴리스 갱신 절차
 
-1. GitHub `/releases/latest`와 현재 기록된 `/releases/tags/{tag}`를 모두 조회합니다. 최신 정식 릴리스의 노트와 Assets, 검증 범위·알려진 문제를 확인합니다.
+1. 프로젝트의 `releasePolicy`를 확인합니다. `latest-stable`은 GitHub `/releases/latest`, `latest-prerelease`는 공개 릴리스 목록에서 가장 최근 프리릴리즈를 조회합니다. 현재 기록된 `/releases/tags/{tag}`도 대조하고 노트와 Assets, 검증 범위·알려진 문제를 확인합니다.
 2. `version`, `releaseDate`, `lastUpdated`, `releaseUrl`을 갱신합니다.
-3. 각 자산의 `filename`, 바이트 단위 `size`, 고정 태그 `url`, `sha256`을 갱신합니다.
+3. 각 자산의 `filename`, 바이트 단위 `size`, 고정 태그 `url`, `sha256`을 갱신합니다. 다운로드 프로젝트는 `downloadVersions`, 한국어 패치는 `webPatcher.versions`에 이전 버전도 보존하고 `prerelease` 표식을 실제 공개 채널과 맞춥니다.
 4. 릴리스 노트에서 확인되는 변경만 프로젝트 설명과 `src/data/changelogs/PROJECT_ID.json`에 반영합니다.
 5. Upstream과 커스텀 저장소 Credits 링크가 여전히 구분되는지 확인합니다.
-6. `npm run check`를 실행합니다(테스트 포함). `pinned` 정책은 실제 고정 사유가 있을 때만 사용합니다.
+6. `npm run check`를 실행합니다(테스트 포함). `pinned` 정책은 실제 고정 사유가 있을 때만 사용합니다. 배포 전 데스크톱·모바일에서 탐색과 버전 선택을 확인하고 새 한국어 패치는 실제 입력으로 적용한 결과의 크기·SHA-256도 확인합니다.
 
-여러 파일은 `downloads` 배열에 각각 추가하고 버전 선택은 `downloadVersions`로 구성합니다. 분할 파일은 다운로드 항목 아래 `parts` 배열로 표현할 수 있습니다. 한글 패치는 `webPatcher`만 제공하고, `sourceInstall: true`인 프로젝트는 저장소 설치로 안내합니다. 그 외 프로젝트에서 다운로드 URL이 없으면 배포 준비 상태로 표시합니다. URL을 추측해 만들지 않습니다.
+여러 파일은 `downloads` 배열에 각각 추가하고 버전 선택은 `downloadVersions`로 구성합니다. 분할 파일은 다운로드 항목 아래 `parts` 배열로 표현할 수 있습니다. 한글 패치는 `webPatcher`만 제공하고 `sourceInstall: true`인 프로젝트는 저장소 설치로 안내합니다. 그 외 프로젝트에서 다운로드 URL이 없으면 배포 준비 상태로 표시합니다. URL을 추측해 만들지 않습니다.
 
 Windows에서 SHA-256은 다음 명령으로 확인할 수 있습니다.
 
@@ -231,7 +251,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 사용 권리를 확인한 이미지를 `public/images/projects/<id>/` 아래에 두고 `coverImage` 또는 `screenshots[].src`에 `images/projects/<id>/파일명.webp`처럼 기록합니다. 실제 파일이 없으면 검증이 실패합니다. 게임 이미지와 스크린샷을 임의로 수집하거나 프로젝트 자체 저작물로 표시하지 않습니다.
 
-이번 나리키리 항목은 사용자가 직접 제출하고 사용을 요청한 PNG를 예외적으로 프로젝트 식별 이미지로 연결했습니다. 원본을 재인코딩·자르기·생성형 편집하지 않았습니다. 이는 공식 프로젝트 로고나 권리자의 승인을 뜻하지 않으며, 별도 이용 허락·라이선스는 제출되지 않았습니다. 이미지는 도구의 MIT 라이선스 적용 대상이 아닙니다. 공개 이용에 관한 권리 확인 책임과 출처는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 분리해 기록합니다.
+이번 나리키리 항목은 사용자가 직접 제출하고 사용을 요청한 PNG를 예외적으로 프로젝트 식별 이미지로 연결했습니다. 원본을 재인코딩·자르기·생성형 편집하지 않았습니다. 이는 공식 프로젝트 로고나 권리자의 승인을 뜻하지 않으며 별도 이용 허락·라이선스는 제출되지 않았습니다. 이미지는 도구의 MIT 라이선스 적용 대상이 아닙니다. 공개 이용에 관한 권리 확인 책임과 출처는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 분리해 기록합니다.
 
 프로젝트 로고는 `public/assets/projects/<id>/logo.webp`에 두고 `branding.logo`로 연결합니다. 비율과 투명도를 유지하고 `logoAlt`, `width`, `height`를 반드시 기록합니다. 원본 출처와 최적화 결과는 [ASSET_SOURCES.md](ASSET_SOURCES.md)에 남깁니다. 외부 서버 장애·추적·GitHub 호출 제한과 Pages 하위 경로 문제를 피하기 위해 이미지 hotlink는 사용하지 않습니다. 모든 로컬 자산은 `assetUrl()`이 `import.meta.env.BASE_URL`을 붙여 해석합니다.
 
@@ -247,7 +267,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 - `#/updates/gba-narikiri3-kor`
 - `#/updates/ai-work-skills`
 
-각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 현재 기록된 공개 GitHub Release는 GameYob 7개, GBARunner3 8개(정식·프리릴리즈 포함), NitroSwan 10개, 나리키리 던전2 6개와 보존된 v0.5 태그 기록, 나리키리 던전3 2개, AI Work Skills 2개입니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 업데이트 기록은 정적 JSON에서 읽으며 제보 현황만 사용자의 조회 요청 시 GitHub API를 사용합니다.
+각 JSON은 `projectId`, `displayName`, `entries`를 가지며 `entries`는 최신순입니다. 2026-11-02 확인 기준 타임라인의 고유 버전은 GameYob 8개, GBARunner3 10개, NitroSwan 11개, 나리키리 던전2 11개, 나리키리 던전3 5개, AI Work Skills 9개입니다. 타임라인에는 자산 선택기보다 많은 과거 기록이 포함될 수 있으며 이 수치는 GitHub 전체 릴리스 수와 같다는 뜻은 아닙니다. `src/data/changelogs/index.js`가 `import.meta.glob`으로 정적 자동 로딩하고 `getProjectChangelog`, `getLatestProjectUpdate`, `getAllLatestUpdates`를 제공합니다. 업데이트 기록은 정적 JSON에서 읽으며 제보 현황만 사용자의 조회 요청 시 GitHub API를 사용합니다.
 
 새 GameYob Custom 릴리스를 기록할 때는 `src/data/changelogs/gameyob.json`의 `entries` 맨 앞에 다음 형식으로 추가합니다.
 
@@ -268,7 +288,7 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 ## Upstream Credits 원칙
 
-커스텀 포크는 원본 프로젝트처럼 표현하지 않습니다. 상세 화면의 Credits와 다운로드 아래 외부 링크에서 “원본 / Upstream”과 “커스텀 저장소 및 추가 작업”을 분리합니다. 라이선스는 저장소와 개별 구성요소의 조건을 확인하며, 확인되지 않은 단일 라이선스를 새로 선언하지 않습니다.
+커스텀 포크는 원본 프로젝트처럼 표현하지 않습니다. 상세 화면의 Credits와 다운로드 아래 외부 링크에서 “원본 / Upstream”과 “커스텀 저장소 및 추가 작업”을 분리합니다. 라이선스는 저장소와 개별 구성요소의 조건을 확인하며 확인되지 않은 단일 라이선스를 새로 선언하지 않습니다.
 
 ## Open Graph 제한
 
@@ -289,12 +309,12 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 `src/styles/motion.css`는 반응형 스타일 뒤에 불러옵니다. `--motion-fast`(160ms), `--motion-base`(420ms), `--motion-slow`(680ms)와 easing 토큰을 사용하며 새 애니메이션 라이브러리는 없습니다.
 
-- `useReveal`은 IntersectionObserver 초기화 후에만 `motion-ready`를 부여합니다. 기본 콘텐츠는 보이며, **화면에 진입한 요소에만** 유한 애니메이션을 붙입니다. 한 번 등장한 DOM 노드는 다시 숨기지 않습니다. 카드 지연은 70ms씩 최대 350ms입니다. 필터로 새로 추가된 카드만 관찰하고 기존 페이지는 재실행하지 않습니다.
+- `useReveal`은 IntersectionObserver 초기화 후에만 `motion-ready`를 부여합니다. 기본 콘텐츠는 보이며 **화면에 진입한 요소에만** 유한 애니메이션을 붙입니다. 한 번 등장한 DOM 노드는 다시 숨기지 않습니다. 카드 지연은 70ms씩 최대 350ms입니다. 필터로 새로 추가된 카드만 관찰하고 기존 페이지는 재실행하지 않습니다.
 - Hero 텍스트·카드·통계는 60~70ms 간격으로 등장합니다. 데스크톱 포인터 환경에서만 ARCHIVE 카드가 10초 주기로 5px 움직이고 배경이 미세하게 이동합니다. 모바일 장식은 줄였습니다.
 - 카드의 hover/focus-within, 테마 아이콘, 240ms hash 페이지 전환, native FAQ 답변에 짧은 효과를 적용합니다. FAQ 높이를 고정하지 않습니다.
 - 헤더의 스크롤 진행은 passive listener와 requestAnimationFrame으로 CSS 변수만 갱신합니다. 스크롤마다 앱 상태를 갱신하지 않으며 이벤트·observer는 정리합니다.
 - 모바일 메뉴는 닫힘 효과 중에도 `inert`로 포커스 진입을 막습니다. Escape, 바깥 클릭, 메뉴 선택, route 변경으로 닫히며 Escape는 메뉴 버튼으로 포커스를 돌려줍니다. 홈 scroll spy와 업데이트 route의 `aria-current`를 구분합니다.
-- 검색 개수는 단일 `aria-live="polite"` 상태이고, 필터는 `aria-pressed`를 제공합니다. 초기화 후 검색창 포커스를 유지합니다. skip link는 hash route를 바꾸지 않고 본문으로 이동합니다.
+- 검색 개수는 단일 `aria-live="polite"` 상태이고 필터는 `aria-pressed`를 제공합니다. 초기화 후 검색창 포커스를 유지합니다. skip link는 hash route를 바꾸지 않고 본문으로 이동합니다.
 - OS 테마를 따르되 명시적으로 고른 테마만 저장합니다. HTML의 초기 테마 스크립트로 첫 화면 번쩍임을 줄입니다.
 
 `prefers-reduced-motion: reduce`에서는 등장·반복·페이지 전환·메뉴·FAQ·테마 회전과 smooth scroll을 모두 제거합니다. observer가 없거나 오류가 나도 콘텐츠는 숨겨지지 않습니다. JavaScript 자체를 끈 경우 React 검색/상세 화면 대신 `noscript` 안내와 저장소 링크가 표시됩니다(서버 렌더링 사이트는 아닙니다).
@@ -315,6 +335,16 @@ Get-FileHash .\release.zip -Algorithm SHA256
 
 ## 배포 원칙
 
-이 포털은 원본 ROM, 게임 데이터, BIOS, 펌웨어, 암호화 키를 배포하지 않습니다. 사용자는 필요한 데이터를 합법적으로 직접 준비해야 하며, 각 게임·플랫폼·상표의 권리는 해당 권리자에게 있습니다.
+이 포털은 원본 ROM, 게임 데이터, BIOS, 펌웨어, 암호화 키를 배포하지 않습니다. 사용자는 필요한 데이터를 합법적으로 직접 준비해야 하며 각 게임·플랫폼·상표의 권리는 해당 권리자에게 있습니다.
 
 2026-09-13 갱신: 나리키리 던전2의 외부 링크를 `GimoXagros/gba-narikiri2-kor`로 이전했습니다. 정식 페이지 ID는 `gba-narikiri2-kor`로 변경했으며 기존 `narikiri2-save-compat` 주소는 새 주소로 이동합니다. 작업 중 공개된 v0.9d의 일본어 원본용 BPS를 웹 패처에 반영했습니다. 이전 테스트판과 공개 v0.9d의 결과 해시는 다르므로 공개 매니페스트를 기준으로 검증합니다. 나리키리 던전3은 공개 v1.1a 웹 패처와 적용 안내를 제공합니다. 두 프로젝트의 새 로고는 고정 커밋의 원본 파일을 그대로 사용합니다.
+
+## 이전 콘텐츠 갱신 기록
+
+다음은 당시 버전의 갱신 기록입니다. 현재 배포 버전과 적용 방법은 위의 최신 안내를 확인하세요.
+
+2026-09-09 갱신은 v0.9c PC 도구 수정 공개 검증판을 반영합니다. PC 적용기의 안전한 파일 저장·manifest 검사와 검증 기록을 보완했으며 게임 ROM/BPS는 v0.9b와 동일해 재패치가 필요하지 않습니다.
+
+2026-09-07 콘텐츠 갱신은 나리키리 프로젝트를 FFR BETA3(071102) 기반 **2차 한국어화 패치 v0.9b 공개 검증판**으로 전환하고 네 프로젝트의 GitHub Releases 이력을 최초 공개 지점부터 모두 연결합니다. v0.9b는 BETA3의 기존 EEPROM 저장 코드를 유지하므로 v0.5 저장 복구를 별도로 적용하지 않습니다. 원본 ROM과 생성 ROM은 배포하지 않으며 각 릴리스의 미검증 범위와 알려진 제한은 상세 화면에 함께 기록합니다. 이전 검증 근거는 [2026-09-05 갱신 기록](QA_RELEASE_REFRESH_20260905.md)과 [나리키리 등록 기록](QA_RELEASE_REFRESH_20260903.md)을 확인하세요.
+
+디자인은 따뜻한 종이색과 차콜을 바탕으로 둥근 수집 카드, 인덱스 탭, 메모 라벨과 점선 기록장을 조합한 “작은 레트로 게임 작업실 + 수집 노트” 콘셉트입니다.
