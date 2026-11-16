@@ -3,6 +3,35 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-11-05-2",
+      "version": "v2026.11.05.2",
+      "date": "2026-11-05",
+      "title": "실행 도구·플러그인 고정 버전 갱신",
+      "summary": "GSD·브라우저·미디어 실행 도구와 플러그인을 갱신하고 관리 런타임의 보안·기본 동작을 확인한 공개 배포입니다.",
+      "changes": [
+        "GSD Core 1.20.0, Agent Browser 0.41.2, Firecrawl 1.28.0, HyperFrames 0.9.14와 Claude-Mem 15.9.0 반영",
+        "undici 7.30.1 고정, 관리 npm 운영 의존성의 알려진 취약점 0개 확인",
+        "공개 검증 기록: 저장소 검사 63개, Firecrawl 로컬 호환 검사, HyperFrames 관리 CLI와 Claude-Mem health·doctor 통과",
+        "계정 인증·훅 신뢰는 사용자 작업이며 모든 플러그인 workflow와 다른 PC 실행까지 검증한 결과는 아님"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.05.2",
+      "status": "release"
+    },
+    {
+      "id": "ai-work-skills-v2026-11-05-1",
+      "version": "v2026.11.05.1",
+      "date": "2026-11-05",
+      "title": "SNS 스킬 등록 확인과 원본 갱신",
+      "summary": "SNS 스킬 13개의 등록·설치 상태를 확인하고 관리 스킬 원본 19개를 갱신했습니다.",
+      "changes": [
+        "관리 스킬 77개 유지, 한국어 SNS 사용 예시와 원본 감사 기록 추가",
+        "공개 기록: 저장소 검사 62개와 UI 검사 25개 통과",
+        "Instagram 게시·메시지 전송과 실행 도구·플러그인 갱신은 이 배포 범위에 포함하지 않음"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.05.1",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-security-resolution-20261025",
       "version": "v2026.10.25.2",
       "date": "2026-10-25",
