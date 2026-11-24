@@ -1644,21 +1644,21 @@
       "Python 3.10+"
     ],
     "status": "released",
-    "version": "v2026.11.05.2",
+    "version": "v2026.11.24.3",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-11-05",
-    "lastUpdated": "2026-11-05",
+    "releaseDate": "2026-11-24",
+    "lastUpdated": "2026-11-24",
     "repository": "https://github.com/GimoXagros/ai-work-skills",
-    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.05.2",
+    "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.3",
     "issuesUrl": "https://github.com/GimoXagros/ai-work-skills/issues",
     "downloadEnabled": true,
     "downloads": [
       {
         "label": "AI Work Skills 소스·설치 도구 ZIP",
-        "filename": "ai-work-skills-v2026.11.05.2.zip",
-        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.11.05.2/ai-work-skills-v2026.11.05.2.zip",
-        "size": "3517480 bytes",
-        "sha256": "621c0fcd0dd78b01b638f778f1d95b0ada147a496b4bab5e8fc5f1eafbfcdee2"
+        "filename": "ai-work-skills-v2026.11.24.3.zip",
+        "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.11.24.3/ai-work-skills-v2026.11.24.3.zip",
+        "size": "3584401 bytes",
+        "sha256": "112af0942a2bcd3a1679b9d798836883061e9bd66ed8c84bd0095d0b591bf620"
       }
     ],
     "sourceInstall": false,
@@ -1673,7 +1673,7 @@
     },
     "screenshots": [],
     "features": [
-      "2026-11-05 공개 기록: 실행 도구·플러그인 고정 버전 갱신, 관리 npm 운영 의존성의 알려진 취약점 0개 확인",
+      "Claude-Mem 16.1.2, HyperFrames 0.9.88, humanize-korean 2.4.8, Graphify 0.9.118 지원",
       "스킬 목록 예산 10000 설정, Chrome DevTools MCP 1.12.0 고정 설치와 새 CLI 페이지·스냅샷 검사 안내",
       "ECC 훅 의존성 자동 설치와 Bun·uv·uvx 경로 설정, 다른 PC 활성화 안내",
       "GSD Core·Agent Browser·Firecrawl·HyperFrames와 Claude-Mem 등 실행 도구 갱신, 원본 커밋·고정 버전 기록",
@@ -1701,7 +1701,7 @@
       "글꼴·이미지 도구 setup_tools.py는 Python 3.11 이상 필요 (핵심 스킬 설치는 Python 3.10 이상)"
     ],
     "compatibility": [
-      "v2026.11.05.2 공개 기록: 저장소 검사 63개, Firecrawl 로컬 호환 검사와 관리 HyperFrames CLI 실행 통과. Claude-Mem health·doctor 확인. 전체 훅·플러그인 workflow와 계정별 실행 검증은 포함하지 않습니다.",
+      "Claude-Mem 업데이트를 별도 환경에서 시험해 데이터베이스 무결성과 주요 테이블 4개의 레코드 수를 확인했습니다. 전체 훅 이벤트는 시험 범위에서 제외했습니다.",
       "Windows x64 실행 도구 설치기와 다운로드 SHA-256 검증을 지원합니다. 플러그인 등록은 인증·훅 신뢰·모델 준비 완료를 뜻하지 않습니다.",
       "이번 포털 갱신은 기존 검증 결과를 게시한 작업이며 전체 설치·실행 검사를 다시 수행한 것은 아닙니다. 모든 훅 생명주기·다른 실물 PC·미공개 취약점까지 검증한 결과는 아닙니다."
     ],
@@ -1734,7 +1734,7 @@
       {
         "role": "외부 스킬 출처·고정 버전",
         "name": "skills-lock.json",
-        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.11.05.2/skills-lock.json"
+        "url": "https://github.com/GimoXagros/ai-work-skills/blob/v2026.11.24.3/skills-lock.json"
       }
     ],
     "license": "스킬별 upstream 라이선스 및 저장소의 개별 고지 적용",
@@ -1747,6 +1747,57 @@
     ],
     "featured": false,
     "downloadVersions": [
+      {
+        "version": "v2026.11.24.3",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.3",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "summary": "Claude-Mem 16.1.2 적용",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.11.24.3.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.11.24.3/ai-work-skills-v2026.11.24.3.zip",
+            "size": "3584401 bytes",
+            "sha256": "112af0942a2bcd3a1679b9d798836883061e9bd66ed8c84bd0095d0b591bf620"
+          }
+        ]
+      },
+      {
+        "version": "v2026.11.24.2",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.2",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "summary": "HyperFrames 0.9.88 적용",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.11.24.2.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.11.24.2/ai-work-skills-v2026.11.24.2.zip",
+            "size": "3583780 bytes",
+            "sha256": "a044973f519803e0bf60267350e02587c14d0207d145d109b13a4f4cb11bd4ec"
+          }
+        ]
+      },
+      {
+        "version": "v2026.11.24.1",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.1",
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "summary": "한국어 윤문과 코드 분석 도구 갱신",
+        "downloads": [
+          {
+            "label": "AI Work Skills 소스·설치 도구 ZIP",
+            "filename": "ai-work-skills-v2026.11.24.1.zip",
+            "url": "https://github.com/GimoXagros/ai-work-skills/releases/download/v2026.11.24.1/ai-work-skills-v2026.11.24.1.zip",
+            "size": "3583222 bytes",
+            "sha256": "0bf897cd8d24045cb109c9ee9cdb1d82f2dc39a21b65e1104871869c8e8203f2"
+          }
+        ]
+      },
       {
         "version": "v2026.11.05.2",
         "releaseDate": "2026-11-05",

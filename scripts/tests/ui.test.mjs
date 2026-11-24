@@ -70,7 +70,7 @@ test('reduced motion and progressive visibility rules remain explicit', () => {
 test('current projects derive the Hero date from the latest release regardless of array order', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const html = await render('Hero', { site: { description: 'test' }, projects })
-  assert.match(html, /최근 업데이트<\/dt><dd>2026-11-05/)
+  assert.ok(html.includes("최근 업데이트</dt><dd>" + projects.map(project => project.lastUpdated).sort().at(-1)))
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.ok(html.includes('등록 프로젝트 · ' + projects.length + ' PROJECTS'))
   assert.equal(projects.length, 6)

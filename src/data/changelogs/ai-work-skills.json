@@ -3,6 +3,42 @@
   "displayName": "AI Work Skills",
   "entries": [
     {
+      "id": "ai-work-skills-v2026-11-24-3",
+      "version": "v2026.11.24.3",
+      "date": "2026-11-24",
+      "title": "Claude-Mem 16.1.2 적용",
+      "summary": "기존 설정을 유지하고 데이터베이스를 백업한 뒤, Codex를 다시 시작해 Claude-Mem이 정상 응답하는지 확인했습니다.",
+      "changes": [
+        "기존 설정을 유지하고 데이터베이스를 백업한 뒤, Codex를 다시 시작해 Claude-Mem이 정상 응답하는지 확인했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.3",
+      "status": "release"
+    },
+    {
+      "id": "ai-work-skills-v2026-11-24-2",
+      "version": "v2026.11.24.2",
+      "date": "2026-11-24",
+      "title": "HyperFrames 0.9.88 적용",
+      "summary": "HyperFrames 플러그인과 CLI를 0.9.88로 갱신하고 통합 검사 7개를 통과했습니다.",
+      "changes": [
+        "HyperFrames 플러그인과 CLI를 0.9.88로 갱신하고 통합 검사 7개를 통과했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.2",
+      "status": "release"
+    },
+    {
+      "id": "ai-work-skills-v2026-11-24-1",
+      "version": "v2026.11.24.1",
+      "date": "2026-11-24",
+      "title": "한국어 윤문과 코드 분석 도구 갱신",
+      "summary": "humanize-korean을 2.4.8로, Graphify를 0.9.118로 갱신했습니다.",
+      "changes": [
+        "humanize-korean을 2.4.8로, Graphify를 0.9.118로 갱신했습니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.11.24.1",
+      "status": "release"
+    },
+    {
       "id": "ai-work-skills-v2026-11-05-2",
       "version": "v2026.11.05.2",
       "date": "2026-11-05",
