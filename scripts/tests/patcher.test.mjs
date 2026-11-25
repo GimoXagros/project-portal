@@ -103,7 +103,7 @@ test('v0.9c public BPS is byte-identical to v0.9b and keeps the same ROM sizes',
 
 test('all registered public patches parse with their declared ROM sizes', () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
-  for (const project of projects.filter(item => item.type === 'korean-patch')) {
+  for (const project of projects.filter(item => item.webPatcher)) {
     for (const version of project.webPatcher.versions) {
       const context = loadEngine()
       context.publishedPatch = Uint8Array.from(readFileSync(new URL('../../public/' + version.patch.path, import.meta.url)))

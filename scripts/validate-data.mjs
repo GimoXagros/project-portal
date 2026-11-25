@@ -16,7 +16,7 @@ export function validateData(projectsOverride) {
   const errors = []
   const fail = (file, id, message) => errors.push(`${file}${id ? ` [${id}]` : ''}: ${message}`)
   const sha256 = /^[a-f0-9]{64}$/i
-  const safeId = /^[a-z0-9-]+$/
+  const safeId = /^[a-z0-9-]+(?:\.[a-z0-9-]+)*$/
   const isoDate = { test: isISODate }
   const remote = /^https:\/\//i
 
@@ -33,7 +33,7 @@ export function validateData(projectsOverride) {
         else if (!first) sentences.set(normalized, field)
       }
     }
-    if (!safeId.test(project.id || '')) fail('src/data/projects.json', project.id, 'id는 소문자 영문, 숫자, 하이픈만 사용할 수 있습니다.')
+    if (!safeId.test(project.id || '')) fail('src/data/projects.json', project.id, 'id는 소문자 영문, 숫자, 하이픈과 구간 사이의 점만 사용할 수 있습니다.')
     if (seen.has(project.id)) fail('src/data/projects.json', project.id, '중복된 프로젝트 id입니다.')
     seen.add(project.id)
     if (project.reportRepository) {

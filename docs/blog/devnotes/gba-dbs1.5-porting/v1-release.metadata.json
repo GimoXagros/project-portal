@@ -1,0 +1,16 @@
+{
+  "projectId": "gba-dbs1.5-porting",
+  "noteKey": "v1-release",
+  "postType": "development-note",
+  "title": "디지몬 배틀 스피릿 Ver. 1.5 GBA 팬 포팅판 v1.0.0 적용과 통신 대전",
+  "postStatus": "draft_ready",
+  "categoryProposal": "프로젝트 안내",
+  "releaseTag": "v1.0.0",
+  "publishedUrl": null,
+  "draftPath": "docs/blog/devnotes/gba-dbs1.5-porting/v1-release.md",
+  "evidenceUrls": [
+    "https://gimoxagros.github.io/project-portal/#/project/gba-dbs1.5-porting",
+    "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.0",
+    "https://github.com/GimoXagros/gba-dbs1.5-porting/issues"
+  ]
+}

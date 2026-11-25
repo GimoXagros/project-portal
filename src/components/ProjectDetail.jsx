@@ -29,7 +29,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
   const hasHashes = project.originalHash || project.patchHash || project.patchedHash || project.hashes?.length
   const hasConditions = ['requirements', 'compatibility', 'scope', 'notes'].some((field) => project[field]?.length)
   const sections = [
-    ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(project.type === 'korean-patch' ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
+    ['overview', '개요'], ...(patcher ? [['browser-patcher', '웹 패처']] : []), ...(patcher && !project.downloadEnabled ? [] : [['download', project.sourceInstall ? '저장소 설치' : '다운로드']]),
     ...(project.installGuide?.length ? [['installation', '설치']] : []),
     ...(hasConditions ? [['conditions', '검증·제한']] : []), ...(hasHashes ? [['integrity', '무결성']] : []),
     ['project-changelog', '업데이트'], ['reports', '제보'], ...(project.credits?.length || project.license ? [['credits', 'Credits·라이선스']] : []),
@@ -61,7 +61,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
         <section className="detail-section intro-section" id="overview"><div className="detail-section-title"><h2>프로젝트 개요</h2></div><p className="lead-description">{project.description}</p><ListBlock title="핵심 기능" items={project.features} /></section>
         <ScreenshotGallery screenshots={project.screenshots} />
         <BrowserPatcher project={project} />
-        <DownloadSection project={project} />
+        {(!patcher || project.downloadEnabled) && <DownloadSection project={project} />}
         {project.installGuide?.length > 0 && <section className="detail-section" id="installation">{patcher ? <details><summary>웹 패처 사용·기기 배치 안내</summary>{installation}</details> : <><div className="detail-section-title"><h2>설치·사용 안내</h2></div>{installation}</>}</section>}
         {hasConditions && <section className="detail-section" id="conditions"><div className="detail-section-title"><h2>지원 및 검증 범위</h2></div>
           <div className="condition-group"><h3>사용 조건과 검증 범위</h3><ListBlock headingLevel={4} title="준비할 환경·파일" items={project.requirements} /><ListBlock headingLevel={4} title="확인된 환경·사용 범위" items={project.compatibility} /></div>

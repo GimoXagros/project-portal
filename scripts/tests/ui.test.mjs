@@ -73,15 +73,15 @@ test('current projects derive the Hero date from the latest release regardless o
   assert.ok(html.includes("최근 업데이트</dt><dd>" + projects.map(project => project.lastUpdated).sort().at(-1)))
   assert.equal(html, await render('Hero', { site: { description: 'test' }, projects: [...projects].reverse() }))
   assert.ok(html.includes('등록 프로젝트 · ' + projects.length + ' PROJECTS'))
-  assert.equal(projects.length, 6)
+  assert.equal(projects.length, 7)
 })
 
 test('all projects expose their full public release history from the first recorded point', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const expected = {
-    gameyob: ['v0.5.11', 'v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
-    gbarunner3: ['custom-v0.1.5', 'custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
-    nitroswan: ['v0.7.7-custom.r10', 'v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
+    gameyob: ['v0.5.13', 'v0.5.12', 'v0.5.11', 'v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
+    gbarunner3: ['custom-v0.1.6', 'custom-v0.1.5', 'custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    nitroswan: ['v0.7.7-custom.r11', 'v0.7.7-custom.r10', 'v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
     'gba-narikiri3-kor': ['v1.3b', 'v1.3a', 'v1.3', 'v1.2', 'v1.1a'],
     'gba-narikiri2-kor': ['v1.1c', 'v1.1b', 'v1.1a', 'v1.1', 'v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
@@ -95,7 +95,7 @@ test('all projects expose their full public release history from the first recor
   assert.match(html, /최종 파일명의 별도 실기 재검사는 하지 않았습니다/)
   assert.match(html, /모든 게임·BIOS·표시 모드의 완전한 호환성이나 속도 향상을 보증하지 않습니다/)
   for (const download of project.downloads) {
-    assert.match(download.url, /custom\.r10\//)
+    assert.match(download.url, /custom\.r11\//)
     assert.ok(html.includes(download.url))
     assert.ok(html.includes(download.sha256))
   }
@@ -251,6 +251,11 @@ test('published development notes link from project timelines and updates index'
   for (const project of projects) {
     const changelog = changelogFor(project.id)
     const url = changelog.entries.find(entry => entry.devNoteUrl)?.devNoteUrl
+    if (!url) {
+      const html = await render('UpdateTimeline', { changelog })
+      assert.doesNotMatch(html, /개발노트 읽기/)
+      continue
+    }
     assert.match(url, /^https:\/\/gimoxagros\.tistory\.com\/\d+$/)
     const compact = await render('UpdateTimeline', { changelog, compact: true, limit: 1 })
     const full = await render('UpdateTimeline', { changelog })

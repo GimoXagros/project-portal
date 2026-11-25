@@ -3,7 +3,7 @@
     "id": "gameyob",
     "demo": false,
     "title": "GameYob Custom",
-    "titleOriginal": "GameYob Custom v0.5.11",
+    "titleOriginal": "GameYob Custom v0.5.13",
     "subtitle": "Nintendo DS·DSi용 Game Boy 계열 에뮬레이터 커스텀 빌드",
     "description": "Game Boy, Game Boy Color와 Super Game Boy 계열을 Nintendo DS·DSi에서 실행하는 에뮬레이터입니다.",
     "type": "emulator",
@@ -13,12 +13,12 @@
       "Nintendo 3DS(DSpico)"
     ],
     "status": "work-in-progress",
-    "version": "v0.5.11",
+    "version": "v0.5.13",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-29",
-    "lastUpdated": "2026-09-29",
+    "releaseDate": "2026-11-25",
+    "lastUpdated": "2026-11-25",
     "repository": "https://github.com/GimoXagros/GameYob",
-    "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.11",
+    "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.13",
     "issuesUrl": "https://github.com/GimoXagros/GameYob/issues",
     "upstream": {
       "name": "Stewmath/GameYob",
@@ -39,6 +39,7 @@
     },
     "screenshots": [],
     "features": [
+      "EZFlash 3-in-1 진동 처리를 BlocksDS의 공개 libnds API로 교체했습니다. 실물 진동 팩 검수는 남아 있습니다.",
       "Game Boy·Game Boy Color·Super Game Boy 계열 실행",
       "ROM 반복 실행 안정화와 SGB 보더 탐색 분리",
       "Game Boy Printer 입력 검사와 번호형 BMP 저장"
@@ -59,15 +60,15 @@
       "고정 BlocksDS 1.22.2 DS/DSi 빌드와 합성 회귀·패키지 검사는 실제 게임·SD 경로 전체를 보증하지 않습니다."
     ],
     "installGuide": [
-      "세이브·상태·설정·프린터 BMP를 먼저 백업하고 gameyob-v0.5.11.zip의 SHA-256을 확인합니다.",
-      "압축을 풀어 기기에 맞는 gameyob.nds 또는 gameyob_dsi.nds를 선택합니다.",
+      "세이브·상태·설정·인쇄 파일을 백업하고 선택한 ZIP의 SHA-256을 확인합니다.",
+      "압축을 풀고 사용하는 기기에 맞는 DS 또는 DSi 실행 파일을 고릅니다.",
       "사용 중인 런처 또는 플래시카드가 안내하는 위치에 NDS 파일을 복사합니다.",
       "합법적으로 확보한 게임 ROM을 사용해 실행하고 릴리스 주의사항을 확인합니다."
     ],
     "notes": [
       "Castlevania Legends에서 L 배속 중 간헐적인 얇은 흰 가로줄은 미해결 이슈 #8입니다. 화면 문제 전체가 수정됐다고 보증하지 않습니다.",
       "프린터 BMP는 ROM 옆에 임시 .tmp 파일을 거쳐 번호형으로 저장됩니다. SD 여유 공간을 확보하고 기존 출력물을 보존하세요. 실제 종이·다중 인쇄·여백·노출 표현은 보증하지 않습니다.",
-      "기존 3in1.cpp/3in1.h 조각의 명시적 허락 문서는 확인되지 않았습니다. 원 출처 표기는 유지하며 후대 저장소의 GPL 표기가 과거 조각의 권한을 소급 해결하지는 않는다는 공개 릴리스 고지를 확인하세요.",
+      "진동 드라이버 교체 후 DS·DSi 빌드와 회귀 검사를 통과했습니다. 두 ZIP의 실행 파일명은 다르지만 설정과 저장 파일은 공유할 수 있으니 백업하세요.",
       "상태 로딩은 구조를 먼저 검사하지만 완전한 트랜잭션 방식은 아니므로 특히 구버전 상태 파일은 백업 권장",
       "NiFi 소프트웨어 회귀 검사는 실물 DS·DSi·3DS DS-mode 무선 검증을 대신하지 않음",
       "65C816 256/256은 명령 디스패치 범위이며 완전하거나 cycle-accurate한 SNES CPU 구현을 뜻하지 않음",
@@ -89,7 +90,7 @@
       }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
-    "fileSize": "845733 bytes",
+    "fileSize": "838169 bytes",
     "tags": [
       "Game Boy",
       "Game Boy Color",
@@ -100,14 +101,71 @@
     "downloadEnabled": true,
     "downloads": [
       {
-        "label": "GameYob Custom 통합 패키지",
-        "filename": "gameyob-v0.5.11.zip",
-        "size": "845733 bytes",
-        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.11/gameyob-v0.5.11.zip",
-        "sha256": "a51e5abba03d117251b0846a78b450f752dbfd8d96833b2ee405d4aab882f69a"
+        "label": "통합 패키지",
+        "filename": "gameyob-v0.5.13.zip",
+        "size": "838169 bytes",
+        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.13/gameyob-v0.5.13.zip",
+        "sha256": "aff7cd972b92cb841cb80beda258eba2724b72248d49b607db906e97ccebaa26"
+      },
+      {
+        "label": "별도 실행 파일명 패키지",
+        "filename": "gameyob-custom-v0.5.13.zip",
+        "size": "838393 bytes",
+        "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.13/gameyob-custom-v0.5.13.zip",
+        "sha256": "5f5732b216a07f1507fec98b22598bbb2703abb0012c0d1f66f6b0ad9847d91a"
       }
     ],
     "downloadVersions": [
+      {
+        "version": "v0.5.13",
+        "releaseDate": "2026-11-25",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.13",
+        "downloads": [
+          {
+            "label": "통합 패키지",
+            "filename": "gameyob-v0.5.13.zip",
+            "size": "838169 bytes",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.13/gameyob-v0.5.13.zip",
+            "sha256": "aff7cd972b92cb841cb80beda258eba2724b72248d49b607db906e97ccebaa26"
+          },
+          {
+            "label": "별도 실행 파일명 패키지",
+            "filename": "gameyob-custom-v0.5.13.zip",
+            "size": "838393 bytes",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.13/gameyob-custom-v0.5.13.zip",
+            "sha256": "5f5732b216a07f1507fec98b22598bbb2703abb0012c0d1f66f6b0ad9847d91a"
+          }
+        ],
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "진동 드라이버 교체",
+        "summary": "EZFlash 3-in-1 진동 처리를 BlocksDS의 공개 libnds API로 교체했습니다. 실물 진동 팩 검수는 남아 있습니다."
+      },
+      {
+        "version": "v0.5.12",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/GameYob/releases/tag/v0.5.12",
+        "downloads": [
+          {
+            "label": "런처 아이콘 개선 패키지",
+            "filename": "gameyob-v0.5.12-icon-refresh.zip",
+            "size": "844655 bytes",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.12/gameyob-v0.5.12-icon-refresh.zip",
+            "sha256": "0bba4f64225d54d85779c14fe12ea8f1524959ee22fad8f13063a19eaf122f09"
+          },
+          {
+            "label": "통합 패키지",
+            "filename": "gameyob-v0.5.12.zip",
+            "size": "842501 bytes",
+            "url": "https://github.com/GimoXagros/GameYob/releases/download/v0.5.12/gameyob-v0.5.12.zip",
+            "sha256": "8996fc049131b6862896b0474e0f76f3d64c7fe0e54b22e8af735b3ebfaeb7a2"
+          }
+        ],
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "HuC3 시계·화면 조절 개선",
+        "summary": "HuC3 시계의 초 누락을 고치고 화면 확대 단계와 세로 이동을 추가했습니다."
+      },
       {
         "version": "v0.5.11",
         "releaseDate": "2026-09-29",
@@ -258,7 +316,7 @@
     "id": "gbarunner3",
     "demo": false,
     "title": "GBARunner3 Custom",
-    "titleOriginal": "GBARunner3 Custom v0.1.5 (Stable)",
+    "titleOriginal": "GBARunner3 Custom v0.1.6 (Stable)",
     "subtitle": "Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 커스텀 호환 계층",
     "description": "직접 실행, 패치와 에뮬레이션 요소를 결합해 Nintendo DS 계열에서 GBA 소프트웨어 실행을 지원하는 호환 계층입니다.",
     "type": "utility",
@@ -268,12 +326,12 @@
       "Nintendo 3DS(DSpico)"
     ],
     "status": "released",
-    "version": "custom-v0.1.5",
+    "version": "custom-v0.1.6",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-29",
-    "lastUpdated": "2026-09-29",
+    "releaseDate": "2026-11-24",
+    "lastUpdated": "2026-11-24",
     "repository": "https://github.com/GimoXagros/GBARunner3",
-    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.5",
+    "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.6",
     "issuesUrl": "https://github.com/GimoXagros/GBARunner3/issues",
     "upstream": {
       "name": "Gericom/GBARunner3",
@@ -294,6 +352,7 @@
     },
     "screenshots": [],
     "features": [
+      "카트리지 RTC의 초 경계와 연도 전환을 수정하고 재시작 때 1초 미만의 경과 시간도 복원합니다.",
       "Nintendo DS 계열에서 GBA 소프트웨어 실행",
       "RTC BCD 시각 처리 보완과 기존 RTC 파일의 명시적 전환",
       "정상 실행 파일과 게임별 설정 304개 제공"
@@ -309,12 +368,12 @@
       "사용자가 합법적으로 확보한 GBA ROM"
     ],
     "compatibility": [
-      "3DS+DSpico에서 정상 실행·저장과 포켓몬스터 에메랄드의 시간 설정→저장→종료→대기→재실행 후 경과 시간 반영을 확인했다는 사용자 보고가 있습니다.",
-      "실기 보고 대상은 RTC 후보이며 배포본 ARM7/ARM9 실행 데이터는 동일합니다. 배너와 관련 체크섬은 달라졌고 정확한 대기 시간·ROM 해시는 제공되지 않았습니다.",
+      "이전 RTC 후보 버전은 3DS+DSpico에서 포켓몬스터 에메랄드의 저장·재시작 후 경과 시간 반영을 확인한 사용자 보고가 있습니다.",
+      "v0.1.6은 ws-rtc-test의 비교 벡터로 RTC 동작을 검사했습니다.",
       "공개 ZIP 310개 파일, 게임 설정 304개와 해시 검증 및 고정 도구 체인의 6회 재현 빌드가 기록되어 있습니다. 자동 검사 수는 실기 게임 수가 아닙니다."
     ],
     "installGuide": [
-      "기존 .sav·모든 .g3rtc*·개인 설정을 백업하고 GBARunner3.zip의 SHA-256을 확인합니다.",
+      "기존 .sav·모든 .g3rtc*·개인 설정을 백업한 뒤 선택한 ZIP의 SHA-256을 확인합니다.",
       "ZIP의 GBARunner3.nds를 사용 중인 런처가 요구하는 위치에 복사합니다.",
       "ZIP의 _gba/configs를 기존 개인 설정과 비교한 뒤 SD 카드의 /_gba/configs에 적용합니다.",
       "기존 RTC 전환이 필요하면 RTC-COMPATIBILITY.md를 읽고 tools/rtc_migrate.py로 명시적으로 진행합니다. 기본 동작은 검사이며 기존 파일을 삭제해 안내를 우회하지 마세요.",
@@ -343,7 +402,7 @@
       }
     ],
     "license": "LICENSE.md 및 개별 구성요소 조건 확인",
-    "fileSize": "165568 bytes",
+    "fileSize": "169134 bytes",
     "hashes": [
       {
         "label": "ZIP 내부 GBARunner3.nds SHA-256",
@@ -360,14 +419,60 @@
     "downloadEnabled": true,
     "downloads": [
       {
-        "label": "GBARunner3 v0.1.5 정식 패키지",
+        "label": "런처 아이콘 개선 패키지",
+        "filename": "GBARunner3-v0.1.6-icon-r1.zip",
+        "size": "169134 bytes",
+        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3-v0.1.6-icon-r1.zip",
+        "sha256": "b21c81e987e0559b8ef174bafdcd2d73577ce800082100c55f762765ccf998d4"
+      },
+      {
+        "label": "별도 실행 파일명 패키지",
+        "filename": "GBARunner3-Custom.zip",
+        "size": "169134 bytes",
+        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3-Custom.zip",
+        "sha256": "b21c81e987e0559b8ef174bafdcd2d73577ce800082100c55f762765ccf998d4"
+      },
+      {
+        "label": "통합 패키지",
         "filename": "GBARunner3.zip",
-        "size": "165568 bytes",
-        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.5/GBARunner3.zip",
-        "sha256": "bdc5cecdd166d2ebe0ada3f5e7479da7081c01f534a7f8607a82d428694df1c0"
+        "size": "181481 bytes",
+        "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3.zip",
+        "sha256": "82018bd82deb7a6c95c88db2b333af9c34ab450f563e36fa571665004e50f606"
       }
     ],
     "downloadVersions": [
+      {
+        "version": "custom-v0.1.6",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.6",
+        "downloads": [
+          {
+            "label": "런처 아이콘 개선 패키지",
+            "filename": "GBARunner3-v0.1.6-icon-r1.zip",
+            "size": "169134 bytes",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3-v0.1.6-icon-r1.zip",
+            "sha256": "b21c81e987e0559b8ef174bafdcd2d73577ce800082100c55f762765ccf998d4"
+          },
+          {
+            "label": "별도 실행 파일명 패키지",
+            "filename": "GBARunner3-Custom.zip",
+            "size": "169134 bytes",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3-Custom.zip",
+            "sha256": "b21c81e987e0559b8ef174bafdcd2d73577ce800082100c55f762765ccf998d4"
+          },
+          {
+            "label": "통합 패키지",
+            "filename": "GBARunner3.zip",
+            "size": "181481 bytes",
+            "url": "https://github.com/GimoXagros/GBARunner3/releases/download/custom-v0.1.6/GBARunner3.zip",
+            "sha256": "82018bd82deb7a6c95c88db2b333af9c34ab450f563e36fa571665004e50f606"
+          }
+        ],
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "RTC 저장·재시작 개선",
+        "summary": "카트리지 RTC의 초 경계와 연도 전환을 수정하고 재시작 때 1초 미만의 경과 시간도 복원합니다."
+      },
       {
         "version": "custom-v0.1.5",
         "releaseDate": "2026-09-29",
@@ -429,7 +534,7 @@
         "releasePolicy": "pinned-prerelease",
         "pinReason": "정식판 이전의 공개 실기 검증 후보 보존",
         "title": "GBARunner3 Custom v0.1.3-rc3 (Storage Validation Candidate)",
-        "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다. 현재 정식판은 custom-v0.1.5입니다.",
+        "summary": "저장장치 오류 전달과 저장 signature 경계 검색을 보완한 이전 검증 후보입니다.",
         "downloads": [
           {
             "label": "GBARunner3.zip",
@@ -568,7 +673,7 @@
     "id": "nitroswan",
     "demo": false,
     "title": "NitroSwan Custom",
-    "titleOriginal": "NitroSwan Custom v0.7.7-custom.r10",
+    "titleOriginal": "NitroSwan Custom v0.7.7-custom.r11",
     "subtitle": "Nintendo DS·DSi 및 호환 런처용 WonderSwan 계열 에뮬레이터",
     "description": "Bandai WonderSwan, WonderSwan Color, SwanCrystal과 PocketChallenge V2에 대응하는 에뮬레이터입니다.",
     "type": "emulator",
@@ -578,12 +683,12 @@
       "Nintendo 3DS(DSpico)"
     ],
     "status": "work-in-progress",
-    "version": "v0.7.7-custom.r10",
+    "version": "v0.7.7-custom.r11",
     "releasePolicy": "latest-stable",
-    "releaseDate": "2026-09-27",
-    "lastUpdated": "2026-09-27",
+    "releaseDate": "2026-11-24",
+    "lastUpdated": "2026-11-24",
     "repository": "https://github.com/GimoXagros/NitroSwan",
-    "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r10",
+    "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r11",
     "issuesUrl": "https://github.com/GimoXagros/NitroSwan/issues",
     "upstream": {
       "name": "FluBBaOfWard/NitroSwan",
@@ -604,6 +709,7 @@
     },
     "screenshots": [],
     "features": [
+      "카트리지 RTC의 분 주기 신호와 월말·윤년 처리, 12시간·24시간 변환을 바로잡았습니다.",
       "WonderSwan 계열·PocketChallenge V2 실행",
       "DS·DSi 빌드 분리 제공",
       "캐릭터 잔상·팔레트 및 ROM 전환 보완"
@@ -619,8 +725,8 @@
       "사용자가 합법적으로 확보한 게임 ROM"
     ],
     "compatibility": [
-      "Nintendo DS·DS Lite 또는 일반 DS-mode: NitroSwan-DS-0.7.7-custom.r10.nds 사용",
-      "Nintendo DSi 또는 Nintendo 3DS의 DSpico/Pico Loader: NitroSwan-DSi-0.7.7-custom.r10.nds 권장",
+      "Nintendo DS·DS Lite 또는 일반 DS-mode: NitroSwan-DS-0.7.7-custom.r11.nds 사용",
+      "Nintendo DSi 또는 Nintendo 3DS의 DSpico/Pico Loader: NitroSwan-DSi-0.7.7-custom.r11.nds 권장",
       "DS·DSi 각각 linked-ARM 60건, ABI 8개 심볼·10개 경로와 Python 검사 80건, host C 검사·전체 빌드·NDS 구조 검증 통과 기록"
     ],
     "installGuide": [
@@ -630,7 +736,7 @@
     ],
     "notes": [
       "One Piece·Digimon 캐릭터 잔상과 록맨&포르테·배경 팔레트 수정은 직전 crystal-mono 테스트판의 사용자 실기 확인에 근거합니다.",
-      "최종 r10은 동일 런타임 수정에 버전·날짜 표시를 갱신하고 다시 빌드·자동 검증했습니다. 최종 파일명의 별도 실기 재검사는 하지 않았습니다.",
+      "r11은 CI에서 DS·DSi 프로필의 RTC 동작을 검사했습니다. 최종 파일명의 별도 실기 재검사는 하지 않았습니다.",
       "여러 프레임 사이 BG bank 수명, 중간 표시 모드 전환, 전체 저장·실패 로드 조합과 native WonderSwan timing 검증은 남아 있습니다.",
       "디버그 Step Frame 경로의 C 호출 정렬 한계가 확인되어 보완 전까지 프레임 단위 실행은 피해주세요.",
       "보고된 장면의 해결이며 모든 게임·BIOS·표시 모드의 완전한 호환성이나 속도 향상을 보증하지 않습니다.",
@@ -649,7 +755,7 @@
       }
     ],
     "license": "저장소 라이선스 및 구성요소 조건 확인",
-    "fileSize": "통합 750508 bytes",
+    "fileSize": "666046 bytes",
     "tags": [
       "WonderSwan",
       "SwanCrystal",
@@ -661,27 +767,59 @@
     "downloads": [
       {
         "label": "통합 패키지",
-        "filename": "NitroSwan-v0.7.7-custom.r10.zip",
-        "size": "750508 bytes",
-        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r10/NitroSwan-v0.7.7-custom.r10.zip",
-        "sha256": "406995d9705be3704de92741ad9d65dd5b8476f3f8bd0043f9f43630c93696c2"
+        "filename": "NitroSwan-v0.7.7-custom.r11.zip",
+        "size": "666046 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-v0.7.7-custom.r11.zip",
+        "sha256": "abfeeb4e737d6dc8dd1b770a33343daaa0715a2181f5585c00b74fbce5a146a2"
       },
       {
         "label": "Nintendo DS 빌드",
-        "filename": "NitroSwan-DS-0.7.7-custom.r10.nds",
-        "size": "569344 bytes",
-        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r10/NitroSwan-DS-0.7.7-custom.r10.nds",
-        "sha256": "f8aa683e3a9751eeebc2cc524b0f15a750915d3ff895f2b961325b9edcdcc173"
+        "filename": "NitroSwan-DS-0.7.7-custom.r11.nds",
+        "size": "568320 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-DS-0.7.7-custom.r11.nds",
+        "sha256": "ffc0f1a3f0a4929a5d239d472e360a0d384f749dd974533830ef94a594a3bdeb"
       },
       {
-        "label": "Nintendo DSi / DSpico 권장 빌드",
-        "filename": "NitroSwan-DSi-0.7.7-custom.r10.nds",
-        "size": "570368 bytes",
-        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r10/NitroSwan-DSi-0.7.7-custom.r10.nds",
-        "sha256": "14d5f8de841202461f381e8ec1e871e6408b230ce4d7fa41aadba4eac0eb7498"
+        "label": "Nintendo DSi 빌드",
+        "filename": "NitroSwan-DSi-0.7.7-custom.r11.nds",
+        "size": "569344 bytes",
+        "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-DSi-0.7.7-custom.r11.nds",
+        "sha256": "d741dde0a63ce4b335b86cf60634ad6bc51e6a0c1e287d83d544b79fd349d643"
       }
     ],
     "downloadVersions": [
+      {
+        "version": "v0.7.7-custom.r11",
+        "releaseDate": "2026-11-24",
+        "releaseUrl": "https://github.com/GimoXagros/NitroSwan/releases/tag/v0.7.7-custom.r11",
+        "downloads": [
+          {
+            "label": "통합 패키지",
+            "filename": "NitroSwan-v0.7.7-custom.r11.zip",
+            "size": "666046 bytes",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-v0.7.7-custom.r11.zip",
+            "sha256": "abfeeb4e737d6dc8dd1b770a33343daaa0715a2181f5585c00b74fbce5a146a2"
+          },
+          {
+            "label": "Nintendo DS 빌드",
+            "filename": "NitroSwan-DS-0.7.7-custom.r11.nds",
+            "size": "568320 bytes",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-DS-0.7.7-custom.r11.nds",
+            "sha256": "ffc0f1a3f0a4929a5d239d472e360a0d384f749dd974533830ef94a594a3bdeb"
+          },
+          {
+            "label": "Nintendo DSi 빌드",
+            "filename": "NitroSwan-DSi-0.7.7-custom.r11.nds",
+            "size": "569344 bytes",
+            "url": "https://github.com/GimoXagros/NitroSwan/releases/download/v0.7.7-custom.r11/NitroSwan-DSi-0.7.7-custom.r11.nds",
+            "sha256": "d741dde0a63ce4b335b86cf60634ad6bc51e6a0c1e287d83d544b79fd349d643"
+          }
+        ],
+        "releasePolicy": "pinned",
+        "pinReason": "사용자가 선택할 수 있는 공개 릴리스 기록",
+        "title": "카트리지 RTC 신호·달력 보완",
+        "summary": "카트리지 RTC의 분 주기 신호와 월말·윤년 처리, 12시간·24시간 변환을 바로잡았습니다."
+      },
       {
         "version": "v0.7.7-custom.r10",
         "releaseDate": "2026-09-27",
@@ -1937,5 +2075,136 @@
         ]
       }
     ]
+  },
+  {
+    "id": "gba-dbs1.5-porting",
+    "demo": false,
+    "title": "디지몬 테이머즈 배틀 스피릿 Ver. 1.5",
+    "titleOriginal": "Digimon Tamers: Battle Spirit Ver. 1.5",
+    "subtitle": "원더스완 컬러판을 GBA로 옮긴 팬 포팅판",
+    "description": "원더스완 컬러판 배틀 스피릿 Ver. 1.5의 캐릭터와 대전을 게임보이 어드밴스에서 즐길 수 있습니다. 설정에서 한국어 메뉴를 선택할 수 있습니다.",
+    "type": "port",
+    "platform": [
+      "Game Boy Advance"
+    ],
+    "status": "released",
+    "version": "v1.0.0",
+    "releasePolicy": "latest-stable",
+    "releaseDate": "2026-11-25",
+    "lastUpdated": "2026-11-25",
+    "repository": "https://github.com/GimoXagros/gba-dbs1.5-porting",
+    "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.0",
+    "issuesUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/issues",
+    "downloadEnabled": false,
+    "downloads": [],
+    "branding": {
+      "logo": "assets/projects/gba-dbs1.5-porting/logo.png",
+      "logoAlt": "디지몬 테이머즈 배틀 스피릿 Ver. 1.5 GBA 팬 포팅판 표지",
+      "width": 600,
+      "height": 600,
+      "accent": "#275d97",
+      "accentSoft": "#dfebf7",
+      "accentDark": "#a4ceff"
+    },
+    "screenshots": [
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/patamon-gatomon.png",
+        "alt": "파닥몬과 가트몬의 대전 준비 화면",
+        "label": "대전 준비"
+      },
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/link-battle.png",
+        "alt": "숲속 발판 위에서 싸우는 가트몬",
+        "label": "통신 대전"
+      },
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/digimon-shoot.png",
+        "alt": "디지몬 슈트의 파란 경기장",
+        "label": "디지몬 슈트"
+      }
+    ],
+    "features": [
+      "디지몬 15명 중 하나를 골라 싸우고 대전 중 칼루몬을 만나 진화할 수 있습니다.",
+      "컬렉션을 해금하면 디지몬 슈트 7라운드가 열립니다.",
+      "메뉴는 영어·일본어·한국어·디지코드를 지원합니다."
+    ],
+    "scope": [
+      "미국판과 통신하려면 포팅판에서 VS VER B•S를 고르세요. 포팅판끼리는 양쪽 모두 VS VER1.5를 선택하면 추가 캐릭터와 테이머 태그 보상을 이용할 수 있습니다."
+    ],
+    "requirements": [
+      "수정하지 않은 Digimon – Battle Spirit (USA) 원본 4 MiB와 기존 세이브 백업"
+    ],
+    "compatibility": [
+      "공개 검수에서는 에뮬레이터 두 대로 승패·재대전·세이브 재시작을 확인했고, 캠페인은 전투 보조를 켜고 완주했습니다.",
+      "무보조 캠페인 완주와 실물 GBA의 링크 케이블 대전은 추가 검수 대상입니다."
+    ],
+    "installGuide": [
+      "미국판 원본을 웹 패처에 넣고 패치 적용을 누르세요. 결과 파일을 새 이름으로 저장하세요.",
+      "게임을 실행한 뒤 OPTIONS에서 언어를 고르세요. 통신 대전에서는 플레이어마다 별도의 세이브를 사용하세요."
+    ],
+    "notes": [
+      "원더스완 세이브는 원더스완용입니다. GBA에서는 에뮬레이터가 사용하는 EEPROM 저장 형식과 파일명을 유지하세요."
+    ],
+    "credits": [
+      {
+        "role": "GBA 팬 포팅",
+        "name": "GimoXagros",
+        "url": "https://github.com/GimoXagros/gba-dbs1.5-porting"
+      },
+      "갈무리 글꼴 © 2019–2025 이민서 · SIL Open Font License 1.1"
+    ],
+    "license": "원작 게임·캐릭터·상표의 권리는 각 권리자에게 있습니다.",
+    "hashes": [
+      {
+        "label": "미국판 원본 SHA-256",
+        "value": "996de33330ac729d10d761d1901e7a335191c9503b0470569e8f294acf6618ed"
+      },
+      {
+        "label": "v1.0.0 결과 SHA-256",
+        "value": "aa6bb1eb93027464f842d6eb0cc69a68959f26b38460faf1b0c63bdd5ffa4bb1"
+      }
+    ],
+    "tags": [
+      "디지몬",
+      "GBA",
+      "포팅",
+      "배틀 스피릿",
+      "통신 대전",
+      "BPS"
+    ],
+    "featured": false,
+    "webPatcher": {
+      "engine": "RomPatcher.js",
+      "engineVersion": "v3.2.1",
+      "format": "BPS",
+      "defaultVersion": "v1.0.0",
+      "versions": [
+        {
+          "version": "v1.0.0",
+          "title": "GBA 팬 포팅판 첫 정식 배포",
+          "summary": "미국판 배틀 스피릿에 적용해 Ver. 1.5를 GBA에서 즐길 수 있습니다.",
+          "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.0",
+          "releaseDate": "2026-11-25",
+          "prerelease": false,
+          "source": {
+            "label": "Digimon – Battle Spirit (USA) 미국판 원본",
+            "size": 4194304,
+            "sha256": "996de33330ac729d10d761d1901e7a335191c9503b0470569e8f294acf6618ed"
+          },
+          "patch": {
+            "filename": "DBS15-GBA-v1.0.0.bps",
+            "path": "patches/gba-dbs1.5-porting/v1.0.0/DBS15-GBA-v1.0.0.bps",
+            "url": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/download/v1.0.0/DBS15-GBA-v1.0.0.bps",
+            "size": 705426,
+            "sha256": "263bfdc41b9ca2a63ad831afdfcd61895bbd50cabb118c33af8c4ed6682d303f"
+          },
+          "output": {
+            "filename": "DBS15-GBA-v1.0.0.gba",
+            "size": 16777216,
+            "sha256": "aa6bb1eb93027464f842d6eb0cc69a68959f26b38460faf1b0c63bdd5ffa4bb1"
+          }
+        }
+      ]
+    }
   }
 ]

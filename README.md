@@ -8,7 +8,7 @@ Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치, A
 - 저장소: <https://github.com/GimoXagros/project-portal>
 - 제작자: [GimoXagros](https://github.com/GimoXagros)
 
-현재 등록 프로젝트는 GameYob Custom `v0.5.11`, GBARunner3 Custom 정식 `custom-v0.1.5`, NitroSwan Custom 정식 `v0.7.7-custom.r10`, 테일즈 오브 더 월드 나리키리 던전2 프리릴리즈 `v1.1c`, 테일즈 오브 더 월드 나리키리 던전3 프리릴리즈 `v1.3b`, AI Work Skills `v2026.11.24.3` 여섯 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 최신 정식판이며 이전 시험판도 버전 선택기에서 확인할 수 있습니다.
+현재 등록 프로젝트는 GameYob Custom `v0.5.13`, GBARunner3 Custom 정식 `custom-v0.1.6`, NitroSwan Custom 정식 `v0.7.7-custom.r11`, 테일즈 오브 더 월드 나리키리 던전2 프리릴리즈 `v1.1c`, 테일즈 오브 더 월드 나리키리 던전3 프리릴리즈 `v1.3b`, AI Work Skills `v2026.11.24.3` 및 디지몬 테이머즈 배틀 스피릿 Ver. 1.5 GBA 팬 포팅판 `v1.0.0`까지 일곱 개입니다. 기본 정보는 정적 JSON이 기준이며 프로젝트 정보와 웹 패처는 GitHub API에 의존하지 않습니다. GBARunner3·NitroSwan의 기본 선택은 최신 정식판이며 이전 시험판도 버전 선택기에서 확인할 수 있습니다.
 
 2026-10-30에 나리키리2·3의 최신 프리릴리즈와 기존 웹 패처 버전을 확인하고 갱신했습니다. 검증 범위는 [갱신 기록](QA_RELEASE_REFRESH_20261030.md)을 확인하세요. 2026-09-29에는 GBARunner3·NitroSwan을 갱신했습니다. 한글화 진행 현황은 사용자 요청으로 홈페이지에서 제거했습니다. 구현·진행 데이터·검사는 [백업 태그](https://github.com/GimoXagros/project-portal/tree/codex/backup-korean-progress-20260929)에 보존되어 있습니다. 복원할 때에는 해당 태그의 진행 현황 관련 변경만 선택적으로 적용하고 이후의 릴리스와 제보 기능 갱신을 유지해야 합니다.
 

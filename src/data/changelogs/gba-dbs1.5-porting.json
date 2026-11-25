@@ -1,0 +1,19 @@
+{
+  "projectId": "gba-dbs1.5-porting",
+  "displayName": "디지몬 테이머즈 배틀 스피릿 Ver. 1.5",
+  "entries": [
+    {
+      "id": "dbs15-gba-v1-0-0",
+      "version": "v1.0.0",
+      "date": "2026-11-25",
+      "title": "GBA 팬 포팅판 첫 정식 배포",
+      "summary": "미국판 배틀 스피릿에 적용해 Ver. 1.5를 GBA에서 즐길 수 있습니다.",
+      "changes": [
+        "미국판과의 호환 통신 대전과 포팅판끼리의 확장 대전 지원",
+        "한국어를 포함한 네 가지 메뉴 언어와 1인 전투 보조 추가"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.0",
+      "status": "release"
+    }
+  ]
+}

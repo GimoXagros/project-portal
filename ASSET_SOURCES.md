@@ -86,3 +86,7 @@
 - 원본 blob SHA: `27233433e2d10709226833628453bca0fa99fd4d`
 - 표시 파일: `public/assets/projects/ai-work-skills/logo.png` (원본 PNG, 1254×1254, 1,739,479 bytes)
 - 출처: GimoXagros/ai-work-skills. 로고를 프로젝트 식별 목적으로 사용하며 저장소 고지를 따릅니다.
+
+## 디지몬 테이머즈 배틀 스피릿 Ver. 1.5
+
+표지와 스크린샷 세 장은 [팬 포팅 저장소의 공개 README](https://github.com/GimoXagros/gba-dbs1.5-porting/tree/86e3aeec94149f0efba5a13e487e294d5f47e4c2)에서 가져왔습니다. 원작 게임과 캐릭터의 권리는 각 권리자에게 있습니다.

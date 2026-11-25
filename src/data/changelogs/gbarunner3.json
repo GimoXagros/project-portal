@@ -3,6 +3,16 @@
   "displayName": "GBARunner3 Custom",
   "entries": [
     {
+      "id": "gbarunner3-custom-v0-1-6",
+      "version": "custom-v0.1.6",
+      "date": "2026-11-24",
+      "title": "RTC 저장·재시작 개선",
+      "summary": "카트리지 RTC의 초 경계와 연도 전환을 수정하고 재시작 때 1초 미만의 경과 시간도 복원합니다.",
+      "changes": [],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.6",
+      "status": "release"
+    },
+    {
       "id": "gbarunner3-custom-v0-1-5",
       "version": "custom-v0.1.5",
       "date": "2026-09-29",
