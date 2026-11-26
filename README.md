@@ -1,6 +1,6 @@
-# GimoXagros Project Archive
+# Sodam's Project Archive
 
-<p align="center"><img src="public/assets/branding/logo.png" width="300" alt="GimoXagros Project Archive 로고" /></p>
+<p align="center"><img src="public/assets/branding/logo.png" width="300" alt="Sodam's Project Archive 로고" /></p>
 
 Nintendo DS·DSi 에뮬레이터·커스텀 빌드와 GBA 한국어화 패치, AI 작업 도구의 배포 정보, 설치 방법, 호환성 주의사항과 SHA-256을 한곳에서 확인하는 정적 프로젝트 자료실입니다.
 
