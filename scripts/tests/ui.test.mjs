@@ -80,7 +80,7 @@ test('all projects expose their full public release history from the first recor
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const expected = {
     gameyob: ['v0.5.13', 'v0.5.12', 'v0.5.11', 'v0.5.10', 'v0.5.9-ko', 'v0.5.8-ko', 'v0.5.7-ko', 'v0.5.5-ko', 'v0.5.3-ko', 'v0.5.2-ko.1'],
-    gbarunner3: ['custom-v0.1.6', 'custom-v0.1.5', 'custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
+    gbarunner3: ['custom-v0.1.7', 'custom-v0.1.6', 'custom-v0.1.5', 'custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
     nitroswan: ['v0.7.7-custom.r11', 'v0.7.7-custom.r10', 'v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
     'gba-narikiri3-kor': ['v1.3b', 'v1.3a', 'v1.3', 'v1.2', 'v1.1a'],
     'gba-narikiri2-kor': ['v1.1c', 'v1.1b', 'v1.1a', 'v1.1', 'v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
