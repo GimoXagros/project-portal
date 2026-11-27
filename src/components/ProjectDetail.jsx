@@ -62,6 +62,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
         <ScreenshotGallery screenshots={project.screenshots} />
         <BrowserPatcher project={project} />
         {(!patcher || project.downloadEnabled) && <DownloadSection project={project} />}
+        <p><a className="button ghost" href="https://api.market.ogq.me/da/iv/65e7a87a969a1" target="_blank" rel="noreferrer">♡ 소담이 이모티콘으로 응원하기 <ArrowUpRight size={16} aria-hidden="true" /></a></p>
         {project.installGuide?.length > 0 && <section className="detail-section" id="installation">{patcher ? <details><summary>웹 패처 사용·기기 배치 안내</summary>{installation}</details> : <><div className="detail-section-title"><h2>설치·사용 안내</h2></div>{installation}</>}</section>}
         {hasConditions && <section className="detail-section" id="conditions"><div className="detail-section-title"><h2>지원 및 검증 범위</h2></div>
           <div className="condition-group"><h3>사용 조건과 검증 범위</h3><ListBlock headingLevel={4} title="준비할 환경·파일" items={project.requirements} /><ListBlock headingLevel={4} title="확인된 환경·사용 범위" items={project.compatibility} /></div>
