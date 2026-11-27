@@ -3,6 +3,20 @@
   "displayName": "GBARunner3 Custom",
   "entries": [
     {
+      "id": "gbarunner3-custom-v0-1-7",
+      "version": "custom-v0.1.7",
+      "date": "2026-11-27",
+      "title": "Pokémon Lazarus v2.0 부팅 호환성 개선",
+      "summary": "재컴파일된 FLASH1M V103 저장 드라이버를 인식해 Pokémon Lazarus v2.0이 타이틀과 초반 플레이까지 진행되도록 수정했습니다.",
+      "changes": [
+        "재컴파일된 FLASH1M V103 저장 드라이버의 함수 8개를 확인하고 기존 세이브 파일로 연결합니다.",
+        "Nintendo 2DS 실기에서 부팅, 초반 진행, 게임 내 저장과 Continue 화면의 저장 인식을 확인했습니다. Continue 이후 진행, RTC 정확도·유지와 DSi 실기는 미확인입니다.",
+        "v0.1.6의 RTC 파일 형식을 유지합니다. 업데이트 전에 .sav, RTC 파일과 기존 실행 파일을 백업하세요."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/GBARunner3/releases/tag/custom-v0.1.7",
+      "status": "release"
+    },
+    {
       "id": "gbarunner3-custom-v0-1-6",
       "version": "custom-v0.1.6",
       "date": "2026-11-24",
