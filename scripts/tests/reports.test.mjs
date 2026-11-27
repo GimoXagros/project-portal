@@ -29,6 +29,9 @@ test('closed as not planned is never counted as resolved; confirmation is explic
   assert.equal(reportStatus({ state: 'open', labels: [{ name: 'confirmed' }] }), 'confirmed')
   assert.equal(reportStatus({ state: 'open', labels: ['확인'] }), 'confirmed')
   assert.equal(reportStatus({ state: 'closed', state_reason: 'completed', labels: ['confirmed'] }), 'resolved')
+  assert.equal(reportStatus({ state: 'open', labels: ['확인', { name: '해결' }] }), 'resolved')
+  assert.equal(reportStatus({ state: 'open', labels: ['해결', '종료'] }), 'closed')
+  assert.equal(reportStatus({ state: 'closed', state_reason: 'not_planned', labels: ['해결'] }), 'closed')
   for (const state_reason of ['not_planned', null, undefined]) assert.equal(reportStatus({ state: 'closed', state_reason }), 'closed')
 })
 

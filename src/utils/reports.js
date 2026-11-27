@@ -15,8 +15,11 @@ export function githubRepository(repository) {
 
 export function reportStatus(issue) {
   if (issue.state === 'closed') return issue.state_reason === 'completed' ? 'resolved' : 'closed'
+  const labels = (issue.labels || []).map(label => (typeof label === 'string' ? label : label.name || '').toLowerCase())
+  if (labels.includes('종료')) return 'closed'
+  if (labels.includes('해결')) return 'resolved'
   const confirmed = new Set(['confirmed', 'triaged', 'in-progress', 'in progress', 'status:confirmed', '확인', '확인됨', '진행중', '진행 중'])
-  return (issue.labels || []).some(label => confirmed.has((typeof label === 'string' ? label : label.name || '').toLowerCase())) ? 'confirmed' : 'received'
+  return labels.some(label => confirmed.has(label)) ? 'confirmed' : 'received'
 }
 
 export function buildReport(project, fields) {

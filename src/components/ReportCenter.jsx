@@ -95,7 +95,7 @@ function ProjectReports({ project }) {
           {visible.length ? <ul>{visible.map(issue => <li key={issue.number}><span className={'report-state report-' + reportStatus(issue)}>{reportStatuses[reportStatus(issue)]}</span><a href={repository + '/issues/' + issue.number} target="_blank" rel="noreferrer">#{issue.number} {issue.title} <ExternalLink size={14} aria-hidden="true" /></a></li>)}</ul> : <p>표시할 제보가 없습니다.</p>}
         </details>
       </>}
-      <details className="report-feed-note"><summary>처리 상태 안내</summary><p>새로 열린 이슈는 접수, 관리자가 확인 표시한 이슈는 확인으로 분류합니다. 완료 처리한 이슈는 해결, 그 외 닫힌 이슈는 종료로 표시합니다. 사용 후기도 같은 이슈 목록에 포함됩니다.</p></details>
+      <details className="report-feed-note"><summary>처리 상태 안내</summary><p>열린 이슈는 접수로 표시됩니다. GitHub에서 확인, 해결, 종료 라벨을 붙이면 해당 상태로 바뀝니다. 여러 라벨이 있으면 종료, 해결, 확인 순으로 적용합니다. 닫힌 이슈는 닫은 사유에 따라 해결(완료) 또는 종료로 표시됩니다. 사용 후기도 같은 이슈 목록에 포함됩니다.</p></details>
       <a className="report-all-link" href={repository + '/issues'} target="_blank" rel="noreferrer">GitHub에서 전체 제보·댓글 보기 <ExternalLink size={15} aria-hidden="true" /></a>
     </div>
   </>
