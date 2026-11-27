@@ -2087,13 +2087,13 @@
     "platform": [
       "Game Boy Advance"
     ],
-    "status": "released",
-    "version": "v1.0.0",
-    "releasePolicy": "latest-stable",
-    "releaseDate": "2026-11-25",
-    "lastUpdated": "2026-11-25",
+    "status": "beta",
+    "version": "v1.0.4",
+    "releasePolicy": "latest-prerelease",
+    "releaseDate": "2026-11-27",
+    "lastUpdated": "2026-11-27",
     "repository": "https://github.com/GimoXagros/gba-dbs1.5-porting",
-    "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.0",
+    "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.4",
     "issuesUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/issues",
     "downloadEnabled": false,
     "downloads": [],
@@ -2126,7 +2126,8 @@
     "features": [
       "디지몬 15명 중 하나를 골라 싸우고 대전 중 동글몬을 만나 진화할 수 있습니다.",
       "컬렉션을 해금하면 디지몬 슈트 7라운드가 열립니다.",
-      "메뉴는 영어·일본어·한국어·디지코드를 지원합니다."
+      "메뉴는 영어·일본어·한국어·디지코드를 지원합니다.",
+      "v1.0.4 시험판에서 Windows용 D-ARK Link를 이용한 D-Project 대전을 지원합니다."
     ],
     "scope": [
       "미국판과 통신하려면 포팅판에서 VS VER B•S를 고르세요. 포팅판끼리는 양쪽 모두 VS VER1.5를 선택하면 추가 캐릭터와 테이머 태그 보상을 이용할 수 있습니다."
@@ -2140,7 +2141,8 @@
     ],
     "installGuide": [
       "미국판 원본을 웹 패처에 넣고 패치 적용을 누르세요. 결과 파일을 새 이름으로 저장하세요.",
-      "게임을 실행한 뒤 OPTIONS에서 언어를 고르세요. 통신 대전에서는 플레이어마다 별도의 세이브를 사용하세요."
+      "게임을 실행한 뒤 OPTIONS에서 언어를 고르세요. 통신 대전에서는 플레이어마다 별도의 세이브를 사용하세요.",
+      "D-Project 대전은 v1.0.4 릴리스에서 D-ARK-Link-Windows-x64-v1.0.4.zip을 받아 압축을 풀고 D-ARK-Link.exe를 실행하세요. 패치한 GBA 게임과 보유한 D-Project를 고른 뒤, GBA에서는 D-ARK를, 원더스완에서는 VS SWAN (CABLE)을 선택하세요. OK를 누르고 CONNECTION 화면에서 Z를 누르면 대전이 시작됩니다."
     ],
     "notes": [
       "원더스완 세이브는 원더스완용입니다. GBA에서는 에뮬레이터가 사용하는 EEPROM 저장 형식과 파일명을 유지하세요."
@@ -2160,6 +2162,10 @@
         "value": "996de33330ac729d10d761d1901e7a335191c9503b0470569e8f294acf6618ed"
       },
       {
+        "label": "v1.0.4 결과 SHA-256",
+        "value": "fa46fc35a84559c89cfe0d9bd3df0e5c6657c00a7287c878a69470812ee5b9b5"
+      },
+      {
         "label": "v1.0.0 결과 SHA-256",
         "value": "aa6bb1eb93027464f842d6eb0cc69a68959f26b38460faf1b0c63bdd5ffa4bb1"
       }
@@ -2177,8 +2183,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v1.0.0",
+      "defaultVersion": "v1.0.4",
       "versions": [
+        {
+          "version": "v1.0.4",
+          "title": "D-ARK와 원더스완 D-Project 통신 대전",
+          "summary": "Windows용 D-ARK Link로 GBA 포팅판과 원더스완 D-Project를 연결해 대전할 수 있습니다.",
+          "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.4",
+          "releaseDate": "2026-11-27",
+          "prerelease": true,
+          "source": {
+            "label": "Digimon – Battle Spirit (USA) 미국판 원본",
+            "size": 4194304,
+            "sha256": "996de33330ac729d10d761d1901e7a335191c9503b0470569e8f294acf6618ed"
+          },
+          "patch": {
+            "filename": "DBS15-GBA-v1.0.4.bps",
+            "path": "patches/gba-dbs1.5-porting/v1.0.4/DBS15-GBA-v1.0.4.bps",
+            "url": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/download/v1.0.4/DBS15-GBA-v1.0.4.bps",
+            "size": 926612,
+            "sha256": "3576390049c5b48158829981df266c5555770ac098fd2f884206ffcb69b1d456"
+          },
+          "output": {
+            "filename": "DBS15-GBA-v1.0.4.gba",
+            "size": 16777216,
+            "sha256": "fa46fc35a84559c89cfe0d9bd3df0e5c6657c00a7287c878a69470812ee5b9b5"
+          }
+        },
         {
           "version": "v1.0.0",
           "title": "GBA 팬 포팅판 첫 정식 배포",

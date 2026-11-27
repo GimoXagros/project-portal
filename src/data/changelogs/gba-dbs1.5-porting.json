@@ -3,6 +3,19 @@
   "displayName": "디지몬 테이머즈 배틀 스피릿 Ver. 1.5",
   "entries": [
     {
+      "id": "dbs15-gba-v1-0-4",
+      "version": "v1.0.4",
+      "date": "2026-11-27",
+      "title": "D-ARK와 원더스완 D-Project 통신 대전",
+      "summary": "Windows용 D-ARK Link로 GBA 포팅판과 원더스완 D-Project를 연결해 대전할 수 있습니다.",
+      "changes": [
+        "에뮬레이터에서 D-Project 일본어 원본과 한국어 v1.1 패치판의 대전 및 결과 화면 확인",
+        "기존 미국판 GBA와 두 경기 확인. 실물 기기·링크 케이블·D-ARK 액세서리는 미검증"
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-dbs1.5-porting/releases/tag/v1.0.4",
+      "status": "prerelease"
+    },
+    {
       "id": "dbs15-gba-v1-0-0",
       "version": "v1.0.0",
       "date": "2026-11-25",
