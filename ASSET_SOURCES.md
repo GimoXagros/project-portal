@@ -90,3 +90,5 @@
 ## 디지몬 테이머즈 배틀 스피릿 Ver. 1.5
 
 표지와 스크린샷 세 장은 [팬 포팅 저장소의 공개 README](https://github.com/GimoXagros/gba-dbs1.5-porting/tree/86e3aeec94149f0efba5a13e487e294d5f47e4c2)에서 가져왔습니다. 원작 게임과 캐릭터의 권리는 각 권리자에게 있습니다.
+
+D-ARK 대전 결과, 열차 스테이지, 우승 시상대 화면은 [v1.0.4의 공식 스크린샷](https://github.com/GimoXagros/gba-dbs1.5-porting/tree/v1.0.4/docs/screenshots)에서 가져왔습니다.

@@ -2121,6 +2121,21 @@
         "src": "assets/projects/gba-dbs1.5-porting/digimon-shoot.png",
         "alt": "디지몬 슈트의 파란 경기장",
         "label": "디지몬 슈트"
+      },
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/d-ark-dproject-results.png",
+        "alt": "D-ARK로 연결한 GBA와 원더스완 D-Project의 대전 결과",
+        "label": "D-ARK 대전 결과"
+      },
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/issue-4-train-roaming.png",
+        "alt": "열차 스테이지에서 이동하는 디지몬",
+        "label": "열차 스테이지"
+      },
+      {
+        "src": "assets/projects/gba-dbs1.5-porting/zeed-winners.png",
+        "alt": "디지몬 15종이 각각 우승 시상대에 선 모습",
+        "label": "우승 시상대"
       }
     ],
     "features": [
