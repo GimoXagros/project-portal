@@ -167,10 +167,9 @@
   .update-project-tabs > a { flex-basis: auto; }
 }
 
-.screenshot-grid.screenshot-grid-compact { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.screenshot-grid.screenshot-grid-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .screenshot-grid-compact button:first-child { grid-area: auto; }
 .screenshot-grid-compact button { overflow: hidden; border-radius: 8px; }
 .screenshot-grid-compact button img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: contain; background: var(--paper); }
 .screenshot-caption { display: block; padding: 10px; color: var(--ink); font-weight: 700; }
-@media (max-width: 768px) { .screenshot-grid.screenshot-grid-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .screenshot-grid.screenshot-grid-compact { grid-template-columns: 1fr; } }
