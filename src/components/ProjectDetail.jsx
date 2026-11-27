@@ -59,7 +59,7 @@ export default function ProjectDetail({ project, changelog, onBack, onOpenUpdate
     <div className="detail-layout section-pad">
       <div className="detail-main">
         <section className="detail-section intro-section" id="overview"><div className="detail-section-title"><h2>프로젝트 개요</h2></div><p className="lead-description">{project.description}</p><ListBlock title="핵심 기능" items={project.features} /></section>
-        <ScreenshotGallery screenshots={project.screenshots} />
+        <ScreenshotGallery compact={project.id === "gba-dbs1.5-porting"} screenshots={project.screenshots} />
         <BrowserPatcher project={project} />
         {(!patcher || project.downloadEnabled) && <DownloadSection project={project} />}
         <p><a className="button ghost" href="https://api.market.ogq.me/da/iv/65e7a87a969a1" target="_blank" rel="noreferrer">♡ 소담이 이모티콘으로 응원하기 <ArrowUpRight size={16} aria-hidden="true" /></a></p>
