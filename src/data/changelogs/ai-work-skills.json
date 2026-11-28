@@ -5,6 +5,7 @@
     {
       "id": "ai-work-skills-v2026-11-24-3",
       "version": "v2026.11.24.3",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55",
       "date": "2026-11-24",
       "title": "Claude-Mem 16.1.2 적용",
       "summary": "기존 설정을 유지하고 데이터베이스를 백업한 뒤, Codex를 다시 시작해 Claude-Mem이 정상 응답하는지 확인했습니다.",

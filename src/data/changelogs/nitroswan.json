@@ -5,6 +5,7 @@
     {
       "id": "nitroswan-v0-7-7-custom-r11",
       "version": "v0.7.7-custom.r11",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55",
       "date": "2026-11-24",
       "title": "카트리지 RTC 신호·달력 보완",
       "summary": "카트리지 RTC의 분 주기 신호와 월말·윤년 처리, 12시간·24시간 변환을 바로잡았습니다.",

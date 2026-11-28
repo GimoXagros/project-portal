@@ -5,6 +5,7 @@
     {
       "id": "gba-narikiri3-kor-v1-3b",
       "version": "v1.3b",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55",
       "date": "2026-10-30",
       "title": "v1.3b — 공백·줄바꿈과 목록 출력 보완",
       "summary": "일본어 원본에 직접 적용하는 16MiB 누적 패치입니다. 설명·대사의 공백과 줄바꿈, 목록 타일 처리를 보완했습니다.",

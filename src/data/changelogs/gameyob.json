@@ -5,6 +5,7 @@
     {
       "id": "gameyob-v0-5-13",
       "version": "v0.5.13",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55",
       "date": "2026-11-25",
       "title": "진동 드라이버 교체",
       "summary": "EZFlash 3-in-1 진동 처리를 BlocksDS의 공개 libnds API로 교체했습니다. 실물 진동 팩 검수는 남아 있습니다.",
