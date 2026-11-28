@@ -18,7 +18,8 @@
         "My Boy! Premium과 실기에서의 동작은 추가 확인이 필요합니다."
       ],
       "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1d",
-      "status": "prerelease"
+      "status": "prerelease",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55"
     },
     {
       "id": "gba-narikiri2-kor-v1-1c",
