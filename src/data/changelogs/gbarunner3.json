@@ -5,6 +5,7 @@
     {
       "id": "gbarunner3-custom-v0-1-7",
       "version": "custom-v0.1.7",
+      "devNoteUrl": "https://gimoxagros.tistory.com/55",
       "date": "2026-11-27",
       "title": "Pokémon Lazarus v2.0 부팅 호환성 개선",
       "summary": "재컴파일된 FLASH1M V103 저장 드라이버를 인식해 Pokémon Lazarus v2.0이 타이틀과 초반 플레이까지 진행되도록 수정했습니다.",
