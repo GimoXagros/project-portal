@@ -83,7 +83,7 @@ test('all projects expose their full public release history from the first recor
     gbarunner3: ['custom-v0.1.7', 'custom-v0.1.6', 'custom-v0.1.5', 'custom-v0.1.4', 'custom-v0.1.3-rc3', 'custom-v0.1.3', 'custom-v0.1.3-rc2', 'custom-v0.1.3-rc1', 'custom-v0.1.2', 'custom-v0.1.1', 'custom-v0.1.0-rc5', 'custom-v0.1.0-rc1'],
     nitroswan: ['v0.7.7-custom.r11', 'v0.7.7-custom.r10', 'v0.7.7-custom.r9', 'v0.7.7-custom.r8', 'v0.7.7-custom.r7', 'v0.7.7-custom.r6', 'v0.7.7-custom.r5', 'v0.7.7-custom.r4', 'v0.7.7-custom.r3', 'v0.7.7-custom.r2', 'v0.7.7-custom', 'v0.7.7'],
     'gba-narikiri3-kor': ['v1.3b', 'v1.3a', 'v1.3', 'v1.2', 'v1.1a'],
-    'gba-narikiri2-kor': ['v1.1c', 'v1.1b', 'v1.1a', 'v1.1', 'v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
+    'gba-narikiri2-kor': ['v1.1d', 'v1.1c', 'v1.1b', 'v1.1a', 'v1.1', 'v1.0', 'v0.9d', 'v0.9c', 'v0.9b', 'v0.9a', 'v0.9', 'v0.5'],
   }
   for (const [id, versions] of Object.entries(expected)) {
     const changelog = JSON.parse(readFileSync(new URL(`../../src/data/changelogs/${id}.json`, import.meta.url), 'utf8'))
@@ -104,12 +104,12 @@ test('all projects expose their full public release history from the first recor
   assert.ok(timeline.indexOf('v0.7.7-custom.r7') < timeline.indexOf('v0.7.7-custom.r6'))
 })
 
-test('Narikiri renders v1.1c as latest prerelease with all selectable patch versions', async () => {
+test('Narikiri renders v1.1d as latest prerelease with all selectable patch versions', async () => {
   const projects = JSON.parse(readFileSync(new URL('../../src/data/projects.json', import.meta.url), 'utf8'))
   const project = projects.find((item) => item.id === 'gba-narikiri2-kor')
   const html = await render('ProjectDetail', { project })
   assert.equal(project.type, 'korean-patch')
-  assert.equal(project.version, 'v1.1c')
+  assert.equal(project.version, 'v1.1d')
   assert.equal(project.releasePolicy, 'latest-prerelease')
   assert.equal(project.status, 'beta')
   assert.equal(project.webPatcher.versions[0].prerelease, true)
@@ -131,7 +131,7 @@ test('Narikiri renders v1.1c as latest prerelease with all selectable patch vers
   for (const text of ['브라우저에서 바로 패치', 'ROM은 업로드되지 않습니다', 'RomPatcher.js', 'v3.2.1', 'ROM 선택', '패치 적용', '검증 후 활성화']) assert.ok(html.includes(text))
   assert.match(html, /<label for="patch-version">/)
   assert.match(html, /<select id="patch-version">/)
-  assert.match(html, /<option value="v1\.1c" selected="">v1\.1c \(프리릴리즈\) \(최신\)<\/option>/)
+  assert.match(html, /<option value="v1\.1d" selected="">v1\.1d \(프리릴리즈\) \(최신\)<\/option>/)
   assert.match(html, /<option value="v0\.9d">v0\.9d \(프리릴리즈\)<\/option>/)
   assert.match(html, /<option value="v0\.9b">v0\.9b \(프리릴리즈\)<\/option>/)
   assert.match(html, /<option value="v0\.9a">v0\.9a \(프리릴리즈\)<\/option>/)

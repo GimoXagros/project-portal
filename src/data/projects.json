@@ -1184,20 +1184,20 @@
     "id": "gba-narikiri2-kor",
     "demo": false,
     "title": "테일즈 오브 더 월드 나리키리 던전2",
-    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.1c",
+    "titleOriginal": "Tales of the World: Narikiri Dungeon 2 · v1.1d",
     "subtitle": "일본판 AN9J 원본용 누적 한국어화 프리릴리즈",
-    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 보완하는 GBA 한국어화 프로젝트입니다. v1.1c는 일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 반각 공백·목록 개선을 유지하며 기술 설정 제목의 상단 여백을 조정했습니다.",
+    "description": "FFR 팀의 기존 한국어 번역을 바탕으로 Xagros가 보완하는 GBA 한국어화 프로젝트입니다. 일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 의뢰 이름과 목표를 다듬고 전투 결과의 LEVEL UP! 등 그래픽을 일본판 원본에서 복원했습니다.",
     "type": "korean-patch",
     "platform": [
       "Game Boy Advance"
     ],
     "status": "beta",
-    "version": "v1.1c",
+    "version": "v1.1d",
     "releasePolicy": "latest-prerelease",
-    "releaseDate": "2026-10-30",
-    "lastUpdated": "2026-10-30",
+    "releaseDate": "2026-11-27",
+    "lastUpdated": "2026-11-27",
     "repository": "https://github.com/GimoXagros/gba-narikiri2-kor",
-    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1c",
+    "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1d",
     "issuesUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/issues",
     "homepage": "",
     "coverImage": "",
@@ -1213,23 +1213,21 @@
     },
     "screenshots": [],
     "features": [
-      "기술 설정 제목을 4px 아래로 옮겨 상단 여백 보완",
-      "일반 대사와 지원 소형 문자열의 반각 공백 유지",
-      "기존 글자 모양·저장 형식을 유지하는 8MiB 누적 패치"
+      "의뢰 이름과 목표 문구 정리",
+      "전투·보상 화면의 TARGET, HIT, BONUS, EXP, GALD, LEVEL UP! 그래픽 복원",
+      "의상 도감 표기 6곳 수정"
     ],
     "scope": [
-      "10,371개 포인터와 문자열 시작 위치 보존",
-      "v1.1b 대비 ROM 변경은 제목 배치 명령 1바이트",
-      "숫자 정렬·들여쓰기·입력판·사용자 이름의 구분 유지"
+      "문자열 포인터 10,371개 검증",
+      "안경으로 확인하는 약점·내성 이름 수정"
     ],
     "requirements": [
       "수정하지 않은 AN9J 일본판 원본 8,388,608 bytes",
       "파일 선택과 다운로드를 지원하는 최신 웹 브라우저"
     ],
     "compatibility": [
-      "공개 v1.1c 기록: 격리 소스 재빌드와 BPS 적용 결과의 최종 해시 일치",
-      "mGBA에서 제목 화면 변경을 확인하고 기본·혼합 이름 저장의 새 프로세스 불러오기를 검증한 기록",
-      "별도 참조 코어와 VBA 고정 경로에서 세 버전의 오디오 일치 확인. ROM 오디오 코드는 변경하지 않음"
+      "공개 릴리스 기록에서 mGBA로 의뢰 3건 확인",
+      "VBA-M에서 첫 마을 SELECT 입력 뒤 멈추던 문제 수정"
     ],
     "installGuide": [
       "웹 패처에서 적용할 버전을 선택하고 해당 버전의 입력 ROM 조건을 확인합니다.",
@@ -1238,9 +1236,8 @@
       "사용할 에뮬레이터 또는 기기에 결과 ROM을 배치하고, 세이브 파일명과 프로젝트의 호환성 안내를 확인합니다."
     ],
     "notes": [
-      "최종 v1.1c의 실기·청취·전체 분기·장시간 플레이·통신은 미검증이며 사용자 최종 파일 수락은 아직 보고되지 않았습니다.",
-      "기존 mGBA 시험 코어의 1샘플 차이는 남아 있으며, 별도 참조 코어의 결과를 설치된 에뮬레이터 수정으로 해석하지 마세요.",
-      "VBA 기술 설정 진입 경로의 검은 화면은 통과로 처리하지 않았습니다. 자세한 확인 범위는 공식 릴리스 기록을 참고하세요.",
+      "이전에 받은 v1.1d도 일본판 원본에서 다시 패치하세요. 교체본 결과의 SHA-256은 c3d13c14로 시작합니다.",
+      "My Boy! Premium과 실기에서의 동작은 추가 확인이 필요합니다.",
       "다른 한국어판에 덧붙이지 말고 일본판 원본에 적용하세요. 기존 ROM과 저장파일을 보존하고 별도 복사본으로 시험하세요.",
       "ROM·BIOS·저장파일·전체 대사집은 제공하지 않습니다."
     ],
@@ -1265,8 +1262,8 @@
         "value": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
       },
       {
-        "label": "v1.1c 결과 (8388608 bytes) SHA-256",
-        "value": "bf9e425dc172fb36b0f3ab221a14299898768a8bf5e7e7c36feaf7242f86334c"
+        "label": "v1.1d 결과 (8388608 bytes) SHA-256",
+        "value": "c3d13c1418e5958c31cd11b835c3102de0a0fb7a072f696a2bb831e36e83b79d"
       }
     ],
     "tags": [
@@ -1282,8 +1279,33 @@
       "engine": "RomPatcher.js",
       "engineVersion": "v3.2.1",
       "format": "BPS",
-      "defaultVersion": "v1.1c",
+      "defaultVersion": "v1.1d",
       "versions": [
+        {
+          "version": "v1.1d",
+          "title": "v1.1d — 의뢰 문구와 전투 결과 화면 수정",
+          "summary": "일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 의뢰 이름과 목표를 다듬고 전투 결과의 LEVEL UP! 등 그래픽을 일본판 원본에서 복원했습니다.",
+          "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1d",
+          "releaseDate": "2026-11-27",
+          "prerelease": true,
+          "source": {
+            "label": "AN9J 일본판 원본",
+            "size": 8388608,
+            "sha256": "a92c0f6dbb5c013b47b7178e23d81663e3952a10df7b1f68967ebf7bb3b98eb7"
+          },
+          "patch": {
+            "filename": "Xagros_Narikiri2_KOR_v1.1d.bps",
+            "path": "patches/gba-narikiri2-kor/v1.1d/Xagros_Narikiri2_KOR_v1.1d.bps",
+            "url": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/download/v1.1d/Xagros_Narikiri2_KOR_v1.1d.bps",
+            "size": 381332,
+            "sha256": "fd8b75ac1944f5921726b109ad6466c2c4067be842d04889b42f775cba35b50a"
+          },
+          "output": {
+            "filename": "Xagros_Narikiri2_KOR_v1.1d.gba",
+            "size": 8388608,
+            "sha256": "c3d13c1418e5958c31cd11b835c3102de0a0fb7a072f696a2bb831e36e83b79d"
+          }
+        },
         {
           "version": "v1.1c",
           "title": "v1.1c — 기술 설정 제목 여백 보완",

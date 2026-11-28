@@ -3,6 +3,24 @@
   "displayName": "테일즈 오브 더 월드 나리키리 던전2",
   "entries": [
     {
+      "id": "gba-narikiri2-kor-v1-1d",
+      "version": "v1.1d",
+      "date": "2026-11-27",
+      "title": "v1.1d — 의뢰 문구와 전투 결과 화면 수정",
+      "summary": "일본어 원본에 직접 적용하는 8MiB 누적 패치입니다. 의뢰 이름과 목표를 다듬고 전투 결과의 LEVEL UP! 등 그래픽을 일본판 원본에서 복원했습니다.",
+      "changes": [
+        "의뢰 이름과 목표 문구 정리",
+        "전투·보상 화면의 TARGET, HIT, BONUS, EXP, GALD, LEVEL UP! 그래픽 복원",
+        "의상 도감 표기 6곳 수정",
+        "공개 릴리스 기록에서 mGBA로 의뢰 3건 확인",
+        "VBA-M에서 첫 마을 SELECT 입력 뒤 멈추던 문제 수정",
+        "이전에 받은 v1.1d도 일본판 원본에서 다시 패치하세요. 교체본 결과의 SHA-256은 c3d13c14로 시작합니다.",
+        "My Boy! Premium과 실기에서의 동작은 추가 확인이 필요합니다."
+      ],
+      "releaseUrl": "https://github.com/GimoXagros/gba-narikiri2-kor/releases/tag/v1.1d",
+      "status": "prerelease"
+    },
+    {
       "id": "gba-narikiri2-kor-v1-1c",
       "version": "v1.1c",
       "date": "2026-10-30",
